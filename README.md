@@ -1,2 +1,2 @@
 # semesterprojekt1
-Git repository for 1.-års semesterprojekt og logbog
+Git repository for første semesterprojekt og logbog
