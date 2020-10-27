@@ -15,28 +15,78 @@ public class Game
 
     private void createRooms()
     {
-        Room outside, theatre, pub, lab, office;
-      
-        outside = new Room("outside the main entrance of the university");
-        theatre = new Room("in a lecture theatre");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        //for at oprette et rum, skriv navnet på rummet efter et,
+        Room start, skraldesorteringsrum, HUB,
+                /*gren 1 */supermarkede, kontor, lager, parkeringsplads,
+                /* gren 2 */hospital_udenfor, reception, operationsstuen, kapellet, kantine,
+               /* gren 3 */ skole_udenfor, læreværelse, Kemi, gymnastik_rum, girls_lockerroom;
+
+        // for at lave et intialisere rummet skal vi bruge *rumnavn = new Room();*
+        start = new Room("at the start");
+        skraldesorteringsrum = new Room(" in skraldesorteringsrum");
+        HUB = new Room("in the HUB");
+        supermarkede = new Room("in the supermarkede");
+        kontor = new Room("in the supermarkede Kontor");
+        lager = new Room("In the lager");
+        parkeringsplads = new Room("At the parkeringsplads");
+        hospital_udenfor = new Room("Outside the hospital");
+        reception = new Room("In the hospital reception");
+        operationsstuen = new Room("in the hauntingly clean operationsstue");
+        kapellet = new Room("in the kapellet");
+        kantine = new Room("in the kantine");
+        skole_udenfor = new Room("outside the school");
+        læreværelse = new Room("In the læreværelse");
+        Kemi = new Room("in the Kemi");
+        gymnastik_rum = new Room("in the gymnastik_rum");
+        girls_lockerroom = new Room("in the girls locer room");
+
         
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        start.setExit("east", skraldesorteringsrum);
 
-        theatre.setExit("west", outside);
+        skraldesorteringsrum.setExit("west", start);
+        skraldesorteringsrum.setExit("east", HUB);
 
-        pub.setExit("east", outside);
+        HUB.setExit("east", supermarkede);
+        HUB.setExit("west", skraldesorteringsrum);
+        HUB.setExit("south", hospital_udenfor);
+        HUB.setExit("north", skole_udenfor);
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
+        // Gren #1
+        supermarkede.setExit("west", HUB);
+        supermarkede.setExit("east", kontor);
+        supermarkede.setExit("north", lager);
+        supermarkede.setExit("south", parkeringsplads);
 
-        office.setExit("west", lab);
+        kontor.setExit("west", supermarkede);
+        lager.setExit("south", supermarkede);
+        parkeringsplads.setExit("north", supermarkede);
 
-        currentRoom = outside;
+        //Gren #2
+        hospital_udenfor.setExit("north", HUB);
+        hospital_udenfor.setExit("south", reception);
+
+        reception.setExit("north", hospital_udenfor);
+        reception.setExit("east", operationsstuen);
+        reception.setExit("south", kapellet);
+        reception.setExit("west", kantine);
+
+        operationsstuen.setExit("west", reception);
+        kapellet.setExit("north", reception);
+        kantine.setExit("east", reception);
+
+        //Gren #3
+        skole_udenfor.setExit("south", HUB);
+        skole_udenfor.setExit("north", læreværelse);
+        skole_udenfor.setExit("east", Kemi);
+        skole_udenfor.setExit("west", gymnastik_rum);
+
+        læreværelse.setExit("south", skole_udenfor);
+        Kemi.setExit("west", skole_udenfor);
+        gymnastik_rum.setExit("east", skole_udenfor);
+        gymnastik_rum.setExit("south", girls_lockerroom);
+        girls_lockerroom.setExit("north", gymnastik_rum);
+
+        currentRoom = start;
     }
 
     public void play() 
