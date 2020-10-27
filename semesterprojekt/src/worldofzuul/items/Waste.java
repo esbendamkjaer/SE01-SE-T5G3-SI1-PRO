@@ -1,6 +1,6 @@
-package worldofzuul;
+package worldofzuul.items;
 
-public class Waste {
+public class Waste extends Pickupable {
     private WasteType WasteType;
     private int point;
     private String description;

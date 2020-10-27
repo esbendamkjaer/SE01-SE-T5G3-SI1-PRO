@@ -1,4 +1,4 @@
-package worldofzuul;
+package worldofzuul.items;
 
 public enum WasteType {
 

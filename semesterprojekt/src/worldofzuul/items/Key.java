@@ -1,4 +1,4 @@
 package worldofzuul.items;
 
-public class Key extends Item {
+public class Key extends Pickupable {
 }
