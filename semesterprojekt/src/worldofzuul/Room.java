@@ -1,5 +1,8 @@
 package worldofzuul;
 
+import worldofzuul.items.Item;
+
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,8 +13,11 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;
 
+    private ArrayList<Item> items;
+
     public Room(String description) 
     {
+        this.items = new ArrayList<Item>();
         this.description = description;
         exits = new HashMap<String, Room>();
     }
@@ -43,7 +49,16 @@ public class Room
 
     public Room getExit(String direction) 
     {
-        return exits.get(direction);
+        return this.exits.get(direction);
     }
+
+    public void addItem(Item item) {
+        this.items.add(item);
+    }
+
+    public void removeItem(Item item) {
+        this.items.remove(item);
+    }
+
 }
 
