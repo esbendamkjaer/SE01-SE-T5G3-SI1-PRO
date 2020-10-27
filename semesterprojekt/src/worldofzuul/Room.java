@@ -51,6 +51,16 @@ public class Room
         return returnString;
     }
 
+    public Item getItemByName(String itemName) {
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getName().equals(itemName)) {
+                return items.get(i);
+            }
+        }
+
+        return null;
+    }
+
     public Room getExit(String direction) 
     {
         return this.exits.get(direction);

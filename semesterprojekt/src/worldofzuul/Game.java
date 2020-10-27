@@ -1,13 +1,18 @@
 package worldofzuul;
 
+import worldofzuul.items.*;
+
 public class Game {
     private Parser parser;
     private Room currentRoom;
+
+    private Player player;
 
 
     public Game() {
         createRooms();
         parser = new Parser();
+        player = new Player("Player");
     }
 
     /**
@@ -136,8 +141,38 @@ public class Game {
             goRoom(command);
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
+        } else if (commandWord == CommandWord.PICKUP) {
+            processPickup(command);
         }
+        
         return wantToQuit;
+    }
+
+    /**
+     * Processes a pickup command.
+     * @param command A pickup command.
+     */
+    private void processPickup(Command command) {
+
+        Item item;
+
+        if ((item = currentRoom.getItemByName(command.getSecondWord())) == null) {
+            System.out.println("There is no such item.");
+            return;
+        }
+
+        if (!(item instanceof Pickupable)) {
+            System.out.println("You can't pickup this item.");
+            return;
+        }
+
+        currentRoom.removeItem(item);
+        if (player.getInventory().storeItem(item)) {
+            System.out.println("You picked up " + item.getName());
+        } else {
+            System.out.println("You do not have sufficient space in your inventory.");
+        }
+
     }
 
     /**
