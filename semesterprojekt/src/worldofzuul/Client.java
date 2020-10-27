@@ -17,6 +17,10 @@ public class Client {
         
     }
 
+    /**
+     * Send a given ScoreData object to the web server.
+     * @param scoreData ScoreData object to send.
+     */
     public void sendScoreData(ScoreData scoreData) {
         throw new UnsupportedOperationException();
     }

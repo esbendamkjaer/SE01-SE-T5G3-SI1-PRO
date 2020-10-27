@@ -14,6 +14,10 @@ public class Parser
         reader = new Scanner(System.in);
     }
 
+    /**
+     * Reads a line from the command prompt and parses it to a Command object.
+     * @return The command object corresponding to the player's input.
+     */
     public Command getCommand() 
     {
         String inputLine;

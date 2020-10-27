@@ -10,7 +10,9 @@ public class Game {
         parser = new Parser();
     }
 
-
+    /**
+     * Instantiates the rooms in the game.
+     */
     private void createRooms() {
         //for at oprette et rum, skriv navnet på rummet efter et,
         Room start, sortingRoom, odense,
@@ -86,6 +88,9 @@ public class Game {
         currentRoom = start;
     }
 
+    /**
+     * Runs the game loop.
+     */
     public void play() {
         printWelcome();
 
@@ -98,6 +103,9 @@ public class Game {
         System.out.println("Thank you for playing.  Good bye.");
     }
 
+    /**
+     * Prints out a welcome message.
+     */
     private void printWelcome() {
         System.out.println();
         System.out.println("Welcome to the World of Zuul!");
@@ -107,6 +115,11 @@ public class Game {
         System.out.println(currentRoom.getLongDescription());
     }
 
+    /**
+     * Executes the logic associated with a given command.
+     * @param command Command to execute.
+     * @return A boolean indicating whether the player wants to quit the game.
+     */
     private boolean processCommand(Command command) {
         boolean wantToQuit = false;
 
@@ -127,6 +140,9 @@ public class Game {
         return wantToQuit;
     }
 
+    /**
+     * Prints out a help message.
+     */
     private void printHelp() {
         System.out.println("You are lost. You are alone. You wander");
         System.out.println("around at the university.");
@@ -135,6 +151,10 @@ public class Game {
         parser.showCommands();
     }
 
+    /**
+     * Makes the player go to the room specified by the given command.
+     * @param command Command that specifies where to go.
+     */
     private void goRoom(Command command) {
         if (!command.hasSecondWord()) {
             System.out.println("Go where?");
@@ -153,6 +173,12 @@ public class Game {
         }
     }
 
+    /**
+     * Meant to be used for quit commands.
+     * Examines if a command has a second word in which case it is assumed the player didn't mean to quit the game.
+     * @param command Quit command.
+     * @return Whether or not the player meant to quit the game.
+     */
     private boolean quit(Command command) {
         if (command.hasSecondWord()) {
             System.out.println("Quit what?");

@@ -16,6 +16,12 @@ public class CommandWords
         }
     }
 
+    /**
+     * Returns an enom corresponding to the given String representation of a command.
+     * If such a comamnd doens't exist, the UNKNOWN constant is returned.
+     * @param commandWord String representation of a command.
+     * @return CommandWord enum corresponding to the given String.
+     */
     public CommandWord getCommandWord(String commandWord)
     {
         CommandWord command = validCommands.get(commandWord);
@@ -32,6 +38,9 @@ public class CommandWords
         return validCommands.containsKey(aString);
     }
 
+    /**
+     * Prints out all commands separated by a space.
+     */
     public void showAll() 
     {
         for(String command : validCommands.keySet()) {

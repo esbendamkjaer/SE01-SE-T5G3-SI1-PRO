@@ -9,12 +9,17 @@ public class Sink extends Item {
         super(name);
     }
 
+    /**
+     * Changes the clean state of a given waste to true.
+     * @param waste Waste object to clean.
+     * @return Returns false if the waste was already clean, otherwise true.
+     */
     public boolean washItem(Waste waste) {
         if (waste.isClean()) {
             return false;
         }
         waste.setClean(true);
-        return false;
+        return true;
     }
 
 }

@@ -37,6 +37,10 @@ public class Room
         return "You are " + description + ".\n" + getExitString();
     }
 
+    /**
+     * Returns a String representation of the exits in the room.
+     * @return The String representation of the room exits.
+     */
     private String getExitString()
     {
         String returnString = "Exits:";

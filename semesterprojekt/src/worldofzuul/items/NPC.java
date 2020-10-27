@@ -4,7 +4,8 @@ public class NPC extends Item {
 
     private String dialogue;
 
-    public NPC(String dialogue) {
+    public NPC(String name, String dialogue) {
+        super(name);
         this.dialogue = dialogue;
     }
 
