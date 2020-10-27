@@ -8,5 +8,5 @@ public enum WasteType {
     HARD_PLASTIC,
     CARDBOARD,
     GLASS,
-    
+
 }
