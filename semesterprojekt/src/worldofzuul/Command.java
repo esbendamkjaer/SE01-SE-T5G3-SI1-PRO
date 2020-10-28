@@ -23,11 +23,17 @@ public class Command
 {
     private CommandWord commandWord;
     private String secondWord;
+    private String[] args;
 
-    public Command(CommandWord commandWord, String secondWord)
+    public Command(CommandWord commandWord, String[] args)
     {
         this.commandWord = commandWord;
-        this.secondWord = secondWord;
+
+        this.args = args;
+
+        if (args != null && args.length >= 1) {
+            this.secondWord = args[0];
+        }
     }
 
     public CommandWord getCommandWord()
@@ -48,6 +54,10 @@ public class Command
     public boolean hasSecondWord()
     {
         return (secondWord != null);
+    }
+
+    public String[] getArgs() {
+        return args;
     }
 }
 

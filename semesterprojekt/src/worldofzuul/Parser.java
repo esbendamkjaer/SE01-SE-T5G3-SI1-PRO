@@ -1,5 +1,6 @@
 package worldofzuul;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -28,15 +29,20 @@ public class Parser
 
         inputLine = reader.nextLine();
 
-        Scanner tokenizer = new Scanner(inputLine);
-        if(tokenizer.hasNext()) {
-            word1 = tokenizer.next();
-            if(tokenizer.hasNext()) {
-                word2 = tokenizer.next(); 
-            }
+        inputLine.trim();
+
+        String[] command = inputLine.split(" ");
+
+        String[] args = null;
+        if (command.length > 1) {
+            args = Arrays.copyOfRange(command, 1, command.length);
         }
 
-        return new Command(commands.getCommandWord(word1), word2);
+        if (command.length >= 1) {
+            return new Command(commands.getCommandWord(command[0]), args);
+        } else {
+            return new Command(commands.getCommandWord(null), args);
+        }
     }
 
     public void showCommands()
