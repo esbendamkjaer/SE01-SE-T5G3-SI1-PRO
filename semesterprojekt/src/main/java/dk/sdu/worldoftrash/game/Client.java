@@ -1,4 +1,4 @@
-package worldofzuul;
+package dk.sdu.worldoftrash.game;
 
 import java.net.http.HttpClient;
 import java.time.Duration;

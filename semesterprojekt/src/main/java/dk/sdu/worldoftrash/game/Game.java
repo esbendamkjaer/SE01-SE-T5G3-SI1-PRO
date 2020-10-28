@@ -1,6 +1,6 @@
-package worldofzuul;
+package dk.sdu.worldoftrash.game;
 
-import worldofzuul.items.*;
+import dk.sdu.worldoftrash.game.items.*;
 
 public class Game {
     private Parser parser;

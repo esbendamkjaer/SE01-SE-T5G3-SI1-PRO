@@ -17,7 +17,7 @@
  * @version 2006.03.30
  */
 
-package worldofzuul;
+package dk.sdu.worldoftrash.game;
 
 public class Command
 {

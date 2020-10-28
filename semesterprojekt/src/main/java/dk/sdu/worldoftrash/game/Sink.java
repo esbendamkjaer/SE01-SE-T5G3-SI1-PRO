@@ -1,7 +1,7 @@
-package worldofzuul;
+package dk.sdu.worldoftrash.game;
 
-import worldofzuul.items.Item;
-import worldofzuul.items.Waste;
+import dk.sdu.worldoftrash.game.items.Waste;
+import dk.sdu.worldoftrash.game.items.Item;
 
 public class Sink extends Item {
 

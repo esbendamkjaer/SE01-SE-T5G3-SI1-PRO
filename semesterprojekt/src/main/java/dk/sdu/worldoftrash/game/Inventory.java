@@ -1,7 +1,6 @@
-package worldofzuul;
-import worldofzuul.items.Item;
+package dk.sdu.worldoftrash.game;
+import dk.sdu.worldoftrash.game.items.Item;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 

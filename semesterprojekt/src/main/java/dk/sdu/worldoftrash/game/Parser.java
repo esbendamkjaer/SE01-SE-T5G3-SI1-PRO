@@ -1,8 +1,7 @@
-package worldofzuul;
+package dk.sdu.worldoftrash.game;
 
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 public class Parser 
 {
