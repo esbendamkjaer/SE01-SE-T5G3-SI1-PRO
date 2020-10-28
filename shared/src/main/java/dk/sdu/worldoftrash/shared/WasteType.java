@@ -1,4 +1,4 @@
-package dk.sdu.worldoftrash.game.items;
+package dk.sdu.worldoftrash.shared;
 
 public enum WasteType {
 

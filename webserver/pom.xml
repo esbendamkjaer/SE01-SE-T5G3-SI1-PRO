@@ -35,6 +35,11 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<dependency>
+			<groupId>du.sdu.worldoftrash.shared</groupId>
+			<artifactId>shared</artifactId>
+			<version>0.0.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>

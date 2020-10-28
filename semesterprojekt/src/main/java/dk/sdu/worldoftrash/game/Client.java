@@ -1,5 +1,7 @@
 package dk.sdu.worldoftrash.game;
 
+import dk.sdu.worldoftrash.shared.ScoreData;
+
 import java.net.http.HttpClient;
 import java.time.Duration;
 

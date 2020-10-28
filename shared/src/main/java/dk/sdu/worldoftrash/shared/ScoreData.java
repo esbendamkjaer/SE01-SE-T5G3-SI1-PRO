@@ -1,4 +1,4 @@
-package dk.sdu.worldoftrash.webserver;
+package dk.sdu.worldoftrash.shared;
 
 import java.util.ArrayList;
 import java.util.UUID;

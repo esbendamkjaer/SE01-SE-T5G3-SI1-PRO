@@ -1,6 +1,7 @@
 package dk.sdu.worldoftrash.game;
 
 import dk.sdu.worldoftrash.game.items.*;
+import dk.sdu.worldoftrash.shared.WasteType;
 
 public class Game {
     private Parser parser;
