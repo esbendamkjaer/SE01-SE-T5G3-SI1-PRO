@@ -5,8 +5,8 @@ import worldofzuul.items.Waste;
 
 public class Sink extends Item {
 
-    public Sink(String name) {
-        super(name);
+    public Sink(Game game, String name) {
+        super(game, name);
     }
 
     /**

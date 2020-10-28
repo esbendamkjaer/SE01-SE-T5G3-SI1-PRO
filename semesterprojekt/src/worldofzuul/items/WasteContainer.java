@@ -1,11 +1,13 @@
 package worldofzuul.items;
 
+import worldofzuul.Game;
+
 public class WasteContainer extends Item {
 
     private WasteType wasteType;
 
-    public WasteContainer(String name, WasteType wasteType) {
-        super(name);
+    public WasteContainer(Game game, String name, WasteType wasteType) {
+        super(game, name);
         this.wasteType = wasteType;
     }
 
