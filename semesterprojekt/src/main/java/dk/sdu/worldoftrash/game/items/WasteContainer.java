@@ -1,6 +1,6 @@
-package worldofzuul.items;
+package dk.sdu.worldoftrash.game.items;
 
-import worldofzuul.Game;
+import dk.sdu.worldoftrash.game.Game;
 
 public class WasteContainer extends Item {
 

@@ -1,4 +1,4 @@
-package worldofzuul.items;
+package dk.sdu.worldoftrash.game.items;
 
 public enum WasteType {
 

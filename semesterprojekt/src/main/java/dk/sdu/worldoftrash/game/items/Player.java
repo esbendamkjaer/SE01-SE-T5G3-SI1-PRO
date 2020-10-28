@@ -1,7 +1,7 @@
-package worldofzuul.items;
+package dk.sdu.worldoftrash.game.items;
 
-import worldofzuul.Game;
-import worldofzuul.Inventory;
+import dk.sdu.worldoftrash.game.Game;
+import dk.sdu.worldoftrash.game.Inventory;
 
 public class Player extends Item {
 
