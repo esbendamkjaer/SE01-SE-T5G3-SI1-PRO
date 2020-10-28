@@ -17,8 +17,8 @@ public class CommandWords
     }
 
     /**
-     * Returns an enom corresponding to the given String representation of a command.
-     * If such a comamnd doens't exist, the UNKNOWN constant is returned.
+     * Returns an enum corresponding to the given String representation of a command.
+     * If such a command doens't exist, the UNKNOWN constant is returned.
      * @param commandWord String representation of a command.
      * @return CommandWord enum corresponding to the given String.
      */

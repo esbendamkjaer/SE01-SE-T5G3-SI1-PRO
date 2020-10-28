@@ -27,7 +27,21 @@ public class Game {
 
         // for at lave et intialisere rummet skal vi bruge *rumnavn = new Room();*
         start = new Room("at the start");
+
+        // Temporary test objects
+        Waste fish = new Waste("Fish", WasteType.ORGANIC, "This is a fish", true);
+        Waste can = new Waste("Can", WasteType.METAL, "This is a can", true);
+        start.addItem(fish);
+        start.addItem(can);
+
         sortingRoom = new Room("in sorting room");
+
+        // Temporary test containers
+        WasteContainer organicContainer = new WasteContainer("Organic-container", WasteType.ORGANIC);
+        WasteContainer glassContainer = new WasteContainer("Glass-container", WasteType.GLASS);
+        sortingRoom.addItem(organicContainer);
+        sortingRoom.addItem(glassContainer);
+
         odense = new Room("in the city of Odense. In the east is a supermarket, in the west is the sorting room, in the south is the hospital and in the north is the school.");
         Supermarket = new Room("in the supermarket");
         office = new Room("in the supermarket office");
@@ -147,6 +161,9 @@ public class Game {
             case DROP -> {
                 processDrop(command);
             }
+            case INVENTORY -> {
+                player.getInventory().printInv();
+            }
             case UNKNOWN -> {
                 System.out.println("I don't know what you mean...");
                 return false;
@@ -161,6 +178,67 @@ public class Game {
      * @param command A drop command.
      */
     private void processDrop(Command command) {
+
+        String args[] = command.getArgs();
+
+        if (args == null || args.length <= 0) {
+            System.out.println("Drop what?");
+            return;
+        } else if (args.length == 1) {
+            Item item = player.getInventory().getItemByName(args[0]);
+            if (item == null) {
+                System.out.println("No such item in inventory.");
+            } else {
+                player.getInventory().removeItem(item);
+                currentRoom.addItem(item);
+
+                System.out.println("Dropped " + item.getName() + " on the ground.");
+            }
+            return;
+        } else if (args.length == 3) {
+
+            if (args[1].equalsIgnoreCase("in")) {
+
+                Item item = player.getInventory().getItemByName(args[0]);
+
+                if (item == null) {
+                    System.out.println("No such item '" + args[0] + "' in inventory.");
+                } else {
+                    Item container = currentRoom.getItemByName(args[2]);
+
+                    if(container == null) {
+                        System.out.println("There's no such waste container in this room.");
+                        return;
+                    }
+
+                    if (!(container instanceof WasteContainer)) {
+                        System.out.println("That is not a waste container.");
+                        return;
+                    }
+
+                    if (!(item instanceof Waste)) {
+                        System.out.println("You can only drop waste in a waste container");
+                        return;
+                    }
+
+                    WasteContainer wasteContainer = (WasteContainer) container;
+                    Waste waste = (Waste) item;
+
+                    player.getInventory().removeItem(waste);
+
+                    if (wasteContainer.checkWaste(waste)) {
+                        System.out.println("You put the waste in the right container!");
+                    } else {
+                        System.out.println("You put the waste in the wrong container!");
+                    }
+                }
+
+                return;
+            }
+        }
+
+        System.out.println("Not sure, what you mean...");
+
     }
 
     /**

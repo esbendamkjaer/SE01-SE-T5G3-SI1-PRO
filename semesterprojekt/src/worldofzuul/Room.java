@@ -51,6 +51,11 @@ public class Room
         return returnString;
     }
 
+    /**
+     * Returns item in room by given name. If item isn't found, it returns null.
+     * @param itemName Name of item to search for in room.
+     * @return Returns Item object of item found in room by specified name. Returns null if not found.
+     */
     public Item getItemByName(String itemName) {
         for (int i = 0; i < items.size(); i++) {
             if (items.get(i).getName().equals(itemName)) {
