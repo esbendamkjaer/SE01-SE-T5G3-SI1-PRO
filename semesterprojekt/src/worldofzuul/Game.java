@@ -130,22 +130,37 @@ public class Game {
 
         CommandWord commandWord = command.getCommandWord();
 
-        if (commandWord == CommandWord.UNKNOWN) {
-            System.out.println("I don't know what you mean...");
-            return false;
-        }
+        switch (commandWord) {
 
-        if (commandWord == CommandWord.HELP) {
-            printHelp();
-        } else if (commandWord == CommandWord.GO) {
-            goRoom(command);
-        } else if (commandWord == CommandWord.QUIT) {
-            wantToQuit = quit(command);
-        } else if (commandWord == CommandWord.PICKUP) {
-            processPickup(command);
+            case GO -> {
+                goRoom(command);
+            }
+            case QUIT -> {
+                wantToQuit = quit(command);
+            }
+            case HELP -> {
+                printHelp();
+            }
+            case PICKUP -> {
+                processPickup(command);
+            }
+            case DROP -> {
+                processDrop(command);
+            }
+            case UNKNOWN -> {
+                System.out.println("I don't know what you mean...");
+                return false;
+            }
         }
         
         return wantToQuit;
+    }
+
+    /**
+     * Processes a drop command.
+     * @param command A drop command.
+     */
+    private void processDrop(Command command) {
     }
 
     /**
