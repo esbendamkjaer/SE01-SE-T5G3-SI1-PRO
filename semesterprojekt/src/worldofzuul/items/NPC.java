@@ -1,11 +1,13 @@
 package worldofzuul.items;
 
+import worldofzuul.Game;
+
 public class NPC extends Item {
 
     private String dialogue;
 
-    public NPC(String name, String dialogue) {
-        super(name);
+    public NPC(Game game, String name, String dialogue) {
+        super(game, name);
         this.dialogue = dialogue;
     }
 

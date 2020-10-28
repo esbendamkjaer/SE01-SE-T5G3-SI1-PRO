@@ -12,7 +12,7 @@ public class Game {
     public Game() {
         createRooms();
         parser = new Parser();
-        player = new Player("Player");
+        player = new Player(this, "Player");
     }
 
     /**
@@ -29,16 +29,16 @@ public class Game {
         start = new Room("at the start");
 
         // Temporary test objects
-        Waste fish = new Waste("Fish", WasteType.ORGANIC, "This is a fish", true);
-        Waste can = new Waste("Can", WasteType.METAL, "This is a can", true);
+        Waste fish = new Waste(this, "Fish", WasteType.ORGANIC, "This is a fish", true);
+        Waste can = new Waste(this,"Can", WasteType.METAL, "This is a can", true);
         start.addItem(fish);
         start.addItem(can);
 
         sortingRoom = new Room("in sorting room");
 
         // Temporary test containers
-        WasteContainer organicContainer = new WasteContainer("Organic-container", WasteType.ORGANIC);
-        WasteContainer glassContainer = new WasteContainer("Glass-container", WasteType.GLASS);
+        WasteContainer organicContainer = new WasteContainer(this, "Organic-container", WasteType.ORGANIC);
+        WasteContainer glassContainer = new WasteContainer(this, "Glass-container", WasteType.GLASS);
         sortingRoom.addItem(organicContainer);
         sortingRoom.addItem(glassContainer);
 
