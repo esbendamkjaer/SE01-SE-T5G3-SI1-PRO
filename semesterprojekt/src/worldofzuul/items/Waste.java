@@ -14,11 +14,11 @@ public class Waste extends Pickupable {
     }
 
     public WasteType getWasteType(){
-        return null; //midlertidigt
+        return wasteType;
     }
 
     public int getPoint(){
-        return 0; //midlertidigt
+        throw new UnsupportedOperationException();
     }
 
     public boolean isClean() {
