@@ -5,7 +5,7 @@ import dk.sdu.worldoftrash.shared.WasteType;
 
 public class Waste extends Pickupable {
     private WasteType wasteType;
-    private int point;
+    private int points;
     private String description;
     private boolean clean;
 
@@ -14,14 +14,15 @@ public class Waste extends Pickupable {
         this.wasteType = wasteType;
         this.description = description;
         this.clean = clean;
+        this.points = 1;
     }
 
     public WasteType getWasteType(){
         return wasteType;
     }
 
-    public int getPoint(){
-        throw new UnsupportedOperationException();
+    public int getPoints(){
+        return this.points;
     }
 
     public boolean isClean() {
