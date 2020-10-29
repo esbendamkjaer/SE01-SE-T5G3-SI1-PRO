@@ -6,7 +6,7 @@ import dk.sdu.worldoftrash.shared.ScoreData;
 
 import java.util.UUID;
 
-public class PointSystem {
+public class ScoreSystem {
 
     private int points;
 
@@ -17,7 +17,7 @@ public class PointSystem {
 
     private ScoreData scoreData;
 
-    public PointSystem() {
+    public ScoreSystem() {
         client = new Client(20, "http://localhost:8080");
 
         scoreData = new ScoreData(UUID.randomUUID());

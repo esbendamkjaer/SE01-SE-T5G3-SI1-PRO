@@ -7,7 +7,7 @@ public class Game {
     private Parser parser;
     private Room currentRoom;
 
-    private PointSystem pointSystem;
+    private ScoreSystem scoreSystem;
 
     private Player player;
 
@@ -15,7 +15,7 @@ public class Game {
     public Game() {
         parser = new Parser();
         player = new Player(this, "Player");
-        pointSystem = new PointSystem();
+        scoreSystem = new ScoreSystem();
         createRooms();
     }
 
@@ -168,7 +168,7 @@ public class Game {
                 player.getInventory().printInv();
             }
             case SAVE -> {
-                pointSystem.uploadData();
+                scoreSystem.uploadData();
             }
             case UNKNOWN -> {
                 System.out.println("I don't know what you mean...");
@@ -235,7 +235,7 @@ public class Game {
                     if (wasteContainer.checkWaste(waste)) {
                         System.out.println("You put the waste in the right container!");
 
-                        pointSystem.givePoints(waste);
+                        scoreSystem.givePoints(waste);
 
                     } else {
                         System.out.println("You put the waste in the wrong container!");
@@ -325,7 +325,7 @@ public class Game {
         }
     }
 
-    public PointSystem getPointSystem() {
-        return pointSystem;
+    public ScoreSystem getPointSystem() {
+        return scoreSystem;
     }
 }
