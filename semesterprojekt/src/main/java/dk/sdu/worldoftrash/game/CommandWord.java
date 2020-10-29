@@ -2,7 +2,14 @@ package dk.sdu.worldoftrash.game;
 
 public enum CommandWord
 {
-    GO("go"), QUIT("quit"), HELP("help"), PICKUP("pickup"), DROP("drop"), INVENTORY("inventory"), UNKNOWN("?");
+    GO("go"),
+    QUIT("quit"),
+    HELP("help"),
+    PICKUP("pickup"),
+    DROP("drop"),
+    INVENTORY("inventory"),
+    SAVE("save"), // Temporary
+    UNKNOWN("?");
     
     private String commandString;
     

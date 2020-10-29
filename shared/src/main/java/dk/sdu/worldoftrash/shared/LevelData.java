@@ -6,13 +6,13 @@ public class LevelData {
 
     private int points;
 
-    private HashMap<WasteType, Integer> correctlySortedByWasteType;
+    private HashMap<String, Integer> correctlySortedByWasteType;
 
     public LevelData() {
         correctlySortedByWasteType = new HashMap<>();
 
         for(WasteType wasteType : WasteType.values()) {
-            correctlySortedByWasteType.put(wasteType, 0);
+            correctlySortedByWasteType.put(wasteType.toString(), 0);
         }
 
     }
@@ -23,9 +23,28 @@ public class LevelData {
      */
     public void incrementCorrect(WasteType key) {
         correctlySortedByWasteType.put(
-                key,
+                key.toString(),
                 correctlySortedByWasteType.get(key) + 1
         );
     }
 
+    public void addPoints(int points) {
+        setPoints(getPoints() + points);
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public HashMap<String, Integer> getCorrectlySortedByWasteType() {
+        return correctlySortedByWasteType;
+    }
+
+    public void setCorrectlySortedByWasteType(HashMap<String, Integer> correctlySortedByWasteType) {
+        this.correctlySortedByWasteType = correctlySortedByWasteType;
+    }
 }
