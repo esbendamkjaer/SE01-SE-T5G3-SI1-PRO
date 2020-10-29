@@ -7,7 +7,7 @@ import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
-import dk.sdu.worldoftrash.shared.ScoreData;
+import dk.sdu.worldoftrash.webserver.data.ScoreData;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;

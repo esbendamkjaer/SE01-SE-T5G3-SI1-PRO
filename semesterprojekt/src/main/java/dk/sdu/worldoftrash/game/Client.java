@@ -2,7 +2,7 @@ package dk.sdu.worldoftrash.game;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dk.sdu.worldoftrash.shared.ScoreData;
+import dk.sdu.worldoftrash.game.data.ScoreData;
 
 import java.io.IOException;
 import java.net.URI;

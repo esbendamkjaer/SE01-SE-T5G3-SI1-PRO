@@ -36,11 +36,6 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>du.sdu.worldoftrash.shared</groupId>
-			<artifactId>shared</artifactId>
-			<version>0.0.1</version>
-		</dependency>
-		<dependency>
 			<groupId>com.google.firebase</groupId>
 			<artifactId>firebase-admin</artifactId>
 			<version>6.11.0</version>

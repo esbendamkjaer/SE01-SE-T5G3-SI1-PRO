@@ -1,7 +1,7 @@
 package dk.sdu.worldoftrash.game.items;
 
 import dk.sdu.worldoftrash.game.Game;
-import dk.sdu.worldoftrash.shared.WasteType;
+import dk.sdu.worldoftrash.game.data.WasteType;
 
 public class Waste extends Pickupable {
     private WasteType wasteType;

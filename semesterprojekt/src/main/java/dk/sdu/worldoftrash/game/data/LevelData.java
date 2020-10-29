@@ -1,4 +1,4 @@
-package dk.sdu.worldoftrash.shared;
+package dk.sdu.worldoftrash.game.data;
 
 import java.util.HashMap;
 

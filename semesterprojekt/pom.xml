@@ -27,11 +27,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>du.sdu.worldoftrash.shared</groupId>
-            <artifactId>shared</artifactId>
-            <version>0.0.1</version>
-        </dependency>
-        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.6.7.4</version>

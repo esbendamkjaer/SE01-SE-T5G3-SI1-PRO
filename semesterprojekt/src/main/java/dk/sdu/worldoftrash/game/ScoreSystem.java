@@ -1,8 +1,8 @@
 package dk.sdu.worldoftrash.game;
 
+import dk.sdu.worldoftrash.game.data.LevelData;
+import dk.sdu.worldoftrash.game.data.ScoreData;
 import dk.sdu.worldoftrash.game.items.Waste;
-import dk.sdu.worldoftrash.shared.LevelData;
-import dk.sdu.worldoftrash.shared.ScoreData;
 
 import java.util.UUID;
 
@@ -16,6 +16,8 @@ public class ScoreSystem {
     private Client client;
 
     private ScoreData scoreData;
+
+    private int wasteCount;
 
     public ScoreSystem() {
         client = new Client(20, "http://localhost:8080");
@@ -51,4 +53,13 @@ public class ScoreSystem {
     public void setPoints(int points) {
         this.points = points;
     }
+
+    public void incrementWasteCount() {
+        wasteCount++;
+    }
+
+    public int getWasteCount() {
+        return this.wasteCount;
+    }
+
 }

@@ -1,6 +1,4 @@
-package dk.sdu.worldoftrash.shared;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+package dk.sdu.worldoftrash.game.data;
 
 import java.util.ArrayList;
 import java.util.List;

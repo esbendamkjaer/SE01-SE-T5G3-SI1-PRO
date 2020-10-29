@@ -1,7 +1,7 @@
 package dk.sdu.worldoftrash.game;
 
+import dk.sdu.worldoftrash.game.data.WasteType;
 import dk.sdu.worldoftrash.game.items.*;
-import dk.sdu.worldoftrash.shared.WasteType;
 
 public class Game {
     private Parser parser;
@@ -240,6 +240,7 @@ public class Game {
                     } else {
                         System.out.println("You put the waste in the wrong container!");
                     }
+                    scoreSystem.incrementWasteCount();
                 }
 
                 return;
