@@ -24,7 +24,7 @@ public class LevelData {
     public void incrementCorrect(WasteType key) {
         correctlySortedByWasteType.put(
                 key.toString(),
-                correctlySortedByWasteType.get(key) + 1
+                correctlySortedByWasteType.get(key.toString()) + 1
         );
     }
 

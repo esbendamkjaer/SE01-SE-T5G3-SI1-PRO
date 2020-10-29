@@ -4,6 +4,8 @@ import dk.sdu.worldoftrash.game.items.Waste;
 import dk.sdu.worldoftrash.shared.LevelData;
 import dk.sdu.worldoftrash.shared.ScoreData;
 
+import java.util.UUID;
+
 public class PointSystem {
 
     private int points;
@@ -18,7 +20,7 @@ public class PointSystem {
     public PointSystem() {
         client = new Client(20, "http://localhost:8080");
 
-        scoreData = new ScoreData();
+        scoreData = new ScoreData(UUID.randomUUID());
 
         for (int i = 0; i < numberOfLevels; i++) {
             scoreData.addLevelData(new LevelData());

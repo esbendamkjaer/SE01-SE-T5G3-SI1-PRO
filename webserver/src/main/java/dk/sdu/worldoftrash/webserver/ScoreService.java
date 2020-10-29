@@ -27,7 +27,7 @@ public class ScoreService {
                     .setCredentials(GoogleCredentials.fromStream(getClass().getResourceAsStream("/serviceAccountKey.json")))
                     .setDatabaseUrl("https://semesterprojekt1-ce955.firebaseio.com")
                     .build();
-
+            
             FirebaseApp.initializeApp(options);
         } catch (FileNotFoundException e) {
             e.printStackTrace();

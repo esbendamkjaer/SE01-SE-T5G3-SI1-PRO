@@ -13,13 +13,20 @@ public class ScoreData {
     private List<LevelData> levels;
 
     public ScoreData() {
-        uuid = UUID.randomUUID();
         levels = new ArrayList<LevelData>();
     }
 
-    @JsonIgnore
+    public ScoreData(UUID uuid) {
+        this();
+        this.uuid = uuid;
+    }
+
     public String getUuid() {
         return uuid.toString();
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = UUID.fromString(uuid);
     }
 
     public void addLevelData(LevelData level) {
