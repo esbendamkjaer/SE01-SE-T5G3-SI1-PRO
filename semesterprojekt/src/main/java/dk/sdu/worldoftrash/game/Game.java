@@ -233,17 +233,9 @@ public class Game {
                     WasteContainer wasteContainer = (WasteContainer) container;
                     Waste waste = (Waste) item;
 
-                    player.getInventory().removeItem(waste);
-
-                    if (wasteContainer.checkWaste(waste)) {
-                        System.out.println("You put the waste in the right container!");
-
-                        scoreSystem.givePoints(waste);
-
-                    } else {
-                        System.out.println("You put the waste in the wrong container!");
+                    if (wasteContainer.giveWaste(waste)) {
+                        player.getInventory().removeItem(waste);
                     }
-                    scoreSystem.incrementWasteCount();
                 }
 
                 return;
@@ -333,7 +325,7 @@ public class Game {
         }
     }
 
-    public ScoreSystem getPointSystem() {
+    public ScoreSystem getScoreSystem() {
         return scoreSystem;
     }
 }
