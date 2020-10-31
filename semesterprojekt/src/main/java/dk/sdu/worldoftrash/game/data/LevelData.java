@@ -6,6 +6,8 @@ public class LevelData {
 
     private int points;
 
+    private int wasteCount;
+
     private HashMap<String, Integer> correctlySortedByWasteType;
 
     public LevelData() {
@@ -28,23 +30,19 @@ public class LevelData {
         );
     }
 
-    public void addPoints(int points) {
-        setPoints(getPoints() + points);
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
-    }
-
     public HashMap<String, Integer> getCorrectlySortedByWasteType() {
         return correctlySortedByWasteType;
     }
 
     public void setCorrectlySortedByWasteType(HashMap<String, Integer> correctlySortedByWasteType) {
         this.correctlySortedByWasteType = correctlySortedByWasteType;
+    }
+
+    public int getWasteCount() {
+        return wasteCount;
+    }
+
+    public void setWasteCount(int wasteCount) {
+        this.wasteCount = wasteCount;
     }
 }

@@ -2,6 +2,7 @@ package dk.sdu.worldoftrash.game;
 
 import dk.sdu.worldoftrash.game.data.WasteType;
 import dk.sdu.worldoftrash.game.items.*;
+import dk.sdu.worldoftrash.game.rooms.Room;
 
 public class Game {
     private Parser parser;
@@ -11,6 +12,10 @@ public class Game {
 
     private Player player;
 
+    private Room start, sortingRoom, odense,
+    /* gren 1 */supermarket, office, storageRoom, parkinglot,
+    /* gren 2 */hospitalOutside, reception, operatingRoom, morgue, canteen,
+    /* gren 3 */schoolOutside, teachersLounge, chemistryRoom, gymnasticsRoom, girlsLockerRoom;
 
     public Game() {
         parser = new Parser();
@@ -23,14 +28,8 @@ public class Game {
      * Instantiates the rooms in the game.
      */
     private void createRooms() {
-        //for at oprette et rum, skriv navnet på rummet efter et,
-        Room start, sortingRoom, odense,
-                /* gren 1 */Supermarket, office, storageRoom, parkinglot,
-                /* gren 2 */hospitalOutside, reception, operatingRoom, morgue, canteen,
-                /* gren 3 */schoolOutside, teachersLounge, chemistryRoom, gymnasticsRoom, girlsLockerRoom;
-
         // for at lave et intialisere rummet skal vi bruge *rumnavn = new Room();*
-        start = new Room("at the start");
+        start = new Room(this, "start", "at the start");
 
         // Temporary test objects
         Waste fish = new Waste(this, "Fish", WasteType.ORGANIC, "This is a fish", true);
@@ -38,7 +37,7 @@ public class Game {
         start.addItem(fish);
         start.addItem(can);
 
-        sortingRoom = new Room("in sorting room");
+        sortingRoom = new Room(this, "sortingRoom", "in sorting room");
 
         // Temporary test containers
         WasteContainer organicContainer = new WasteContainer(this, "Organic-container", WasteType.ORGANIC);
@@ -46,21 +45,21 @@ public class Game {
         sortingRoom.addItem(organicContainer);
         sortingRoom.addItem(glassContainer);
 
-        odense = new Room("in the city of Odense. In the east is a supermarket, in the west is the sorting room, in the south is the hospital and in the north is the school.");
-        Supermarket = new Room("in the supermarket");
-        office = new Room("in the supermarket office");
-        storageRoom = new Room("in the storage room");
-        parkinglot = new Room("at the parking lot");
-        hospitalOutside = new Room("outside the hospital");
-        reception = new Room("in the hospital reception");
-        operatingRoom = new Room("in the hauntingly clean operations room");
-        morgue = new Room("in the morgue");
-        canteen = new Room("in the canteen");
-        schoolOutside = new Room("outside the school");
-        teachersLounge = new Room("in the teachers lounge");
-        chemistryRoom = new Room("in the chemistry room");
-        gymnasticsRoom = new Room("in the gymnastics room");
-        girlsLockerRoom = new Room("in the girls locker room");
+        odense = new Room(this, "city", "in the city of Odense. In the east is a supermarket, in the west is the sorting room, in the south is the hospital and in the north is the school.");
+        supermarket = new Room(this, "supermarket", "in the supermarket");
+        office = new Room(this, "office", "in the supermarket office");
+        storageRoom = new Room(this, "storageRoom", "in the storage room");
+        parkinglot = new Room(this, "parkinglot", "at the parking lot");
+        hospitalOutside = new Room(this, "hospitalOutside", "outside the hospital");
+        reception = new Room(this, "reception", "in the hospital reception");
+        operatingRoom = new Room(this, "operatingRoom", "in the hauntingly clean operations room");
+        morgue = new Room(this, "morgue", "in the morgue");
+        canteen = new Room(this, "canteen", "in the canteen");
+        schoolOutside = new Room(this, "schoolOutside", "outside the school");
+        teachersLounge = new Room(this, "teachersLounge", "in the teachers lounge");
+        chemistryRoom = new Room(this, "chemistryRoom", "in the chemistry room");
+        gymnasticsRoom = new Room(this, "gymnasticsRoom", "in the gymnastics room");
+        girlsLockerRoom = new Room(this, "girlsLockerRoom", "in the girls locker room");
 
 
         start.setExit("sorting-room", sortingRoom);
@@ -68,20 +67,20 @@ public class Game {
         sortingRoom.setExit("start", start);
         sortingRoom.setExit("Odense", odense);
 
-        odense.setExit("east", Supermarket);
+        odense.setExit("east", supermarket);
         odense.setExit("west", sortingRoom);
         odense.setExit("south", hospitalOutside);
         odense.setExit("north", schoolOutside);
 
         // Gren #1
-        Supermarket.setExit("Odense", odense);
-        Supermarket.setExit("office", office);
-        Supermarket.setExit("storage-room", storageRoom);
-        Supermarket.setExit("parking-lot", parkinglot);
+        supermarket.setExit("Odense", odense);
+        supermarket.setExit("office", office);
+        supermarket.setExit("storage-room", storageRoom);
+        supermarket.setExit("parking-lot", parkinglot);
 
-        office.setExit("supermarket", Supermarket);
-        storageRoom.setExit("supermarket", Supermarket);
-        parkinglot.setExit("supermarket", Supermarket);
+        office.setExit("supermarket", supermarket);
+        storageRoom.setExit("supermarket", supermarket);
+        parkinglot.setExit("supermarket", supermarket);
 
         //Gren #2
         hospitalOutside.setExit("Odense", odense);
@@ -109,6 +108,10 @@ public class Game {
         girlsLockerRoom.setExit("gymnastics-room", gymnasticsRoom);
 
         currentRoom = start;
+
+        scoreSystem.getLevelHandler().addLevel(supermarket, 0);
+        scoreSystem.getLevelHandler().addLevel(hospitalOutside, 1);
+        scoreSystem.getLevelHandler().addLevel(schoolOutside, 2);
     }
 
     /**
@@ -306,6 +309,10 @@ public class Game {
         if (nextRoom == null) {
             System.out.println("There is no door!");
         } else {
+            if (nextRoom.isLocked()) {
+                System.out.println("This room is locked.");
+                return;
+            }
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
         }

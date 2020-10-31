@@ -1,24 +1,33 @@
-package dk.sdu.worldoftrash.game;
+package dk.sdu.worldoftrash.game.rooms;
 
+import dk.sdu.worldoftrash.game.Game;
 import dk.sdu.worldoftrash.game.items.Item;
 
 import java.util.ArrayList;
-import java.util.Set;
 import java.util.HashMap;
+import java.util.Set;
 
 
 public class Room 
 {
+    private String name;
     private String description;
     private HashMap<String, Room> exits;
 
     private ArrayList<Item> items;
 
-    public Room(String description) 
+    private Game game;
+    private boolean locked;
+
+    public Room(Game game, String name, String description)
     {
-        this.items = new ArrayList<Item>();
+        this.name = name;
         this.description = description;
-        exits = new HashMap<String, Room>();
+
+        this.items = new ArrayList<Item>();
+        this.exits = new HashMap<String, Room>();
+        this.game = game;
+        this.locked = false;
     }
 
     public void setExit(String direction, Room neighbor) 
@@ -78,5 +87,20 @@ public class Room
         this.items.remove(item);
     }
 
+    public boolean unlock() {
+        return !locked;
+    }
+
+    public boolean isLocked() {
+        return this.locked;
+    }
+
+    public void setLocked(boolean locked) {
+        this.locked = locked;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
 

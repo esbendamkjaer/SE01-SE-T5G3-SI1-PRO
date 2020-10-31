@@ -1,17 +1,17 @@
 package dk.sdu.worldoftrash.webserver.data;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 public class ScoreData {
 
     private UUID uuid;
 
-    private List<LevelData> levels;
+    private Map<String, LevelData> levels;
 
     public ScoreData() {
-        levels = new ArrayList<LevelData>();
+        levels = new HashMap<String, LevelData>();
     }
 
     public ScoreData(UUID uuid) {
@@ -27,21 +27,19 @@ public class ScoreData {
         this.uuid = UUID.fromString(uuid);
     }
 
-    public void addLevelData(LevelData level) {
-        levels.add(level);
+    public void addLevelData(String name, LevelData level) {
+        levels.put(name, level);
     }
 
-    public LevelData getLevelDataAt(int index) {
-        return levels.get(index);
+    public LevelData getLevelDataByName(String name) {
+        return levels.get(name);
     }
 
-    public List<LevelData> getLevels() {
+    public Map<String, LevelData> getLevels() {
         return levels;
     }
 
-    public void setLevels(List<LevelData> levels) {
+    public void setLevels(Map<String, LevelData> levels) {
         this.levels = levels;
     }
-
-
 }
