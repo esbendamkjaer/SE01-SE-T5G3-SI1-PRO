@@ -2,6 +2,8 @@ package dk.sdu.worldoftrash.game;
 
 import dk.sdu.worldoftrash.game.data.WasteType;
 import dk.sdu.worldoftrash.game.items.*;
+import dk.sdu.worldoftrash.game.items.usables.Sink;
+import dk.sdu.worldoftrash.game.items.usables.Usable;
 import dk.sdu.worldoftrash.game.rooms.Room;
 
 public class Game {
@@ -181,7 +183,6 @@ public class Game {
             }
             case UNKNOWN -> {
                 System.out.println("I don't know what you mean...");
-                return false;
             }
         }
         
@@ -235,12 +236,10 @@ public class Game {
 
                     return;
                 }
-
             }
         }
 
         System.out.println("Not sure, what you mean...");
-
     }
 
     /**
