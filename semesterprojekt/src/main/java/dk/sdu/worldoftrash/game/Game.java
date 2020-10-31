@@ -33,17 +33,20 @@ public class Game {
 
         // Temporary test objects
         Waste fish = new Waste(this, "Fish", WasteType.ORGANIC, "This is a fish", true);
-        Waste can = new Waste(this,"Can", WasteType.METAL, "This is a can", true);
+        Waste can = new Waste(this,"Can", WasteType.METAL, "This is a can", false);
         start.addItem(fish);
         start.addItem(can);
 
         sortingRoom = new Room(this, "sortingRoom", "in sorting room");
 
         // Temporary test containers
-        WasteContainer organicContainer = new WasteContainer(this, "Organic-container", WasteType.ORGANIC);
-        WasteContainer glassContainer = new WasteContainer(this, "Glass-container", WasteType.GLASS);
+        WasteContainer organicContainer = new WasteContainer(this, "organic-container", WasteType.ORGANIC);
+        WasteContainer glassContainer = new WasteContainer(this, "glass-container", WasteType.GLASS);
         sortingRoom.addItem(organicContainer);
         sortingRoom.addItem(glassContainer);
+
+        Sink sink = new Sink(this, "Sink");
+        sortingRoom.addItem(sink);
 
         odense = new Room(this, "city", "in the city of Odense. In the east is a supermarket, in the west is the sorting room, in the south is the hospital and in the north is the school.");
         supermarket = new Room(this, "supermarket", "in the supermarket");
@@ -170,6 +173,9 @@ public class Game {
             case INVENTORY -> {
                 player.getInventory().printInv();
             }
+            case USE -> {
+                processUse(command);
+            }
             case SAVE -> {
                 scoreSystem.uploadData();
             }
@@ -180,6 +186,61 @@ public class Game {
         }
         
         return wantToQuit;
+    }
+
+    /**
+     * Processes a use command.
+     * @param command A drop command.
+     */
+    private void processUse(Command command) {
+
+        String args[] = command.getArgs();
+
+        if (args == null || args.length <= 0) {
+            System.out.println("Use what?");
+            return;
+        } else if (args.length >= 1) {
+            Item usableItem = currentRoom.getItemByName(args[0]);
+
+            if (usableItem == null) {
+                System.out.println("There's no such item in this room.");
+                return;
+            }
+
+            if (!(usableItem instanceof Usable)) {
+                System.out.println("'" + usableItem.getName() + "' is not useable.");
+                return;
+            }
+
+            Usable usable = (Usable) usableItem;
+
+            if (args.length == 1) {
+                usable.use();
+
+                return;
+            } if (args.length >= 2 && args[1].equalsIgnoreCase("on")) {
+
+                if (args.length == 2) {
+                    System.out.println("Use item '" + usableItem.getName() + "' on what?");
+                    return;
+                } else if (args.length == 3) {
+                    Item item = player.getInventory().getItemByName(args[2]);
+
+                    if (item == null) {
+                        System.out.println("No such item '" + args[2] + "' in inventory.");
+                        return;
+                    }
+
+                    usable.useOn(item);
+
+                    return;
+                }
+
+            }
+        }
+
+        System.out.println("Not sure, what you mean...");
+
     }
 
     /**

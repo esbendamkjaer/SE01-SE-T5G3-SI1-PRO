@@ -8,6 +8,7 @@ public enum CommandWord
     PICKUP("pickup"),
     DROP("drop"),
     INVENTORY("inventory"),
+    USE("use"),
     SAVE("save"), // Temporary
     UNKNOWN("?");
     
