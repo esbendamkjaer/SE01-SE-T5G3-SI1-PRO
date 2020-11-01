@@ -34,7 +34,7 @@ public class WasteContainer extends Item {
             System.out.println("You put the waste in the wrong container!");
         }
 
-        getGame().getScoreSystem().incrementWasteCount();
+        getGame().getScoreSystem().incrementWasteCount(waste.getWasteType());
         return true;
     }
 

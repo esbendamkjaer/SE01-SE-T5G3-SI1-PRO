@@ -2,6 +2,7 @@ package dk.sdu.worldoftrash.game;
 
 import dk.sdu.worldoftrash.game.data.LevelData;
 import dk.sdu.worldoftrash.game.data.ScoreData;
+import dk.sdu.worldoftrash.game.data.WasteType;
 import dk.sdu.worldoftrash.game.items.Waste;
 
 import java.util.UUID;
@@ -50,9 +51,9 @@ public class ScoreSystem {
         this.points = points;
     }
 
-    public void incrementWasteCount() {
+    public void incrementWasteCount(WasteType wasteType) {
         LevelData levelData = getLevelDataByName(levelHandler.getCurrentLevel());
-        levelData.setWasteCount(levelData.getWasteCount() + 1);
+        levelData.incrementWasteCount(wasteType);
 
         wasteCount++;
         levelHandler.updateCondition(wasteCount);

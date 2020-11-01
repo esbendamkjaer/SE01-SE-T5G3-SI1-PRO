@@ -264,42 +264,38 @@ public class Game {
                 System.out.println("Dropped " + item.getName() + " on the ground.");
             }
             return;
-        } else if (args.length == 3) {
+        } else if (args.length == 3 && args[1].equalsIgnoreCase("in")) {
+            Item item = player.getInventory().getItemByName(args[0]);
 
-            if (args[1].equalsIgnoreCase("in")) {
+            if (item == null) {
+                System.out.println("No such item '" + args[0] + "' in inventory.");
+            } else {
+                Item container = currentRoom.getItemByName(args[2]);
 
-                Item item = player.getInventory().getItemByName(args[0]);
-
-                if (item == null) {
-                    System.out.println("No such item '" + args[0] + "' in inventory.");
-                } else {
-                    Item container = currentRoom.getItemByName(args[2]);
-
-                    if(container == null) {
-                        System.out.println("There's no such waste container in this room.");
-                        return;
-                    }
-
-                    if (!(container instanceof WasteContainer)) {
-                        System.out.println("That is not a waste container.");
-                        return;
-                    }
-
-                    if (!(item instanceof Waste)) {
-                        System.out.println("You can only drop waste in a waste container");
-                        return;
-                    }
-
-                    WasteContainer wasteContainer = (WasteContainer) container;
-                    Waste waste = (Waste) item;
-
-                    if (wasteContainer.giveWaste(waste)) {
-                        player.getInventory().removeItem(waste);
-                    }
+                if(container == null) {
+                    System.out.println("There's no such waste container in this room.");
+                    return;
                 }
 
-                return;
+                if (!(container instanceof WasteContainer)) {
+                    System.out.println("That is not a waste container.");
+                    return;
+                }
+
+                if (!(item instanceof Waste)) {
+                    System.out.println("You can only drop waste in a waste container");
+                    return;
+                }
+
+                WasteContainer wasteContainer = (WasteContainer) container;
+                Waste waste = (Waste) item;
+
+                if (wasteContainer.giveWaste(waste)) {
+                    player.getInventory().removeItem(waste);
+                }
             }
+
+            return;
         }
 
         System.out.println("Not sure, what you mean...");

@@ -6,43 +6,49 @@ public class LevelData {
 
     private int points;
 
-    private int wasteCount;
-
-    private HashMap<String, Integer> correctlySortedByWasteType;
+    private HashMap<String, CategoryData> correctlySortedByWasteType;
 
     public LevelData() {
         correctlySortedByWasteType = new HashMap<>();
-
-        for(WasteType wasteType : WasteType.values()) {
-            correctlySortedByWasteType.put(wasteType.toString(), 0);
-        }
-
     }
 
-    /**
-     * Increment value stored at the given key by one.
-     * @param key Key to the value in the HashMap.
-     */
-    public void incrementCorrect(WasteType key) {
-        correctlySortedByWasteType.put(
-                key.toString(),
-                correctlySortedByWasteType.get(key.toString()) + 1
-        );
-    }
-
-    public HashMap<String, Integer> getCorrectlySortedByWasteType() {
+    public HashMap<String, CategoryData> getCorrectlySortedByWasteType() {
         return correctlySortedByWasteType;
     }
 
-    public void setCorrectlySortedByWasteType(HashMap<String, Integer> correctlySortedByWasteType) {
+    public void setCorrectlySortedByWasteType(HashMap<String, CategoryData> correctlySortedByWasteType) {
         this.correctlySortedByWasteType = correctlySortedByWasteType;
     }
 
-    public int getWasteCount() {
-        return wasteCount;
+    /**
+     * Increment number of correctly sorted for given waste type.
+     * @param wasteType Waste type.
+     */
+    public void incrementCorrect(WasteType wasteType) {
+        createCategoryIfAbsent(wasteType);
+
+        CategoryData categoryData = correctlySortedByWasteType.get(wasteType.toString());
+        categoryData.setCorrect(categoryData.getCorrect() + 1);
     }
 
-    public void setWasteCount(int wasteCount) {
-        this.wasteCount = wasteCount;
+    /**
+     * Increment total waste count for given waste type.
+     * @param wasteType Waste type.
+     */
+    public void incrementWasteCount(WasteType wasteType) {
+        createCategoryIfAbsent(wasteType);
+
+        CategoryData categoryData = correctlySortedByWasteType.get(wasteType.toString());
+        categoryData.setTotal(categoryData.getTotal() + 1);
+    }
+
+    /**
+     * If given WasteType is absent in HashMap, creates CategoryData object and saves it in HashMap.
+     * @param wasteType Waste type.
+     */
+    public void createCategoryIfAbsent(WasteType wasteType) {
+        if (!correctlySortedByWasteType.containsKey(wasteType.toString())) {
+            correctlySortedByWasteType.put(wasteType.toString(), new CategoryData(0, 0));
+        }
     }
 }
