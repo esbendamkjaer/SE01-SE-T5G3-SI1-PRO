@@ -20,21 +20,4 @@ public class LevelData {
         this.correctlySortedByWasteType = correctlySortedByWasteType;
     }
 
-    /**
-     * Increment number of correctly sorted for given waste type.
-     * @param wasteType Waste type.
-     */
-    public void incrementCorrect(WasteType wasteType) {
-        CategoryData categoryData = correctlySortedByWasteType.get(wasteType.toString());
-        categoryData.setCorrect(categoryData.getCorrect() + 1);
-    }
-
-    /**
-     * Increment total waste count for given waste type.
-     * @param wasteType Waste type.
-     */
-    public void incrementWasteCount(WasteType wasteType) {
-        CategoryData categoryData = correctlySortedByWasteType.get(wasteType.toString());
-        categoryData.setTotal(categoryData.getTotal() + 1);
-    }
 }

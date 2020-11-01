@@ -38,6 +38,7 @@ public class Sink extends Item implements Usable {
 
         if (!(item instanceof Waste)) {
             System.out.println("You cannot wash this item.");
+            return false;
         }
 
         Waste waste = (Waste) item;
