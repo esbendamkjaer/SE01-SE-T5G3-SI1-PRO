@@ -46,8 +46,6 @@ public class Client {
             return;
         }
 
-        System.out.println(data);
-
         HttpRequest postRequest = HttpRequest.newBuilder()
                 .uri(URI.create(url + "/createScoreData"))
                 .timeout(Duration.ofSeconds(timeout))
@@ -57,7 +55,6 @@ public class Client {
 
         try {
             HttpResponse<String> response = httpClient.send(postRequest, HttpResponse.BodyHandlers.ofString());
-            System.out.println(response.body());
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

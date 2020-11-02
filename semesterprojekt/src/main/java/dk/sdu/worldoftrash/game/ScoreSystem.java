@@ -19,7 +19,7 @@ public class ScoreSystem {
     private LevelHandler levelHandler;
 
     public ScoreSystem() {
-        this.client = new Client(20, "http://localhost:8080" /*"https://worldoftrash.herokuapp.com"*/);
+        this.client = new Client(20, "https://worldoftrash.herokuapp.com");
 
         this.scoreData = new ScoreData(UUID.randomUUID());
         this.levelHandler = new LevelHandler();

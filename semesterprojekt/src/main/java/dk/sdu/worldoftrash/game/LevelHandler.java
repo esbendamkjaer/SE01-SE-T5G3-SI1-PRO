@@ -16,6 +16,11 @@ public class LevelHandler {
         wasteConditions = new HashMap<>();
     }
 
+    /**
+     * Add level to level handler and an unlocking condition.
+     * @param room Level ot add.
+     * @param wasteCondition Waste count condition to be met.
+     */
     public void addLevel(Room room, int wasteCondition) {
         if (wasteCondition <= 0) {
             currentLevel = room.getName();

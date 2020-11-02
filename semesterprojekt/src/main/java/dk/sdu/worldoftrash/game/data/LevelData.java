@@ -1,18 +1,17 @@
 package dk.sdu.worldoftrash.game.data;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class LevelData {
 
-    private int points;
-
-    private HashMap<String, CategoryData> correctlySortedByWasteType;
+    private Map<String, CategoryData> correctlySortedByWasteType;
 
     public LevelData() {
         correctlySortedByWasteType = new HashMap<>();
     }
 
-    public HashMap<String, CategoryData> getCorrectlySortedByWasteType() {
+    public Map<String, CategoryData> getCorrectlySortedByWasteType() {
         return correctlySortedByWasteType;
     }
 

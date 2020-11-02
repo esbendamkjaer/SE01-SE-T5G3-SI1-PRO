@@ -11,22 +11,16 @@ public class Parser
     public Parser() 
     {
         commands = new CommandWords();
-        reader = new Scanner(System.in);
     }
 
     /**
      * Reads a line from the command prompt and parses it to a Command object.
      * @return The command object corresponding to the player's input.
      */
-    public Command getCommand() 
+    public Command getCommand(String inputLine)
     {
-        String inputLine;
         String word1 = null;
         String word2 = null;
-
-        System.out.print("> "); 
-
-        inputLine = reader.nextLine();
 
         inputLine.trim();
 

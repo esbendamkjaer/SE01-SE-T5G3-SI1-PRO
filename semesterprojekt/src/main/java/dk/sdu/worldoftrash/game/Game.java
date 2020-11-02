@@ -6,6 +6,8 @@ import dk.sdu.worldoftrash.game.items.usables.Sink;
 import dk.sdu.worldoftrash.game.items.usables.Usable;
 import dk.sdu.worldoftrash.game.rooms.Room;
 
+import java.util.Scanner;
+
 public class Game {
     private Parser parser;
     private Room currentRoom;
@@ -14,15 +16,18 @@ public class Game {
 
     private Player player;
 
+    private Scanner reader;
+
     private Room start, sortingRoom, odense,
     /* gren 1 */supermarket, office, storageRoom, parkinglot,
     /* gren 2 */hospitalOutside, reception, operatingRoom, morgue, canteen,
     /* gren 3 */schoolOutside, teachersLounge, chemistryRoom, gymnasticsRoom, girlsLockerRoom;
 
     public Game() {
-        parser = new Parser();
-        player = new Player(this, "Player");
-        scoreSystem = new ScoreSystem();
+        this.parser = new Parser();
+        this.reader = new Scanner(System.in);
+        this.player = new Player(this, "Player");
+        this.scoreSystem = new ScoreSystem();
         createRooms();
     }
 
@@ -128,7 +133,9 @@ public class Game {
 
         boolean finished = false;
         while (!finished) {
-            Command command = parser.getCommand();
+            System.out.print("> ");
+
+            Command command = parser.getCommand(reader.nextLine());
             finished = processCommand(command);
         }
         System.out.println("Thank you for playing.  Good bye.");
@@ -180,6 +187,7 @@ public class Game {
             }
             case SAVE -> {
                 scoreSystem.uploadData();
+                System.out.println("Data saved on database.");
             }
             case UNKNOWN -> {
                 System.out.println("I don't know what you mean...");
