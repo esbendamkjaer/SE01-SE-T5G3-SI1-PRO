@@ -198,7 +198,7 @@ public class Game {
             Command command = parser.getCommand(reader.nextLine());
             finished = processCommand(command);
         }
-        System.out.println("Thank you for playing.  Good bye.");
+        System.out.println("Thank you for playing. Good bye.");
     }
 
     /**
