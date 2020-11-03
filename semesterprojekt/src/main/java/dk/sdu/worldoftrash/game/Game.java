@@ -75,8 +75,8 @@ public class Game {
         sortingRoom.addItem(bananas);
 
         teachersLounge.addItem(jam_jar);
-        teachersLounge.addItem(Nutella_glass);
-        teachersLounge.addItem(Coffee_grounds);
+        teachersLounge.addItem(nutella_glass);
+        teachersLounge.addItem(coffee_grounds);
 
         gymnasticsRoom.addItem(poster);
         gymnasticsRoom.addItem(spectacles_frame);
