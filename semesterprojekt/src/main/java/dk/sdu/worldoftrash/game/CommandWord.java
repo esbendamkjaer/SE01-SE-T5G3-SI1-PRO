@@ -9,6 +9,7 @@ public enum CommandWord
     DROP("drop"),
     INVENTORY("inventory"),
     USE("use"),
+    SEARCH("search"),
     SAVE("save"), // Temporary
     UNKNOWN("?");
     

@@ -6,6 +6,7 @@ import dk.sdu.worldoftrash.game.items.usables.Sink;
 import dk.sdu.worldoftrash.game.items.usables.Usable;
 import dk.sdu.worldoftrash.game.rooms.Room;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Game {
@@ -185,6 +186,9 @@ public class Game {
             case USE -> {
                 processUse(command);
             }
+            case SEARCH -> {
+                printWaste();
+            }
             case SAVE -> {
                 scoreSystem.uploadData();
                 System.out.println("Data saved on database.");
@@ -195,6 +199,22 @@ public class Game {
         }
         
         return wantToQuit;
+    }
+
+    private void printWaste() {
+        List<Waste> waste = currentRoom.getWaste();
+
+        if (waste.size() <= 0) {
+            System.out.println("You look around and realize, there's no waste in this room.");
+            return;
+        }
+
+        System.out.print("You look around and see the following waste in this room: ");
+
+        for (int i = 0; i < waste.size(); i++) {
+            System.out.print((i == 0 ? "" : ", ") + waste.get(i).getName());
+        }
+        System.out.println();
     }
 
     /**

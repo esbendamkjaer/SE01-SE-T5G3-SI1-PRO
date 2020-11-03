@@ -2,9 +2,11 @@ package dk.sdu.worldoftrash.game.rooms;
 
 import dk.sdu.worldoftrash.game.Game;
 import dk.sdu.worldoftrash.game.items.Item;
+import dk.sdu.worldoftrash.game.items.Waste;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 
@@ -72,6 +74,20 @@ public class Room
         }
 
         return null;
+    }
+
+    /**
+     * Returns all waste objects in the room.
+     * @return List of Waste objects.
+     */
+    public List<Waste> getWaste() {
+        List<Waste> waste = new ArrayList<>();
+        for (Item item : items) {
+            if (item instanceof Waste) {
+                waste.add((Waste) item);
+            }
+        }
+        return waste;
     }
 
     public Room getExit(String direction) 
