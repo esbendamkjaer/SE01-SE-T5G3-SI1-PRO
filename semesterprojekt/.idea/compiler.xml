@@ -12,7 +12,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="semesterprojekt" target="15" />
-      <module name="shared" target="15" />
       <module name="webserver" target="15" />
     </bytecodeTargetLevel>
   </component>

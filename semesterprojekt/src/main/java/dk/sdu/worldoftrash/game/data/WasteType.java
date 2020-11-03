@@ -2,7 +2,7 @@ package dk.sdu.worldoftrash.game.data;
 
 public enum WasteType {
 
-    BURNABLE("burnable"),
+    RESIDUAL("residual"),
     ORGANIC("organic"),
     HAZARDOUS("hazardous"),
     HARD_PLASTIC("hard_plastic"),

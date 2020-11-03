@@ -56,6 +56,7 @@ public class Game {
         Sink sink = new Sink(this, "Sink");
         sortingRoom.addItem(sink);
 
+        //Rooms
         odense = new Room(this, "city", "in the city of Odense. In the east is a supermarket, in the west is the sorting room, in the south is the hospital and in the north is the school.");
         supermarket = new Room(this, "supermarket", "in the supermarket");
         office = new Room(this, "office", "in the supermarket office");
@@ -72,7 +73,7 @@ public class Game {
         gymnasticsRoom = new Room(this, "gymnasticsRoom", "in the gymnastics room");
         girlsLockerRoom = new Room(this, "girlsLockerRoom", "in the girls locker room");
 
-
+        //Exit #0
         start.setExit("sorting-room", sortingRoom);
 
         sortingRoom.setExit("start", start);
@@ -266,7 +267,6 @@ public class Game {
                 }
             }
         }
-
         System.out.println("Not sure, what you mean...");
     }
 
