@@ -98,8 +98,11 @@ public class Game {
         Waste paint = new Waste(this, "paint", WasteType.HAZARDOUS, "paint is an hazardous material and should be handled accordingly and placed in hazardous", true);
 
         //NPCs
-        NPC cityNPC = new CityNPC(this,"Martin", "Hello Weary traveller");
-        start.addItem(cityNPC);
+        NPC homelessDan = new ParkingLotNPC(this, "Dan", "Hello weary traveller");
+        NPC mrZombie = new ZombieNPC(this, "Mr.Zombie", "Hello weary traveller");
+        NPC madChemist = new SchoolNPC(this, "Mad-Chemist", "Hello weary traveller");
+        NPC Martin = new CityNPC(this, "Martin", "Hello weary traveller");
+        start.addItem(Martin);
 
         // Trash containers
         WasteContainer organicContainer = new WasteContainer(this, "organic-container", WasteType.ORGANIC);
@@ -181,7 +184,7 @@ public class Game {
         odense.setExit("south", hospitalOutside);
         odense.setExit("north", schoolOutside);
 
-        // Gren #1
+        //level #1
         supermarket.setExit("Odense", odense);
         supermarket.setExit("office", office);
         supermarket.setExit("storage-room", storageRoom);
@@ -191,7 +194,7 @@ public class Game {
         storageRoom.setExit("supermarket", supermarket);
         parkinglot.setExit("supermarket", supermarket);
 
-        //Gren #2
+        //level #2
         hospitalOutside.setExit("Odense", odense);
         hospitalOutside.setExit("reception", reception);
 
@@ -204,7 +207,7 @@ public class Game {
         morgue.setExit("reception", reception);
         canteen.setExit("reception", reception);
 
-        //Gren #3
+        //level #3
         schoolOutside.setExit("Odense", odense);
         schoolOutside.setExit("teachers-lounge", teachersLounge);
         schoolOutside.setExit("chemistry-room", chemistryRoom);
