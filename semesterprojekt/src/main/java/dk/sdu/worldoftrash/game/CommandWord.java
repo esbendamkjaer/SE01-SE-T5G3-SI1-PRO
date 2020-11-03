@@ -13,6 +13,7 @@ public enum CommandWord
     SCORE("score"),
     SAVE("save"), // Temporary
     TALK("talk"),
+    GIVE("give"),
     UNKNOWN("?"),
     ;
     
