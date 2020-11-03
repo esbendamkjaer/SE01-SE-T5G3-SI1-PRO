@@ -6,13 +6,13 @@ import dk.sdu.worldoftrash.game.data.WasteType;
 public class Waste extends Pickupable {
     private WasteType wasteType;
     private int points;
-    private String description;
+    private String wrongSorting;
     private boolean clean;
 
-    public Waste(Game game, String name, WasteType wasteType, String description, boolean clean) {
+    public Waste(Game game, String name, WasteType wasteType, String wrongSorting, boolean clean) {
         super(game, name);
         this.wasteType = wasteType;
-        this.description = description;
+        this.wrongSorting = wrongSorting;
         this.clean = clean;
         this.points = 1;
     }
