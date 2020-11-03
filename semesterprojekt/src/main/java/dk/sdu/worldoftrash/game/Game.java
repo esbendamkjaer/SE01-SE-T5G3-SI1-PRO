@@ -37,7 +37,23 @@ public class Game {
      */
     private void createRooms() {
         // for at lave et intialisere rummet skal vi bruge *rumnavn = new Room();*
+        //Rooms
         start = new Room(this, "start", "at the start");
+        odense = new Room(this, "city", "in the city of Odense. In the east is a supermarket, in the west is the sorting room, in the south is the hospital and in the north is the school.");
+        supermarket = new Room(this, "supermarket", "in the supermarket");
+        office = new Room(this, "office", "in the supermarket office");
+        storageRoom = new Room(this, "storageRoom", "in the storage room");
+        parkinglot = new Room(this, "parkinglot", "at the parking lot");
+        hospitalOutside = new Room(this, "hospitalOutside", "outside the hospital");
+        reception = new Room(this, "reception", "in the hospital reception");
+        operatingRoom = new Room(this, "operatingRoom", "in the hauntingly clean operations room");
+        morgue = new Room(this, "morgue", "in the morgue");
+        canteen = new Room(this, "canteen", "in the canteen");
+        schoolOutside = new Room(this, "schoolOutside", "outside the school");
+        teachersLounge = new Room(this, "teachersLounge", "in the teachers lounge");
+        chemistryRoom = new Room(this, "chemistryRoom", "in the chemistry room");
+        gymnasticsRoom = new Room(this, "gymnasticsRoom", "in the gymnastics room");
+        girlsLockerRoom = new Room(this, "girlsLockerRoom", "in the girls locker room");
 
         // Waste objects #level 3
         Waste papers = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
@@ -93,23 +109,6 @@ public class Game {
         //Sink
         Sink sink = new Sink(this, "Sink");
         sortingRoom.addItem(sink);
-
-        //Rooms
-        odense = new Room(this, "city", "in the city of Odense. In the east is a supermarket, in the west is the sorting room, in the south is the hospital and in the north is the school.");
-        supermarket = new Room(this, "supermarket", "in the supermarket");
-        office = new Room(this, "office", "in the supermarket office");
-        storageRoom = new Room(this, "storageRoom", "in the storage room");
-        parkinglot = new Room(this, "parkinglot", "at the parking lot");
-        hospitalOutside = new Room(this, "hospitalOutside", "outside the hospital");
-        reception = new Room(this, "reception", "in the hospital reception");
-        operatingRoom = new Room(this, "operatingRoom", "in the hauntingly clean operations room");
-        morgue = new Room(this, "morgue", "in the morgue");
-        canteen = new Room(this, "canteen", "in the canteen");
-        schoolOutside = new Room(this, "schoolOutside", "outside the school");
-        teachersLounge = new Room(this, "teachersLounge", "in the teachers lounge");
-        chemistryRoom = new Room(this, "chemistryRoom", "in the chemistry room");
-        gymnasticsRoom = new Room(this, "gymnasticsRoom", "in the gymnastics room");
-        girlsLockerRoom = new Room(this, "girlsLockerRoom", "in the girls locker room");
 
         //Exit #0
         start.setExit("sorting-room", sortingRoom);
