@@ -13,7 +13,7 @@ public class LevelHandler {
     private Map<Room, Integer> wasteConditions;
 
     public LevelHandler() {
-        wasteConditions = new HashMap<>();
+        this.wasteConditions = new HashMap<>();
     }
 
     /**
@@ -30,16 +30,24 @@ public class LevelHandler {
         }
     }
 
+    /**
+     * Unlocks levels if the new waste count satisfies any level's waste condition.
+     * @param wasteCount Waste count to test against conditions
+     */
     public void updateCondition(int wasteCount) {
         Iterator<Entry<Room, Integer>> iterator = wasteConditions.entrySet().iterator();
 
         while (iterator.hasNext()) {
             Entry<Room, Integer> entry = iterator.next();
+            Room level = entry.getKey();
 
-            if (entry.getKey().isLocked() && wasteCount >= entry.getValue()) {
-                entry.getKey().setLocked(false);
-                System.out.println("You have now unlocked " + entry.getKey().getName());
+            if (level.isLocked() && wasteCount >= entry.getValue()) {
+                level.setLocked(false);
+                System.out.println("You have now unlocked " + level.getName());
+
                 setCurrentLevel(entry.getKey().getName());
+
+                level.getGame().getScoreSystem().uploadData();
 
                 iterator.remove();
             }
