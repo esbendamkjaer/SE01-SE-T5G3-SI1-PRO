@@ -308,12 +308,45 @@ public class Game {
             case TALK -> {
                 talkTo(command);
             }
+            case GIVE -> {
+                processGive(command);
+            }
             case UNKNOWN -> {
                 System.out.println("I don't know what you mean...");
             }
         }
 
         return wantToQuit;
+    }
+
+    /**
+     * Process give command.
+     * @param command Give command.
+     */
+    private void processGive(Command command) {
+        String[] args = command.getArgs();
+
+        if (args != null && args.length == 3 && args[1].equals("to")) {
+            Item item = player.getInventory().getItemByName(args[0]);
+
+            if (item == null) {
+                System.out.printf("There no such item '%s' in inventory.\n", args[0]);
+                return;
+            }
+
+            if (!(currentRoom.getItemByName(args[2]) instanceof NPC)) {
+                System.out.printf("There no npc by name '%s' in this room.\n", args[2]);
+                return;
+            }
+
+            NPC npc = (NPC) currentRoom.getItemByName(args[1]);
+
+            if (npc.giveItem(item)) {
+                player.getInventory().removeItem(item);
+            }
+        } else {
+            System.out.println("Give what to who?");
+        }
     }
 
     private void printWaste() {
