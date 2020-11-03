@@ -84,6 +84,12 @@ public class Game {
         WasteContainer hazardouscontainer = new WasteContainer(this, "hazardous-container", WasteType.HAZARDOUS);
         sortingRoom.addItem(organicContainer);
         sortingRoom.addItem(glassContainer);
+        sortingRoom.addItem(metalContainer);
+        sortingRoom.addItem(papercontainer);
+        sortingRoom.addItem(residualcontainer);
+        sortingRoom.addItem(cardboardcontainer);
+        sortingRoom.addItem(hazardouscontainer);
+        sortingRoom.addItem(hardPlasticcontainer);
 
         //Assigning trash to the rooms
         sortingRoom.addItem(papers);
