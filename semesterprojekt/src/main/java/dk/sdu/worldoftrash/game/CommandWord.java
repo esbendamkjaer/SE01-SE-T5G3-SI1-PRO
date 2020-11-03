@@ -11,7 +11,9 @@ public enum CommandWord
     USE("use"),
     SEARCH("search"),
     SAVE("save"), // Temporary
-    UNKNOWN("?");
+    TALK("talk"),
+    UNKNOWN("?"),
+    ;
     
     private String commandString;
     

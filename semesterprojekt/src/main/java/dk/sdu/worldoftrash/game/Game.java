@@ -237,6 +237,9 @@ public class Game {
                 scoreSystem.uploadData();
                 System.out.println("Data saved on database.");
             }
+            case TALK -> {
+                talkTo(command);
+            }
             case UNKNOWN -> {
                 System.out.println("I don't know what you mean...");
             }
@@ -436,6 +439,14 @@ public class Game {
             System.out.println(currentRoom.getLongDescription());
         }
     }
+    public void talkTo(Command command)
+    {
+        if (!command.hasSecondWord())
+        {
+            System.out.println("Talk to who?");
+        } 
+    }
+
 
     /**
      * Meant to be used for quit commands.
