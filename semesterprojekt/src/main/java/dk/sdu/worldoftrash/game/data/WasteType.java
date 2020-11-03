@@ -7,6 +7,7 @@ public enum WasteType {
     HAZARDOUS("hazardous"),
     HARD_PLASTIC("hard_plastic"),
     CARDBOARD("cardboard"),
+    PAPER("paper"),
     GLASS("glass"),
     METAL("metal"),
     ;
