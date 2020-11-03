@@ -91,7 +91,7 @@ public class Game {
         sortingRoom.addItem(hazardouscontainer);
         sortingRoom.addItem(hardPlasticcontainer);
 
-        //Assigning trash to the rooms
+        //Assigning trash for gren #3
         sortingRoom.addItem(papers);
         sortingRoom.addItem(lighter);
         sortingRoom.addItem(bananas);
