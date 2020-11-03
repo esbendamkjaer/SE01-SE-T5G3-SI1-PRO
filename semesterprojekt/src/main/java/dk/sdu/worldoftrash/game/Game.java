@@ -60,7 +60,7 @@ public class Game {
         Waste lighter = new Waste(this, "lighter", WasteType.HAZARDOUS, "lighters contains hazardous materials and therefore goes in hazardous", true);
         Waste bananas = new Waste(this, "bananas", WasteType.ORGANIC, "this is an organic material and can be used as an compost and therefore goes in organic", true);
         Waste jam_jar = new Waste(this, "jam-jar", WasteType.GLASS, "a clean jar of jam can be recycled for reuse", false);
-        Waste nutella_glass = new Waste(this, "Nutella-glass", WasteType.GLASS, "a clean glass of nutella can be recycled for reuse", false);
+        Waste nutella_glass = new Waste(this, "nutella-glass", WasteType.GLASS, "a clean glass of nutella can be recycled for reuse", false);
         Waste coffee_grounds = new Waste(this, "coffee grounds", WasteType.ORGANIC, "coffee grounds are an organic substance and be used for compost", true);
         Waste poster = new Waste(this, "poster", WasteType.CARDBOARD, "a poster is of cardboard material and goes in cardboard", true);
         Waste spectacles_frame = new Waste(this, "spectacles-frame", WasteType.METAL, "spectacles frame is made of steel and therefore goes in metal", true);
@@ -91,7 +91,7 @@ public class Game {
         sortingRoom.addItem(hazardouscontainer);
         sortingRoom.addItem(hardPlasticcontainer);
 
-        //Assigning trash for gren #3
+        //Assigning trash for level #3
         sortingRoom.addItem(papers);
         sortingRoom.addItem(lighter);
         sortingRoom.addItem(bananas);
