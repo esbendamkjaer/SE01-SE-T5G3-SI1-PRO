@@ -45,13 +45,16 @@ public class Game {
         Waste bananas = new Waste(this, "bananas", WasteType.ORGANIC, "this is an organic material and can be used as an compost and therefore goes in organic", true);
         Waste jam_jar = new Waste(this, "jam-jar", WasteType.GLASS, "a clean jar of jam can be recycled for reuse", false);
         Waste Nutella_glass = new Waste(this, "Nutella-glass", WasteType.GLASS, "a clean glass of nutella can be recycled for reuse", false);
-        Waste Coffe_grounds = new Waste(this, "coffe grounds", WasteType.ORGANIC, "coffe grounds are an organic substance and be used for compost", true);
+        Waste Coffee_grounds = new Waste(this, "coffee grounds", WasteType.ORGANIC, "coffee grounds are an organic substance and be used for compost", true);
         Waste poster = new Waste(this, "poster", WasteType.CARDBOARD, "a poster is of cardboard material and goes in cardboard", true);
         Waste spectacles_frame = new Waste(this, "spectacles-frame", WasteType.METAL, "spectacles frame is made of steel and therefore goes in metal", true);
         Waste post_it = new Waste(this, "post-it", WasteType.RESIDUAL, "Due the adhesive substance in the back of post it notes they are not to be recycled with normal paper and goes in residual", true);
         Waste milk_carton = new Waste(this, "milk-carton", WasteType.RESIDUAL, "Due to a milk carton being soaked in a organic substance and goes in residual", true);
-        Waste perfume_bottle = new Waste(this,"perfume-bottle", WasteType.GLASS, "if you remove the perfume substans in the bottle, then the bottle can be recycled for reuse and therefore goes in glass", false);
-        Waste waster_bottle = new Waste(this, "waster-bottle", WasteType.HARD_PLASTIC, "typcically water bottle are made of hard plastic and can be recycled for reuse and therefore goes in hard plastic", true);
+        Waste perfume_bottle = new Waste(this,"perfume-bottle", WasteType.GLASS, "if you remove the perfume substances in the bottle, then the bottle can be recycled for reuse and therefore goes in glass", false);
+        Waste water_bottle = new Waste(this, "waster-bottle", WasteType.HARD_PLASTIC, "typcically water bottle are made of hard plastic and can be recycled for reuse and therefore goes in hard plastic", true);
+        Waste safety_goggles = new Waste(this, "safety-goggles", WasteType.HARD_PLASTIC, "typically safety goggles are made of hard plastic and can be recycled for reuse and therefore goes in hard plastic", true);
+        Waste paper_clip = new Waste(this, "paper-clips", WasteType.RESIDUAL, "unless you got a large quantity of paper clips, recycling paper clips have a larger carbon footprint rather than just sorting them to residual and therefore goes in residual", true);
+        Waste paint = new Waste(this, "paint", WasteType.HAZARDOUS, "paint is an hazardous material and should be handled accordingly and placed in hazardous", true);
         sortingRoom = new Room(this, "sortingRoom", "in sorting room");
 
         // Temporary test containers
