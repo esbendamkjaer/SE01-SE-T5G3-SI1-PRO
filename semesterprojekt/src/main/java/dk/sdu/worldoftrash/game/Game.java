@@ -5,6 +5,7 @@ import dk.sdu.worldoftrash.game.items.*;
 import dk.sdu.worldoftrash.game.items.usables.Sink;
 import dk.sdu.worldoftrash.game.items.usables.Usable;
 import dk.sdu.worldoftrash.game.rooms.Room;
+import dk.sdu.worldoftrash.game.items.npcs.*;
 
 import java.util.List;
 import java.util.Scanner;
@@ -33,10 +34,9 @@ public class Game {
     }
 
     /**
-     * Instantiates the rooms in the game.
+     * For at lave et intialisere rummet skal vi bruge *rumnavn = new Room();*
      */
     private void createRooms() {
-        // for at lave et intialisere rummet skal vi bruge *rumnavn = new Room();*
         //Rooms
         start = new Room(this, "start", "at the start");
         odense = new Room(this, "city", "in the city of Odense. In the east is a supermarket, in the west is the sorting room, in the south is the hospital and in the north is the school.");
@@ -55,8 +55,30 @@ public class Game {
         gymnasticsRoom = new Room(this, "gymnasticsRoom", "in the gymnastics room");
         girlsLockerRoom = new Room(this, "girlsLockerRoom", "in the girls locker room");
 
-        // Waste objects #level 3
-        Waste papers = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
+        //**************************************** Waste objects - Start ***********************************************
+
+        // Waste objects #Level 1 - Supermarkedet
+
+
+        // Waste objects #Level 2 - Hospital
+        Waste papers1 = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
+        Waste old_medecin_glass_bottle = new Waste (this, "medecinal-glass-bottle", WasteType.GLASS, "a glass bottle, this go into glass", true);
+        Waste old_syringe = new Waste (this, "Old-plastic-syringe", WasteType.HARD_PLASTIC, "This is an old syringe only containing plastic, this go into plastic", true);
+        Waste old_scalpel = new Waste (this, "Used-Scalpel", WasteType.METAL, "This is a used scalpel, which is made of metal. This go into metal", true);
+        Waste paperclip = new Waste (this, "paperclips", WasteType.RESIDUAL, "This is a paperclip, which has been distroyed, this go into residual.", true);
+        Waste postard_notes = new Waste (this, "Postard-notes", WasteType.RESIDUAL, "this is postard notes. There is still glue on them. They go into residual.", true);
+        Waste used_facemask = new Waste (this, "Used-facemask", WasteType.RESIDUAL, "this is a facemask. It go into residual", true);
+        Waste empty_bloodbag = new Waste (this, "empty-bloodbag", WasteType.RESIDUAL, "This is a facemask. It go into residual", true);
+        Waste foot = new Waste (this, "cut-of-foot", WasteType.ORGANIC, "This is a foot from a person. It go into organic", true);
+        Waste dead_Rat = new Waste (this, "Dead-rat", WasteType.ORGANIC, "This is a dead rat.This go into organic", true);
+        Waste apple = new Waste (this, "Rotten-appel",WasteType.ORGANIC, "This is a rotten apple. This go into organic", true);
+        Waste needles = new Waste (this, "dirty-needles", WasteType.METAL, "This is needles that has been used. They need to be cleaned and thrown into metal", false);
+        Waste chocklatemilkbottle = new Waste (this, "chocklatemilkbottle", WasteType.GLASS, "This is a glassbottle which contains old chocklate milk. Wash before throwing into glass", false);
+        Waste energyDrinkCan = new Waste (this, "Energydrink-can", WasteType.METAL, "This is an empty energydrink. It go into metal", true);
+        Waste moldenCake = new Waste (this, "Molden-cake", WasteType.ORGANIC, "This is molden cake. It go into Organic", true);
+
+        // Waste objects #Level 3 - Store
+        Waste papers2 = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
         Waste lighter = new Waste(this, "lighter", WasteType.HAZARDOUS, "lighters contains hazardous materials and therefore goes in hazardous", true);
         Waste bananas = new Waste(this, "bananas", WasteType.ORGANIC, "this is an organic material and can be used as an compost and therefore goes in organic", true);
         Waste jam_jar = new Waste(this, "jam-jar", WasteType.GLASS, "a clean jar of jam can be recycled for reuse", false);
@@ -66,21 +88,25 @@ public class Game {
         Waste spectacles_frame = new Waste(this, "spectacles-frame", WasteType.METAL, "spectacles frame is made of steel and therefore goes in metal", true);
         Waste post_it = new Waste(this, "post-it", WasteType.RESIDUAL, "Due the adhesive substance in the back of post it notes they are not to be recycled with normal paper and goes in residual", true);
         Waste milk_carton = new Waste(this, "milk-carton", WasteType.RESIDUAL, "Due to a milk carton being soaked in a organic substance and goes in residual", true);
-        Waste perfume_bottle = new Waste(this,"perfume-bottle", WasteType.GLASS, "if you remove the perfume substances in the bottle, then the bottle can be recycled for reuse and therefore goes in glass", false);
+        Waste perfume_bottle = new Waste(this, "perfume-bottle", WasteType.GLASS, "if you remove the perfume substances in the bottle, then the bottle can be recycled for reuse and therefore goes in glass", false);
         Waste water_bottle = new Waste(this, "plastic-water-bottle", WasteType.HARD_PLASTIC, "typcically water bottle are made of hard plastic and can be recycled for reuse and therefore goes in hard plastic", true);
         Waste safety_goggles = new Waste(this, "safety-goggles", WasteType.HARD_PLASTIC, "typically safety goggles are made of hard plastic and can be recycled for reuse and therefore goes in hard plastic", true);
         Waste paper_clip = new Waste(this, "paper-clips", WasteType.RESIDUAL, "unless you got a large quantity of paper clips, recycling paper clips have a larger carbon footprint rather than just sorting them to residual and therefore goes in residual", true);
         Waste paint = new Waste(this, "paint", WasteType.HAZARDOUS, "paint is an hazardous material and should be handled accordingly and placed in hazardous", true);
         sortingRoom = new Room(this, "sortingRoom", "in sorting room");
 
+        //NPCs
+        NPC cityNPC = new CityNPC(this,"Martin", "Hello Weary traveller");
+        start.addItem(cityNPC);
+
         // Trash containers
         WasteContainer organicContainer = new WasteContainer(this, "organic-container", WasteType.ORGANIC);
         WasteContainer glassContainer = new WasteContainer(this, "glass-container", WasteType.GLASS);
-        WasteContainer metalContainer = new WasteContainer(this,"metal-container", WasteType.METAL);
+        WasteContainer metalContainer = new WasteContainer(this, "metal-container", WasteType.METAL);
         WasteContainer papercontainer = new WasteContainer(this, "paper-container", WasteType.PAPER);
         WasteContainer residualcontainer = new WasteContainer(this, "residual-container", WasteType.RESIDUAL);
         WasteContainer cardboardcontainer = new WasteContainer(this, "cardboard-container", WasteType.CARDBOARD);
-        WasteContainer hardPlasticcontainer = new WasteContainer(this,"plastic-container", WasteType.HARD_PLASTIC);
+        WasteContainer hardPlasticcontainer = new WasteContainer(this, "plastic-container", WasteType.HARD_PLASTIC);
         WasteContainer hazardouscontainer = new WasteContainer(this, "hazardous-container", WasteType.HAZARDOUS);
         sortingRoom.addItem(organicContainer);
         sortingRoom.addItem(glassContainer);
@@ -91,10 +117,16 @@ public class Game {
         sortingRoom.addItem(hazardouscontainer);
         sortingRoom.addItem(hardPlasticcontainer);
 
-        //Assigning trash for level #3
-        sortingRoom.addItem(papers);
-        sortingRoom.addItem(lighter);
-        sortingRoom.addItem(bananas);
+        //Assigning trash for level #1 - Supermarkedet
+
+
+        //Assigning trash for level #2 - Hospitalet
+
+
+        //Assigning trash for level #3 - Skole
+        schoolOutside.addItem(papers2);
+        schoolOutside.addItem(lighter);
+        schoolOutside.addItem(bananas);
 
         teachersLounge.addItem(jam_jar);
         teachersLounge.addItem(nutella_glass);
@@ -112,11 +144,13 @@ public class Game {
         chemistryRoom.addItem(paper_clip);
         chemistryRoom.addItem(paint);
 
+        //**************************************** Waste objects - end ************************************************
+
         //Sink
         Sink sink = new Sink(this, "Sink");
         sortingRoom.addItem(sink);
 
-        //Exit #0
+        //Exits #0
         start.setExit("sorting-room", sortingRoom);
 
         sortingRoom.setExit("start", start);
@@ -183,7 +217,7 @@ public class Game {
             Command command = parser.getCommand(reader.nextLine());
             finished = processCommand(command);
         }
-        System.out.println("Thank you for playing.  Good bye.");
+        System.out.println("Thank you for playing. Good bye.");
     }
 
     /**
@@ -207,6 +241,7 @@ public class Game {
 
     /**
      * Executes the logic associated with a given command.
+     *
      * @param command Command to execute.
      * @return A boolean indicating whether the player wants to quit the game.
      */
@@ -247,11 +282,14 @@ public class Game {
                 scoreSystem.uploadData();
                 System.out.println("Data saved on database.");
             }
+            case TALK -> {
+                talkTo(command);
+            }
             case UNKNOWN -> {
                 System.out.println("I don't know what you mean...");
             }
         }
-        
+
         return wantToQuit;
     }
 
@@ -273,6 +311,7 @@ public class Game {
 
     /**
      * Processes a use command.
+     *
      * @param command A drop command.
      */
     private void processUse(Command command) {
@@ -301,6 +340,10 @@ public class Game {
                 usable.use();
             } else if (args.length >= 2 && args[1].equalsIgnoreCase("on")) {
 
+                return;
+            }
+            if (args.length >= 2 && args[1].equalsIgnoreCase("on")) {
+
                 if (args.length == 2) {
                     System.out.println("Use item '" + usableItem.getName() + "' on what?");
                     return;
@@ -323,6 +366,7 @@ public class Game {
 
     /**
      * Processes a drop command.
+     *
      * @param command A drop command.
      */
     private void processDrop(Command command) {
@@ -351,7 +395,7 @@ public class Game {
             } else {
                 Item container = currentRoom.getItemByName(args[2]);
 
-                if(container == null) {
+                if (container == null) {
                     System.out.println("There's no such waste container in this room.");
                     return;
                 }
@@ -383,6 +427,7 @@ public class Game {
 
     /**
      * Processes a pickup command.
+     *
      * @param command A pickup command.
      */
     private void processPickup(Command command) {
@@ -421,6 +466,7 @@ public class Game {
 
     /**
      * Makes the player go to the room specified by the given command.
+     *
      * @param command Command that specifies where to go.
      */
     private void goRoom(Command command) {
@@ -445,22 +491,43 @@ public class Game {
         }
     }
 
-    /**
-     * Meant to be used for quit commands.
-     * Examines if a command has a second word in which case it is assumed the player didn't mean to quit the game.
-     * @param command Quit command.
-     * @return Whether or not the player meant to quit the game.
-     */
-    private boolean quit(Command command) {
-        if (command.hasSecondWord()) {
-            System.out.println("Quit what?");
-            return false;
-        } else {
-            return true;
+    public void talkTo(Command command) {
+        if (!command.hasSecondWord()) {
+            System.out.println("Talk to who?");
+        } else if (command.hasSecondWord()) {
+            Item item = currentRoom.getItemByName(command.getSecondWord());
+            if (item == null) {
+                System.out.println("That person doesn't exist");
+                return;
+            } else {
+                if (item instanceof NPC) {
+                    NPC npc = (NPC) item;
+                    npc.talk();
+                } else {
+                    System.out.println("you can't talk to an item");
+                }
+                }
+            }
+        }
+
+
+        /**
+         * Meant to be used for quit commands.
+         * Examines if a command has a second word in which case it is assumed the player didn't mean to quit the game.
+         *
+         * @param command Quit command.
+         * @return Whether or not the player meant to quit the game.
+         */
+        private boolean quit (Command command){
+            if (command.hasSecondWord()) {
+                System.out.println("Quit what?");
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        public ScoreSystem getScoreSystem () {
+            return scoreSystem;
         }
     }
-
-    public ScoreSystem getScoreSystem() {
-        return scoreSystem;
-    }
-}

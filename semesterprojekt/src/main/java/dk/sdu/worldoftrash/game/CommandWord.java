@@ -12,7 +12,9 @@ public enum CommandWord
     SEARCH("search"),
     SCORE("score"),
     SAVE("save"), // Temporary
-    UNKNOWN("?");
+    TALK("talk"),
+    UNKNOWN("?"),
+    ;
     
     private String commandString;
     
