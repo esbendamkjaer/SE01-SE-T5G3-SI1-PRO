@@ -57,7 +57,7 @@ public class Game {
         Waste paint = new Waste(this, "paint", WasteType.HAZARDOUS, "paint is an hazardous material and should be handled accordingly and placed in hazardous", true);
         sortingRoom = new Room(this, "sortingRoom", "in sorting room");
 
-        // Temporary test containers
+        // Trash containers
         WasteContainer organicContainer = new WasteContainer(this, "organic-container", WasteType.ORGANIC);
         WasteContainer glassContainer = new WasteContainer(this, "glass-container", WasteType.GLASS);
         WasteContainer metalContainer = new WasteContainer(this,"metal-container", WasteType.METAL);
@@ -68,6 +68,28 @@ public class Game {
         sortingRoom.addItem(organicContainer);
         sortingRoom.addItem(glassContainer);
 
+        //Assigning trash to the rooms
+        sortingRoom.addItem(papers);
+        sortingRoom.addItem(lighter);
+        sortingRoom.addItem(bananas);
+
+        teachersLounge.addItem(jam_jar);
+        teachersLounge.addItem(Nutella_glass);
+        teachersLounge.addItem(Coffee_grounds);
+
+        gymnasticsRoom.addItem(poster);
+        gymnasticsRoom.addItem(spectacles_frame);
+        gymnasticsRoom.addItem(post_it);
+
+        girlsLockerRoom.addItem(milk_carton);
+        girlsLockerRoom.addItem(perfume_bottle);
+        girlsLockerRoom.addItem(water_bottle);
+
+        chemistryRoom.addItem(safety_goggles);
+        chemistryRoom.addItem(paper_clip);
+        chemistryRoom.addItem(paint);
+
+        //Sink
         Sink sink = new Sink(this, "Sink");
         sortingRoom.addItem(sink);
 
