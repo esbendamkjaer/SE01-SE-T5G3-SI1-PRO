@@ -199,6 +199,13 @@ public class Game {
     }
 
     /**
+     * Prints out player's score
+     */
+    public void printScore() {
+        System.out.printf("Your score: %d points.\n", scoreSystem.getScore());
+    }
+
+    /**
      * Executes the logic associated with a given command.
      * @param command Command to execute.
      * @return A boolean indicating whether the player wants to quit the game.
@@ -232,6 +239,9 @@ public class Game {
             }
             case SEARCH -> {
                 printWaste();
+            }
+            case SCORE -> {
+                printScore();
             }
             case SAVE -> {
                 scoreSystem.uploadData();
@@ -289,9 +299,7 @@ public class Game {
 
             if (args.length == 1) {
                 usable.use();
-
-                return;
-            } if (args.length >= 2 && args[1].equalsIgnoreCase("on")) {
+            } else if (args.length >= 2 && args[1].equalsIgnoreCase("on")) {
 
                 if (args.length == 2) {
                     System.out.println("Use item '" + usableItem.getName() + "' on what?");

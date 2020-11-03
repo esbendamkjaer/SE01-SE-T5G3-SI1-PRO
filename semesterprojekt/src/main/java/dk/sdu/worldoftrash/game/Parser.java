@@ -22,6 +22,7 @@ public class Parser
         String word1 = null;
         String word2 = null;
 
+        // Fjern dobbelte mellemrum
         inputLine.trim();
 
         String[] command = inputLine.split(" ");

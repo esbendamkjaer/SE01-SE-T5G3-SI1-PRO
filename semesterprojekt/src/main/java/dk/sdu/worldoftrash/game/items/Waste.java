@@ -32,4 +32,8 @@ public class Waste extends Pickupable {
     public void setClean(boolean clean) {
         this.clean = clean;
     }
+
+    public String getWrongSorting() {
+        return wrongSorting;
+    }
 }

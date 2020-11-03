@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class ScoreSystem {
 
-    private int points;
+    private int score;
     private int wasteCount;
 
     private Client client;
@@ -24,11 +24,11 @@ public class ScoreSystem {
         this.scoreData = new ScoreData(UUID.randomUUID());
         this.levelHandler = new LevelHandler();
 
-        this.points = 0;
+        this.score = 0;
     }
 
     public void addPoints(int points) {
-        setPoints(getPoints() + points);
+        setScore(getScore() + points);
     }
 
     public void givePoints(Waste waste) {
@@ -43,12 +43,12 @@ public class ScoreSystem {
         client.sendScoreData(scoreData);
     }
 
-    public int getPoints() {
-        return points;
+    public int getScore() {
+        return score;
     }
 
-    public void setPoints(int points) {
-        this.points = points;
+    public void setScore(int score) {
+        this.score = score;
     }
 
     public void incrementWasteCount(WasteType wasteType) {

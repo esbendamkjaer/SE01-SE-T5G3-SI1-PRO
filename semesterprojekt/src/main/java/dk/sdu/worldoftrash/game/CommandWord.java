@@ -10,6 +10,7 @@ public enum CommandWord
     INVENTORY("inventory"),
     USE("use"),
     SEARCH("search"),
+    SCORE("score"),
     SAVE("save"), // Temporary
     UNKNOWN("?");
     
