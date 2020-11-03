@@ -39,6 +39,7 @@ public class Game {
     private void createRooms() {
         //Rooms
         start = new Room(this, "start", "at the start");
+        sortingRoom = new Room(this, "sortingRoom", "in sorting room");
         odense = new Room(this, "city", "in the city of Odense. In the east is a supermarket, in the west is the sorting room, in the south is the hospital and in the north is the school.");
         supermarket = new Room(this, "supermarket", "in the supermarket");
         office = new Room(this, "office", "in the supermarket office");
@@ -62,23 +63,25 @@ public class Game {
 
         // Waste objects #Level 2 - Hospital
         Waste papers1 = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
-        Waste old_medecin_glass_bottle = new Waste (this, "medecinal-glass-bottle", WasteType.GLASS, "a glass bottle, this go into glass", true);
-        Waste old_syringe = new Waste (this, "Old-plastic-syringe", WasteType.HARD_PLASTIC, "This is an old syringe only containing plastic, this go into plastic", true);
-        Waste old_scalpel = new Waste (this, "Used-Scalpel", WasteType.METAL, "This is a used scalpel, which is made of metal. This go into metal", true);
-        Waste paperclip = new Waste (this, "paperclips", WasteType.RESIDUAL, "This is a paperclip, which has been distroyed, this go into residual.", true);
-        Waste postard_notes = new Waste (this, "Postard-notes", WasteType.RESIDUAL, "this is postard notes. There is still glue on them. They go into residual.", true);
-        Waste used_facemask = new Waste (this, "Used-facemask", WasteType.RESIDUAL, "this is a facemask. It go into residual", true);
-        Waste empty_bloodbag = new Waste (this, "empty-bloodbag", WasteType.RESIDUAL, "This is a facemask. It go into residual", true);
-        Waste foot = new Waste (this, "cut-of-foot", WasteType.ORGANIC, "This is a foot from a person. It go into organic", true);
-        Waste dead_Rat = new Waste (this, "Dead-rat", WasteType.ORGANIC, "This is a dead rat.This go into organic", true);
-        Waste apple = new Waste (this, "Rotten-appel",WasteType.ORGANIC, "This is a rotten apple. This go into organic", true);
-        Waste needles = new Waste (this, "dirty-needles", WasteType.METAL, "This is needles that has been used. They need to be cleaned and thrown into metal", false);
-        Waste chocklatemilkbottle = new Waste (this, "chocklatemilkbottle", WasteType.GLASS, "This is a glassbottle which contains old chocklate milk. Wash before throwing into glass", false);
-        Waste energyDrinkCan = new Waste (this, "Energydrink-can", WasteType.METAL, "This is an empty energydrink. It go into metal", true);
-        Waste moldenCake = new Waste (this, "Molden-cake", WasteType.ORGANIC, "This is molden cake. It go into Organic", true);
+        Waste medicineBottle = new Waste (this, "glass-medicine-bottle", WasteType.GLASS, "clean glass bottle can be recycled and reused", false);
+        Waste syringe = new Waste (this, "syringe", WasteType.HAZARDOUS, "Most biochemical equipment are hazardous, so are syringes, never reuse a syringe!", true);
+        Waste scalpel = new Waste (this, "scalpel", WasteType.METAL, "This is a scalpel, which is made of metal. This go into metal", true);
+        Waste paperclip = new Waste (this, "paperclips", WasteType.RESIDUAL, "paper clips in themselves are not worth recycling and therefore goes into residual", true);
+        Waste facemask = new Waste (this, "facemask", WasteType.RESIDUAL, "this is a facemask. It go into residual", true);
+        Waste bloodbag = new Waste (this, "bloodbag", WasteType.RESIDUAL, "blood bags are biohazardous material and goes in hazardous", true);
+        Waste apple = new Waste (this, "apple",WasteType.ORGANIC, "even old apples can be used organics, even ones that survied the apocalypse", true);
+        Waste needle = new Waste (this, "needle", WasteType.HAZARDOUS, "Most biochemical equipment are hazardous, so are needles and therefore goes in hazardous", true);
+        Waste chocolateMilkBottle = new Waste (this, "Chocolatemilk-bottle", WasteType.GLASS, "This is a glass bottle which contains old chocklate milk. Wash before throwing into glass", false);
+        Waste can = new Waste (this, "can", WasteType.METAL, "This is an empty can. It go into metal", true);
+        Waste cake = new Waste (this, "cake", WasteType.ORGANIC, "This is an molden cake. It goes into Organic", true);
+        Waste tray = new Waste(this,"tin-tray", WasteType.METAL, "This is an dirty tin tray. It goes into metal", false);
+        Waste ballPen = new Waste(this, "ball pen", WasteType.RESIDUAL, "A ball pen is compromised of multiple components hard to recycle", true);
+        Waste toothBrush = new Waste(this, "tooth-brush", WasteType.RESIDUAL, "a tooth brush is not recycled due to repeated contact with a persons mouth", true);
 
-        // Waste objects #Level 3 - Store
-        Waste papers2 = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
+
+
+        // Waste objects #Level 3 - School
+        Waste papers = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
         Waste lighter = new Waste(this, "lighter", WasteType.HAZARDOUS, "lighters contains hazardous materials and therefore goes in hazardous", true);
         Waste bananas = new Waste(this, "bananas", WasteType.ORGANIC, "this is an organic material and can be used as an compost and therefore goes in organic", true);
         Waste jam_jar = new Waste(this, "jam-jar", WasteType.GLASS, "a clean jar of jam can be recycled for reuse", false);
@@ -93,7 +96,6 @@ public class Game {
         Waste safety_goggles = new Waste(this, "safety-goggles", WasteType.HARD_PLASTIC, "typically safety goggles are made of hard plastic and can be recycled for reuse and therefore goes in hard plastic", true);
         Waste paper_clip = new Waste(this, "paper-clips", WasteType.RESIDUAL, "unless you got a large quantity of paper clips, recycling paper clips have a larger carbon footprint rather than just sorting them to residual and therefore goes in residual", true);
         Waste paint = new Waste(this, "paint", WasteType.HAZARDOUS, "paint is an hazardous material and should be handled accordingly and placed in hazardous", true);
-        sortingRoom = new Room(this, "sortingRoom", "in sorting room");
 
         //NPCs
         NPC cityNPC = new CityNPC(this,"Martin", "Hello Weary traveller");
@@ -124,7 +126,7 @@ public class Game {
 
 
         //Assigning trash for level #3 - Skole
-        schoolOutside.addItem(papers2);
+        schoolOutside.addItem(papers);
         schoolOutside.addItem(lighter);
         schoolOutside.addItem(bananas);
 
