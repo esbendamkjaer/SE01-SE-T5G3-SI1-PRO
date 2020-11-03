@@ -44,8 +44,8 @@ public class Game {
         Waste lighter = new Waste(this, "lighter", WasteType.HAZARDOUS, "lighters contains hazardous materials and therefore goes in hazardous", true);
         Waste bananas = new Waste(this, "bananas", WasteType.ORGANIC, "this is an organic material and can be used as an compost and therefore goes in organic", true);
         Waste jam_jar = new Waste(this, "jam-jar", WasteType.GLASS, "a clean jar of jam can be recycled for reuse", false);
-        Waste Nutella_glass = new Waste(this, "Nutella-glass", WasteType.GLASS, "a clean glass of nutella can be recycled for reuse", false);
-        Waste Coffee_grounds = new Waste(this, "coffee grounds", WasteType.ORGANIC, "coffee grounds are an organic substance and be used for compost", true);
+        Waste nutella_glass = new Waste(this, "Nutella-glass", WasteType.GLASS, "a clean glass of nutella can be recycled for reuse", false);
+        Waste coffee_grounds = new Waste(this, "coffee grounds", WasteType.ORGANIC, "coffee grounds are an organic substance and be used for compost", true);
         Waste poster = new Waste(this, "poster", WasteType.CARDBOARD, "a poster is of cardboard material and goes in cardboard", true);
         Waste spectacles_frame = new Waste(this, "spectacles-frame", WasteType.METAL, "spectacles frame is made of steel and therefore goes in metal", true);
         Waste post_it = new Waste(this, "post-it", WasteType.RESIDUAL, "Due the adhesive substance in the back of post it notes they are not to be recycled with normal paper and goes in residual", true);
@@ -65,6 +65,7 @@ public class Game {
         WasteContainer residualcontainer = new WasteContainer(this, "residual-container", WasteType.RESIDUAL);
         WasteContainer cardboardcontainer = new WasteContainer(this, "cardboard-container", WasteType.CARDBOARD);
         WasteContainer hardPlasticcontainer = new WasteContainer(this,"plastic-container", WasteType.HARD_PLASTIC);
+        WasteContainer hazardouscontainer = new WasteContainer(this, "hazardous-container", WasteType.HAZARDOUS);
         sortingRoom.addItem(organicContainer);
         sortingRoom.addItem(glassContainer);
 
