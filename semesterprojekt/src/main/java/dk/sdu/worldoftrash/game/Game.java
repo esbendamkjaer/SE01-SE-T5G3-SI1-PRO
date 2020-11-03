@@ -51,7 +51,7 @@ public class Game {
         Waste post_it = new Waste(this, "post-it", WasteType.RESIDUAL, "Due the adhesive substance in the back of post it notes they are not to be recycled with normal paper and goes in residual", true);
         Waste milk_carton = new Waste(this, "milk-carton", WasteType.RESIDUAL, "Due to a milk carton being soaked in a organic substance and goes in residual", true);
         Waste perfume_bottle = new Waste(this,"perfume-bottle", WasteType.GLASS, "if you remove the perfume substances in the bottle, then the bottle can be recycled for reuse and therefore goes in glass", false);
-        Waste water_bottle = new Waste(this, "waster-bottle", WasteType.HARD_PLASTIC, "typcically water bottle are made of hard plastic and can be recycled for reuse and therefore goes in hard plastic", true);
+        Waste water_bottle = new Waste(this, "plastic-water-bottle", WasteType.HARD_PLASTIC, "typcically water bottle are made of hard plastic and can be recycled for reuse and therefore goes in hard plastic", true);
         Waste safety_goggles = new Waste(this, "safety-goggles", WasteType.HARD_PLASTIC, "typically safety goggles are made of hard plastic and can be recycled for reuse and therefore goes in hard plastic", true);
         Waste paper_clip = new Waste(this, "paper-clips", WasteType.RESIDUAL, "unless you got a large quantity of paper clips, recycling paper clips have a larger carbon footprint rather than just sorting them to residual and therefore goes in residual", true);
         Waste paint = new Waste(this, "paint", WasteType.HAZARDOUS, "paint is an hazardous material and should be handled accordingly and placed in hazardous", true);
@@ -60,6 +60,11 @@ public class Game {
         // Temporary test containers
         WasteContainer organicContainer = new WasteContainer(this, "organic-container", WasteType.ORGANIC);
         WasteContainer glassContainer = new WasteContainer(this, "glass-container", WasteType.GLASS);
+        WasteContainer metalContainer = new WasteContainer(this,"metal-container", WasteType.METAL);
+        WasteContainer papercontainer = new WasteContainer(this, "paper-container", WasteType.PAPER);
+        WasteContainer residualcontainer = new WasteContainer(this, "residual-container", WasteType.RESIDUAL);
+        WasteContainer cardboardcontainer = new WasteContainer(this, "cardboard-container", WasteType.CARDBOARD);
+        WasteContainer hardPlasticcontainer = new WasteContainer(this,"plastic-container", WasteType.HARD_PLASTIC);
         sortingRoom.addItem(organicContainer);
         sortingRoom.addItem(glassContainer);
 
