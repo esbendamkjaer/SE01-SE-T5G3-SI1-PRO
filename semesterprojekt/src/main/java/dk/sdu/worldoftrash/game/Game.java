@@ -33,10 +33,9 @@ public class Game {
     }
 
     /**
-     * Instantiates the rooms in the game.
+     * For at lave et intialisere rummet skal vi bruge *rumnavn = new Room();*
      */
     private void createRooms() {
-        // for at lave et intialisere rummet skal vi bruge *rumnavn = new Room();*
         //Rooms
         start = new Room(this, "start", "at the start");
         odense = new Room(this, "city", "in the city of Odense. In the east is a supermarket, in the west is the sorting room, in the south is the hospital and in the north is the school.");
@@ -55,7 +54,15 @@ public class Game {
         gymnasticsRoom = new Room(this, "gymnasticsRoom", "in the gymnastics room");
         girlsLockerRoom = new Room(this, "girlsLockerRoom", "in the girls locker room");
 
-        // Waste objects #level 3
+        //**************************************** Waste objects - Start ***********************************************
+
+        // Waste objects #Level 1 - Supermarkedet
+
+
+        // Waste objects #Level 2 - Hospital
+
+
+        // Waste objects #Level 3 - Store
         Waste papers = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
         Waste lighter = new Waste(this, "lighter", WasteType.HAZARDOUS, "lighters contains hazardous materials and therefore goes in hazardous", true);
         Waste bananas = new Waste(this, "bananas", WasteType.ORGANIC, "this is an organic material and can be used as an compost and therefore goes in organic", true);
@@ -91,10 +98,16 @@ public class Game {
         sortingRoom.addItem(hazardouscontainer);
         sortingRoom.addItem(hardPlasticcontainer);
 
-        //Assigning trash for gren #3
-        sortingRoom.addItem(papers);
-        sortingRoom.addItem(lighter);
-        sortingRoom.addItem(bananas);
+        //Assigning trash for level #1 - Supermarkedet
+
+
+        //Assigning trash for level #2 - Hospitalet
+
+
+        //Assigning trash for level #3 - Skole
+        schoolOutside.addItem(papers);
+        schoolOutside.addItem(lighter);
+        schoolOutside.addItem(bananas);
 
         teachersLounge.addItem(jam_jar);
         teachersLounge.addItem(nutella_glass);
@@ -112,11 +125,13 @@ public class Game {
         chemistryRoom.addItem(paper_clip);
         chemistryRoom.addItem(paint);
 
+        //**************************************** Waste objects - end ************************************************
+
         //Sink
         Sink sink = new Sink(this, "Sink");
         sortingRoom.addItem(sink);
 
-        //Exit #0
+        //Exits #0
         start.setExit("sorting-room", sortingRoom);
 
         sortingRoom.setExit("start", start);
