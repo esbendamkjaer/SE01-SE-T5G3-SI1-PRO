@@ -18,6 +18,10 @@ public class Room
 
     private ArrayList<Item> items;
 
+    public Game getGame() {
+        return game;
+    }
+
     private Game game;
     private boolean locked;
 
