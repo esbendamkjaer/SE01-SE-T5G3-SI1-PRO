@@ -123,7 +123,25 @@ public class Game {
 
 
         //Assigning trash for level #2 - Hospitalet
+        hospitalOutside.addItem(syringe);
+        hospitalOutside.addItem(needle);
+        hospitalOutside.addItem(apple);
 
+        reception.addItem(papers);
+        reception.addItem(paper_clip);
+        reception.addItem(facemask);
+
+        operatingRoom.addItem(bloodbag);
+        operatingRoom.addItem(medicineBottle);
+        operatingRoom.addItem(toothBrush);
+
+        morgue.addItem(scalpel);
+        morgue.addItem(tray);
+        morgue.addItem(ballPen);
+
+        canteen.addItem(chocolateMilkBottle);
+        canteen.addItem(can);
+        canteen.addItem(can);
 
         //Assigning trash for level #3 - Skole
         schoolOutside.addItem(papers);
