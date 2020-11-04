@@ -6,11 +6,11 @@ import java.util.List;
 
 public class Inventory {
 
-    private final int max_size;
+    private final int MAX_SIZE;
     private List<Item> items = new ArrayList<Item>();
 
-    public Inventory(int max_size) {
-        this.max_size = max_size;
+    public Inventory(int MAX_SIZE) {
+        this.MAX_SIZE = MAX_SIZE;
     }
 
     /**
@@ -67,7 +67,7 @@ public class Inventory {
      * @return whether or not the inventory is full.
      */
     public boolean isFull() {
-        return items.size() >= max_size;
+        return items.size() >= MAX_SIZE;
     }
 
     /**
