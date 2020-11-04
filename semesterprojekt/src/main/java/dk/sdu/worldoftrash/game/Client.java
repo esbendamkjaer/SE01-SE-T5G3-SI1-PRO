@@ -55,6 +55,9 @@ public class Client {
 
         try {
             HttpResponse<String> response = httpClient.send(postRequest, HttpResponse.BodyHandlers.ofString());
+            if (response.statusCode() == 429) {
+                System.out.println("You are trying to save too frequently.");
+            }
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
