@@ -409,7 +409,7 @@ public class Game {
     /**
      * Processes a use command.
      *
-     * @param command A drop command. #######################################################################
+     * @param command A use command.
      */
     private void processUse(Command command) {
 
@@ -599,28 +599,28 @@ public class Game {
                 } else {
                     System.out.println("you can't talk to an item");
                 }
-                }
             }
-        }
-
-
-        /**
-         * Meant to be used for quit commands.
-         * Examines if a command has a second word in which case it is assumed the player didn't mean to quit the game.
-         *
-         * @param command Quit command.
-         * @return Whether or not the player meant to quit the game.
-         */
-        private boolean quit (Command command){
-            if (command.hasSecondWord()) {
-                System.out.println("Quit what?");
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        public ScoreSystem getScoreSystem () {
-            return scoreSystem;
         }
     }
+
+
+    /**
+     * Meant to be used for quit commands.
+     * Examines if a command has a second word in which case it is assumed the player didn't mean to quit the game.
+     *
+     * @param command Quit command.
+     * @return Whether or not the player meant to quit the game.
+     */
+    private boolean quit (Command command){
+        if (command.hasSecondWord()) {
+            System.out.println("Quit what?");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public ScoreSystem getScoreSystem () {
+        return scoreSystem;
+    }
+}
