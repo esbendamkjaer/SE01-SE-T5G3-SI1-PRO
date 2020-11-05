@@ -39,8 +39,8 @@ public class Game {
     private void createRooms() {
         //Rooms
         start = new Room(this, "start", "in the start room. The beginning of this trashy world's hero... You!!! \nA man greets you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin. You must help us save the planet! Now follow me if you want to survive, start by using GO to the sorting-room and TALK to me there.\"");
-        sortingRoom = new Room(this, "sortingRoom", "in sorting room. Martin follows you. This is where you sort the trash and clean it in the sink if needed be");
-        odense = new Room(this, "city", "in the city of Odense. Martin follow you. The city is in shambles and filled with trash. In the distance you see mountains of trash towering over the city.\nIn the east is a supermarket, in the west is the sorting room, in the south is a hospital and in the north is a school");
+        sortingRoom = new Room(this, "sortingRoom", "in sorting room. Martin follows you. This is where you sort the trash and clean it in the sink if needed be.\nThere are 8 different containers, a organic-container, a glass-container, a metal-container, a paper-container, a residual-container, a cardboard-container, a hazardous-container and a plastic-container");
+        odense = new Room(this, "city", "in the city of Odense. Martin follows you. The city is in shambles and filled with trash. In the distance you see mountains of trash towering over the city.\nIn the east is a supermarket, in the west is the sorting room, in the south is a hospital and in the north is a school");
         supermarket = new Room(this, "supermarket", "in the supermarket");
         office = new Room(this, "office", "in the supermarket office");
         storageRoom = new Room(this, "storageRoom", "in the storage room");
@@ -55,6 +55,7 @@ public class Game {
         chemistryRoom = new Room(this, "chemistry-room", "in the chemistry room");
         gymnasticsRoom = new Room(this, "gymnastics-room", "in the gymnastics room");
         girlsLockerRoom = new Room(this, "girls-locker-room", "in the girls locker room");
+
 
         //**************************************** Waste objects - Start ***********************************************
 
@@ -409,7 +410,7 @@ public class Game {
     /**
      * Processes a use command.
      *
-     * @param command A drop command. #######################################################################
+     * @param command A use command.
      */
     private void processUse(Command command) {
 
@@ -427,7 +428,7 @@ public class Game {
             }
 
             if (!(usableItem instanceof Usable)) {
-                System.out.println("'" + usableItem.getName() + "' is not useable.");
+                System.out.println("'" + usableItem.getName() + "' is not usable.");
                 return;
             }
 
