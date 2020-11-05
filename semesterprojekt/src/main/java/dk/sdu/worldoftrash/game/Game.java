@@ -437,10 +437,6 @@ public class Game {
                 usable.use();
             } else if (args.length >= 2 && args[1].equalsIgnoreCase("on")) {
 
-                return;
-            }
-            if (args.length >= 2 && args[1].equalsIgnoreCase("on")) {
-
                 if (args.length == 2) {
                     System.out.println("Use item '" + usableItem.getName() + "' on what?");
                     return;
