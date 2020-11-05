@@ -38,20 +38,20 @@ public class Game {
      */
     private void createRooms() {
         //Rooms
-        start = new Room(this, "start", "in the start room. The beginning of this trashy world's hero... You!!!");
-        sortingRoom = new Room(this, "sortingRoom", "in sorting room. This is where you sort the trash and clean it in the sink if needed be");
-        odense = new Room(this, "city", "in the city of Odense. The city is in shambles and filled with trash. In the distance you see mountains of trash towering over the city.\nIn the east is a supermarket, in the west is the sorting room, in the south is the hospital and in the north is the school");
+        start = new Room(this, "start", "in the start room. The beginning of this trashy world's hero... You!!! \nA man greets you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin. You must help us save the planet! Now follow me if you want to survive, start by using GO to the sorting-room and TALK to me there.\"");
+        sortingRoom = new Room(this, "sortingRoom", "in sorting room. Martin follows you. This is where you sort the trash and clean it in the sink if needed be");
+        odense = new Room(this, "city", "in the city of Odense. Martin follow you. The city is in shambles and filled with trash. In the distance you see mountains of trash towering over the city.\nIn the east is a supermarket, in the west is the sorting room, in the south is a hospital and in the north is a school");
         supermarket = new Room(this, "supermarket", "in the supermarket");
         office = new Room(this, "office", "in the supermarket office");
         storageRoom = new Room(this, "storageRoom", "in the storage room");
-        parkinglot = new Room(this, "parking-lot", "at the parking lot. There is an homeless man staring intensely at you");
-        hospitalOutside = new Room(this, "hospital-outside", "outside the hospital. You see a man resting in front of the hospital entrance. He looks to be over his expiration date and missing an arm");
+        parkinglot = new Room(this, "parking-lot", "at the parking lot. There is an homeless man staring intensely at you. A nametag on his coat says Dan");
+        hospitalOutside = new Room(this, "hospital-outside", "outside the hospital. You see a man resting in front of the hospital entrance. He looks to be over his expiration date and missing an arm. He greets you and tells you to call him Mr.Zombie");
         reception = new Room(this, "reception", "in the hospital reception");
         operatingRoom = new Room(this, "operating-room", "in the operations room");
         morgue = new Room(this, "morgue", "in the morgue");
         canteen = new Room(this, "canteen", "in the canteen");
         schoolOutside = new Room(this, "school-outside", "outside the school");
-        teachersLounge = new Room(this, "teachers-lounge", "in the teachers lounge. A guy in an dirty lab coat is resting in a sofa");
+        teachersLounge = new Room(this, "teachers-lounge", "in the teachers lounge. A guy in an dirty lab coat is resting in a sofa. He looks like a Mad-Chemist");
         chemistryRoom = new Room(this, "chemistry-room", "in the chemistry room");
         gymnasticsRoom = new Room(this, "gymnastics-room", "in the gymnastics room");
         girlsLockerRoom = new Room(this, "girls-locker-room", "in the girls locker room");
@@ -210,7 +210,7 @@ public class Game {
         //**************************************** Waste objects - end ************************************************
 
         //Sink
-        Sink sink = new Sink(this, "Sink");
+        Sink sink = new Sink(this, "sink");
         sortingRoom.addItem(sink);
 
         //Exits #0
@@ -259,6 +259,7 @@ public class Game {
         gymnasticsRoom.setExit("girls-locker-room", girlsLockerRoom);
         girlsLockerRoom.setExit("gymnastics-room", gymnasticsRoom);
 
+        // Misc.
         currentRoom = start;
 
         scoreSystem.getLevelHandler().addLevel(supermarket, 0);
