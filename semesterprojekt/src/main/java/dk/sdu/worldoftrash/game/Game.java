@@ -375,12 +375,12 @@ public class Game {
                 return;
             }
 
-            if (!(currentRoom.getItemByName(args[2]) instanceof NPC)) {
+            if (currentRoom.getItemByName(args[2]) == null || !(currentRoom.getItemByName(args[2]) instanceof NPC)) {
                 System.out.printf("There no npc by name '%s' in this room.\n", args[2]);
                 return;
             }
 
-            NPC npc = (NPC) currentRoom.getItemByName(args[1]);
+            NPC npc = (NPC) currentRoom.getItemByName(args[2]);
 
             if (npc.giveItem(item)) {
                 player.getInventory().removeItem(item);
