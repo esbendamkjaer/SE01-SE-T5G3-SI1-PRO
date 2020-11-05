@@ -59,6 +59,22 @@ public class Game {
         //**************************************** Waste objects - Start ***********************************************
 
         // Waste objects #Level 1 - Supermarket
+        Waste tomatoCan = new Waste(this, "tomato-can", WasteType.METAL, "cans are made of metal, and therefore goes in metals", false);
+        Waste sodaCan = new Waste(this, "soda-can", WasteType.METAL, "cans are made of metal, and therefore goes in metals", false);
+        Waste meatTray = new Waste(this, "meat-tray", WasteType.HARD_PLASTIC, "meat-trays are made of hard plastic, and therefore goes in hard plastic", false);
+        Waste ketchupPlasticBottle = new Waste(this, "ketchup-plastic-bottle", WasteType.HARD_PLASTIC, "it is made of hard plastic, and therefore goes in hard plastic", false);
+        Waste jalapenoGlass = new Waste(this, "jalapeno-glass", WasteType.GLASS, "this is a glass, and therefore goes in glass", false);
+        Waste beerBottle = new Waste(this, "beer-bottle", WasteType.GLASS, "beer bottles typically are made of glass, and therefore goes in glass", false);
+        Waste freshApple = new Waste(this, "fresh-apple?", WasteType.ORGANIC, "apples are organic, and therefore goes in organic", true);
+        Waste halfEatenPizza = new Waste(this, "Half-eaten-pizza", WasteType.ORGANIC, "pizza is organic, and therefore goes in organic", true);
+        Waste paint1 = new Waste(this, "paint", WasteType.HAZARDOUS, "paint is an hazardous material and should be handled accordingly and placed in hazardous", true);
+        Waste aaBatteries = new Waste(this, "AA_batteries", WasteType.HAZARDOUS, "batteries contain hazardous chemicals, and therefore goes in hazardous", true);
+        Waste deodorant = new Waste(this, "deodorant", WasteType.HAZARDOUS, "deodorants are typically cans containing chemicals, and therefore goes in hazardous", true);
+        Waste newspaper = new Waste(this, "newspaper", WasteType.PAPER, "newspapers are made of paper, and therefore goes in paper", true);
+        Waste cardboardBox = new Waste(this, "cardboard-box", WasteType.CARDBOARD, "cardboard boxes are made of cardboard, and therefore goes in cardboard", true);
+        Waste pizzaBox = new Waste(this, "pizza-box", WasteType.RESIDUAL, "a pizza box has been ######## dirtied ###### by a pizza, and therefore goes in residual", true);
+        Waste receipt = new Waste(this, "receipt", WasteType.RESIDUAL, "receipts is made of a special kind of paper containing chemicals and should not be sorted in paper, therefore it goes in residual", true);
+
 
 
         // Waste objects #Level 2 - Hospital
@@ -127,8 +143,25 @@ public class Game {
         sortingRoom.addItem(hazardouscontainer);
         sortingRoom.addItem(hardPlasticcontainer);
 
-
         //Assigning trash for level #1 - Supermarket
+        supermarket.addItem(tomatoCan);
+        supermarket.addItem(ketchupPlasticBottle);
+        supermarket.addItem(meatTray);
+        supermarket.addItem(receipt);
+
+        office.addItem(beerBottle);
+        office.addItem(halfEatenPizza);
+        office.addItem(pizzaBox);
+
+        storageRoom.addItem(freshApple);
+        storageRoom.addItem(paint1);
+        storageRoom.addItem(aaBatteries);
+        storageRoom.addItem(cardboardBox);
+
+        parkinglot.addItem(newspaper);
+        parkinglot.addItem(sodaCan);
+        parkinglot.addItem(deodorant);
+        parkinglot.addItem(jalapenoGlass);
 
 
         //Assigning trash for level #2 - Hospital
@@ -375,7 +408,7 @@ public class Game {
     /**
      * Processes a use command.
      *
-     * @param command A drop command.
+     * @param command A drop command. #######################################################################
      */
     private void processUse(Command command) {
 
