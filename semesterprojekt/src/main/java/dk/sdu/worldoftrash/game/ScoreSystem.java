@@ -10,6 +10,7 @@ import java.util.UUID;
 public class ScoreSystem {
 
     private int score;
+
     private int wasteCount;
 
     private Client client;
@@ -74,6 +75,10 @@ public class ScoreSystem {
         }
 
         return levelData;
+    }
+
+    public int getWasteCount() {
+        return wasteCount;
     }
 
     public LevelHandler getLevelHandler() {
