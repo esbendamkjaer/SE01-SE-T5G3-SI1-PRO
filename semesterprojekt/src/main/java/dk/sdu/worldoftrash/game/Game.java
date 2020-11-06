@@ -376,12 +376,14 @@ public class Game {
                 return;
             }
 
-            if (currentRoom.getItemByName(args[2]) == null || !(currentRoom.getItemByName(args[2]) instanceof NPC)) {
+            Item npcArg = currentRoom.getItemByName(args[2]);
+
+            if (npcArg == null || !(npcArg instanceof NPC)) {
                 System.out.printf("There no npc by name '%s' in this room.\n", args[2]);
                 return;
             }
 
-            NPC npc = (NPC) currentRoom.getItemByName(args[2]);
+            NPC npc = (NPC) npcArg;
 
             if (npc.giveItem(item)) {
                 player.getInventory().removeItem(item);
@@ -600,28 +602,28 @@ public class Game {
                 } else {
                     System.out.println("you can't talk to an item");
                 }
-                }
             }
-        }
-
-
-        /**
-         * Meant to be used for quit commands.
-         * Examines if a command has a second word in which case it is assumed the player didn't mean to quit the game.
-         *
-         * @param command Quit command.
-         * @return Whether or not the player meant to quit the game.
-         */
-        private boolean quit (Command command){
-            if (command.hasSecondWord()) {
-                System.out.println("Quit what?");
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        public ScoreSystem getScoreSystem () {
-            return scoreSystem;
         }
     }
+
+
+    /**
+     * Meant to be used for quit commands.
+     * Examines if a command has a second word in which case it is assumed the player didn't mean to quit the game.
+     *
+     * @param command Quit command.
+     * @return Whether or not the player meant to quit the game.
+     */
+    private boolean quit (Command command){
+        if (command.hasSecondWord()) {
+            System.out.println("Quit what?");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public ScoreSystem getScoreSystem () {
+        return scoreSystem;
+    }
+}

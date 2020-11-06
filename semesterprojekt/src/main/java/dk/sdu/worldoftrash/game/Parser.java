@@ -19,10 +19,7 @@ public class Parser
      */
     public Command getCommand(String inputLine)
     {
-        String word1 = null;
-        String word2 = null;
-
-        // Fjern dobbelte mellemrum
+        // Fjern slutmellemrum
         inputLine.trim();
 
         String[] command = inputLine.split(" ");
