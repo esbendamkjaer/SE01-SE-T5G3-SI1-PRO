@@ -540,7 +540,11 @@ public class Game {
 
         Pickupable pickupable = (Pickupable) item;
 
-        if (pickupable.pickup() && player.getInventory().storeItem(item)) {
+        if (!pickupable.pickup()) {
+            return;
+        }
+
+        if (player.getInventory().storeItem(item)) {
             currentRoom.removeItem(item);
             System.out.println("You picked up " + item.getName());
         } else {

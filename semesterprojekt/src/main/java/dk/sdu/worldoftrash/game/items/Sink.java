@@ -21,7 +21,7 @@ public class Sink extends Item implements Usable {
 
         waste.setClean(true);
 
-        System.out.println("Item is now clean.");
+        System.out.printf("You use some excess dishwater to clean the %s\n.", waste.getName());
         return true;
     }
 
