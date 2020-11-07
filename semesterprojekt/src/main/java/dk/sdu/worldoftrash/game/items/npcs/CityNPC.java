@@ -3,8 +3,6 @@ package dk.sdu.worldoftrash.game.items.npcs;
 import dk.sdu.worldoftrash.game.Game;
 import dk.sdu.worldoftrash.game.items.Item;
 
-import java.util.ArrayList;
-
 public class CityNPC extends NPC {
 
     public CityNPC(Game game, String name, String dialogue) {

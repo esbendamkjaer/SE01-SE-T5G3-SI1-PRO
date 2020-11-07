@@ -30,13 +30,13 @@ public class Game {
         this.reader = new Scanner(System.in);
         this.player = new Player(this, "Player");
         this.scoreSystem = new ScoreSystem();
-        createRooms();
+        initObjects();
     }
 
     /**
-     * For at lave et intialisere rummet skal vi bruge *rumnavn = new Room();*
+     * Initializes game world objects.
      */
-    private void createRooms() {
+    private void initObjects() {
         //Rooms
         start = new Room(this, "start", "in the start room. The beginning of this trashy world's hero... You!!! \nA man greets you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin. You must help us save the planet! Now follow me if you want to survive, start by using GO to the sorting-room and TALK to me there.\"");
         sortingRoom = new Room(this, "sortingRoom", "in sorting room. Martin follows you. This is where you sort the trash and clean it in the sink if needed be.\nThere are 8 different containers, a organic-container, a glass-container, a metal-container, a paper-container, a residual-container, a cardboard-container, a hazardous-container and a plastic-container");
@@ -540,8 +540,8 @@ public class Game {
             return;
         }
 
-        currentRoom.removeItem(item);
         if (player.getInventory().storeItem(item)) {
+            currentRoom.removeItem(item);
             System.out.println("You picked up " + item.getName());
         } else {
             System.out.println("You do not have sufficient space in your inventory.");
