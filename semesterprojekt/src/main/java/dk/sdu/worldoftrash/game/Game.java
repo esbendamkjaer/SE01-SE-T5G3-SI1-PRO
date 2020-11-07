@@ -528,19 +528,14 @@ public class Game {
      */
     private void processPickup(Command command) {
 
-        Item item;
+        Item item = currentRoom.getItemByName(command.getSecondWord());
 
-        if ((item = currentRoom.getItemByName(command.getSecondWord())) == null) {
+        if (item == null) {
             System.out.println("There is no such item.");
             return;
         }
 
-        if (!(item instanceof Pickupable)) {
-            System.out.println("You can't pickup this item.");
-            return;
-        }
-
-        if (player.getInventory().storeItem(item)) {
+        if (item.pickup() && player.getInventory().storeItem(item)) {
             currentRoom.removeItem(item);
             System.out.println("You picked up " + item.getName());
         } else {

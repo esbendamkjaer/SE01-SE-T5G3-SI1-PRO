@@ -1,11 +1,11 @@
 package dk.sdu.worldoftrash.game.items;
 
-import dk.sdu.worldoftrash.game.Game;
+public interface Pickupable {
 
-public class Pickupable extends Item {
-
-    public Pickupable(Game game, String name) {
-        super(game, name);
-    }
+    /**
+     * Execute logic on item associated with a pickup.
+     * @return Whether or not the item wants to be picked up.
+     */
+    public abstract boolean pickup();
 
 }
