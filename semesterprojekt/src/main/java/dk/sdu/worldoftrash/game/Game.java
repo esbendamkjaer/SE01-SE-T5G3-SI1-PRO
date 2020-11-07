@@ -2,8 +2,10 @@ package dk.sdu.worldoftrash.game;
 
 import dk.sdu.worldoftrash.game.data.WasteType;
 import dk.sdu.worldoftrash.game.items.*;
-import dk.sdu.worldoftrash.game.items.usables.Sink;
-import dk.sdu.worldoftrash.game.items.usables.Usable;
+import dk.sdu.worldoftrash.game.items.Pickupable;
+import dk.sdu.worldoftrash.game.items.Waste;
+import dk.sdu.worldoftrash.game.items.Sink;
+import dk.sdu.worldoftrash.game.items.Usable;
 import dk.sdu.worldoftrash.game.rooms.Room;
 import dk.sdu.worldoftrash.game.items.npcs.*;
 
@@ -306,7 +308,6 @@ public class Game {
 
     /**
      * Executes the logic associated with a given command.
-     *
      * @param command Command to execute.
      * @return A boolean indicating whether the player wants to quit the game.
      */
@@ -348,7 +349,7 @@ public class Game {
                 System.out.println("Data saved on database.");
             }
             case TALK -> {
-                talkTo(command);
+                processTalk(command);
             }
             case GIVE -> {
                 processGive(command);
@@ -411,7 +412,6 @@ public class Game {
 
     /**
      * Processes a use command.
-     *
      * @param command A use command.
      */
     private void processUse(Command command) {
@@ -462,7 +462,6 @@ public class Game {
 
     /**
      * Processes a drop command.
-     *
      * @param command A drop command.
      */
     private void processDrop(Command command) {
@@ -523,7 +522,6 @@ public class Game {
 
     /**
      * Processes a pickup command.
-     *
      * @param command A pickup command.
      */
     private void processPickup(Command command) {
@@ -535,7 +533,14 @@ public class Game {
             return;
         }
 
-        if (item.pickup() && player.getInventory().storeItem(item)) {
+        if (!(item instanceof Pickupable)) {
+            System.out.println("You can't pickup this item.");
+            return;
+        }
+
+        Pickupable pickupable = (Pickupable) item;
+
+        if (pickupable.pickup() && player.getInventory().storeItem(item)) {
             currentRoom.removeItem(item);
             System.out.println("You picked up " + item.getName());
         } else {
@@ -557,7 +562,6 @@ public class Game {
 
     /**
      * Makes the player go to the room specified by the given command.
-     *
      * @param command Command that specifies where to go.
      */
     private void goRoom(Command command) {
@@ -582,7 +586,7 @@ public class Game {
         }
     }
 
-    public void talkTo(Command command) {
+    public void processTalk(Command command) {
         if (!command.hasSecondWord()) {
             System.out.println("Talk to who?");
         } else if (command.hasSecondWord()) {
@@ -605,7 +609,6 @@ public class Game {
     /**
      * Meant to be used for quit commands.
      * Examines if a command has a second word in which case it is assumed the player didn't mean to quit the game.
-     *
      * @param command Quit command.
      * @return Whether or not the player meant to quit the game.
      */

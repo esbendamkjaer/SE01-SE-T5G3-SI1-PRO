@@ -2,7 +2,7 @@ package dk.sdu.worldoftrash.game.items;
 
 import dk.sdu.worldoftrash.game.Game;
 
-public class Item implements Pickupable {
+public class Item {
 
     private String name;
     private Game game;
@@ -26,11 +26,5 @@ public class Item implements Pickupable {
 
     public void setGame(Game game) {
         this.game = game;
-    }
-
-    @Override
-    public boolean pickup() {
-        System.out.println("You can't pickup this item.");
-        return false;
     }
 }

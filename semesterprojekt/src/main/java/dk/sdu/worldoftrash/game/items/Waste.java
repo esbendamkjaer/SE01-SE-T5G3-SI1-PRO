@@ -3,7 +3,7 @@ package dk.sdu.worldoftrash.game.items;
 import dk.sdu.worldoftrash.game.Game;
 import dk.sdu.worldoftrash.game.data.WasteType;
 
-public class Waste extends Item {
+public class Waste extends Item implements Pickupable {
     private WasteType wasteType;
     private int points;
     private String wrongSorting;

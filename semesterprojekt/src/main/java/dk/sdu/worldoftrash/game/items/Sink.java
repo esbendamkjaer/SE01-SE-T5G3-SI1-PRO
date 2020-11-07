@@ -1,8 +1,6 @@
-package dk.sdu.worldoftrash.game.items.usables;
+package dk.sdu.worldoftrash.game.items;
 
 import dk.sdu.worldoftrash.game.Game;
-import dk.sdu.worldoftrash.game.items.Item;
-import dk.sdu.worldoftrash.game.items.Waste;
 
 public class Sink extends Item implements Usable {
 

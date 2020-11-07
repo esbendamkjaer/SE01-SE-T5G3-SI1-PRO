@@ -9,8 +9,8 @@ import java.util.Map.Entry;
 
 public class LevelHandler {
 
-    private String currentLevel;
     private Map<Room, Integer> wasteConditions;
+    private Room currentLevel;
 
     public LevelHandler() {
         this.wasteConditions = new HashMap<>();
@@ -23,7 +23,7 @@ public class LevelHandler {
      */
     public void addLevel(Room room, int wasteCondition) {
         if (wasteCondition <= 0) {
-            currentLevel = room.getName();
+            this.currentLevel = room;
         } else {
             room.setLocked(true);
             this.wasteConditions.put(room, wasteCondition);
@@ -43,9 +43,10 @@ public class LevelHandler {
 
             if (level.isLocked() && wasteCount >= entry.getValue()) {
                 level.setLocked(false);
-                System.out.println("You have now unlocked " + level.getName());
+                System.out.println("Congratulations!");
+                System.out.println("You have now sorted enough waste to unlock " + level.getName() + "!");
 
-                setCurrentLevel(entry.getKey().getName());
+                setCurrentLevel(entry.getKey());
 
                 level.getGame().getScoreSystem().uploadData();
 
@@ -54,11 +55,11 @@ public class LevelHandler {
         }
     }
 
-    public String getCurrentLevel() {
-        return currentLevel;
+    public String getCurrentLevelName() {
+        return currentLevel.getName();
     }
 
-    public void setCurrentLevel(String level) {
+    public void setCurrentLevel(Room level) {
         this.currentLevel = level;
     }
 }

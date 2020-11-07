@@ -28,32 +28,39 @@ public class ScoreSystem {
         this.score = 0;
     }
 
+    /**
+     * Add points to score.
+     * @param points Number of points to add.
+     */
     public void addPoints(int points) {
         setScore(getScore() + points);
     }
 
+    /**
+     * Give points based on sorted Waste.
+     * @param waste Sorted piece of waste to give points from.
+     */
     public void givePoints(Waste waste) {
         addPoints(waste.getPoints());
 
-        LevelData levelData = getLevelDataByName(levelHandler.getCurrentLevel());
+        LevelData levelData = getLevelDataByName(levelHandler.getCurrentLevelName());
 
         levelData.incrementCorrect(waste.getWasteType());
     }
 
+    /**
+     * Upload ScoreData to webserver
+     */
     public void uploadData() {
         client.sendScoreData(scoreData);
     }
 
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
+    /**
+     * Increment the total number of sorted waste.
+     * @param wasteType WasteType of just sorted Waste.
+     */
     public void incrementWasteCount(WasteType wasteType) {
-        LevelData levelData = getLevelDataByName(levelHandler.getCurrentLevel());
+        LevelData levelData = getLevelDataByName(levelHandler.getCurrentLevelName());
         levelData.incrementWasteCount(wasteType);
 
         wasteCount++;
@@ -67,18 +74,30 @@ public class ScoreSystem {
      * @return LevelData object
      */
     public LevelData getLevelDataByName(String name) {
-        LevelData levelData = scoreData.getLevelDataByName(levelHandler.getCurrentLevel());
+        LevelData levelData = scoreData.getLevelDataByName(levelHandler.getCurrentLevelName());
 
         if (levelData == null) {
             levelData = new LevelData();
-            scoreData.addLevelData(levelHandler.getCurrentLevel(), levelData);
+            scoreData.addLevelData(levelHandler.getCurrentLevelName(), levelData);
         }
 
         return levelData;
     }
 
+    /**
+     * Returns the total number of sorted waste.
+     * @return Number of sorted waste.
+     */
     public int getWasteCount() {
         return wasteCount;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     public LevelHandler getLevelHandler() {

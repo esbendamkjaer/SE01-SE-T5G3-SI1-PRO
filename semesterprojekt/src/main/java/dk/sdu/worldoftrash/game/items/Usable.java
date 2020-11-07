@@ -1,6 +1,4 @@
-package dk.sdu.worldoftrash.game.items.usables;
-
-import dk.sdu.worldoftrash.game.items.Item;
+package dk.sdu.worldoftrash.game.items;
 
 public interface Usable {
 
