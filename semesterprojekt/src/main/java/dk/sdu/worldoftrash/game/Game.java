@@ -78,7 +78,7 @@ public class Game {
         Waste cardboardBox = new Waste(this, "cardboard-box", WasteType.CARDBOARD, "cardboard boxes are made of cardboard, and therefore goes in cardboard", true);
         Waste pizzaBox = new Waste(this, "pizza-box", WasteType.RESIDUAL, "a pizza box has been ######## dirtied ###### by a pizza, and therefore goes in residual", true);
         Waste receipt = new Waste(this, "receipt", WasteType.RESIDUAL, "receipts is made of a special kind of paper containing chemicals and should not be sorted in paper, therefore it goes in residual", true);
-
+        Key bigbox = new Key(this, "biggest-box");
 
 
         // Waste objects #Level 2 - Hospital
@@ -118,14 +118,15 @@ public class Game {
         Waste paint = new Waste(this, "paint", WasteType.HAZARDOUS, "paint is an hazardous material and should be handled accordingly, and placed in hazardous", true);
 
         //NPCs
-        NPC homelessDan = new ParkingLotNPC(this, "Dan", "Hello weary traveller");
-        NPC mrZombie = new ZombieNPC(this, "Mr.Zombie", "Hello weary traveller");
-        NPC madChemist = new SchoolNPC(this, "Mad-Chemist", "Hello weary traveller");
+        ParkingLotNPC homelessDan = new ParkingLotNPC(this, "Dan", "Hello weary traveller");
+        ZombieNPC mrZombie = new ZombieNPC(this, "Mr.Zombie", "Hello weary traveller");
+        SchoolNPC madChemist = new SchoolNPC(this, "Mad-Chemist", "Hello weary traveller");
         NPC martin = new CityNPC(this, "Martin", "Hello weary traveller");
         start.addItem(martin);
         sortingRoom.addItem(martin);
         odense.addItem(martin);
         parkinglot.addItem(homelessDan);
+        homelessDan.setBigbox(bigbox);
         hospitalOutside.addItem(mrZombie);
         teachersLounge.addItem(madChemist);
 
@@ -156,6 +157,7 @@ public class Game {
         office.addItem(beerBottle);
         office.addItem(halfEatenPizza);
         office.addItem(pizzaBox);
+        start.addItem(bigbox);
 
         storageRoom.addItem(freshApple);
         storageRoom.addItem(paint1);

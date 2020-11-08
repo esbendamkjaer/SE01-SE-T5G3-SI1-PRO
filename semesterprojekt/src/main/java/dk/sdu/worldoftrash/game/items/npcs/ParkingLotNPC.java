@@ -6,10 +6,12 @@ import dk.sdu.worldoftrash.game.items.Item;
 import java.util.ArrayList;
 
 public class ParkingLotNPC extends NPC {
+    private Item bigbox;
 
     public ParkingLotNPC(Game game, String name, String dialogue) {
         super(game, name, dialogue);
     }
+
 
     @Override
     public void talk() {
@@ -20,7 +22,16 @@ public class ParkingLotNPC extends NPC {
 
     @Override
     public boolean giveItem(Item item) {
-        return false;
+        if (item == bigbox) {
+            System.out.println("Thanks bud");
+            return true;
+        } else {
+            System.out.println("I cant use this");
+            return false;
+        }
     }
 
+    public void setBigbox(Item bigbox) {
+        this.bigbox = bigbox;
+    }
 }

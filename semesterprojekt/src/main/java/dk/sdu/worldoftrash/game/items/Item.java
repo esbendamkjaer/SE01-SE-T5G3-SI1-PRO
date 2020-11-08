@@ -2,7 +2,7 @@ package dk.sdu.worldoftrash.game.items;
 
 import dk.sdu.worldoftrash.game.Game;
 
-public class Item {
+public class Item implements Pickupable {
 
     private String name;
     private Game game;
@@ -26,5 +26,10 @@ public class Item {
 
     public void setGame(Game game) {
         this.game = game;
+    }
+
+    @Override
+    public boolean pickup() {
+        return false;
     }
 }
