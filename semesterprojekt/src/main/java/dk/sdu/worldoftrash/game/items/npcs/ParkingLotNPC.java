@@ -13,7 +13,7 @@ public class ParkingLotNPC extends NPC {
 
     @Override
     public void talk() {
-
+        System.out.println("");
     }
 
     @Override

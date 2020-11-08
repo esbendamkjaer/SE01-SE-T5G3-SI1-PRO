@@ -35,6 +35,7 @@ public class Game {
         initObjects();
     }
 
+
     /**
      * Initializes game world objects.
      */
@@ -69,9 +70,9 @@ public class Game {
         Waste jalapenoGlass = new Waste(this, "jalapeno-glass", WasteType.GLASS, "this is a glass, and therefore goes in glass", false);
         Waste beerBottle = new Waste(this, "beer-bottle", WasteType.GLASS, "beer bottles typically are made of glass, and therefore goes in glass", false);
         Waste freshApple = new Waste(this, "fresh-apple?", WasteType.ORGANIC, "apples are organic, and therefore goes in organic", true);
-        Waste halfEatenPizza = new Waste(this, "Half-eaten-pizza", WasteType.ORGANIC, "pizza is organic, and therefore goes in organic", true);
+        Waste halfEatenPizza = new Waste(this, "half-eaten-pizza", WasteType.ORGANIC, "pizza is organic, and therefore goes in organic", true);
         Waste paint1 = new Waste(this, "paint", WasteType.HAZARDOUS, "paint is an hazardous material and should be handled accordingly and placed in hazardous", true);
-        Waste aaBatteries = new Waste(this, "AA_batteries", WasteType.HAZARDOUS, "batteries contain hazardous chemicals, and therefore goes in hazardous", true);
+        Waste aaBatteries = new Waste(this, "AA-batteries", WasteType.HAZARDOUS, "batteries contain hazardous chemicals, and therefore goes in hazardous", true);
         Waste deodorant = new Waste(this, "deodorant", WasteType.HAZARDOUS, "deodorants are typically cans containing chemicals, and therefore goes in hazardous", true);
         Waste newspaper = new Waste(this, "newspaper", WasteType.PAPER, "newspapers are made of paper, and therefore goes in paper", true);
         Waste cardboardBox = new Waste(this, "cardboard-box", WasteType.CARDBOARD, "cardboard boxes are made of cardboard, and therefore goes in cardboard", true);
@@ -268,6 +269,23 @@ public class Game {
         scoreSystem.getLevelHandler().addLevel(supermarket, 0);
         scoreSystem.getLevelHandler().addLevel(hospitalOutside, 1);
         scoreSystem.getLevelHandler().addLevel(schoolOutside, 2);
+    }
+
+    // Getters for NPC locations
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
+    public Room getOdense() {
+        return odense;
+    }
+
+    public Room getSortingRoom() {
+        return sortingRoom;
+    }
+
+    public Room getStart() {
+        return start;
     }
 
     /**
