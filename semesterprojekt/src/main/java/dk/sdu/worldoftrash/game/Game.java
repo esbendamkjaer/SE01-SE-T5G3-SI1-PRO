@@ -362,7 +362,7 @@ public class Game {
                 processUse(command);
             }
             case SEARCH -> {
-                printWaste();
+                printWasteAndKeys();
             }
             case SCORE -> {
                 printScore();
@@ -417,20 +417,32 @@ public class Game {
         }
     }
 
-    private void printWaste() {
+    private void printWasteAndKeys() {
         List<Waste> waste = currentRoom.getWaste();
+        List<Key> keys = currentRoom.getKeys();
 
         if (waste.size() <= 0) {
             System.out.println("You look around and realize, there's no waste in this room.");
-            return;
+        } else {
+            System.out.print("You look around and see the following waste in this room: ");
+
+            for (int i = 0; i < waste.size(); i++) {
+                System.out.print((i == 0 ? "" : ", ") + waste.get(i).getName());
+            }
+            System.out.println();
         }
 
-        System.out.print("You look around and see the following waste in this room: ");
+        if (keys.size() > 0) {
+            System.out.print(waste.size() > 0
+                    ? "Among the trash you also found the following special items: "
+                    : "However, you found the following special items: ");
 
-        for (int i = 0; i < waste.size(); i++) {
-            System.out.print((i == 0 ? "" : ", ") + waste.get(i).getName());
+            for (int i = 0; i < keys.size(); i++) {
+                System.out.print((i == 0 ? "" : ", ") + keys.get(i).getName());
+            }
+            System.out.println();
         }
-        System.out.println();
+
     }
 
     /**
