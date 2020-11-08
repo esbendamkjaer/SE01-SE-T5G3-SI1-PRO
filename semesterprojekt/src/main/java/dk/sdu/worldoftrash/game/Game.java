@@ -116,6 +116,7 @@ public class Game {
         Waste safety_goggles = new Waste(this, "safety-goggles", WasteType.HARD_PLASTIC, "typically safety goggles are made of hard plastic and can be recycled for reuse, and therefore goes in hard plastic", true);
         Waste paper_clip = new Waste(this, "paper-clips", WasteType.RESIDUAL, "unless you got a large quantity of paper clips, recycling paper clips have a larger carbon footprint rather than just sorting them to residual, and therefore goes in residual", true);
         Waste paint = new Waste(this, "paint", WasteType.HAZARDOUS, "paint is an hazardous material and should be handled accordingly, and placed in hazardous", true);
+        Key fertilizer = new Key(this,"fertilizer");
 
         //NPCs
         ParkingLotNPC homelessDan = new ParkingLotNPC(this, "Dan", "Hello weary traveller");
@@ -129,6 +130,7 @@ public class Game {
         homelessDan.setBigbox(bigbox);
         hospitalOutside.addItem(mrZombie);
         teachersLounge.addItem(madChemist);
+        madChemist.setFertilizer(fertilizer);
 
         // Trash containers
         WasteContainer organicContainer = new WasteContainer(this, "organic-container", WasteType.ORGANIC);
@@ -195,6 +197,7 @@ public class Game {
         schoolOutside.addItem(papers);
         schoolOutside.addItem(lighter);
         schoolOutside.addItem(bananas);
+        schoolOutside.addItem(fertilizer);
 
         teachersLounge.addItem(jam_jar);
         teachersLounge.addItem(nutella_glass);

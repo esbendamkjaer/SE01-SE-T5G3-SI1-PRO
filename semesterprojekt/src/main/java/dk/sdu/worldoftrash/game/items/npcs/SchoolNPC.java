@@ -6,11 +6,12 @@ import dk.sdu.worldoftrash.game.items.Item;
 import java.util.ArrayList;
 
 public class SchoolNPC extends NPC {
-    public SchoolNPC(Game game, String name, String dialogue)
-    {
+    public SchoolNPC(Game game, String name, String dialogue) {
         super(game, name, dialogue);
 
     }
+
+    private Item fertilizer;
 
     @Override
     public void talk() {
@@ -21,6 +22,20 @@ public class SchoolNPC extends NPC {
 
     @Override
     public boolean giveItem(Item item) {
-        return false;
+        if (item == fertilizer) {
+            System.out.println("Oi laddie! Ya got me fertilizer from that twat janitor, hoarding the stuff likes there being no ‘morrow. Well, we’ll see, we will.");
+            System.out.println("Ya know, I found one of those perfume bottles. They’re not like those frigging deodorant! They explode when heated! not perfume bottles though they’re boooooring.");
+            System.out.println("Ya know if ya rinse those things and put ‘em in GLASS-CONTAINERS they can be recycled, no fun though.");
+            System.out.println("Well, I’m off to start the post-post-apocalypse.");
+            return true;
+        } else {
+            System.out.println("This ain't the kind of fertilizer i need!");
+            return false;
+        }
     }
+
+        public void setFertilizer(Item fertilizer){
+            this.fertilizer = fertilizer;
+        }
 }
+

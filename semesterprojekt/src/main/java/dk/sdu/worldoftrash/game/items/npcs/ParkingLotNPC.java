@@ -23,7 +23,9 @@ public class ParkingLotNPC extends NPC {
     @Override
     public boolean giveItem(Item item) {
         if (item == bigbox) {
-            System.out.println("Thanks bud");
+            System.out.println("Amazing! But isn’t that box almost too big? But now EVERYONE knows that I am the king of the homeless, so it doesn’t matter at all! ");
+            System.out.println("Here take a pro tip from a king: If you find any pizza boxes, pick it up and throw it In the bin. But REMEMBER! Pizza trays are not cardboard waste, as it is smeared into pizza.");
+            System.out.println("This also applies to milk cartons a, and if you ever buy a pizza, then you should keep in mind, that the receipts from your pizza purchase must be included in the residual container, this is due to the fact that receipts is made of thermal paper and full of chemicals!");
             return true;
         } else {
             System.out.println("I cant use this");
