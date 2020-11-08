@@ -81,6 +81,7 @@ public class Game {
         Key bigbox = new Key(this, "biggest-box");
 
 
+
         // Waste objects #Level 2 - Hospital
         Waste papers1 = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
         Waste medicineBottle = new Waste (this, "glass-medicine-bottle", WasteType.GLASS, "it is made out of glass, and therefore goes in glass", false);
@@ -97,7 +98,8 @@ public class Game {
         Waste tray = new Waste(this,"tin-tray", WasteType.METAL, "tin trays are made out of metal. It goes into metal", false);
         Waste ballPen = new Waste(this, "ball-pen", WasteType.RESIDUAL, "a ball pen is compromised of multiple components and hard to recycle. It goes into residual", true);
         Waste toothBrush = new Waste(this, "tooth-brush", WasteType.RESIDUAL, "a tooth brush is not recycled due to repeated contact with a persons mouth and therefore unhygienic, it goes into residual", true);
-
+        Key arms = new Key(this, "arm");
+        Key sewing_kit = new Key(this, "sewing_kit");
 
 
         // Waste objects #Level 3 - School
@@ -128,6 +130,8 @@ public class Game {
         odense.addItem(martin);
         parkinglot.addItem(homelessDan);
         homelessDan.setBigbox(bigbox);
+        mrZombie.setArm(arms);
+        mrZombie.setSewing_kit(sewing_kit);
         hospitalOutside.addItem(mrZombie);
         teachersLounge.addItem(madChemist);
         madChemist.setFertilizer(fertilizer);

@@ -2,7 +2,6 @@ package dk.sdu.worldoftrash.game.items.npcs;
 
 import dk.sdu.worldoftrash.game.Game;
 import dk.sdu.worldoftrash.game.items.Item;
-
 import java.util.ArrayList;
 
 public class ParkingLotNPC extends NPC {
