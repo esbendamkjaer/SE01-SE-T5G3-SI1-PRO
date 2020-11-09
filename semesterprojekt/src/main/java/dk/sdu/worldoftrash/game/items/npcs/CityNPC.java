@@ -28,6 +28,8 @@ public class CityNPC extends NPC {
                 System.out.println("This is what's left of Odense after the trashpocalypse, and because you are new, I would recommend that you go to the SUPERMARKET first");
                 System.out.println("Once you are done there and have sorted the garbage, return to me.");
                 System.out.println("Btw, you have the ability to use the ‘search’ command if you aren’t able to find the trash in the different rooms.  ");
+                System.out.println("If you meet any other people out there, talk to them! they might have something to say if you have something to GIVE them.");
+                System.out.println("remember GIVE TO them.");
             } else if (getGame().getScoreSystem().getWasteCount() >= 15 && getGame().getScoreSystem().getWasteCount() < 30) {
                 System.out.println("Fantastic Job! You have now cleaned the SUPERMARKET and are now able to clean up the HOSPITAL. ");
             } else if (getGame().getScoreSystem().getWasteCount() >= 30 && getGame().getScoreSystem().getWasteCount() < 45) {
