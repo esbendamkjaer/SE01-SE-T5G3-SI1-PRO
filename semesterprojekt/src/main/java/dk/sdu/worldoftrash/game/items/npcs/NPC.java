@@ -10,10 +10,10 @@ public abstract class NPC extends Item {
     private String dialogue;
     private Inventory inventory;
 
-    public NPC(Game game, String name, String dialogue) {
+    public NPC(Game game, String name, String dialogue, Inventory inventory) {
         super(game, name);
         this.dialogue = dialogue;
-        this.inventory = new Inventory(2);
+        this.inventory = inventory;
     }
 
     public String getDialogue() {
@@ -31,5 +31,8 @@ public abstract class NPC extends Item {
      * @return Whether the NPC accepted the item or not.
      */
     public abstract boolean giveItem(Item item);
-    public abstract Inventory getInventory();
+
+    public Inventory getInventory() {
+        return inventory;
+    }
 }

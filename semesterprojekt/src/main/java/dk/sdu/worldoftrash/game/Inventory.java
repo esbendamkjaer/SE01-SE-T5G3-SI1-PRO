@@ -50,6 +50,15 @@ public class Inventory {
     }
 
     /**
+     * Searches inventory for given items
+     * @param items Items to search for
+     * @return Whether or not the inventory contains the given items
+     */
+    public boolean hasItems(Item... items) {
+        return this.items.containsAll(List.of(items));
+    }
+
+    /**
      * Get an item from the inventory specified by given name.
      * @param name Name of item to retrieve.
      * @return Returns the Item object. If none found in the inventory, it returns null.

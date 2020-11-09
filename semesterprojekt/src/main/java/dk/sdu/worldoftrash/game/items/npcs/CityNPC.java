@@ -1,16 +1,15 @@
 package dk.sdu.worldoftrash.game.items.npcs;
 
 import dk.sdu.worldoftrash.game.Game;
-import dk.sdu.worldoftrash.game.Inventory;
 import dk.sdu.worldoftrash.game.items.Item;
-
+import dk.sdu.worldoftrash.game.rooms.Room;
 
 public class CityNPC extends NPC {
 
-    private dk.sdu.worldoftrash.game.rooms.Room Room;
+    private Room Room;
 
     public CityNPC(Game game, String name, String dialogue) {
-        super(game, name, dialogue);
+        super(game, name, dialogue, null);
     }
 
     @Override
@@ -39,13 +38,6 @@ public class CityNPC extends NPC {
 
     @Override
     public boolean giveItem(Item item) {
-
-
         return false;
-    }
-
-    @Override
-    public Inventory getInventory() {
-        return null;
     }
 }
