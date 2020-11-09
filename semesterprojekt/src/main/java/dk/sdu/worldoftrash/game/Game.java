@@ -511,12 +511,12 @@ public class Game {
         String args[] = command.getArgs();
 
         if (args == null || args.length <= 0) {
-            System.out.println("Drop what?");
+            System.out.println("Drop what? perhaps ask Martin for instructions? yes?");
             return;
         } else if (args.length == 1) {
             Item item = player.getInventory().getItemByName(args[0]);
             if (item == null) {
-                System.out.println("No such item in inventory.");
+                System.out.println("No such item in inventory. perhaps ask Martin for instructions? yes?");
             } else {
                 player.getInventory().removeItem(item);
                 currentRoom.addItem(item);
@@ -528,12 +528,12 @@ public class Game {
             Item item = player.getInventory().getItemByName(args[0]);
 
             if (item == null) {
-                System.out.println("No such item '" + args[0] + "' in inventory.");
+                System.out.println("No such item '" + args[0] + "' in inventory. perhaps ask Martin for instructions? yes?");
             } else {
                 Item container = currentRoom.getItemByName(args[2]);
 
                 if (container == null) {
-                    System.out.println("There's no such waste container in this room.");
+                    System.out.println("There's no such waste container in this room. perhaps ask Martin for instructions? yes?");
                     return;
                 }
 
@@ -558,7 +558,7 @@ public class Game {
             return;
         }
 
-        System.out.println("Not sure, what you mean...");
+        System.out.println("Not sure, what you mean... perhaps ask Martin for instructions? yes?");
 
     }
 
