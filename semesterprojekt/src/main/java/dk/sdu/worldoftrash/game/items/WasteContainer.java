@@ -21,7 +21,8 @@ public class WasteContainer extends Item {
     public boolean giveWaste(Waste waste){
         if (!waste.isClean()) {
             System.out.println("Clean your " + waste.getName() + " before you sort it.");
-
+            System.out.println("Penalty of -50 points.");
+            getGame().getScoreSystem().addPoints(-50);
             return false;
         }
 

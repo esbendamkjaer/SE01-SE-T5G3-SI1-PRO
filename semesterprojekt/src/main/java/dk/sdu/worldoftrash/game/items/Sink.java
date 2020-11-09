@@ -16,6 +16,8 @@ public class Sink extends Item implements Usable {
     public boolean washItem(Waste waste) {
         if (waste.isClean()) {
             System.out.println("This item is not washable.");
+            System.out.println("Penalty of -50 points.");
+            getGame().getScoreSystem().addPoints(-50);
             return false;
         }
 
