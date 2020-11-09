@@ -42,7 +42,7 @@ public class Game {
     private void initObjects() {
         //Rooms
         start = new Room(this, "start", "in the start room. The beginning of this trashy world's hero... You!!! \nA man greets you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin. \nYou must help us save the planet! Now follow me if you want to survive, start by using GO to the sorting-room and TALK to me there.\"");
-        sortingRoom = new Room(this, "sortingRoom", "in sorting room. Martin follows you. This is where you sort the trash and clean it in the sink if needed be.\nThere are 8 different containers, a organic-container, a glass-container, a metal-container, a paper-container, a residual-container, a cardboard-container, a hazardous-container and a plastic-container");
+        sortingRoom = new Room(this, "sortingRoom", "in sorting room. Martin follows you. This is where you sort the trash and clean it in the sink if needed be. (Sink usage: use + sink + on + ITEM_NAME) \nThere are 8 different containers, a organic-container, a glass-container, a metal-container, a paper-container, a residual-container, a cardboard-container, a hazardous-container and a plastic-container");
         odense = new Room(this, "city", "in the city of Odense. Martin follows you. The city is in shambles and filled with trash. In the distance you see mountains of trash towering over the city.\nIn the east is a supermarket, in the west is the sorting room, in the south is a hospital and in the north is a school");
         supermarket = new Room(this, "supermarket", "in the supermarket");
         office = new Room(this, "office", "in the supermarket office");
