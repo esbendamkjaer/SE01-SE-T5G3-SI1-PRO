@@ -12,8 +12,14 @@ public class LevelHandler {
     private Map<Room, Integer> wasteConditions;
     private Room currentLevel;
 
-    public LevelHandler() {
+    private int winningCondition;
+
+    private Game game;
+
+    public LevelHandler(Game game, int winningCondition) {
         this.wasteConditions = new HashMap<>();
+        this.winningCondition = winningCondition;
+        this.game = game;
     }
 
     /**
@@ -48,11 +54,25 @@ public class LevelHandler {
 
                 setCurrentLevel(entry.getKey());
 
-                level.getGame().getScoreSystem().uploadData();
+                game.getScoreSystem().uploadData();
 
                 iterator.remove();
             }
         }
+
+        if (wasteCount >= winningCondition) {
+            System.out.println("Congratulations, you have won the game. Good job!");
+            System.out.printf("You ended with a score of %d points.\n", game.getScoreSystem().getScore());
+            game.getScoreSystem().uploadData();
+        }
+    }
+
+    public int getWinningCondition() {
+        return winningCondition;
+    }
+
+    public void setWinningCondition(int winningCondition) {
+        this.winningCondition = winningCondition;
     }
 
     public String getCurrentLevelName() {

@@ -31,7 +31,7 @@ public class Game {
         this.parser = new Parser();
         this.reader = new Scanner(System.in);
         this.player = new Player(this, "Player");
-        this.scoreSystem = new ScoreSystem();
+        this.scoreSystem = new ScoreSystem(this);
         initObjects();
     }
 
