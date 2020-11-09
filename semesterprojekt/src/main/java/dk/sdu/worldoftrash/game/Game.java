@@ -76,7 +76,7 @@ public class Game {
         Waste deodorant = new Waste(this, "deodorant", WasteType.HAZARDOUS, "deodorants are typically cans containing chemicals, and therefore goes in hazardous", true);
         Waste newspaper = new Waste(this, "newspaper", WasteType.PAPER, "newspapers are made of paper, and therefore goes in paper", true);
         Waste cardboardBox = new Waste(this, "cardboard-box", WasteType.CARDBOARD, "cardboard boxes are made of cardboard, and therefore goes in cardboard", true);
-        Waste pizzaBox = new Waste(this, "pizza-box", WasteType.RESIDUAL, "a pizza box has been ######## dirtied ###### by a pizza, and therefore goes in residual", true);
+        Waste pizzaBox = new Waste(this, "pizza-box", WasteType.RESIDUAL, "a pizza box has been dirtied by a pizza, and therefore goes in residual", true);
         Waste receipt = new Waste(this, "receipt", WasteType.RESIDUAL, "receipts is made of a special kind of paper containing chemicals and should not be sorted in paper, therefore it goes in residual", true);
         Key bigbox = new Key(this, "biggest-box");
 
@@ -98,7 +98,7 @@ public class Game {
         Waste ballPen = new Waste(this, "ball-pen", WasteType.RESIDUAL, "a ball pen is compromised of multiple components and hard to recycle. It goes into residual", true);
         Waste toothBrush = new Waste(this, "tooth-brush", WasteType.RESIDUAL, "a tooth brush is not recycled due to repeated contact with a persons mouth and therefore unhygienic, it goes into residual", true);
         Key arms = new Key(this, "arm");
-        Key sewing_kit = new Key(this, "sewing_kit");
+        Key sewing_kit = new Key(this, "sewing-kit");
 
 
         // Waste objects #Level 3 - School
@@ -281,8 +281,8 @@ public class Game {
 
         //Scores
         scoreSystem.getLevelHandler().addLevel(supermarket, 0);
-        scoreSystem.getLevelHandler().addLevel(hospitalOutside, 15);
-        scoreSystem.getLevelHandler().addLevel(schoolOutside, 30);
+        scoreSystem.getLevelHandler().addLevel(hospitalOutside, 3);
+        scoreSystem.getLevelHandler().addLevel(schoolOutside, 6);
     }
 
     // Getters for NPC locations
