@@ -135,7 +135,7 @@ public class Game {
         teachersLounge.addItem(madChemist);
         madChemist.setFertilizer(fertilizer);
 
-        // Trash containers
+        //Creating trash container objects
         WasteContainer organicContainer = new WasteContainer(this, "organic-container", WasteType.ORGANIC);
         WasteContainer glassContainer = new WasteContainer(this, "glass-container", WasteType.GLASS);
         WasteContainer metalContainer = new WasteContainer(this, "metal-container", WasteType.METAL);
@@ -144,6 +144,8 @@ public class Game {
         WasteContainer cardboardcontainer = new WasteContainer(this, "cardboard-container", WasteType.CARDBOARD);
         WasteContainer hardPlasticcontainer = new WasteContainer(this, "plastic-container", WasteType.HARD_PLASTIC);
         WasteContainer hazardouscontainer = new WasteContainer(this, "hazardous-container", WasteType.HAZARDOUS);
+
+        //Assigning containers to the Sorting room
         sortingRoom.addItem(organicContainer);
         sortingRoom.addItem(glassContainer);
         sortingRoom.addItem(metalContainer);
@@ -173,7 +175,6 @@ public class Game {
         parkinglot.addItem(sodaCan);
         parkinglot.addItem(deodorant);
         parkinglot.addItem(jalapenoGlass);
-
 
         //Assigning trash for level #2 - Hospital
         hospitalOutside.addItem(syringe);
