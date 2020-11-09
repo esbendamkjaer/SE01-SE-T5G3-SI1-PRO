@@ -281,8 +281,8 @@ public class Game {
 
         //Scores
         scoreSystem.getLevelHandler().addLevel(supermarket, 0);
-        scoreSystem.getLevelHandler().addLevel(hospitalOutside, 3);
-        scoreSystem.getLevelHandler().addLevel(schoolOutside, 6);
+        scoreSystem.getLevelHandler().addLevel(hospitalOutside, 15);
+        scoreSystem.getLevelHandler().addLevel(schoolOutside, 30);
     }
 
     // Getters for NPC locations
