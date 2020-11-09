@@ -14,6 +14,7 @@ public enum CommandWord
     SAVE("save"), // Temporary
     TALK("talk"),
     GIVE("give"),
+    WHERE("where"),
     UNKNOWN("?"),
     ;
     

@@ -381,6 +381,9 @@ public class Game {
             case GIVE -> {
                 processGive(command);
             }
+            case WHERE -> {
+                System.out.printf("You are in %s.\n", currentRoom.getName());
+            }
             case UNKNOWN -> {
                 System.out.println("I don't know what you mean...");
             }

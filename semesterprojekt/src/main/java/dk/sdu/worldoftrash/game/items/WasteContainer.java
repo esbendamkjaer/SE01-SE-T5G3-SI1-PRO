@@ -28,7 +28,7 @@ public class WasteContainer extends Item {
         if (checkWaste(waste)) {
             System.out.println("You put the waste in the right container!");
             getGame().getScoreSystem().givePoints(waste);
-            System.out.println("Your score is now " + getGame().getScoreSystem().getScore() + ".");
+            System.out.printf("You now have a score of %d points!\n", getGame().getScoreSystem().getScore());
 
         } else {
             System.out.printf("'%s' does not belong in this container because %s.\n", waste.getName(), waste.getWrongSorting());
