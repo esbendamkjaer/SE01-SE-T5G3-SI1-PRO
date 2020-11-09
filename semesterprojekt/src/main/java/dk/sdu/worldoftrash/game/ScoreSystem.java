@@ -29,7 +29,7 @@ public class ScoreSystem {
 
         this.score = 0;
 
-        this.levelHandler = new LevelHandler(game, 9);
+        this.levelHandler = new LevelHandler(game, 45);
     }
 
     /**
