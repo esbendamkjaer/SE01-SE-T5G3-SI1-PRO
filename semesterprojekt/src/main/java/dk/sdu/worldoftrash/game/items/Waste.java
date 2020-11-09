@@ -14,7 +14,7 @@ public class Waste extends Item implements Pickupable {
         this.wasteType = wasteType;
         this.wrongSorting = wrongSorting;
         this.clean = clean;
-        this.points = 1;
+        this.points = 100;
     }
 
     public WasteType getWasteType(){
