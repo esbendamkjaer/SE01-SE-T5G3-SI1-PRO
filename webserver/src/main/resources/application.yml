@@ -1,0 +1,18 @@
+spring:
+  cache:
+    cache-names:
+      - buckets
+    caffeine:
+      spec: maximumSize=100000,expireAfterAccess=3600s
+
+bucket4j:
+  enabled: true
+  filters:
+    - cache-name: buckets
+      url: .*
+      rateLimits:
+        - expression: "getRemoteAddr()"
+          bandwidths:
+            - capacity: 50
+              time: 1
+              unit: minutes
