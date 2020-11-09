@@ -19,13 +19,17 @@ public class ScoreSystem {
 
     private LevelHandler levelHandler;
 
-    public ScoreSystem() {
+    private Game game;
+
+    public ScoreSystem(Game game) {
         this.client = new Client(20, "https://worldoftrash.herokuapp.com");
+        this.game = game;
 
         this.scoreData = new ScoreData(UUID.randomUUID());
-        this.levelHandler = new LevelHandler();
 
         this.score = 0;
+
+        this.levelHandler = new LevelHandler(game, 45);
     }
 
     /**

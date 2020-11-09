@@ -38,7 +38,7 @@ public class ScoreService {
 
     public String saveScoreData(ScoreData scoreData) throws ExecutionException, InterruptedException {
         Firestore dbFirestore = FirestoreClient.getFirestore();
-        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection(COL_NAME).document(scoreData.getUuid().toString()).set(scoreData);
+        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection(COL_NAME).document(scoreData.getUuid()).set(scoreData);
         return collectionsApiFuture.get().getUpdateTime().toString();
     }
 
