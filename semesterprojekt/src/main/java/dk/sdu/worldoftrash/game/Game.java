@@ -81,7 +81,6 @@ public class Game {
         Key bigbox = new Key(this, "biggest-box");
 
 
-
         // Waste objects #Level 2 - Hospital
         Waste papers1 = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
         Waste medicineBottle = new Waste (this, "glass-medicine-bottle", WasteType.GLASS, "it is made out of glass, and therefore goes in glass", false);
@@ -226,18 +225,20 @@ public class Game {
         Sink sink = new Sink(this, "sink");
         sortingRoom.addItem(sink);
 
-        //Exits #0
+        //Exits in "Start" #0
         start.setExit("sorting-room", sortingRoom);
 
+        //Exits in "Sorting Room" #0
         sortingRoom.setExit("start", start);
         sortingRoom.setExit("Odense", odense);
 
+        //Exits in "Odense" #0
         odense.setExit("east", supermarket);
         odense.setExit("west", sortingRoom);
         odense.setExit("south", hospitalOutside);
         odense.setExit("north", schoolOutside);
 
-        //level #1
+        //Exits in Supermarket #1
         supermarket.setExit("Odense", odense);
         supermarket.setExit("office", office);
         supermarket.setExit("storage-room", storageRoom);
@@ -247,7 +248,7 @@ public class Game {
         storageRoom.setExit("supermarket", supermarket);
         parkinglot.setExit("supermarket", supermarket);
 
-        //level #2
+        //Exits in "Hospital" #2
         hospitalOutside.setExit("Odense", odense);
         hospitalOutside.setExit("reception", reception);
 
@@ -260,7 +261,7 @@ public class Game {
         morgue.setExit("reception", reception);
         canteen.setExit("reception", reception);
 
-        //level #3
+        //Exits in "School" #3
         schoolOutside.setExit("Odense", odense);
         schoolOutside.setExit("teachers-lounge", teachersLounge);
         schoolOutside.setExit("chemistry-room", chemistryRoom);
@@ -275,6 +276,7 @@ public class Game {
         // Misc.
         currentRoom = start;
 
+        //Scores
         scoreSystem.getLevelHandler().addLevel(supermarket, 0);
         scoreSystem.getLevelHandler().addLevel(hospitalOutside, 1);
         scoreSystem.getLevelHandler().addLevel(schoolOutside, 2);
@@ -297,9 +299,7 @@ public class Game {
         return start;
     }
 
-    /**
-     * Runs the game loop.
-     */
+    //Runs the game loop
     public void play() {
         printWelcome();
 
@@ -314,9 +314,7 @@ public class Game {
         System.out.println("Thank you for playing. Good bye.");
     }
 
-    /**
-     * Prints out a welcome message.
-     */
+    /*** Prints out a welcome message.***/
     private void printWelcome() {
         System.out.println();
         System.out.println("Welcome to the World of Trash!!!");
@@ -326,9 +324,8 @@ public class Game {
         System.out.println(currentRoom.getLongDescription());
     }
 
-    /**
-     * Prints out player's score
-     */
+    //********************************************* Commands - Start ***************************************************
+    /*** Prints out player's score */
     public void printScore() {
         System.out.printf("Your score: %d points.\n", scoreSystem.getScore());
     }
@@ -648,7 +645,6 @@ public class Game {
         }
     }
 
-
     /**
      * Meant to be used for quit commands.
      * Examines if a command has a second word in which case it is assumed the player didn't mean to quit the game.
@@ -663,6 +659,7 @@ public class Game {
             return true;
         }
     }
+    //********************************************* Commands - End ***************************************************
 
     public ScoreSystem getScoreSystem () {
         return scoreSystem;
