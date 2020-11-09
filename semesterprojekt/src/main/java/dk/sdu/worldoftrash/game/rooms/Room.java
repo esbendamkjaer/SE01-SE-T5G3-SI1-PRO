@@ -56,7 +56,7 @@ public class Room
      * Returns a String representation of the exits in the room.
      * @return The String representation of the room exits.
      */
-    private String getExitString()
+    public String getExitString()
     {
         String returnString = "Exits:";
         Set<String> keys = exits.keySet();

@@ -385,6 +385,7 @@ public class Game {
             }
             case WHERE -> {
                 System.out.printf("You are in %s.\n", currentRoom.getName());
+                System.out.println(currentRoom.getExitString());
             }
             case UNKNOWN -> {
                 System.out.println("I don't know what you mean...");
