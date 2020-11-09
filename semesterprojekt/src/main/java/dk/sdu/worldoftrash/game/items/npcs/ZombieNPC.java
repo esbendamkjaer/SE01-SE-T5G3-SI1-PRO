@@ -1,6 +1,7 @@
 package dk.sdu.worldoftrash.game.items.npcs;
 
 import dk.sdu.worldoftrash.game.Game;
+import dk.sdu.worldoftrash.game.Inventory;
 import dk.sdu.worldoftrash.game.items.Item;
 
 public class ZombieNPC extends NPC {
@@ -33,6 +34,11 @@ public class ZombieNPC extends NPC {
             System.out.println("Are you joking with me?!");
             return false;
         }
+    }
+
+    @Override
+    public Inventory getInventory() {
+        return null;
     }
 
     public void setArm(Item arm) {

@@ -280,8 +280,8 @@ public class Game {
 
         //Scores
         scoreSystem.getLevelHandler().addLevel(supermarket, 0);
-        scoreSystem.getLevelHandler().addLevel(hospitalOutside, 15);
-        scoreSystem.getLevelHandler().addLevel(schoolOutside, 30);
+        scoreSystem.getLevelHandler().addLevel(hospitalOutside, 3);
+        scoreSystem.getLevelHandler().addLevel(schoolOutside, 6);
     }
 
     // Getters for NPC locations
@@ -418,6 +418,7 @@ public class Game {
 
             if (npc.giveItem(item)) {
                 player.getInventory().removeItem(item);
+                npc.getInventory().storeItem(item);
             }
         } else {
             System.out.println("Give what to who?");

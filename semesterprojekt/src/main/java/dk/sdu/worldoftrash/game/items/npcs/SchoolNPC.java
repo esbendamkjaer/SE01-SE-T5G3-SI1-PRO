@@ -1,11 +1,13 @@
 package dk.sdu.worldoftrash.game.items.npcs;
 
 import dk.sdu.worldoftrash.game.Game;
+import dk.sdu.worldoftrash.game.Inventory;
 import dk.sdu.worldoftrash.game.items.Item;
 
-import java.util.ArrayList;
 
 public class SchoolNPC extends NPC {
+    private Object Inventory;
+
     public SchoolNPC(Game game, String name, String dialogue) {
         super(game, name, dialogue);
 
@@ -34,7 +36,12 @@ public class SchoolNPC extends NPC {
         }
     }
 
-        public void setFertilizer(Item fertilizer){
+    @Override
+    public Inventory getInventory() {
+        return (dk.sdu.worldoftrash.game.Inventory) Inventory;
+    }
+
+    public void setFertilizer(Item fertilizer){
             this.fertilizer = fertilizer;
         }
 }

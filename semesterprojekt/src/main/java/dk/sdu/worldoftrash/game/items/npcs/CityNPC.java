@@ -1,6 +1,7 @@
 package dk.sdu.worldoftrash.game.items.npcs;
 
 import dk.sdu.worldoftrash.game.Game;
+import dk.sdu.worldoftrash.game.Inventory;
 import dk.sdu.worldoftrash.game.items.Item;
 
 
@@ -16,7 +17,7 @@ public class CityNPC extends NPC {
     public void talk() {
         if (getGame().getCurrentRoom() == getGame().getStart()){
             System.out.println("Hello there! \uD83D\uDE09\n" +
-                    "Welcome to the world of Trash. You must help us save the planet! Now follow me if you want to survive, start by using GO to the sorting-room and TALK to me there.\n");
+                    "Welcome to the world of Trash. You must help us save the planet! \nNow follow me if you want to survive, start by using GO to the sorting-room and TALK to me there.\n");
         }
         if (getGame().getCurrentRoom() == getGame().getSortingRoom()){
             System.out.println("This is our sorting room. In this room we have a lot of sorting bins, and it is your job to sort the waste you find in Odense");
@@ -41,5 +42,10 @@ public class CityNPC extends NPC {
 
 
         return false;
+    }
+
+    @Override
+    public Inventory getInventory() {
+        return null;
     }
 }
