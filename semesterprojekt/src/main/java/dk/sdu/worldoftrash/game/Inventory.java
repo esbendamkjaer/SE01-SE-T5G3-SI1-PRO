@@ -34,6 +34,7 @@ public class Inventory {
         items.remove(item);
     }
 
+
     /**
      * Searches inventory for item with given name and returns true if found.
      * @param name Name of item to search for.
@@ -46,6 +47,15 @@ public class Inventory {
             }
         }
         return false;
+    }
+
+    /**
+     * Searches inventory for given items
+     * @param items Items to search for
+     * @return Whether or not the inventory contains the given items
+     */
+    public boolean hasItems(Item... items) {
+        return this.items.containsAll(List.of(items));
     }
 
     /**
