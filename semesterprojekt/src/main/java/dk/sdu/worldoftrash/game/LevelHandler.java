@@ -61,8 +61,10 @@ public class LevelHandler {
         }
 
         if (wasteCount >= winningCondition) {
-            System.out.println("Congratulations, you have won the game. Good job!");
+            System.out.println("Congratulations, you have won the game by removing and sorting all the trash. Good job!");
             System.out.printf("You ended with a score of %d points.\n", game.getScoreSystem().getScore());
+            System.out.println("Hope you learnt something about sorting trash");
+            System.out.println("To close down the game type in the command ‘quit’");
             game.getScoreSystem().uploadData();
         }
     }
