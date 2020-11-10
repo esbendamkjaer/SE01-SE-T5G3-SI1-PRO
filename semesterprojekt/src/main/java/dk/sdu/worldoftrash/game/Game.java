@@ -236,10 +236,10 @@ public class Game {
         sortingRoom.setExit("Odense", odense);
 
         //Exits in "Odense" #0
-        odense.setExit("east", supermarket);
-        odense.setExit("west", sortingRoom);
-        odense.setExit("south", hospitalOutside);
-        odense.setExit("north", schoolOutside);
+        odense.setExit("supermarket", supermarket);
+        odense.setExit("sorting-room", sortingRoom);
+        odense.setExit("hospital", hospitalOutside);
+        odense.setExit("school", schoolOutside);
 
         //Exits in Supermarket #1
         supermarket.setExit("Odense", odense);
@@ -255,7 +255,7 @@ public class Game {
         hospitalOutside.setExit("Odense", odense);
         hospitalOutside.setExit("reception", reception);
 
-        reception.setExit("hospital", hospitalOutside);
+        reception.setExit("hospital-outside", hospitalOutside);
         reception.setExit("operations-room", operatingRoom);
         reception.setExit("morgue", morgue);
         reception.setExit("canteen", canteen);
