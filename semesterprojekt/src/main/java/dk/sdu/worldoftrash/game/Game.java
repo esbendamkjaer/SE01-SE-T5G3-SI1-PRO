@@ -88,7 +88,7 @@ public class Game {
         Waste scalpel = new Waste (this, "scalpel", WasteType.METAL, "a scalpel is made of metal. This goes into metal", true);
         Waste paperclip = new Waste (this, "paperclips", WasteType.RESIDUAL, "unless you got a large quantity of paper clips, recycling paper clips have a larger carbon footprint rather than just sorting them to residual, and therefore goes in residual", true);
         Waste facemask = new Waste (this, "face-mask", WasteType.RESIDUAL, "this is a face mask. It goes into residual", true);
-        Waste bloodbag = new Waste (this, "blood-bag", WasteType.RESIDUAL, "blood bags are biohazardous material and goes in hazardous", true);
+        Waste bloodbag = new Waste (this, "blood-bag", WasteType.HAZARDOUS, "blood bags are biohazardous material and goes in hazardous", true);
         Waste apple = new Waste (this, "apple",WasteType.ORGANIC, "apples usually are organics and can be dropped in organic", true);
         Waste needle = new Waste (this, "needle", WasteType.RESIDUAL, "Needles in themselves are not worth recycling themselves and usually can be drop in residual ", true);
         Waste chocolateMilkBottle = new Waste (this, "chocolate-milk-bottle", WasteType.GLASS, "this is a glass bottle, and therefore goes into glass", false);
@@ -281,8 +281,8 @@ public class Game {
 
         //Scores
         scoreSystem.getLevelHandler().addLevel(supermarket, 0);
-        scoreSystem.getLevelHandler().addLevel(hospitalOutside, 15);
-        scoreSystem.getLevelHandler().addLevel(schoolOutside, 30);
+        scoreSystem.getLevelHandler().addLevel(hospitalOutside, 0);
+        scoreSystem.getLevelHandler().addLevel(schoolOutside, 6);
     }
 
     // Getters for NPC locations
