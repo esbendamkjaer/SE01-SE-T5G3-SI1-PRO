@@ -1,4 +1,4 @@
-package dk.sdu.worldoftrash.webserver.data;
+package dk.sdu.worldoftrash.dataextractor.data;
 
 public enum WasteType {
 
