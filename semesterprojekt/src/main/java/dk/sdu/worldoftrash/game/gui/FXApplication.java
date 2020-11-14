@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 import java.util.ResourceBundle;
 
-public class Frame extends Application {
+public class FXApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
