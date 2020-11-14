@@ -1,7 +1,6 @@
 package dk.sdu.worldoftrash.game;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import dk.sdu.worldoftrash.game.data.ScoreData;
 
 import java.io.IOException;
@@ -36,15 +35,10 @@ public class Client {
      * @param scoreData ScoreData object to send.
      */
     public void sendScoreData(ScoreData scoreData) {
-        ObjectMapper objectMapper = new ObjectMapper();
+        Gson serializer = new Gson();
 
         String data;
-        try {
-            data = objectMapper.writeValueAsString(scoreData);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            return;
-        }
+        data = serializer.toJson(scoreData);
 
         HttpRequest postRequest = HttpRequest.newBuilder()
                 .uri(URI.create(url + "/createScoreData"))
