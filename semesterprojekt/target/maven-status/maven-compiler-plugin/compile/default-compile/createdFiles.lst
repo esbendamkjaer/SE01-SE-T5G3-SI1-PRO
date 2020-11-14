@@ -13,6 +13,7 @@ dk\sdu\worldoftrash\game\items\WasteContainer.class
 dk\sdu\worldoftrash\game\ScoreSystem.class
 dk\sdu\worldoftrash\game\Inventory.class
 dk\sdu\worldoftrash\game\data\LevelData.class
+dk\sdu\worldoftrash\game\Main.class
 dk\sdu\worldoftrash\game\CommandWord.class
 dk\sdu\worldoftrash\game\items\Sink.class
 dk\sdu\worldoftrash\game\Game.class

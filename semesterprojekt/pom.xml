@@ -7,6 +7,7 @@
     <properties>
         <java.version>15</java.version>
         <maven.compiler.release>15</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <groupId>dk.sdu.worldoftrash.game</groupId>
@@ -49,6 +50,12 @@
                 <version>0.0.5</version>
                 <configuration>
                     <mainClass>dk.sdu.worldoftrash.game.gui.Frame</mainClass>
+                    <launcher>launcher</launcher>
+                    <compress>2</compress>
+                    <jlinkZipName>wot-game</jlinkZipName>
+                    <jlinkImageName>wot-game</jlinkImageName>
+                    <noManPages>true</noManPages>
+                    <noHeaderFiles>true</noHeaderFiles>
                 </configuration>
             </plugin>
         </plugins>
