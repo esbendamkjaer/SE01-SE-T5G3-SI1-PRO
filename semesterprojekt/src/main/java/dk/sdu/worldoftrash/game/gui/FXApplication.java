@@ -1,28 +1,36 @@
 package dk.sdu.worldoftrash.game.gui;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ResourceBundle;
 
 public class FXApplication extends Application {
 
+    private SceneManager sceneManager;
+
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) throws IOException {
+
+        sceneManager = new SceneManager(stage);
 
         stage.setTitle("Titel");
 
         ResourceBundle resourceBundle = ResourceBundle.getBundle("lang");
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/start.fxml"), resourceBundle);
 
-        Scene scene = new Scene(root);
+        createScene(SceneName.START_SCENE, resourceBundle);
+        createScene(SceneName.GAME_SCENE, resourceBundle);
 
-        stage.setScene(scene);
+        sceneManager.changeScene(SceneName.START_SCENE);
+
         stage.show();
+    }
 
+    public void createScene(SceneName sceneName, ResourceBundle resourceBundle) throws IOException {
+        SceneInfo sceneInfo = new SceneInfo(sceneName.getFxmlPath(), sceneManager, resourceBundle);
+
+        sceneManager.addScene(sceneName, sceneInfo);
     }
 
 }

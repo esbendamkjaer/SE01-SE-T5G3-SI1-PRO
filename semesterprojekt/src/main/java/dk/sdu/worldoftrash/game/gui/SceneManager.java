@@ -1,17 +1,18 @@
 package dk.sdu.worldoftrash.game.gui;
 
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class SceneManager {
 
     private Stage stage;
 
-    private HashMap<String, Scene> scenes = new HashMap<String, Scene>();
+    private Map<SceneName, SceneInfo> scenes;
 
     public SceneManager(Stage stage) {
+        this.scenes = new HashMap<>();
         this.stage = stage;
     }
 
@@ -20,19 +21,19 @@ public class SceneManager {
      * @param sceneName Name of the scene being added.
      * @param scene Scene to add.
      */
-    public void addScene(String sceneName, Scene scene) {
-        scenes.put(sceneName, scene);
+    public void addScene(SceneName sceneName, SceneInfo sceneInfo) {
+        scenes.put(sceneName, sceneInfo);
     }
 
     /**
      * Change the current scene to scene by given scene name.
      * @param sceneName Name of scene to switch to.
      */
-    public void changeScene(String sceneName) {
+    public void changeScene(SceneName sceneName) {
         if (scenes.containsKey(sceneName)) {
-            Scene scene = scenes.get(sceneName);
+            SceneInfo sceneInfo = scenes.get(sceneName);
 
-            stage.setScene(scene);
+            stage.setScene(sceneInfo.getScene());
             stage.show();
         } else {
             System.err.printf("No such scene '%s'.\n", sceneName);
