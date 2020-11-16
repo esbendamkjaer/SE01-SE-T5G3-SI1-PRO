@@ -5,13 +5,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.sdu.worldoftrash.game.gui.controllers.GameController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Canvas id="gameCanvas" height="830.0" width="1203.0" />
-            <TextArea prefHeight="200.0" prefWidth="200.0" />
+            <Canvas id="gameCanvas" height="830.0" width="1090.0" />
+            <TextArea prefHeight="830.0" prefWidth="503.0" rotate="135.0" />
          </children>
       </HBox>
    </children>
