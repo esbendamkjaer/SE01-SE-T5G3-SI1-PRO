@@ -6,6 +6,9 @@ import dk.sdu.worldoftrash.game.gui.Renderer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +18,16 @@ public class GameController extends BaseController implements Initializable {
     @FXML
     public Canvas gameCanvas;
     private Game game;
+
+    @FXML
+    public GridPane inventoryGrid;
+
+    @FXML
+    public TextArea textLogArea;
+
+    @FXML
+    public TextArea itemDescriptionArea;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -35,6 +48,7 @@ public class GameController extends BaseController implements Initializable {
         };
 
         timer.start();
+
     }
 
 }
