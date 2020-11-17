@@ -44,6 +44,10 @@ public class Player extends Item {
             setPosition(getPosition().add(10, 0));
         }
 
+        if (keys.isDown(KeyCode.E)) {
+            throw new UnsupportedOperationException();
+        }
+
         if (getY() < 0) {
             setY(0);
         } else if (getY() + getHeight() > getGame().getHeight()) {

@@ -9,6 +9,7 @@ import dk.sdu.worldoftrash.game.items.Usable;
 import dk.sdu.worldoftrash.game.rooms.Room;
 import dk.sdu.worldoftrash.game.items.npcs.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -678,11 +679,27 @@ public class Game {
     public void update(float delta) {
         getCurrentRoom().update(delta);
 
+
+
         player.update(delta);
     }
 
     public Player getPlayer() {
         return player;
+    }
+
+    /**
+     * Returns a list of items in the current room whose boundary box collides with the players'.
+     * @return List of colliding items.
+     */
+    public List<Item> getCollisionsWithPlayer() {
+        List<Item> colliding = new ArrayList<>();
+        for (Item item : currentRoom.getItems()) {
+            if (player.getBoundaryBox().intersects(item.getBoundaryBox())) {
+                colliding.add(item);
+            }
+        }
+        return colliding;
     }
 
     public void setPlayer(Player player) {

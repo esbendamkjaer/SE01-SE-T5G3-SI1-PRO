@@ -138,7 +138,7 @@
                   </ImageView>
                </children>
             </GridPane>
-            <TextArea editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="178.0" prefWidth="314.0" wrapText="true">
+            <TextArea editable="false" focusTraversable="false" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="178.0" prefWidth="314.0" wrapText="true">
                <VBox.margin>
                   <Insets />
                </VBox.margin>

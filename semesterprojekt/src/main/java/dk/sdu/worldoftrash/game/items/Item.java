@@ -20,8 +20,8 @@ public class Item {
     public Item(Game game, String name) {
         this.game = game;
         this.name = name;
-        this.position = new Point2D(0d, 0d);
-        scale = 1;
+        this.position = Point2D.ZERO;
+        scale = 2;
     }
 
     public String getName() {
@@ -59,7 +59,7 @@ public class Item {
     }
 
     public double getWidth() {
-        return width;
+        return width * scale;
     }
 
     public void setWidth(double width) {
@@ -67,7 +67,7 @@ public class Item {
     }
 
     public double getHeight() {
-        return height;
+        return height * scale;
     }
 
     public void setHeight(double height) {
