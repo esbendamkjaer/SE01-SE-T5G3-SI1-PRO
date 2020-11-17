@@ -102,8 +102,21 @@ public class Item {
         setPosition(new Point2D(x, y));
     }
 
+    public void fitToImage() {
+        setHeight(image.getHeight());
+        setWidth(image.getWidth());
+    }
+
     public Rectangle2D getBoundaryBox() {
         return new Rectangle2D(getX(), getY(), getWidth(), getHeight());
+    }
+
+    public void moveFromMid(Point2D point) {
+        setPosition(point.subtract(getWidth() / 2, getHeight() / 2));
+    }
+
+    public Point2D getMidPoint() {
+        return new Point2D(getX() + getWidth() / 2, getY() + getHeight() / 2);
     }
 
 }

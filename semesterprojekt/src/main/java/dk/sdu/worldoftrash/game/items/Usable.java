@@ -1,6 +1,8 @@
 package dk.sdu.worldoftrash.game.items;
 
-public interface Usable {
+import dk.sdu.worldoftrash.game.items.npcs.Interactable;
+
+public interface Usable extends Interactable {
 
     /**
      * Use usable on given item

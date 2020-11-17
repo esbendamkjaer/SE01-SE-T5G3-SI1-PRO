@@ -20,8 +20,7 @@ public class Player extends Item {
         inventory = new Inventory(10);
         keys = KeyPolling.getInstance();
         setImage(new Image(getClass().getResourceAsStream("/images/player.png")));
-        setWidth(getImage().getWidth());
-        setHeight(getImage().getHeight());
+        fitToImage();
     }
 
     public Inventory getInventory() {
@@ -37,12 +36,13 @@ public class Player extends Item {
         for (Item item : colliding) {
 
             if (item instanceof Interactable) {
-                if (keys.isDown(KeyCode.X) && !typed) {
+                if (keys.isDown(KeyCode.X)) {
+                    if (!typed) {
+                        Interactable interactable = (Interactable) item;
+                        interactable.interact(this);
 
-                    Interactable interactable = (Interactable) item;
-                    interactable.interact(this);
-
-                    typed = true;
+                        typed = true;
+                    }
                 } else {
                     typed = false;
                 }

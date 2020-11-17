@@ -36,5 +36,6 @@ public class Door extends Item implements Interactable {
     @Override
     public void interact(Player player) {
         getGame().changeRoom(otherSide.getPlace());
+        player.moveFromMid(otherSide.getMidPoint());
     }
 }
