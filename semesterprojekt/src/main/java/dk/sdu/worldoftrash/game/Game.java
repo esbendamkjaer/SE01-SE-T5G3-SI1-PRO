@@ -24,6 +24,8 @@ public class Game {
 
     private Scanner reader;
 
+    private TextLogArea textLogArea;
+
     private double height;
     private double width;
 
@@ -374,13 +376,11 @@ public class Game {
     }
 
     /*** Prints out a welcome message.***/
-    private void printWelcome() {
-        System.out.println();
-        System.out.println("Welcome to the World of Trash!!!");
-        System.out.println("The world has been through an apocalypse caused by massive amounts of trash and is in need of a hero. \nThis is an incredibly exciting adventure game.");
-        System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
-        System.out.println();
-        System.out.println(currentRoom.getLongDescription());
+    public void printWelcome() {
+        textLogArea.printText("Welcome to the World of Trash!!!");
+        textLogArea.printText("The world has been through an apocalypse caused by massive amounts of trash and is in need of a hero. \nThis is an incredibly exciting adventure game.");
+        textLogArea.printText("Type '" + CommandWord.HELP + "' if you need help.");
+        textLogArea.printText(currentRoom.getLongDescription());
     }
 
     //********************************************* Commands - Start ***************************************************
@@ -699,7 +699,7 @@ public class Game {
             return;
         }
         currentRoom = room;
-        System.out.println(currentRoom.getLongDescription());
+        textLogArea.printText(currentRoom.getLongDescription());
     }
 
     public void processTalk(Command command) {
@@ -786,4 +786,11 @@ public class Game {
     public void setWidth(double width) {
         this.width = width;
     }
+
+    public TextLogArea getTextLogArea() {return textLogArea;}
+
+    public void setTextLogArea(TextLogArea textLogArea) {this.textLogArea = textLogArea;}
+
 }
+
+
