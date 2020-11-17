@@ -15,4 +15,5 @@ public class StartController extends BaseController {
         getSceneManager().changeScene(SceneName.GAME_SCENE);
 
     }
+    
 }

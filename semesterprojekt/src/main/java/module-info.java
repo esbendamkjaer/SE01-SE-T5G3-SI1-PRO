@@ -5,6 +5,7 @@ module semesterprojekt {
     requires com.google.gson;
 
     exports dk.sdu.worldoftrash.game.gui;
+    exports dk.sdu.worldoftrash.game.gui.startmenu;
     exports dk.sdu.worldoftrash.game.gui.controllers;
     opens dk.sdu.worldoftrash.game.gui.controllers;
 
