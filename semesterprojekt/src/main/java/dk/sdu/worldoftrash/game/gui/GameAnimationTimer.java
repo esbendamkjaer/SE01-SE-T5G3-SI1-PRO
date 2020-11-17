@@ -2,13 +2,18 @@ package dk.sdu.worldoftrash.game.gui;
 
 import javafx.animation.AnimationTimer;
 
-public class GameAnimationTimer extends AnimationTimer {
+public abstract class GameAnimationTimer extends AnimationTimer {
+
+    private long pauseStart;
+    private long animationStart;
+    private long lastFrameTimeNanos;
 
     private boolean paused;
     private boolean active;
     private boolean pauseScheduled;
     private boolean playScheduled;
     private boolean restartScheduled;
+
 
     public void pause() {
         if (!isPaused()) {
@@ -27,12 +32,38 @@ public class GameAnimationTimer extends AnimationTimer {
         super.start();
         setActive(true);
         setRestartScheduled(true);
-        
+
     }
 
     @Override
     public void handle(long now) {
 
+        if (isPauseScheduled()) {
+            pauseStart = now;
+            setPaused(true);
+            setPaused(true);
+            setPauseScheduled(false);
+        }
+
+        if (isPlayScheduled()) {
+            animationStart += (now - pauseStart);
+            setPaused(false);
+            setPlayScheduled(false);
+        }
+
+        if (isRestartScheduled()) {
+            setPaused(false);
+            animationStart = now;
+            setRestartScheduled(false);
+        }
+
+        if(!isPaused()) {
+            long delta = now - animationStart;
+
+            float secondsSinceLastFrame = (float) ((now - lastFrameTimeNanos) / 1e9);
+            lastFrameTimeNanos = now;
+            tick(secondsSinceLastFrame);
+        }
     }
 
     public boolean isPaused() {
@@ -74,4 +105,6 @@ public class GameAnimationTimer extends AnimationTimer {
     public void setPlayScheduled(boolean playScheduled) {
         this.playScheduled = playScheduled;
     }
+
+    public abstract void tick(float secondsSinceLastFrame);
 }

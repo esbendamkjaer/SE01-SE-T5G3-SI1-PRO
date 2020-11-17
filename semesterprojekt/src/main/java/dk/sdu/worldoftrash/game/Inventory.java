@@ -96,6 +96,9 @@ public class Inventory {
             System.out.print((i == 0 ? "" : ", ") + items.get(i).getName());
         }
         System.out.print("\n");
+    }
 
+    public Item getItemAt(int index) {
+        return items.get(index);
     }
 }

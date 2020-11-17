@@ -8,7 +8,9 @@ import dk.sdu.worldoftrash.game.items.Sink;
 import dk.sdu.worldoftrash.game.items.Usable;
 import dk.sdu.worldoftrash.game.rooms.Room;
 import dk.sdu.worldoftrash.game.items.npcs.*;
+import javafx.scene.image.Image;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,16 +24,23 @@ public class Game {
 
     private Scanner reader;
 
+    private double height;
+    private double width;
+
     private Room start, sortingRoom, odense,
     /* level 1 */supermarket, office, storageRoom, parkinglot,
     /* level 2 */hospitalOutside, reception, operatingRoom, morgue, canteen,
     /* level 3 */schoolOutside, teachersLounge, chemistryRoom, gymnasticsRoom, girlsLockerRoom;
 
-    public Game() {
+    public Game(double width, double height) {
         this.parser = new Parser();
         this.reader = new Scanner(System.in);
         this.player = new Player(this, "Player");
         this.scoreSystem = new ScoreSystem(this);
+
+        this.height = width;
+        this.width = height;
+
         initObjects();
     }
 
@@ -42,21 +51,53 @@ public class Game {
     private void initObjects() {
         //Rooms
         start = new Room(this, "start", "in the start room. The beginning of this trashy world's hero... You!!! \nA man greets you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin. \nYou must help us save the planet! Now follow me if you want to survive, start by using GO to the sorting-room and TALK to me there.\"");
+        start.setBackground(new Image(getClass().getResourceAsStream("/images/maps/supermarket.png")));
+
         sortingRoom = new Room(this, "sortingRoom", "in sorting room. Martin follows you. This is where you sort the trash and clean it in the sink if needed be. \nThere are 8 different containers, a organic-container, a glass-container, a metal-container, a paper-container, a residual-container, a cardboard-container, a hazardous-container and a plastic-container");
+
+
         odense = new Room(this, "city", "in the city of Odense. Martin follows you. The city is in shambles and filled with trash. In the distance you see mountains of trash towering over the city.\nIn the east is a supermarket, in the west is the sorting room, in the south is a hospital and in the north is a school");
+
+
         supermarket = new Room(this, "supermarket", "in the supermarket");
+
+
         office = new Room(this, "office", "in the supermarket office");
+
+
         storageRoom = new Room(this, "storageRoom", "in the storage room");
+
+
         parkinglot = new Room(this, "parking-lot", "at the parking lot. There is an homeless man staring intensely at you. A nametag on his coat says Dan");
+
+
         hospitalOutside = new Room(this, "hospital-outside", "outside the hospital. You see a man resting in front of the hospital entrance. He looks to be over his expiration date and missing an arm. He greets you and tells you to call him Mr.Zombie");
+
+
         reception = new Room(this, "reception", "in the hospital reception");
+
+
         operatingRoom = new Room(this, "operating-room", "in the operations room");
+
+
         morgue = new Room(this, "morgue", "in the morgue");
+
+
         canteen = new Room(this, "canteen", "in the canteen");
+
+
         schoolOutside = new Room(this, "school-outside", "outside the school");
+
+
         teachersLounge = new Room(this, "teachers-lounge", "in the teachers lounge. A guy in an dirty lab coat is resting in a sofa. He looks like a Mad-Chemist");
+
+
         chemistryRoom = new Room(this, "chemistry-room", "in the chemistry room");
+
+
         gymnasticsRoom = new Room(this, "gymnastics-room", "in the gymnastics room");
+
+
         girlsLockerRoom = new Room(this, "girls-locker-room", "in the girls locker room");
 
 
@@ -125,6 +166,21 @@ public class Game {
         SchoolNPC madChemist = new SchoolNPC(this, "Mad-Chemist", "Hello weary traveller");
         NPC martin = new CityNPC(this, "Martin", "Hello weary traveller");
         start.addItem(martin);
+
+        Door startSort = new Door(this, "Start", start);
+        startSort.setWidth(32);
+        startSort.setHeight(32);
+        startSort.setPosition(200, 200);
+        Door sortStart = new Door(this, "Sort", sortingRoom);
+        sortStart.setWidth(32);
+        sortStart.setHeight(32);
+        sortStart.setPosition(50, 50);
+
+        startSort.connect(sortStart);
+
+        start.addItem(startSort);
+        sortingRoom.addItem(sortStart);
+
         sortingRoom.addItem(martin);
         odense.addItem(martin);
         parkinglot.addItem(homelessDan);
@@ -633,6 +689,19 @@ public class Game {
         }
     }
 
+    /**
+     * Changes current room to the given room.
+     * @param room Room to go to.
+     */
+    public void changeRoom(Room room) {
+        if (room.isLocked()) {
+            System.out.println("This room is locked.");
+            return;
+        }
+        currentRoom = room;
+        System.out.println(currentRoom.getLongDescription());
+    }
+
     public void processTalk(Command command) {
         if (!command.hasSecondWord()) {
             System.out.println("Talk to who?");
@@ -668,7 +737,53 @@ public class Game {
     }
     //********************************************* Commands - End ***************************************************
 
+    public void update(float delta) {
+        getCurrentRoom().update(delta);
+
+
+
+        player.update(delta);
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    /**
+     * Returns a list of items in the current room whose boundary box collides with the players'.
+     * @return List of colliding items.
+     */
+    public List<Item> getCollisionsWithPlayer() {
+        List<Item> colliding = new ArrayList<>();
+        for (Item item : currentRoom.getItems()) {
+            if (player.getBoundaryBox().intersects(item.getBoundaryBox())) {
+                colliding.add(item);
+            }
+        }
+        return colliding;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
     public ScoreSystem getScoreSystem () {
         return scoreSystem;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
     }
 }

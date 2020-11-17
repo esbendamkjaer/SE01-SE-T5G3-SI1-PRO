@@ -46,4 +46,9 @@ public class Sink extends Item implements Usable {
         return washItem(waste);
     }
 
+    @Override
+    public void interact(Player player) {
+        Item item = player.getInventory().getItemAt(0);
+
+    }
 }

@@ -1,5 +1,6 @@
 package dk.sdu.worldoftrash.game.gui;
 
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.util.HashMap;
@@ -19,7 +20,7 @@ public class SceneManager {
     /**
      * Add a scene to Map of scenes.
      * @param sceneName Name of the scene being added.
-     * @param scene Scene to add.
+     * @param sceneInfo SceneInfo to add.
      */
     public void addScene(SceneName sceneName, SceneInfo sceneInfo) {
         scenes.put(sceneName, sceneInfo);
@@ -33,7 +34,10 @@ public class SceneManager {
         if (scenes.containsKey(sceneName)) {
             SceneInfo sceneInfo = scenes.get(sceneName);
 
-            stage.setScene(sceneInfo.getScene());
+            Scene scene = sceneInfo.getScene();
+            KeyPolling.getInstance().pollScene(scene);
+
+            stage.setScene(scene);
             stage.show();
         } else {
             System.err.printf("No such scene '%s'.\n", sceneName);

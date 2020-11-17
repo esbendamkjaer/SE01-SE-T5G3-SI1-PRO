@@ -4,6 +4,7 @@ import dk.sdu.worldoftrash.game.Game;
 import dk.sdu.worldoftrash.game.items.Item;
 import dk.sdu.worldoftrash.game.items.Key;
 import dk.sdu.worldoftrash.game.items.Waste;
+import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +18,7 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;
 
-    private ArrayList<Item> items;
+    private List<Item> items;
 
     public Game getGame() {
         return game;
@@ -25,6 +26,8 @@ public class Room
 
     private Game game;
     private boolean locked;
+
+    private Image background;
 
     public Room(Game game, String name, String description)
     {
@@ -109,7 +112,17 @@ public class Room
         return keys;
     }
 
-    public Room getExit(String direction) 
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void update(float delta) {
+        for (Item item : items) {
+            item.update(delta);
+        }
+    }
+
+    public Room getExit(String direction)
     {
         return this.exits.get(direction);
     }
@@ -136,6 +149,14 @@ public class Room
 
     public String getName() {
         return name;
+    }
+
+    public Image getBackground() {
+        return background;
+    }
+
+    public void setBackground(Image background) {
+        this.background = background;
     }
 }
 
