@@ -70,7 +70,7 @@ public class ChronApp extends Application {
     }
 
     private void addLine(double x, double y) {
-        //lengh of the slider next to the tittle buttons.
+        //length of the slider next to the tittle buttons.
         line = new Line(x, y, x, y + 200);
         line.setStrokeWidth(3);
         line.setStroke(Color.color(1, 1, 1, 0.75));
