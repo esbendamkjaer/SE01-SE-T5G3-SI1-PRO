@@ -6,6 +6,8 @@ import dk.sdu.worldoftrash.game.gui.KeyPolling;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 
+import java.util.List;
+
 public class Player extends Item {
 
     private Inventory inventory;
@@ -27,6 +29,13 @@ public class Player extends Item {
     @Override
     public void update(float delta) {
         super.update(delta);
+
+        List<Item> colliding = getGame().getCollisionsWithPlayer();
+
+        for (Item item : colliding) {
+            
+
+        }
 
         if (keys.isDown(KeyCode.UP)) {
             setPosition(getPosition().add(0, -10));

@@ -2,6 +2,7 @@ package dk.sdu.worldoftrash.game.gui;
 
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -37,12 +38,13 @@ public class KeyPolling {
 
     private void setScene(Scene scene) {
         KeyPolling.scene = scene;
-        KeyPolling.scene.setOnKeyPressed((keyEvent -> {
+        KeyPolling.scene.addEventFilter(KeyEvent.KEY_PRESSED, (KeyEvent keyEvent) -> {
             keysCurrentlyDown.add(keyEvent.getCode());
-        }));
-        KeyPolling.scene.setOnKeyReleased((keyEvent -> {
+        });
+
+        KeyPolling.scene.addEventFilter(KeyEvent.KEY_RELEASED, (KeyEvent keyEvent) -> {
             keysCurrentlyDown.remove(keyEvent.getCode());
-        }));
+        });
     }
 
     public boolean isDown(KeyCode keyCode) {
