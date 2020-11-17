@@ -22,16 +22,23 @@ public class Game {
 
     private Scanner reader;
 
+    private double height;
+    private double width;
+
     private Room start, sortingRoom, odense,
     /* level 1 */supermarket, office, storageRoom, parkinglot,
     /* level 2 */hospitalOutside, reception, operatingRoom, morgue, canteen,
     /* level 3 */schoolOutside, teachersLounge, chemistryRoom, gymnasticsRoom, girlsLockerRoom;
 
-    public Game() {
+    public Game(double width, double height) {
         this.parser = new Parser();
         this.reader = new Scanner(System.in);
         this.player = new Player(this, "Player");
         this.scoreSystem = new ScoreSystem(this);
+
+        this.height = width;
+        this.width = height;
+
         initObjects();
     }
 
@@ -668,7 +675,37 @@ public class Game {
     }
     //********************************************* Commands - End ***************************************************
 
+    public void update(float delta) {
+        getCurrentRoom().update(delta);
+
+        player.update(delta);
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
     public ScoreSystem getScoreSystem () {
         return scoreSystem;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
     }
 }
