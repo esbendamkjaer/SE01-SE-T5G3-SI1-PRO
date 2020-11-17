@@ -1,6 +1,8 @@
 package dk.sdu.worldoftrash.game.items;
 
-public interface Pickupable {
+import dk.sdu.worldoftrash.game.items.npcs.Interactable;
+
+public interface Pickupable extends Interactable {
 
     /**
      * Execute logic on item associated with a pickup.

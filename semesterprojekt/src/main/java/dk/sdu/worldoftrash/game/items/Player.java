@@ -3,6 +3,7 @@ package dk.sdu.worldoftrash.game.items;
 import dk.sdu.worldoftrash.game.Game;
 import dk.sdu.worldoftrash.game.Inventory;
 import dk.sdu.worldoftrash.game.gui.KeyPolling;
+import dk.sdu.worldoftrash.game.items.npcs.Interactable;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 
@@ -12,6 +13,7 @@ public class Player extends Item {
 
     private Inventory inventory;
     private KeyPolling keys;
+    private boolean typed;
 
     public Player(Game game, String name) {
         super(game, name);
@@ -33,7 +35,18 @@ public class Player extends Item {
         List<Item> colliding = getGame().getCollisionsWithPlayer();
 
         for (Item item : colliding) {
-            
+
+            if (item instanceof Interactable) {
+                if (keys.isDown(KeyCode.X) && !typed) {
+
+                    Interactable interactable = (Interactable) item;
+                    interactable.interact(this);
+
+                    typed = true;
+                } else {
+                    typed = false;
+                }
+            }
 
         }
 
@@ -53,10 +66,6 @@ public class Player extends Item {
             setPosition(getPosition().add(10, 0));
         }
 
-        if (keys.isDown(KeyCode.E)) {
-            throw new UnsupportedOperationException();
-        }
-
         if (getY() < 0) {
             setY(0);
         } else if (getY() + getHeight() > getGame().getHeight()) {
@@ -69,6 +78,21 @@ public class Player extends Item {
             setX(getGame().getWidth() - getWidth());
         }
 
+    }
+
+    public void pickup(Item item) {
+        Pickupable pickupable = (Pickupable) item;
+
+        if (!pickupable.pickup()) {
+            return;
+        }
+
+        if (getInventory().storeItem((Item) pickupable)) {
+            getGame().getCurrentRoom().removeItem(item);
+            System.out.println("You picked up " + item.getName());
+        } else {
+            System.out.println("You do not have sufficient space in your inventory.");
+        }
     }
 }
 

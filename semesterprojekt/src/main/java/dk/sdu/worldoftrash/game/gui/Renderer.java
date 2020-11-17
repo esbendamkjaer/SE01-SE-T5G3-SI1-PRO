@@ -24,7 +24,7 @@ public class Renderer {
         context.save();
 
         if (room.getBackground() != null) {
-            context.drawImage(room.getBackground(), 0,0);
+            context.drawImage(room.getBackground(), 0,0, canvas.getWidth(), canvas.getHeight());
         }
 
         for (Item item : room.getItems()) {

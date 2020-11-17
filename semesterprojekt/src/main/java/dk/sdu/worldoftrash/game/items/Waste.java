@@ -41,4 +41,9 @@ public class Waste extends Item implements Pickupable {
     public boolean pickup() {
         return true;
     }
+
+    @Override
+    public void interact(Player player) {
+        player.pickup(this);
+    }
 }

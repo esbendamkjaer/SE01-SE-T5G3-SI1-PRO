@@ -1,14 +1,40 @@
 package dk.sdu.worldoftrash.game.items;
 
 import dk.sdu.worldoftrash.game.Game;
+import dk.sdu.worldoftrash.game.items.npcs.Interactable;
 import dk.sdu.worldoftrash.game.rooms.Room;
+import javafx.scene.image.Image;
 
-public class Door extends Item {
+public class Door extends Item implements Interactable {
 
-    private Room exit;
+    private Room place;
+    private Door otherSide;
 
-    public Door(Game game, String name, Room exit) {
+    public Door(Game game, String name, Room place) {
         super(game, name);
-        this.exit = exit;
+        this.place = place;
+        setImage(new Image(getClass().getResourceAsStream("/images/player.png")));
+    }
+
+    public Room getPlace() {
+        return place;
+    }
+
+    public void setPlace(Room place) {
+        this.place = place;
+    }
+
+    public Door getOtherSide() {
+        return otherSide;
+    }
+
+    public void connect(Door otherSide) {
+        this.otherSide = otherSide;
+        this.otherSide.otherSide = this;
+    }
+
+    @Override
+    public void interact(Player player) {
+        getGame().changeRoom(otherSide.getPlace());
     }
 }
