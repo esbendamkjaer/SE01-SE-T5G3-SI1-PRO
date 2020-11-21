@@ -82,6 +82,10 @@ public class Item {
         this.position = position;
     }
 
+    public void setPosition(double x, double y) {
+        setPosition(new Point2D(x, y));
+    }
+
     public double getX() {
         return getPosition().getX();
     }
@@ -96,10 +100,6 @@ public class Item {
 
     public void setY(double y) {
         setPosition(getX(), y);
-    }
-
-    public void setPosition(double x, double y) {
-        setPosition(new Point2D(x, y));
     }
 
     public void fitToImage() {

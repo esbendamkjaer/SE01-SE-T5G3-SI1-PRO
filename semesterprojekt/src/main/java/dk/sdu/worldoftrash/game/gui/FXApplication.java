@@ -9,13 +9,15 @@ import java.util.ResourceBundle;
 public class FXApplication extends Application {
 
     private SceneManager sceneManager;
+    private Stage primaryStage;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage primaryStage) throws IOException {
+        this.primaryStage = primaryStage;
+        this.sceneManager = new SceneManager(primaryStage);
 
-        sceneManager = new SceneManager(stage);
-
-        stage.setTitle("Titel");
+        primaryStage.setTitle("Titel");
+        primaryStage.centerOnScreen();
 
         ResourceBundle resourceBundle = ResourceBundle.getBundle("lang");
 
@@ -24,11 +26,11 @@ public class FXApplication extends Application {
 
         sceneManager.changeScene(SceneName.START_SCENE);
 
-        stage.show();
+        primaryStage.show();
     }
 
     public void createScene(SceneName sceneName, ResourceBundle resourceBundle) throws IOException {
-        SceneInfo sceneInfo = new SceneInfo(sceneName.getFxmlPath(), sceneManager, resourceBundle);
+        SceneInfo sceneInfo = new SceneInfo(sceneName.getFxmlPath(), sceneManager, resourceBundle, primaryStage);
 
         sceneManager.addScene(sceneName, sceneInfo);
     }
