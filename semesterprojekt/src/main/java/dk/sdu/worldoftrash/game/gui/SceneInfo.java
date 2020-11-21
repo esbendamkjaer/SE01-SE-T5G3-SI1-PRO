@@ -4,6 +4,7 @@ import dk.sdu.worldoftrash.game.gui.controllers.BaseController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ResourceBundle;
@@ -14,11 +15,13 @@ public class SceneInfo {
     private SceneManager sceneManager;
     private String resource;
     private ResourceBundle resourceBundle;
+    private Stage stage;
 
-    public SceneInfo(String resource, SceneManager sceneManager, ResourceBundle resourceBundle) {
+    public SceneInfo(String resource, SceneManager sceneManager, ResourceBundle resourceBundle, Stage stage) {
         this.resource = resource;
         this.sceneManager = sceneManager;
         this.resourceBundle = resourceBundle;
+        this.stage = stage;
     }
 
     public Scene getScene() {
@@ -41,6 +44,7 @@ public class SceneInfo {
 
         BaseController controller = fxmlLoader.getController();
         controller.setSceneManager(sceneManager);
+        controller.setStage(stage);
 
         return new Scene(sceneRoot);
     }
