@@ -1,6 +1,7 @@
 package dk.sdu.worldoftrash.game.gui.controllers;
 
 import dk.sdu.worldoftrash.game.Game;
+import dk.sdu.worldoftrash.game.TextLogArea;
 import dk.sdu.worldoftrash.game.gui.GameAnimationTimer;
 import dk.sdu.worldoftrash.game.gui.Renderer;
 import javafx.fxml.FXML;
@@ -33,6 +34,11 @@ public class GameController extends BaseController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         this.game = new Game(gameCanvas.getWidth(), gameCanvas.getHeight());
+
+        TextLogArea textLogArea = new TextLogArea(this.textLogArea);
+        game.setTextLogArea(textLogArea);
+
+        game.printWelcome();
 
         Renderer renderer = new Renderer(this.gameCanvas);
 

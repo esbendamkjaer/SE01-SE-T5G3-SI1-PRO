@@ -24,6 +24,8 @@ public class Game {
 
     private Scanner reader;
 
+    private TextLogArea textLogArea;
+
     private double height;
     private double width;
 
@@ -108,10 +110,10 @@ public class Game {
         Waste sodaCan = new Waste(this, "soda-can", WasteType.METAL, "cans are made of metal, and therefore goes in metals", false);
         Waste meatTray = new Waste(this, "meat-tray", WasteType.HARD_PLASTIC, "meat-trays are made of hard plastic, and therefore goes in hard plastic", false);
         Waste ketchupPlasticBottle = new Waste(this, "ketchup-plastic-bottle", WasteType.HARD_PLASTIC, "it is made of hard plastic, and therefore goes in hard plastic", false);
-        Waste jalapenoGlass = new Waste(this, "jalapeno-glass", WasteType.GLASS, "this is a glass, and therefore goes in glass", false);
+        Waste picklesGlass = new Waste(this, "pickle-glass", WasteType.GLASS, "this is a glass, and therefore goes in glass", false);
         Waste beerBottle = new Waste(this, "beer-bottle", WasteType.GLASS, "beer bottles typically are made of glass, and therefore goes in glass", false);
         Waste freshApple = new Waste(this, "fresh-apple", WasteType.ORGANIC, "apples are organic, and therefore goes in organic", true);
-        Waste halfEatenPizza = new Waste(this, "half-eaten-pizza", WasteType.ORGANIC, "pizza is organic, and therefore goes in organic", true);
+        Waste pizzaSlice = new Waste(this, "pizza-slice", WasteType.ORGANIC, "pizza slice is organic, and therefore goes in organic", true);
         Waste paint1 = new Waste(this, "paint", WasteType.HAZARDOUS, "paint is an hazardous material and should be handled accordingly and placed in hazardous", true);
         Waste aaBatteries = new Waste(this, "AA-batteries", WasteType.HAZARDOUS, "batteries contain hazardous chemicals, and therefore goes in hazardous", true);
         Waste deodorant = new Waste(this, "deodorant", WasteType.HAZARDOUS, "deodorants are typically cans containing chemicals, and therefore goes in hazardous", true);
@@ -218,7 +220,7 @@ public class Game {
         supermarket.addItem(receipt);
 
         office.addItem(beerBottle);
-        office.addItem(halfEatenPizza);
+        office.addItem(pizzaSlice);
         office.addItem(pizzaBox);
         office.addItem(bigbox);
 
@@ -230,7 +232,7 @@ public class Game {
         parkinglot.addItem(newspaper);
         parkinglot.addItem(sodaCan);
         parkinglot.addItem(deodorant);
-        parkinglot.addItem(jalapenoGlass);
+        parkinglot.addItem(picklesGlass);
 
         //Assigning trash for level #2 - Hospital
         hospitalOutside.addItem(syringe);
@@ -374,13 +376,11 @@ public class Game {
     }
 
     /*** Prints out a welcome message.***/
-    private void printWelcome() {
-        System.out.println();
-        System.out.println("Welcome to the World of Trash!!!");
-        System.out.println("The world has been through an apocalypse caused by massive amounts of trash and is in need of a hero. \nThis is an incredibly exciting adventure game.");
-        System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
-        System.out.println();
-        System.out.println(currentRoom.getLongDescription());
+    public void printWelcome() {
+        textLogArea.printText("Welcome to the World of Trash!!!");
+        textLogArea.printText("The world has been through an apocalypse caused by massive amounts of trash and is in need of a hero. \nThis is an incredibly exciting adventure game.");
+        textLogArea.printText("Type '" + CommandWord.HELP + "' if you need help.");
+        textLogArea.printText(currentRoom.getLongDescription());
     }
 
     //********************************************* Commands - Start ***************************************************
@@ -699,7 +699,7 @@ public class Game {
             return;
         }
         currentRoom = room;
-        System.out.println(currentRoom.getLongDescription());
+        textLogArea.printText(currentRoom.getLongDescription());
     }
 
     public void processTalk(Command command) {
@@ -786,4 +786,11 @@ public class Game {
     public void setWidth(double width) {
         this.width = width;
     }
+
+    public TextLogArea getTextLogArea() {return textLogArea;}
+
+    public void setTextLogArea(TextLogArea textLogArea) {this.textLogArea = textLogArea;}
+
 }
+
+
