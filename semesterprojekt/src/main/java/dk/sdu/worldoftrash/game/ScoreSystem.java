@@ -4,12 +4,14 @@ import dk.sdu.worldoftrash.game.data.LevelData;
 import dk.sdu.worldoftrash.game.data.ScoreData;
 import dk.sdu.worldoftrash.game.data.WasteType;
 import dk.sdu.worldoftrash.game.items.Waste;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 import java.util.UUID;
 
 public class ScoreSystem {
 
-    private int score;
+    private IntegerProperty scoreProperty;
 
     private int wasteCount;
 
@@ -27,7 +29,7 @@ public class ScoreSystem {
 
         this.scoreData = new ScoreData(UUID.randomUUID());
 
-        this.score = 0;
+        this.scoreProperty = new SimpleIntegerProperty(0);
 
         this.levelHandler = new LevelHandler(game, 45);
     }
@@ -97,11 +99,15 @@ public class ScoreSystem {
     }
 
     public int getScore() {
-        return score;
+        return scoreProperty.getValue();
     }
 
     public void setScore(int score) {
-        this.score = score;
+        this.scoreProperty.setValue(score);
+    }
+
+    public IntegerProperty getScoreProperty() {
+        return this.scoreProperty;
     }
 
     public LevelHandler getLevelHandler() {

@@ -1,7 +1,4 @@
-package dk.sdu.worldoftrash.game.items.npcs;
-
-import dk.sdu.worldoftrash.game.items.Item;
-import dk.sdu.worldoftrash.game.items.Player;
+package dk.sdu.worldoftrash.game.items;
 
 public interface Interactable {
 

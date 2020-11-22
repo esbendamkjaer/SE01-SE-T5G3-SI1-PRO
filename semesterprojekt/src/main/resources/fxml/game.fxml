@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -31,7 +32,25 @@
       </VBox>
    </left>
    <center>
-      <Canvas fx:id="gameCanvas" focusTraversable="true" height="928.0" width="928.0" BorderPane.alignment="CENTER" />
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Your score: ">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="scoreLabel" text="0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Canvas fx:id="gameCanvas" focusTraversable="true" height="928.0" width="928.0" />
+         </children>
+      </VBox>
    </center>
    <right>
       <TextArea fx:id="textLogArea" editable="false" focusTraversable="false" prefHeight="893.0" prefWidth="416.0" wrapText="true" BorderPane.alignment="CENTER">

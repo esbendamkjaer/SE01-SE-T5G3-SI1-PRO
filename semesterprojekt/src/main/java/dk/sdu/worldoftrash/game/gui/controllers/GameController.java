@@ -8,6 +8,7 @@ import dk.sdu.worldoftrash.game.gui.Renderer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.TilePane;
 
@@ -28,6 +29,9 @@ public class GameController extends BaseController implements Initializable {
     @FXML
     public TextArea itemDescriptionArea;
 
+    @FXML
+    public Label scoreLabel;
+
     private Game game;
     private InventoryUI inventoryUI;
 
@@ -35,6 +39,8 @@ public class GameController extends BaseController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         this.game = new Game(gameCanvas.getWidth(), gameCanvas.getHeight());
+
+        scoreLabel.textProperty().bind(game.getScoreSystem().getScoreProperty().asString());
 
         inventoryUI = new InventoryUI(inventoryPane, game);
 

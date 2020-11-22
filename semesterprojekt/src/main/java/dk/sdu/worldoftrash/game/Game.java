@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
-    private Parser parser;
     private Room currentRoom;
 
     private ScoreSystem scoreSystem;
@@ -29,7 +28,6 @@ public class Game {
     /* level 3 */schoolOutside, teachersLounge, chemistryRoom, gymnasticsRoom, girlsLockerRoom;
 
     public Game(double width, double height) {
-        this.parser = new Parser();
         this.player = new Player(this, "Player");
         this.scoreSystem = new ScoreSystem(this);
 
@@ -373,254 +371,19 @@ public class Game {
     public void printWelcome() {
         textLogArea.printText("Welcome to the World of Trash!!!");
         textLogArea.printText("The world has been through an apocalypse caused by massive amounts of trash and is in need of a hero. \nThis is an incredibly exciting adventure game.");
-        textLogArea.printText("Type '" + CommandWord.HELP + "' if you need help.");
         textLogArea.printText(currentRoom.getLongDescription());
     }
 
     //********************************************* Commands - Start ***************************************************
-    /*** Prints out player's score */
-    public void printScore() {
-        System.out.printf("Your score: %d points.\n", scoreSystem.getScore());
-    }
-
-    /**
-     * Process give command.
-     * @param command Give command.
-     */
-    private void processGive(Command command) {
-        String[] args = command.getArgs();
-
-        if (args != null && args.length == 3 && args[1].equals("to")) {
-            Item item = player.getInventory().getItemByName(args[0]);
-
-            if (item == null) {
-                System.out.printf("There no such item '%s' in inventory.\n", args[0]);
-                return;
-            }
-
-            Item npcArg = currentRoom.getItemByName(args[2]);
-
-            if (npcArg == null || !(npcArg instanceof NPC)) {
-                System.out.printf("There no npc by name '%s' in this room.\n", args[2]);
-                return;
-            }
-
-            NPC npc = (NPC) npcArg;
-
-            if (npc.giveItem(item)) {
-                player.getInventory().removeItem(item);
-            }
-        } else {
-            System.out.println("Give what to who?");
-        }
-    }
-
-    private void printWasteAndKeys() {
-        List<Waste> waste = currentRoom.getWaste();
-        List<Key> keys = currentRoom.getKeys();
-
-        if (waste.size() <= 0) {
-            System.out.println("You look around and realize, there's no waste in this room.");
-        } else {
-            System.out.print("You look around and see the following waste in this room: ");
-
-            for (int i = 0; i < waste.size(); i++) {
-                System.out.print((i == 0 ? "" : ", ") + waste.get(i).getName());
-            }
-            System.out.println();
-        }
-
-        if (keys.size() > 0) {
-            System.out.print(waste.size() > 0
-                    ? "Among the trash you also found the following special items: "
-                    : "However, you found the following special items: ");
-
-            for (int i = 0; i < keys.size(); i++) {
-                System.out.print((i == 0 ? "" : ", ") + keys.get(i).getName());
-            }
-            System.out.println();
-        }
-
-    }
-
-    /**
-     * Processes a use command.
-     * @param command A use command.
-     */
-    private void processUse(Command command) {
-
-        String args[] = command.getArgs();
-
-        if (args == null || args.length <= 0) {
-            System.out.println("Use what?");
-            return;
-        } else if (args.length >= 1) {
-            Item usableItem = currentRoom.getItemByName(args[0]);
-
-            if (usableItem == null) {
-                System.out.println("There's no such item in this room.");
-                return;
-            }
-
-            if (!(usableItem instanceof Usable)) {
-                System.out.println("'" + usableItem.getName() + "' is not usable.");
-                return;
-            }
-
-            Usable usable = (Usable) usableItem;
-
-            if (args.length == 1) {
-                usable.use();
-            } else if (args.length >= 2 && args[1].equalsIgnoreCase("on")) {
-
-                if (args.length == 2) {
-                    System.out.println("Use item '" + usableItem.getName() + "' on what?");
-                    return;
-                } else if (args.length == 3) {
-                    Item item = player.getInventory().getItemByName(args[2]);
-
-                    if (item == null) {
-                        System.out.println("No such item '" + args[2] + "' in inventory.");
-                        return;
-                    }
-
-                    usable.useOn(item);
-
-                    return;
-                }
-            }
-        }
-        System.out.println("Not sure, what you mean...");
-    }
-
-    /**
-     * Processes a drop command.
-     * @param command A drop command.
-     */
-    private void processDrop(Command command) {
-
-        String args[] = command.getArgs();
-
-        if (args == null || args.length <= 0) {
-            System.out.println("Drop what? Maybe you should go and talk to Martin for help?");
-            return;
-        } else if (args.length == 1) {
-            Item item = player.getInventory().getItemByName(args[0]);
-            if (item == null) {
-                System.out.println("No such item in inventory. Maybe you should go and talk to Martin for help?");
-            } else {
-                player.getInventory().removeItem(item);
-                currentRoom.addItem(item);
-
-                System.out.println("Dropped " + item.getName() + " on the ground.");
-            }
-            return;
-        } else if (args.length == 3 && args[1].equalsIgnoreCase("in")) {
-            Item item = player.getInventory().getItemByName(args[0]);
-
-            if (item == null) {
-                System.out.println("No such item '" + args[0] + "' in inventory. Maybe you should go and talk to Martin for help?");
-            } else {
-                Item container = currentRoom.getItemByName(args[2]);
-
-                if (container == null) {
-                    System.out.println("There's no such waste container in this room. Maybe you should go and talk to Martin for help?");
-                    return;
-                }
-
-                if (!(container instanceof WasteContainer)) {
-                    System.out.println("That is not a waste container.");
-                    return;
-                }
-
-                if (!(item instanceof Waste)) {
-                    System.out.println("You can only drop waste in a waste container");
-                    return;
-                }
-
-                WasteContainer wasteContainer = (WasteContainer) container;
-                Waste waste = (Waste) item;
-
-                if (wasteContainer.giveWaste(waste)) {
-                    player.getInventory().removeItem(waste);
-                }
-            }
-
-            return;
-        }
-
-        System.out.println("Not sure, what you mean... Maybe you should go and talk to Martin for help?");
-
-    }
-
-    /**
-     * Processes a pickup command.
-     * @param command A pickup command.
-     */
-    private void processPickup(Command command) {
-
-        Item item = currentRoom.getItemByName(command.getSecondWord());
-
-        if (item == null) {
-            System.out.println("There is no such item.");
-            return;
-        }
-
-        if (!(item instanceof Pickupable)) {
-            System.out.println("You can't pickup this item.");
-            return;
-        }
-
-        Pickupable pickupable = (Pickupable) item;
-
-        if (!pickupable.pickup()) {
-            return;
-        }
-
-        if (player.getInventory().storeItem(item)) {
-            currentRoom.removeItem(item);
-            System.out.println("You picked up " + item.getName());
-        } else {
-            System.out.println("You do not have sufficient space in your inventory.");
-        }
-
-    }
 
     /**
      * Prints out a help message.
      */
     private void printHelp() {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around the city of Odense.");
-        System.out.println();
-        System.out.println("Your command words are:");
-        parser.showCommands();
-    }
-
-    /**
-     * Makes the player go to the room specified by the given command.
-     * @param command Command that specifies where to go.
-     */
-    private void goRoom(Command command) {
-        if (!command.hasSecondWord()) {
-            System.out.println("Go where?");
-            return;
-        }
-
-        String direction = command.getSecondWord();
-
-        Room nextRoom = currentRoom.getExit(direction);
-
-        if (nextRoom == null) {
-            System.out.println("There is no door!");
-        } else {
-            if (nextRoom.isLocked()) {
-                System.out.println("This room is locked.");
-                return;
-            }
-            currentRoom = nextRoom;
-            System.out.println(currentRoom.getLongDescription());
-        }
+        getTextLogArea().printText("You are lost. You are alone. You wander");
+        getTextLogArea().printText("around the city of Odense.");
+        getTextLogArea().printText("");
+        getTextLogArea().printText("Your command words are:");
     }
 
     /**
@@ -629,53 +392,17 @@ public class Game {
      */
     public void changeRoom(Room room) {
         if (room.isLocked()) {
-            System.out.println("This room is locked.");
+            getTextLogArea().printText("This room is locked.");
             return;
         }
         currentRoom = room;
         textLogArea.printText(currentRoom.getLongDescription());
     }
 
-    public void processTalk(Command command) {
-        if (!command.hasSecondWord()) {
-            System.out.println("Talk to who?");
-        } else if (command.hasSecondWord()) {
-            Item item = currentRoom.getItemByName(command.getSecondWord());
-            if (item == null) {
-                System.out.println("That person doesn't exist");
-                return;
-            } else {
-                if (item instanceof NPC) {
-                    NPC npc = (NPC) item;
-                    npc.talk();
-                } else {
-                    System.out.println("you can't talk to an item");
-                }
-            }
-        }
-    }
-
-    /**
-     * Meant to be used for quit commands.
-     * Examines if a command has a second word in which case it is assumed the player didn't mean to quit the game.
-     * @param command Quit command.
-     * @return Whether or not the player meant to quit the game.
-     */
-    private boolean quit (Command command){
-        if (command.hasSecondWord()) {
-            System.out.println("Quit what?");
-            return false;
-        } else {
-            return true;
-        }
-    }
     //********************************************* Commands - End ***************************************************
 
     public void update(float delta) {
         getCurrentRoom().update(delta);
-
-
-
         player.update(delta);
     }
 

@@ -13,4 +13,5 @@ public class TextLogArea {
     public void printText(String text) {
         textLogArea.appendText(text + "\n\n");
     }
+
 }

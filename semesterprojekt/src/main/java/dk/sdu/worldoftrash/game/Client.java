@@ -13,9 +13,7 @@ import java.time.Duration;
 public class Client {
 
     private HttpClient httpClient;
-
     private String url;
-
     private int timeout;
 
     public Client(int timeout, String url) {
@@ -27,7 +25,6 @@ public class Client {
                 .followRedirects(HttpClient.Redirect.NORMAL)
                 .connectTimeout(Duration.ofSeconds(timeout))
                 .build();
-        
     }
 
     /**

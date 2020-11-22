@@ -2,7 +2,6 @@ package dk.sdu.worldoftrash.game.items;
 
 import dk.sdu.worldoftrash.game.Game;
 import dk.sdu.worldoftrash.game.data.WasteType;
-import dk.sdu.worldoftrash.game.items.npcs.Interactable;
 
 public class WasteContainer extends Item implements Interactable {
 
@@ -21,14 +20,14 @@ public class WasteContainer extends Item implements Interactable {
      */
     public boolean giveWaste(Waste waste){
         if (!waste.isClean()) {
-            System.out.println("Clean your " + waste.getName() + " before you sort it.");
-            System.out.println("Penalty of -50 points.");
+            getGame().getTextLogArea().printText("Clean your " + waste.getName() + " before you sort it.");
+            getGame().getTextLogArea().printText("Penalty of -50 points.");
             getGame().getScoreSystem().addPoints(-50);
             return false;
         }
 
         if (checkWaste(waste)) {
-            System.out.println("You put the waste in the right container!");
+            getGame().getTextLogArea().printText("You put the waste in the right container!");
             getGame().getScoreSystem().givePoints(waste);
             System.out.printf("You now have a score of %d points!\n", getGame().getScoreSystem().getScore());
 
@@ -51,6 +50,7 @@ public class WasteContainer extends Item implements Interactable {
 
     @Override
     public void interact(Player player) {
+
     }
 
     @Override
@@ -60,7 +60,7 @@ public class WasteContainer extends Item implements Interactable {
                 player.getInventory().removeItem(item);
             }
         } else {
-            System.out.println("You can only drop waste in a waste container");
+            getGame().getTextLogArea().printText("You can only drop waste in a waste container");
         }
     }
 }

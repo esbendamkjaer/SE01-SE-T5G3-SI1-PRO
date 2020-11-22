@@ -2,10 +2,12 @@ package dk.sdu.worldoftrash.game.items.npcs;
 
 import dk.sdu.worldoftrash.game.Game;
 import dk.sdu.worldoftrash.game.Inventory;
+import dk.sdu.worldoftrash.game.items.Interactable;
 import dk.sdu.worldoftrash.game.items.Item;
+import dk.sdu.worldoftrash.game.items.Player;
 
 
-public abstract class NPC extends Item {
+public abstract class NPC extends Item implements Interactable {
 
     private String dialogue;
     private Inventory inventory;
@@ -34,5 +36,17 @@ public abstract class NPC extends Item {
 
     public Inventory getInventory() {
         return inventory;
+    }
+
+    @Override
+    public void interact(Player player) {
+        talk();
+    }
+
+    @Override
+    public void giveItem(Item item, Player player) {
+        if (giveItem(item)) {
+            player.getInventory().removeItem(item);
+        }
     }
 }

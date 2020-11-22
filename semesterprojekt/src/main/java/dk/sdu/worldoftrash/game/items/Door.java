@@ -1,7 +1,6 @@
 package dk.sdu.worldoftrash.game.items;
 
 import dk.sdu.worldoftrash.game.Game;
-import dk.sdu.worldoftrash.game.items.npcs.Interactable;
 import dk.sdu.worldoftrash.game.rooms.Room;
 import javafx.scene.image.Image;
 

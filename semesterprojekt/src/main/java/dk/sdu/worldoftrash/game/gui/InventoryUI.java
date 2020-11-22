@@ -3,7 +3,7 @@ package dk.sdu.worldoftrash.game.gui;
 import dk.sdu.worldoftrash.game.Game;
 import dk.sdu.worldoftrash.game.items.Item;
 import dk.sdu.worldoftrash.game.items.Player;
-import dk.sdu.worldoftrash.game.items.npcs.Interactable;
+import dk.sdu.worldoftrash.game.items.Interactable;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ListChangeListener.Change;
 import javafx.collections.ObservableList;
@@ -19,7 +19,7 @@ public class InventoryUI {
     private TilePane root;
     private Game game;
     private Player player;
-    
+
     public InventoryUI(TilePane root, Game game) {
         this.game = game;
         this.player = game.getPlayer();
@@ -69,7 +69,5 @@ public class InventoryUI {
 
 
         colliding.get(0).giveItem(player.getInventory().getItemAt(index), game.getPlayer());
-
-        System.out.println(index);
     }
 }

@@ -3,7 +3,6 @@ package dk.sdu.worldoftrash.game.items;
 import dk.sdu.worldoftrash.game.Game;
 import dk.sdu.worldoftrash.game.Inventory;
 import dk.sdu.worldoftrash.game.gui.KeyPolling;
-import dk.sdu.worldoftrash.game.items.npcs.Interactable;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 
@@ -77,7 +76,6 @@ public class Player extends Item {
         } else if (getX() + getWidth() > getGame().getWidth()) {
             setX(getGame().getWidth() - getWidth());
         }
-
     }
 
     public void pickup(Item item) {
@@ -89,9 +87,9 @@ public class Player extends Item {
 
         if (getInventory().storeItem((Item) pickupable)) {
             getGame().getCurrentRoom().removeItem(item);
-            System.out.println("You picked up " + item.getName());
+            getGame().getTextLogArea().printText("You picked up " + item.getName());
         } else {
-            System.out.println("You do not have sufficient space in your inventory.");
+            getGame().getTextLogArea().printText("You do not have sufficient space in your inventory.");
         }
     }
 

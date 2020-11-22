@@ -15,21 +15,21 @@ public class Sink extends Item implements Usable {
      */
     public boolean washItem(Waste waste) {
         if (waste.isClean()) {
-            System.out.println("This item is not washable.");
-            System.out.println("Penalty of -50 points.");
+            getGame().getTextLogArea().printText("This item is not washable.");
+            getGame().getTextLogArea().printText("Penalty of -50 points.");
             getGame().getScoreSystem().addPoints(-50);
             return false;
         }
 
         waste.setClean(true);
 
-        System.out.printf("You use some excess dishwater to clean the %s.\n", waste.getName());
+        getGame().getTextLogArea().printText(String.format("You use some excess dishwater to clean the %s.\n", waste.getName()));
         return true;
     }
 
     @Override
     public boolean use() {
-        System.out.println("You need to use the sink on an item.");
+        getGame().getTextLogArea().printText("You need to use the sink on an item.");
         return false;
     }
 
@@ -37,7 +37,7 @@ public class Sink extends Item implements Usable {
     public boolean useOn(Item item) {
 
         if (!(item instanceof Waste)) {
-            System.out.println("You cannot wash this item.");
+            getGame().getTextLogArea().printText("You cannot wash this item.");
             return false;
         }
 
@@ -48,12 +48,11 @@ public class Sink extends Item implements Usable {
 
     @Override
     public void interact(Player player) {
-        Item item = player.getInventory().getItemAt(0);
-
+        use();
     }
 
     @Override
     public void giveItem(Item item, Player player) {
-
+        useOn(item);
     }
 }

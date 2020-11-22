@@ -49,8 +49,8 @@ public class LevelHandler {
 
             if (level.isLocked() && wasteCount >= entry.getValue()) {
                 level.setLocked(false);
-                System.out.println("Congratulations!");
-                System.out.println("You have now sorted enough waste to unlock " + level.getName() + "!");
+                getGame().getTextLogArea().printText("Congratulations!");
+                getGame().getTextLogArea().printText("You have now sorted enough waste to unlock " + level.getName() + "!");
 
                 setCurrentLevel(entry.getKey());
 
@@ -61,12 +61,16 @@ public class LevelHandler {
         }
 
         if (wasteCount >= winningCondition) {
-            System.out.println("Congratulations, you have won the game by removing and sorting all the trash. Good job!");
+            getGame().getTextLogArea().printText("Congratulations, you have won the game by removing and sorting all the trash. Good job!");
             System.out.printf("You ended with a score of %d points.\n", game.getScoreSystem().getScore());
-            System.out.println("Hope you learnt something about sorting trash");
-            System.out.println("To close down the game type in the command ‘quit’");
+            getGame().getTextLogArea().printText("Hope you learnt something about sorting trash");
+            getGame().getTextLogArea().printText("To close down the game type in the command ‘quit’");
             game.getScoreSystem().uploadData();
         }
+    }
+
+    public Game getGame() {
+        return this.game;
     }
 
     public int getWinningCondition() {

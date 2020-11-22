@@ -90,24 +90,6 @@ public class Inventory {
         return items.size() >= MAX_SIZE;
     }
 
-    /**
-     * Prints out the inventory
-     */
-    public void printInv() {
-
-        System.out.print("Inventory: ");
-
-        if (items.size() <= 0) {
-            System.out.println("Empty");
-            return;
-        }
-
-        for (int i = 0; i < items.size(); i++) {
-            System.out.print((i == 0 ? "" : ", ") + items.get(i).getName());
-        }
-        System.out.print("\n");
-    }
-
     public Item getItemAt(int index) {
         return items.get(index);
     }
