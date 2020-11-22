@@ -2,7 +2,9 @@ package dk.sdu.worldoftrash.game.items;
 
 import dk.sdu.worldoftrash.game.Game;
 import dk.sdu.worldoftrash.game.Inventory;
+import dk.sdu.worldoftrash.game.gui.ImageIO;
 import dk.sdu.worldoftrash.game.gui.KeyPolling;
+import javafx.geometry.Point2D;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 
@@ -14,11 +16,20 @@ public class Player extends Item {
     private KeyPolling keys;
     private boolean interact_typed;
 
+    private Image left, right, front, back;
+
     public Player(Game game, String name) {
         super(game, name);
         inventory = new Inventory(10);
         keys = KeyPolling.getInstance();
-        setImage(new Image(getClass().getResourceAsStream("/images/player.png")));
+
+        left = ImageIO.load("/images/player/player_left.png");
+        right = ImageIO.load("/images/player/player_right.png");
+        front = ImageIO.load("/images/player/player_front.png");
+        back = ImageIO.load("/images/player/player_back.png");
+
+        setImage(front);
+
         fitToImage();
     }
 
@@ -49,21 +60,34 @@ public class Player extends Item {
 
         }
 
+        Point2D newPos = getPosition();
+
+        boolean moved = false;
         if (keys.isDown(KeyCode.UP) || keys.isDown(KeyCode.W)) {
-            setPosition(getPosition().add(0, -10));
+            newPos = newPos.add(0, -10);
+            setImage(back);
         }
 
         if (keys.isDown(KeyCode.DOWN) || keys.isDown(KeyCode.S)) {
-            setPosition(getPosition().add(0, 10));
+            newPos = newPos.add(0, 10);
+            setImage(front);
         }
 
         if (keys.isDown(KeyCode.LEFT) || keys.isDown(KeyCode.A)) {
-            setPosition(getPosition().add(-10, 0));
+            newPos = newPos.add(-10, 0);
+            setImage(left);
         }
 
         if (keys.isDown(KeyCode.RIGHT) || keys.isDown(KeyCode.D)) {
-            setPosition(getPosition().add(10, 0));
+            newPos = newPos.add(10, 0);
+            setImage(right);
         }
+
+        if (newPos.equals(getPosition())) {
+            setImage(front);
+        }
+
+        setPosition(newPos);
 
         if (getY() < 0) {
             setY(0);

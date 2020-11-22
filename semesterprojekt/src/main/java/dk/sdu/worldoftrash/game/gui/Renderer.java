@@ -29,27 +29,24 @@ public class Renderer {
 
         for (Item item : room.getItems()) {
             if (item.getImage() != null) {
-                Point2D pos = item.getPosition();
-                context.drawImage(
-                        item.getImage(),
-                        pos.getX(),
-                        pos.getY(),
-                        item.getWidth(),
-                        item.getHeight()
-                );
+                drawItem(item);
             }
         }
 
-        Point2D pos = player.getPosition();
-        context.drawImage(
-                player.getImage(),
-                pos.getX(),
-                pos.getY(),
-                player.getWidth(),
-                player.getHeight()
-        );
+        drawItem(player);
 
         context.restore();
+    }
+
+    public void drawItem(Item item) {
+        Point2D pos = item.getPosition();
+        context.drawImage(
+                item.getImage(),
+                pos.getX() + 0.5 * (item.getWidth() - item.getImage().getWidth() * item.getScale()),
+                pos.getY() + 0.5 * (item.getHeight() - item.getImage().getHeight() * item.getScale()),
+                item.getImage().getWidth() * item.getScale(),
+                item.getImage().getHeight() * item.getScale()
+        );
     }
 
     public void prepare(){

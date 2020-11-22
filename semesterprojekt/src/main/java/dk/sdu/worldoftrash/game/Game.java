@@ -48,7 +48,7 @@ public class Game {
 
         for (int i = 0; i < 10; i++) {
             Waste waste = new Waste(this, "Skrald", WasteType.GLASS, "Test", true);
-            waste.setImage(new Image(getClass().getResourceAsStream("/images/player.png")));
+            waste.setImage(new Image(getClass().getResourceAsStream("/images/placeholder.png")));
             waste.fitToImage();
 
             waste.setPosition(i * waste.getWidth() * 3, i * waste.getHeight() * 3);
@@ -57,7 +57,7 @@ public class Game {
         }
 
         WasteContainer wasteContainer = new WasteContainer(this, "Glas", WasteType.GLASS);
-        wasteContainer.setImage(new Image(getClass().getResourceAsStream("/images/player.png")));
+        wasteContainer.setImage(new Image(getClass().getResourceAsStream("/images/placeholder.png")));
         wasteContainer.fitToImage();
         wasteContainer.moveFromMid(new Point2D(width/2, height/2));
         start.addItem(wasteContainer);

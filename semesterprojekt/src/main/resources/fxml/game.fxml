@@ -22,8 +22,8 @@
                   <Insets bottom="5.0" right="10.0" />
                </padding>
             </Label>
-            <TilePane fx:id="inventoryPane" hgap="10.0" prefHeight="674.0" prefTileHeight="100.0" prefTileWidth="100.0" prefWidth="322.0" vgap="10.0" />
-            <TextArea fx:id="itemDescriptionArea" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="178.0" prefWidth="314.0" wrapText="true">
+            <TilePane fx:id="inventoryPane" hgap="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefTileHeight="100.0" prefTileWidth="100.0" prefWidth="322.0" vgap="10.0" VBox.vgrow="ALWAYS" />
+            <TextArea fx:id="itemDescriptionArea" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="314.0" wrapText="true">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
