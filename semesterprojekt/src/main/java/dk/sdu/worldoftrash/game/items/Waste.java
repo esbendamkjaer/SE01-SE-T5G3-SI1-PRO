@@ -46,4 +46,9 @@ public class Waste extends Item implements Pickupable {
     public void interact(Player player) {
         player.pickup(this);
     }
+
+    @Override
+    public void giveItem(Item item, Player player) {
+
+    }
 }

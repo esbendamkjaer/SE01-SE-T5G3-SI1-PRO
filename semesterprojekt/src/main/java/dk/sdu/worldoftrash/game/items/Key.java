@@ -17,4 +17,9 @@ public class Key extends Item implements Pickupable {
     public void interact(Player player) {
         
     }
+
+    @Override
+    public void giveItem(Item item, Player player) {
+
+    }
 }

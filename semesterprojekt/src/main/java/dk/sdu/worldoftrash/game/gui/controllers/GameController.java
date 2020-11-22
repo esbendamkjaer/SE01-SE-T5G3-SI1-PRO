@@ -3,12 +3,13 @@ package dk.sdu.worldoftrash.game.gui.controllers;
 import dk.sdu.worldoftrash.game.Game;
 import dk.sdu.worldoftrash.game.TextLogArea;
 import dk.sdu.worldoftrash.game.gui.GameAnimationTimer;
+import dk.sdu.worldoftrash.game.gui.InventoryUI;
 import dk.sdu.worldoftrash.game.gui.Renderer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.TilePane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,10 +18,9 @@ public class GameController extends BaseController implements Initializable {
 
     @FXML
     public Canvas gameCanvas;
-    private Game game;
 
     @FXML
-    public GridPane inventoryGrid;
+    public TilePane inventoryPane;
 
     @FXML
     public TextArea textLogArea;
@@ -28,11 +28,15 @@ public class GameController extends BaseController implements Initializable {
     @FXML
     public TextArea itemDescriptionArea;
 
+    private Game game;
+    private InventoryUI inventoryUI;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         this.game = new Game(gameCanvas.getWidth(), gameCanvas.getHeight());
+
+        inventoryUI = new InventoryUI(inventoryPane, game);
 
         TextLogArea textLogArea = new TextLogArea(this.textLogArea);
         game.setTextLogArea(textLogArea);

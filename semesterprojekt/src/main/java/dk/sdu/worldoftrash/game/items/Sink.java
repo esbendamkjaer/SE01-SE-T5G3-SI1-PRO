@@ -51,4 +51,9 @@ public class Sink extends Item implements Usable {
         Item item = player.getInventory().getItemAt(0);
 
     }
+
+    @Override
+    public void giveItem(Item item, Player player) {
+
+    }
 }

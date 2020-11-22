@@ -13,7 +13,7 @@ public class Player extends Item {
 
     private Inventory inventory;
     private KeyPolling keys;
-    private boolean typed;
+    private boolean interact_typed;
 
     public Player(Game game, String name) {
         super(game, name);
@@ -37,32 +37,32 @@ public class Player extends Item {
 
             if (item instanceof Interactable) {
                 if (keys.isDown(KeyCode.X)) {
-                    if (!typed) {
+                    if (!interact_typed) {
                         Interactable interactable = (Interactable) item;
                         interactable.interact(this);
 
-                        typed = true;
+                        interact_typed = true;
                     }
                 } else {
-                    typed = false;
+                    interact_typed = false;
                 }
             }
 
         }
 
-        if (keys.isDown(KeyCode.UP)) {
+        if (keys.isDown(KeyCode.UP) || keys.isDown(KeyCode.W)) {
             setPosition(getPosition().add(0, -10));
         }
 
-        if (keys.isDown(KeyCode.DOWN)) {
+        if (keys.isDown(KeyCode.DOWN) || keys.isDown(KeyCode.S)) {
             setPosition(getPosition().add(0, 10));
         }
 
-        if (keys.isDown(KeyCode.LEFT)) {
+        if (keys.isDown(KeyCode.LEFT) || keys.isDown(KeyCode.A)) {
             setPosition(getPosition().add(-10, 0));
         }
 
-        if (keys.isDown(KeyCode.RIGHT)) {
+        if (keys.isDown(KeyCode.RIGHT) || keys.isDown(KeyCode.D)) {
             setPosition(getPosition().add(10, 0));
         }
 
@@ -94,5 +94,6 @@ public class Player extends Item {
             System.out.println("You do not have sufficient space in your inventory.");
         }
     }
+
 }
 

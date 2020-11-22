@@ -2,17 +2,13 @@ package dk.sdu.worldoftrash.game;
 
 import dk.sdu.worldoftrash.game.data.WasteType;
 import dk.sdu.worldoftrash.game.items.*;
-import dk.sdu.worldoftrash.game.items.Pickupable;
-import dk.sdu.worldoftrash.game.items.Waste;
-import dk.sdu.worldoftrash.game.items.Sink;
-import dk.sdu.worldoftrash.game.items.Usable;
-import dk.sdu.worldoftrash.game.rooms.Room;
 import dk.sdu.worldoftrash.game.items.npcs.*;
+import dk.sdu.worldoftrash.game.rooms.Room;
+import javafx.geometry.Point2D;
 import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Game {
     private Parser parser;
@@ -21,8 +17,6 @@ public class Game {
     private ScoreSystem scoreSystem;
 
     private Player player;
-
-    private Scanner reader;
 
     private TextLogArea textLogArea;
 
@@ -36,7 +30,6 @@ public class Game {
 
     public Game(double width, double height) {
         this.parser = new Parser();
-        this.reader = new Scanner(System.in);
         this.player = new Player(this, "Player");
         this.scoreSystem = new ScoreSystem(this);
 
@@ -54,6 +47,22 @@ public class Game {
         //Rooms
         start = new Room(this, "start", "in the start room. The beginning of this trashy world's hero... You!!! \nA man greets you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin. \nYou must help us save the planet! Now follow me if you want to survive, start by using GO to the sorting-room and TALK to me there.\"");
         start.setBackground(new Image(getClass().getResourceAsStream("/images/maps/supermarket.png")));
+
+        for (int i = 0; i < 10; i++) {
+            Waste waste = new Waste(this, "Skrald", WasteType.GLASS, "Test", true);
+            waste.setImage(new Image(getClass().getResourceAsStream("/images/player.png")));
+            waste.fitToImage();
+
+            waste.setPosition(i * waste.getWidth() * 3, i * waste.getHeight() * 3);
+
+            start.addItem(waste);
+        }
+
+        WasteContainer wasteContainer = new WasteContainer(this, "Glas", WasteType.GLASS);
+        wasteContainer.setImage(new Image(getClass().getResourceAsStream("/images/player.png")));
+        wasteContainer.fitToImage();
+        wasteContainer.moveFromMid(new Point2D(width/2, height/2));
+        start.addItem(wasteContainer);
 
         sortingRoom = new Room(this, "sortingRoom", "in sorting room. Martin follows you. This is where you sort the trash and clean it in the sink if needed be. \nThere are 8 different containers, a organic-container, a glass-container, a metal-container, a paper-container, a residual-container, a cardboard-container, a hazardous-container and a plastic-container");
 
@@ -360,21 +369,6 @@ public class Game {
         return start;
     }
 
-    //Runs the game loop
-    public void play() {
-        printWelcome();
-
-
-        boolean finished = false;
-        while (!finished) {
-            System.out.print("> ");
-
-            Command command = parser.getCommand(reader.nextLine());
-            finished = processCommand(command);
-        }
-        System.out.println("Thank you for playing. Good bye.");
-    }
-
     /*** Prints out a welcome message.***/
     public void printWelcome() {
         textLogArea.printText("Welcome to the World of Trash!!!");
@@ -387,66 +381,6 @@ public class Game {
     /*** Prints out player's score */
     public void printScore() {
         System.out.printf("Your score: %d points.\n", scoreSystem.getScore());
-    }
-
-    /**
-     * Executes the logic associated with a given command.
-     * @param command Command to execute.
-     * @return A boolean indicating whether the player wants to quit the game.
-     */
-    private boolean processCommand(Command command) {
-        boolean wantToQuit = false;
-
-        CommandWord commandWord = command.getCommandWord();
-
-        switch (commandWord) {
-            case GO -> {
-                goRoom(command);
-            }
-            case QUIT -> {
-                wantToQuit = quit(command);
-            }
-            case HELP -> {
-                printHelp();
-            }
-            case PICKUP -> {
-                processPickup(command);
-            }
-            case DROP -> {
-                processDrop(command);
-            }
-            case INVENTORY -> {
-                player.getInventory().printInv();
-            }
-            case USE -> {
-                processUse(command);
-            }
-            case SEARCH -> {
-                printWasteAndKeys();
-            }
-            case SCORE -> {
-                printScore();
-            }
-            case SAVE -> {
-                scoreSystem.uploadData();
-                System.out.println("Data saved on database.");
-            }
-            case TALK -> {
-                processTalk(command);
-            }
-            case GIVE -> {
-                processGive(command);
-            }
-            case WHERE -> {
-                System.out.printf("You are in %s.\n", currentRoom.getName());
-                System.out.println(currentRoom.getExitString());
-            }
-            case UNKNOWN -> {
-                System.out.println("I don't know what you mean...");
-            }
-        }
-
-        return wantToQuit;
     }
 
     /**
@@ -763,6 +697,20 @@ public class Game {
         return colliding;
     }
 
+    /**
+     * Returns a list of objects of given type in the current room whose boundary box collides with the players'.
+     * @return List of colliding items of given type.
+     */
+    public <T> List<T> getCollisionsWithPlayer(Class<T> type) {
+        List<T> colliding = new ArrayList<>();
+        for (Item item : currentRoom.getItems()) {
+            if (type.isInstance(item) && player.getBoundaryBox().intersects(item.getBoundaryBox())) {
+                colliding.add(type.cast(item));
+            }
+        }
+        return colliding;
+    }
+
     public void setPlayer(Player player) {
         this.player = player;
     }
@@ -772,7 +720,7 @@ public class Game {
     }
 
     public double getHeight() {
-        return height;
+        return this.height;
     }
 
     public void setHeight(double height) {

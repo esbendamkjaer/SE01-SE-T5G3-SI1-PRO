@@ -2,8 +2,9 @@ package dk.sdu.worldoftrash.game.items;
 
 import dk.sdu.worldoftrash.game.Game;
 import dk.sdu.worldoftrash.game.data.WasteType;
+import dk.sdu.worldoftrash.game.items.npcs.Interactable;
 
-public class WasteContainer extends Item {
+public class WasteContainer extends Item implements Interactable {
 
     private WasteType wasteType;
 
@@ -46,5 +47,20 @@ public class WasteContainer extends Item {
      */
     public boolean checkWaste(Waste waste) {
         return waste.getWasteType() == this.wasteType;
+    }
+
+    @Override
+    public void interact(Player player) {
+    }
+
+    @Override
+    public void giveItem(Item item, Player player) {
+        if (item instanceof Waste) {
+            if (giveWaste((Waste) item)) {
+                player.getInventory().removeItem(item);
+            }
+        } else {
+            System.out.println("You can only drop waste in a waste container");
+        }
     }
 }

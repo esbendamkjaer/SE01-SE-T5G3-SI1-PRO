@@ -1,16 +1,18 @@
 package dk.sdu.worldoftrash.game;
 import dk.sdu.worldoftrash.game.items.Item;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Inventory {
 
     private final int MAX_SIZE;
-    private List<Item> items = new ArrayList<Item>();
+    private ObservableList<Item> items;
 
     public Inventory(int MAX_SIZE) {
         this.MAX_SIZE = MAX_SIZE;
+        items = FXCollections.observableArrayList();
     }
 
     /**
@@ -32,6 +34,14 @@ public class Inventory {
      */
     public void removeItem(Item item) {
         items.remove(item);
+    }
+
+    /**
+     * Removed item at given item.
+     * @param index Index of item in inventory.
+     */
+    public void removeItemAt(int index) {
+        items.remove(index);
     }
 
 
@@ -100,5 +110,9 @@ public class Inventory {
 
     public Item getItemAt(int index) {
         return items.get(index);
+    }
+
+    public ObservableList<Item> getItems() {
+        return items;
     }
 }
