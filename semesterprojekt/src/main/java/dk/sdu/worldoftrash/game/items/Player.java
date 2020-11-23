@@ -87,6 +87,8 @@ public class Player extends Item {
             setImage(front);
         }
 
+        fitToImage();
+
         setPosition(newPos);
 
         if (getY() < 0) {
