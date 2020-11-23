@@ -1,11 +1,11 @@
 package dk.sdu.worldoftrash.game;
 
 import dk.sdu.worldoftrash.game.data.WasteType;
+import dk.sdu.worldoftrash.game.gui.ImageIO;
 import dk.sdu.worldoftrash.game.items.*;
 import dk.sdu.worldoftrash.game.items.npcs.*;
 import dk.sdu.worldoftrash.game.rooms.Room;
 import javafx.geometry.Point2D;
-import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,11 +44,11 @@ public class Game {
     private void initObjects() {
         //Rooms
         start = new Room(this, "start", "in the start room. The beginning of this trashy world's hero... You!!! \nA man greets you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin. \nYou must help us save the planet! Now follow me if you want to survive, start by using GO to the sorting-room and TALK to me there.\"");
-        start.setBackground(new Image(getClass().getResourceAsStream("/images/maps/supermarket/supermarket.png")));
+        start.setBackground(ImageIO.load("/images/maps/supermarket/supermarket.png"));
 
         for (int i = 0; i < 10; i++) {
             Waste waste = new Waste(this, "Skrald", WasteType.GLASS, "Test", true);
-            waste.setImage(new Image(getClass().getResourceAsStream("/images/placeholder.png")));
+            waste.setImage(ImageIO.load("/images/placeholder.png"));
             waste.fitToImage();
 
             waste.setPosition(i * waste.getWidth() * 3, i * waste.getHeight() * 3);
@@ -57,58 +57,58 @@ public class Game {
         }
 
         WasteContainer wasteContainer = new WasteContainer(this, "Glas", WasteType.GLASS);
-        wasteContainer.setImage(new Image(getClass().getResourceAsStream("/images/placeholder.png")));
+        wasteContainer.setImage(ImageIO.load("/images/placeholder.png"));
         wasteContainer.fitToImage();
         wasteContainer.moveFromMid(new Point2D(width/2, height/2));
         start.addItem(wasteContainer);
 
         sortingRoom = new Room(this, "sortingRoom", "in sorting room. Martin follows you. This is where you sort the trash and clean it in the sink if needed be. \nThere are 8 different containers, a organic-container, a glass-container, a metal-container, a paper-container, a residual-container, a cardboard-container, a hazardous-container and a plastic-container");
-
+        // sortingRoom.setBackground(ImageIO.load("/images/maps/main/sorting_room.png"));
 
         odense = new Room(this, "city", "in the city of Odense. Martin follows you. The city is in shambles and filled with trash. In the distance you see mountains of trash towering over the city.\nIn the east is a supermarket, in the west is the sorting room, in the south is a hospital and in the north is a school");
-
+        // odense.setBackground(ImageIO.load("/images/maps/main/city.png"));
 
         supermarket = new Room(this, "supermarket", "in the supermarket");
-
+        supermarket.setBackground(ImageIO.load("/images/maps/supermarket/supermarket.png"));
 
         office = new Room(this, "office", "in the supermarket office");
-
+        office.setBackground(ImageIO.load("/images/maps/supermarket/office.png"));
 
         storageRoom = new Room(this, "storageRoom", "in the storage room");
-
+        storageRoom.setBackground(ImageIO.load("/images/maps/supermarket/storage_room.png"));
 
         parkinglot = new Room(this, "parking-lot", "at the parking lot. There is an homeless man staring intensely at you. A nametag on his coat says Dan");
-
+        // parkinglot.setBackground(ImageIO.load("/images/maps/school/"));
 
         hospitalOutside = new Room(this, "hospital-outside", "outside the hospital. You see a man resting in front of the hospital entrance. He looks to be over his expiration date and missing an arm. He greets you and tells you to call him Mr.Zombie");
-
+        // hospitalOutside.setBackground(ImageIO.load("/images/maps/hospital/"));
 
         reception = new Room(this, "reception", "in the hospital reception");
-
+        reception.setBackground(ImageIO.load("/images/maps/hospital/hospital_reception.png"));
 
         operatingRoom = new Room(this, "operating-room", "in the operations room");
-
+        operatingRoom.setBackground(ImageIO.load("/images/maps/hospital/operations_room.png"));
 
         morgue = new Room(this, "morgue", "in the morgue");
-
+        morgue.setBackground(ImageIO.load("/images/maps/hospital/morgue.png"));
 
         canteen = new Room(this, "canteen", "in the canteen");
-
+        canteen.setBackground(ImageIO.load("/images/maps/hospital/canteen.png"));
 
         schoolOutside = new Room(this, "school-outside", "outside the school");
-
+        schoolOutside.setBackground(ImageIO.load("/images/maps/school/outside_school.png"));
 
         teachersLounge = new Room(this, "teachers-lounge", "in the teachers lounge. A guy in an dirty lab coat is resting in a sofa. He looks like a Mad-Chemist");
-
+        teachersLounge.setBackground(ImageIO.load("/images/maps/school/teachers_lounge.png"));
 
         chemistryRoom = new Room(this, "chemistry-room", "in the chemistry room");
-
+        // chemistryRoom.setBackground(ImageIO.load("/images/maps/school/chemistry_room.png"));
 
         gymnasticsRoom = new Room(this, "gymnastics-room", "in the gymnastics room");
-
+        // gymnasticsRoom.setBackground(ImageIO.load("/images/maps/school/gymnastics_room.png"));
 
         girlsLockerRoom = new Room(this, "girls-locker-room", "in the girls locker room");
-
+        girlsLockerRoom.setBackground(ImageIO.load("/images/maps/school/girls_locker_room.png"));
 
         //**************************************** Waste objects - Start ***********************************************
 
@@ -129,7 +129,6 @@ public class Game {
         Waste pizzaBox = new Waste(this, "pizza-box", WasteType.RESIDUAL, "a pizza box has been dirtied by a pizza, and therefore goes in residual", true);
         Waste receipt = new Waste(this, "receipt", WasteType.RESIDUAL, "receipts is made of a special kind of paper containing chemicals and should not be sorted in paper, therefore it goes in residual", true);
         Key bigbox = new Key(this, "biggest-box");
-
 
         // Waste objects #Level 2 - Hospital
         Waste papers1 = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
@@ -170,10 +169,10 @@ public class Game {
         Key fertilizer = new Key(this,"fertilizer");
 
         //NPCs
-        ParkingLotNPC homelessDan = new ParkingLotNPC(this, "Dan", "Hello weary traveller");
-        ZombieNPC mrZombie = new ZombieNPC(this, "Mr.Zombie", "Hello weary traveller");
-        SchoolNPC madChemist = new SchoolNPC(this, "Mad-Chemist", "Hello weary traveller");
-        NPC martin = new CityNPC(this, "Martin", "Hello weary traveller");
+        ParkingLotNPC homelessDan = new ParkingLotNPC(this, "Dan");
+        ZombieNPC mrZombie = new ZombieNPC(this, "Mr.Zombie");
+        SchoolNPC madChemist = new SchoolNPC(this, "Mad-Chemist");
+        NPC martin = new CityNPC(this, "Martin");
         start.addItem(martin);
 
         Door startSort = new Door(this, "Start", start);
