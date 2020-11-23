@@ -44,7 +44,7 @@ public class Game {
     private void initObjects() {
         //Rooms
         start = new Room(this, "start", "in the start room. The beginning of this trashy world's hero... You!!! \nA man greets you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin. \nYou must help us save the planet! Now follow me if you want to survive, start by using GO to the sorting-room and TALK to me there.\"");
-        start.setBackground(ImageIO.load("/images/maps/supermarket/supermarket.png"));
+        start.setBackground(ImageIO.load("/images/maps/main/start.png"));
 
         for (int i = 0; i < 10; i++) {
             Waste waste = new Waste(this, "Skrald", WasteType.GLASS, "Test", true);
@@ -63,10 +63,10 @@ public class Game {
         start.addItem(wasteContainer);
 
         sortingRoom = new Room(this, "sortingRoom", "in sorting room. Martin follows you. This is where you sort the trash and clean it in the sink if needed be. \nThere are 8 different containers, a organic-container, a glass-container, a metal-container, a paper-container, a residual-container, a cardboard-container, a hazardous-container and a plastic-container");
-        // sortingRoom.setBackground(ImageIO.load("/images/maps/main/sorting_room.png"));
+        sortingRoom.setBackground(ImageIO.load("/images/maps/main/sorting_room.png"));
 
         odense = new Room(this, "city", "in the city of Odense. Martin follows you. The city is in shambles and filled with trash. In the distance you see mountains of trash towering over the city.\nIn the east is a supermarket, in the west is the sorting room, in the south is a hospital and in the north is a school");
-        // odense.setBackground(ImageIO.load("/images/maps/main/city.png"));
+        odense.setBackground(ImageIO.load("/images/maps/main/city.png"));
 
         supermarket = new Room(this, "supermarket", "in the supermarket");
         supermarket.setBackground(ImageIO.load("/images/maps/supermarket/supermarket.png"));
@@ -78,10 +78,10 @@ public class Game {
         storageRoom.setBackground(ImageIO.load("/images/maps/supermarket/storage_room.png"));
 
         parkinglot = new Room(this, "parking-lot", "at the parking lot. There is an homeless man staring intensely at you. A nametag on his coat says Dan");
-        // parkinglot.setBackground(ImageIO.load("/images/maps/school/"));
+        parkinglot.setBackground(ImageIO.load("/images/maps/supermarket/parking_lot.png"));
 
         hospitalOutside = new Room(this, "hospital-outside", "outside the hospital. You see a man resting in front of the hospital entrance. He looks to be over his expiration date and missing an arm. He greets you and tells you to call him Mr.Zombie");
-        // hospitalOutside.setBackground(ImageIO.load("/images/maps/hospital/"));
+        hospitalOutside.setBackground(ImageIO.load("/images/maps/hospital/outside_hospital.png"));
 
         reception = new Room(this, "reception", "in the hospital reception");
         reception.setBackground(ImageIO.load("/images/maps/hospital/hospital_reception.png"));
@@ -105,7 +105,7 @@ public class Game {
         // chemistryRoom.setBackground(ImageIO.load("/images/maps/school/chemistry_room.png"));
 
         gymnasticsRoom = new Room(this, "gymnastics-room", "in the gymnastics room");
-        // gymnasticsRoom.setBackground(ImageIO.load("/images/maps/school/gymnastics_room.png"));
+        gymnasticsRoom.setBackground(ImageIO.load("/images/maps/school/school_gym.png.png"));
 
         girlsLockerRoom = new Room(this, "girls-locker-room", "in the girls locker room");
         girlsLockerRoom.setBackground(ImageIO.load("/images/maps/school/girls_locker_room.png"));
