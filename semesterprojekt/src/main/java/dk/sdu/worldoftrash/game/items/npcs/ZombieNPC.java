@@ -8,8 +8,8 @@ public class ZombieNPC extends NPC {
     private Item arm;
     private Item sewing_kit;
 
-    public ZombieNPC(Game game, String name, String dialogue) {
-        super(game, name, dialogue, new Inventory(2));
+    public ZombieNPC(Game game, String name) {
+        super(game, name, new Inventory(2));
     }
 
     @Override

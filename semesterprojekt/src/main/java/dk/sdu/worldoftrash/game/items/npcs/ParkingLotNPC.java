@@ -7,8 +7,8 @@ import dk.sdu.worldoftrash.game.items.Item;
 public class ParkingLotNPC extends NPC {
     private Item bigbox;
 
-    public ParkingLotNPC(Game game, String name, String dialogue) {
-        super(game, name, dialogue, new Inventory(1));
+    public ParkingLotNPC(Game game, String name) {
+        super(game, name, new Inventory(1));
     }
 
 

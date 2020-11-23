@@ -8,8 +8,8 @@ public class CityNPC extends NPC {
 
     private Room Room;
 
-    public CityNPC(Game game, String name, String dialogue) {
-        super(game, name, dialogue, null);
+    public CityNPC(Game game, String name) {
+        super(game, name, null);
     }
 
     @Override

@@ -6,9 +6,8 @@ import dk.sdu.worldoftrash.game.items.Item;
 
 
 public class SchoolNPC extends NPC {
-    public SchoolNPC(Game game, String name, String dialogue) {
-        super(game, name, dialogue, new Inventory(1));
-
+    public SchoolNPC(Game game, String name) {
+        super(game, name, new Inventory(1));
     }
 
     private Item fertilizer;

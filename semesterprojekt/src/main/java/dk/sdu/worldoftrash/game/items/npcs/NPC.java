@@ -9,17 +9,11 @@ import dk.sdu.worldoftrash.game.items.Player;
 
 public abstract class NPC extends Item implements Interactable {
 
-    private String dialogue;
     private Inventory inventory;
 
-    public NPC(Game game, String name, String dialogue, Inventory inventory) {
+    public NPC(Game game, String name, Inventory inventory) {
         super(game, name);
-        this.dialogue = dialogue;
         this.inventory = inventory;
-    }
-
-    public String getDialogue() {
-        return dialogue;
     }
 
     /**
