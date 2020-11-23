@@ -106,7 +106,7 @@ public class Game {
         // chemistryRoom.setBackground(ImageIO.load("/images/maps/school/chemistry_room.png"));
 
         gymnasticsRoom = new Room(this, "gymnastics-room", "in the gymnastics room");
-        gymnasticsRoom.setBackground(ImageIO.load("/images/maps/school/school_gym.png.png"));
+        gymnasticsRoom.setBackground(ImageIO.load("/images/maps/school/school_gym.png"));
 
         girlsLockerRoom = new Room(this, "girls-locker-room", "in the girls locker room");
         girlsLockerRoom.setBackground(ImageIO.load("/images/maps/school/girls_locker_room.png"));
