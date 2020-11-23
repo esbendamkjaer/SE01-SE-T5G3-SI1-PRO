@@ -21,7 +21,7 @@ public class Item {
         this.game = game;
         this.name = name;
         this.position = Point2D.ZERO;
-        scale = 2;
+        scale = 1;
     }
 
     public String getName() {

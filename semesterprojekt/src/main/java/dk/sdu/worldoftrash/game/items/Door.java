@@ -12,7 +12,6 @@ public class Door extends Item implements Interactable {
     public Door(Game game, String name, Room place) {
         super(game, name);
         this.place = place;
-        setImage(new Image(getClass().getResourceAsStream("/images/placeholder.png")));
     }
 
     public Room getPlace() {

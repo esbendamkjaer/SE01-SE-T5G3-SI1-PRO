@@ -29,8 +29,9 @@ public class Player extends Item {
         back = ImageIO.load("/images/player/player_back.png");
 
         setImage(front);
-
         fitToImage();
+
+        setScale(1.5f);
     }
 
     public Inventory getInventory() {

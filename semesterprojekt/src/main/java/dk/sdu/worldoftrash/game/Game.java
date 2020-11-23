@@ -46,6 +46,7 @@ public class Game {
         start = new Room(this, "start", "in the start room. The beginning of this trashy world's hero... You!!! \nA man greets you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin. \nYou must help us save the planet! Now follow me if you want to survive, start by using GO to the sorting-room and TALK to me there.\"");
         start.setBackground(ImageIO.load("/images/maps/main/start.png"));
 
+
         for (int i = 0; i < 10; i++) {
             Waste waste = new Waste(this, "Skrald", WasteType.GLASS, "Test", true);
             waste.setImage(ImageIO.load("/images/placeholder.png"));
@@ -176,18 +177,72 @@ public class Game {
         start.addItem(martin);
 
         Door startSort = new Door(this, "Start", start);
-        startSort.setWidth(32);
-        startSort.setHeight(32);
-        startSort.setPosition(200, 200);
+        startSort.setImage(ImageIO.load("/images/ArrowRight.png"));
+        startSort.setWidth(45);
+        startSort.setHeight(64);
+        startSort.autoScale();
+        startSort.setPosition(870, 480);
+
         Door sortStart = new Door(this, "Sort", sortingRoom);
-        sortStart.setWidth(32);
-        sortStart.setHeight(32);
-        sortStart.setPosition(50, 50);
+        sortStart.setImage(ImageIO.load("/images/ArrowLeft.png"));
+        sortStart.setWidth(45);
+        sortStart.setHeight(64);
+        sortStart.autoScale();
+        sortStart.setPosition(0, 480);
+
+        Door sortOdense = new Door(this, "Sort", sortingRoom);
+        sortOdense.setImage(ImageIO.load("/images/ArrowRight.png"));
+        sortOdense.setWidth(45);
+        sortOdense.setHeight(64);
+        sortOdense.autoScale();
+        sortOdense.setPosition(870, 480);
+
+        Door odenseSort = new Door(this, "Odense", odense);
+        odenseSort.setImage(ImageIO.load("/images/ArrowLeft.png"));
+        odenseSort.setWidth(45);
+        odenseSort.setHeight(64);
+        odenseSort.autoScale();
+        odenseSort.setPosition(0, 480);
+
+        /*
+        Door  = new Door(this, "", );
+        .setImage(ImageIO.load("/images/ArrowRight.png"));
+        .setWidth(45);
+        .setHeight(64);
+        .autoScale();
+        .setPosition(870, 480);
+
+        Door  = new Door(this, "", );
+        .setImage(ImageIO.load("/images/ArrowRight.png"));
+        .setWidth(45);
+        .setHeight(64);
+        .autoScale();
+        .setPosition(870, 480);
+
+        Door  = new Door(this, "", );
+        .setImage(ImageIO.load("/images/ArrowRight.png"));
+        .setWidth(45);
+        .setHeight(64);
+        .autoScale();
+        .setPosition(870, 480);
+
+        Door  = new Door(this, "", );
+        .setImage(ImageIO.load("/images/ArrowRight.png"));
+        .setWidth(45);
+        .setHeight(64);
+        .autoScale();
+        .setPosition(870, 480);
+        */
+
 
         startSort.connect(sortStart);
+        sortOdense.connect(odenseSort);
+
 
         start.addItem(startSort);
         sortingRoom.addItem(sortStart);
+        sortingRoom.addItem(sortOdense);
+        odense.addItem(odenseSort);
 
         sortingRoom.addItem(martin);
         odense.addItem(martin);
