@@ -13,9 +13,12 @@ public class Renderer {
     private Canvas canvas;
     private GraphicsContext context;
 
-    public Renderer(Canvas canvas) {
+    private double width, height;
 
+    public Renderer(Canvas canvas) {
         this.canvas = canvas;
+        width = canvas.getWidth();
+        height = canvas.getHeight();
         this.context = canvas.getGraphicsContext2D();
 
     }
@@ -24,7 +27,7 @@ public class Renderer {
         context.save();
 
         if (room.getBackground() != null) {
-            context.drawImage(room.getBackground(), 0,0, canvas.getWidth(), canvas.getHeight());
+            context.drawImage(room.getBackground(), 0,0, width, height);
         }
 
         for (Item item : room.getItems()) {
@@ -51,6 +54,6 @@ public class Renderer {
 
     public void prepare(){
         context.setFill( new Color(0.68, 0.68, 0.68, 1.0) );
-        context.fillRect(0,0, canvas.getWidth(),canvas.getHeight());
+        context.fillRect(0,0, width, height);
     }
 }
