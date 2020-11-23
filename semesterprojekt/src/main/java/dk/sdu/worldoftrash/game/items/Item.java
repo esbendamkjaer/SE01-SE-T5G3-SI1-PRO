@@ -107,6 +107,14 @@ public class Item {
         setWidth(image.getWidth());
     }
 
+    /**
+     * Automatically sets scale, to fit image to boundary box.
+     * Ratio is kept.
+     */
+    public void autoScale() {
+        setScale((float) Math.min(getHeight() / (image.getHeight() * scale), getWidth() / (image.getWidth() * scale)));
+    }
+
     public Rectangle2D getBoundaryBox() {
         return new Rectangle2D(getX(), getY(), getWidth(), getHeight());
     }
