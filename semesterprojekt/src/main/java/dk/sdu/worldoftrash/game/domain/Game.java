@@ -188,14 +188,14 @@ public class Game {
         ketchupPlasticBottle.setImage(ImageIO.load(("/images/trash/ketchup.png")));
         ketchupPlasticBottle.setScale(0.5f);
         ketchupPlasticBottle.fitToImage();
-        ketchupPlasticBottle.setPosition(760,300);
+        ketchupPlasticBottle.setPosition(760,325);
 
         receipt.setImage(ImageIO.load(("/images/trash/receipt.png")));
         receipt.setScale(0.8f);
         receipt.fitToImage();
-        receipt.setPosition(800,700);
+        receipt.setPosition(700,700);
 
-        //Assigning trash to - kontor
+        //Assigning trash to - Supermarket/kontor
         beerBottle.setImage(ImageIO.load(("/images/trash/beer.png")));
         beerBottle.setScale(0.6f);
         beerBottle.fitToImage();
@@ -216,7 +216,7 @@ public class Game {
         bigbox.fitToImage();
         bigbox.setPosition(800,750);
 
-        //Assigning trash to - lageret
+        //Assigning trash to - Supermarket/lageret
         eatenApple.setImage(ImageIO.load(("/images/trash/apple_eaten.png")));
         eatenApple.setScale(0.6f);
         eatenApple.fitToImage();
@@ -237,7 +237,7 @@ public class Game {
         cardboardBox.fitToImage();
         cardboardBox.setPosition(700,350);
 
-        //Assigning trash to - parkeringsplads
+        //Assigning trash to - Supermarket/parkeringsplads
         newspaper.setImage(ImageIO.load(("/images/trash/newspaper-kopi.png")));
         newspaper.setScale(0.7f);
         newspaper.fitToImage();
@@ -257,6 +257,17 @@ public class Game {
         picklesGlass.setScale(0.8f);
         picklesGlass.fitToImage();
         picklesGlass.setPosition(200,700);
+
+        //Assigning trash to - School/outside
+
+        //Assigning trash to - School/gymnastiksal
+
+        //Assigning trash to - School/omklædningsrum
+
+        //Assigning trash to - School/kemilokale
+
+        //Assigning trash to - School/lærerværelse
+
 
         // ********************************************* Doors - Start *********************************************
         Door startSort = new Door(this, "Start", start);
