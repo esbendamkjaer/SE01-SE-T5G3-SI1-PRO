@@ -18,19 +18,19 @@ import java.util.ResourceBundle;
 public class GameController extends BaseController implements Initializable {
 
     @FXML
-    public GameCanvas gameCanvas;
+    private GameCanvas gameCanvas;
 
     @FXML
-    public TilePane inventoryPane;
+    private TilePane inventoryPane;
 
     @FXML
-    public TextArea textLogArea;
+    private TextArea textLogArea;
 
     @FXML
-    public TextArea itemDescriptionArea;
+    private TextArea itemDescriptionArea;
 
     @FXML
-    public Label scoreLabel;
+    private Label scoreLabel;
 
     private Game game;
     private InventoryUI inventoryUI;
