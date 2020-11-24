@@ -46,18 +46,14 @@ public class Game {
         start = new Room(this, "start", "in the start room. The beginning of this trashy world's hero... You!!! \nA man greets you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin. \nYou must help us save the planet! Now follow me if you want to survive, start by using GO to the sorting-room and TALK to me there.\"");
         start.setBackground(ImageIO.load("/images/maps/main/start.png"));
 
-        for (int i = 0; i < 10; i++) {
-            Waste waste = new Waste(this, "Skrald", WasteType.GLASS, "Test", true);
-            waste.setImage(ImageIO.load("/images/trash/banana.png"));
-            waste.setScale(0.5f);
-            waste.fitToImage();
-
-            waste.setPosition(i * waste.getWidth() * 3, i * waste.getHeight() * 3);
-
-            start.addItem(waste);
-        }
-
-
+        /*
+        Waste waste = new Waste(this, "test", WasteType.GLASS, "Test", true);
+        waste.setImage(ImageIO.load("/images/trash/apple.png"));
+        waste.setScale(0.5f);
+        waste.fitToImage();
+        waste.setPosition(  waste.getWidth() * 3, waste.getHeight() * 3);
+        start.addItem(waste);
+        */
 
 
         // Baggrunde
@@ -118,7 +114,7 @@ public class Game {
         Waste ketchupPlasticBottle = new Waste(this, "ketchup-plastic-bottle", WasteType.HARD_PLASTIC, "it is made of hard plastic, and therefore goes in hard plastic", false);
         Waste picklesGlass = new Waste(this, "pickle-glass", WasteType.GLASS, "this is a glass, and therefore goes in glass", false);
         Waste beerBottle = new Waste(this, "beer-bottle", WasteType.GLASS, "beer bottles typically are made of glass, and therefore goes in glass", false);
-        Waste freshApple = new Waste(this, "fresh-apple", WasteType.ORGANIC, "apples are organic, and therefore goes in organic", true);
+        Waste eatenApple = new Waste(this, "eaten-apple", WasteType.ORGANIC, "apples are organic, and therefore goes in organic", true);
         Waste pizzaSlice = new Waste(this, "pizza-slice", WasteType.ORGANIC, "pizza slice is organic, and therefore goes in organic", true);
         Waste paint1 = new Waste(this, "paint", WasteType.HAZARDOUS, "paint is an hazardous material and should be handled accordingly and placed in hazardous", true);
         Waste aaBatteries = new Waste(this, "AA-batteries", WasteType.HAZARDOUS, "batteries contain hazardous chemicals, and therefore goes in hazardous", true);
@@ -148,7 +144,6 @@ public class Game {
         Key arms = new Key(this, "arm");
         Key sewing_kit = new Key(this, "sewing-kit");
 
-
         // Waste objects #Level 3 - School
         Waste papers = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
         Waste lighter = new Waste(this, "lighter", WasteType.HAZARDOUS, "lighters contains hazardous materials and therefore goes in hazardous", true);
@@ -173,6 +168,71 @@ public class Game {
         SchoolNPC madChemist = new SchoolNPC(this, "Mad-Chemist");
         NPC martin = new CityNPC(this, "Martin");
         start.addItem(martin);
+
+        //************************************* Trash assigning - Start *************************************
+        //Assigning trash to - Supermarket
+        tomatoCan.setImage(ImageIO.load(("/images/trash/tomato_can.png")));
+        tomatoCan.setScale(0.8f);
+        tomatoCan.fitToImage();
+        tomatoCan.setPosition(500,500);
+
+        meatTray.setImage(ImageIO.load(("/images/trash/food_tray.png")));
+        meatTray.setScale(0.6f);
+        meatTray.fitToImage();
+        meatTray.setPosition(150,125);
+
+        ketchupPlasticBottle.setImage(ImageIO.load(("/images/trash/ketchup.png")));
+        ketchupPlasticBottle.setScale(0.5f);
+        ketchupPlasticBottle.fitToImage();
+        ketchupPlasticBottle.setPosition(760,300);
+
+        receipt.setImage(ImageIO.load(("/images/trash/receipt.png")));
+        receipt.setScale(0.8f);
+        receipt.fitToImage();
+        receipt.setPosition(800,700);
+
+        //Assigning trash to - kontor
+        beerBottle.setImage(ImageIO.load(("/images/trash/beer.png")));
+        beerBottle.setScale(0.6f);
+        beerBottle.fitToImage();
+        beerBottle.setPosition(200,200);
+
+        pizzaSlice.setImage(ImageIO.load(("/images/trash/slice.png")));
+        pizzaSlice.setScale(0.8f);
+        pizzaSlice.fitToImage();
+        pizzaSlice.setPosition(600,100);
+
+        pizzaBox.setImage(ImageIO.load(("/images/trash/pizza_box.png")));
+        pizzaBox.setScale(0.8f);
+        pizzaBox.fitToImage();
+        pizzaBox.setPosition(600,150);
+
+        bigbox.setImage(ImageIO.load(("/images/trash/biggest-box.png")));
+        bigbox.setScale(0.8f);
+        bigbox.fitToImage();
+        bigbox.setPosition(800,750);
+
+        //Assigning trash to - lageret
+        eatenApple.setImage(ImageIO.load(("/images/trash/apple_eaten.png")));
+        eatenApple.setScale(0.8f);
+        eatenApple.fitToImage();
+        eatenApple.setPosition(300,300);
+
+        paint1.setImage(ImageIO.load(("/images/trash/paint_2.png")));
+        paint1.setScale(0.8f);
+        paint1.fitToImage();
+        paint1.setPosition(200,800);
+
+        aaBatteries.setImage(ImageIO.load(("/images/trash/batteri.png")));
+        aaBatteries.setScale(0.8f);
+        aaBatteries.fitToImage();
+        aaBatteries.setPosition(500,750);
+
+        cardboardBox.setImage(ImageIO.load(("/images/trash/cardboard_box.png")));
+        cardboardBox.setScale(0.8f);
+        cardboardBox.fitToImage();
+        cardboardBox.setPosition(700,350);
+
 
         // ********************************************* Doors - Start *********************************************
         Door startSort = new Door(this, "Start", start);
@@ -481,7 +541,7 @@ public class Game {
         office.addItem(pizzaBox);
         office.addItem(bigbox);
 
-        storageRoom.addItem(freshApple);
+        storageRoom.addItem(eatenApple);
         storageRoom.addItem(paint1);
         storageRoom.addItem(aaBatteries);
         storageRoom.addItem(cardboardBox);
