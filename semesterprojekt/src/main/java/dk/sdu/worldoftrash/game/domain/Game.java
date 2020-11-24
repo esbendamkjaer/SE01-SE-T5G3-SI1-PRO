@@ -25,7 +25,7 @@ public class Game {
     private Room start, sortingRoom, odense,
     /* level 1 */supermarket, office, storageRoom, parkinglot,
     /* level 2 */hospitalOutside, reception, operatingRoom, morgue, canteen,
-    /* level 3 */schoolOutside, teachersLounge, chemistryRoom, gymnasticsRoom, girlsLockerRoom;
+    /* level 3 */schoolOutside, teachersLounge, chemistryRoom, classRooms, girlsLockerRoom;
 
     public Game(double width, double height) {
         this.player = new Player(this, "Player");
@@ -102,8 +102,8 @@ public class Game {
         chemistryRoom = new Room(this, "chemistry-room", "in the chemistry room");
         chemistryRoom.setBackground(ImageIO.load("/images/maps/school/chemistry_room.png"));
 
-        gymnasticsRoom = new Room(this, "gymnastics-room", "in the gymnastics room");
-        gymnasticsRoom.setBackground(ImageIO.load("/images/maps/school/school_gym.png"));
+        classRooms = new Room(this, "class-rooms", "in the class rooms");
+        classRooms.setBackground(ImageIO.load("/images/maps/school/school_gym.png"));
 
         girlsLockerRoom = new Room(this, "girls-locker-room", "in the girls locker room");
         girlsLockerRoom.setBackground(ImageIO.load("/images/maps/school/girls_locker_room.png"));
@@ -349,14 +349,62 @@ public class Game {
         schoolOdense.setHeight(45);
         schoolOdense.autoScale();
         schoolOdense.setPosition(435, 870);
-/*
-        Door  = new Door(this, "", );
-        .setImage(ImageIO.load("/images/ArrowRight.png"));
-        .setWidth(45);
-        .setHeight(64);
-        .autoScale();
-        .setPosition(870, 480);
-*/
+
+        Door schoolChem = new Door(this, "School", schoolOutside);
+        schoolChem.setImage(ImageIO.load("/images/ArrowLeft.png"));
+        schoolChem.setWidth(45);
+        schoolChem.setHeight(64);
+        schoolChem.autoScale();
+        schoolChem.setPosition(26, 243);
+
+        Door schoolTeach = new Door(this, "School", schoolOutside);
+        schoolTeach.setImage(ImageIO.load("/images/ArrowRight.png"));
+        schoolTeach.setWidth(45);
+        schoolTeach.setHeight(64);
+        schoolTeach.autoScale();
+        schoolTeach.setPosition(840, 243);
+
+        Door schoolClass = new Door(this, "School", schoolOutside);
+        schoolClass.setImage(ImageIO.load("/images/ArrowUp.png"));
+        schoolClass.setWidth(64);
+        schoolClass.setHeight(45);
+        schoolClass.autoScale();
+        schoolClass.setPosition(435, 0);
+
+        Door chemSchool = new Door(this, "Chemistry room", chemistryRoom);
+        chemSchool.setImage(ImageIO.load("/images/ArrowRight.png"));
+        chemSchool.setWidth(45);
+        chemSchool.setHeight(64);
+        chemSchool.autoScale();
+        chemSchool.setPosition(870, 448);
+
+        Door teachSchool = new Door(this, "Teachers Lounge", teachersLounge);
+        teachSchool.setImage(ImageIO.load("/images/ArrowLeft.png"));
+        teachSchool.setWidth(45);
+        teachSchool.setHeight(64);
+        teachSchool.autoScale();
+        teachSchool.setPosition(0, 339);
+
+        Door classSchool = new Door(this, "Class rooms", classRooms);
+        classSchool.setImage(ImageIO.load("/images/ArrowDown.png"));
+        classSchool.setWidth(64);
+        classSchool.setHeight(45);
+        classSchool.autoScale();
+        classSchool.setPosition(402, 870);
+
+        Door classGirl = new Door(this, "Class rooms", classRooms);
+        classGirl.setImage(ImageIO.load("/images/ArrowUp.png"));
+        classGirl.setWidth(64);
+        classGirl.setHeight(45);
+        classGirl.autoScale();
+        classGirl.setPosition(357, 52);
+
+        Door girlClass = new Door(this, "Girls locker room", girlsLockerRoom);
+        girlClass.setImage(ImageIO.load("/images/ArrowDown.png"));
+        girlClass.setWidth(64);
+        girlClass.setHeight(45);
+        girlClass.autoScale();
+        girlClass.setPosition(372, 870);
 
         //Connect Doors
         startSort.connect(sortStart);
@@ -373,6 +421,11 @@ public class Game {
         repCan.connect(canRep);
         repMorg.connect(morgueRep);
         repOp.connect(opRep);
+
+        schoolChem.connect(chemSchool);
+        schoolTeach.connect(teachSchool);
+        schoolClass.connect(classSchool);
+        classGirl.connect(girlClass);
 
         //Adding Doors
         start.addItem(startSort);
@@ -402,6 +455,14 @@ public class Game {
         operatingRoom.addItem(opRep);
 
         schoolOutside.addItem(schoolOdense);
+        schoolOutside.addItem(schoolChem);
+        schoolOutside.addItem(schoolClass);
+        schoolOutside.addItem(schoolTeach);
+        chemistryRoom.addItem(chemSchool);
+        teachersLounge.addItem(teachSchool);
+        classRooms.addItem(classSchool);
+        classRooms.addItem(classGirl);
+        girlsLockerRoom.addItem(girlClass);
 
 
         sortingRoom.addItem(martin);
@@ -528,9 +589,9 @@ public class Game {
         teachersLounge.addItem(nutella_glass);
         teachersLounge.addItem(coffee_grounds);
 
-        gymnasticsRoom.addItem(poster);
-        gymnasticsRoom.addItem(spectacles_frame);
-        gymnasticsRoom.addItem(post_it);
+        classRooms.addItem(poster);
+        classRooms.addItem(spectacles_frame);
+        classRooms.addItem(post_it);
 
         girlsLockerRoom.addItem(milk_carton);
         girlsLockerRoom.addItem(perfume_bottle);
@@ -599,13 +660,13 @@ public class Game {
         schoolOutside.setExit("Odense", odense);
         schoolOutside.setExit("teachers-lounge", teachersLounge);
         schoolOutside.setExit("chemistry-room", chemistryRoom);
-        schoolOutside.setExit("gymnastics-room", gymnasticsRoom);
+        schoolOutside.setExit("gymnastics-room", classRooms);
 
         teachersLounge.setExit("school", schoolOutside);
         chemistryRoom.setExit("school", schoolOutside);
-        gymnasticsRoom.setExit("school", schoolOutside);
-        gymnasticsRoom.setExit("girls-locker-room", girlsLockerRoom);
-        girlsLockerRoom.setExit("gymnastics-room", gymnasticsRoom);
+        classRooms.setExit("school", schoolOutside);
+        classRooms.setExit("girls-locker-room", girlsLockerRoom);
+        girlsLockerRoom.setExit("gymnastics-room", classRooms);
 
         // Misc.
         currentRoom = start;
