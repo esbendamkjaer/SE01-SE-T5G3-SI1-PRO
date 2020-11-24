@@ -43,7 +43,7 @@ public class Game {
      */
     private void initObjects() {
         //Rooms
-        start = new Room(this, "start", "in the start room. The beginning of this trashy world's hero... You!!! \nA man greets you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin. \nYou must help us save the planet! Now follow me if you want to survive, start by using GO to the sorting-room and TALK to me there.\"");
+        start = new Room(this, "start", "in the start room. \n The beginning of this trashy world's hero... You!!! \nA man greets you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin. \nYou must help us save the planet! Now follow me if you want to survive, Start by meeting me in the sorting room by using X on the arrow in the door and talk using X in the next room.\"");
         start.setBackground(ImageIO.load("/images/maps/main/start.png"));
 
         for (int i = 0; i < 10; i++) {
