@@ -34,10 +34,6 @@ public class Player extends Item {
         setScale(1.5f);
     }
 
-    public Inventory getInventory() {
-        return inventory;
-    }
-
     @Override
     public void update(float delta) {
         super.update(delta);
@@ -105,6 +101,10 @@ public class Player extends Item {
         }
     }
 
+    /**
+     * Pickup an item from the current room.
+     * @param item Item from current room to pickup.
+     */
     public void pickup(Item item) {
         Pickupable pickupable = (Pickupable) item;
 
@@ -118,6 +118,10 @@ public class Player extends Item {
         } else {
             getGame().getTextLogArea().printText("You do not have sufficient space in your inventory.");
         }
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 
 }

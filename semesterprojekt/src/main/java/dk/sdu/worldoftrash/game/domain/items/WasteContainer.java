@@ -25,14 +25,11 @@ public class WasteContainer extends Item implements Interactable {
             getGame().getScoreSystem().addPoints(-50);
             return false;
         }
-
         if (checkWaste(waste)) {
             getGame().getTextLogArea().printText("You put the waste in the right container!");
             getGame().getScoreSystem().givePoints(waste);
-            System.out.printf("You now have a score of %d points!\n", getGame().getScoreSystem().getScore());
-
         } else {
-            System.out.printf("'%s' does not belong in this container because %s.\n", waste.getName(), waste.getWrongSorting());
+            getGame().getTextLogArea().printText(String.format("'%s' does not belong in this container because %s.\n", waste.getName(), waste.getWrongSorting()));
         }
 
         getGame().getScoreSystem().incrementWasteCount(waste.getWasteType());
@@ -50,7 +47,7 @@ public class WasteContainer extends Item implements Interactable {
 
     @Override
     public void interact(Player player) {
-
+        getGame().getTextLogArea().printText("Click an item in your inventory to drop it in the container.");
     }
 
     @Override
