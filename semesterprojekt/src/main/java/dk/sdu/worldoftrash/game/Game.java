@@ -189,14 +189,14 @@ public class Game {
         sortStart.setWidth(45);
         sortStart.setHeight(64);
         sortStart.autoScale();
-        sortStart.setPosition(0, 410);
+        sortStart.setPosition(0, 404);
 
         Door sortOdense = new Door(this, "Sort", sortingRoom);
         sortOdense.setImage(ImageIO.load("/images/ArrowRight.png"));
         sortOdense.setWidth(45);
         sortOdense.setHeight(64);
         sortOdense.autoScale();
-        sortOdense.setPosition(870, 410);
+        sortOdense.setPosition(870, 404);
 
         Door odenseSort = new Door(this, "Odense", odense);
         odenseSort.setImage(ImageIO.load("/images/ArrowLeft.png"));
@@ -283,63 +283,63 @@ public class Game {
         hosOdense.setWidth(64);
         hosOdense.setHeight(45);
         hosOdense.autoScale();
-        hosOdense.setPosition(436, 0);
+        hosOdense.setPosition(404, 0);
 
         Door hosRep = new Door(this, "Hospital", hospitalOutside);
         hosRep.setImage(ImageIO.load("/images/ArrowUp.png"));
         hosRep.setWidth(64);
         hosRep.setHeight(45);
         hosRep.autoScale();
-        hosRep.setPosition(806, 570);
+        hosRep.setPosition(788, 570);
 
         Door repHos = new Door(this, "Reception", reception);
         repHos.setImage(ImageIO.load("/images/ArrowDown.png"));
         repHos.setWidth(64);
         repHos.setHeight(45);
         repHos.autoScale();
-        repHos.setPosition(730, 0);
+        repHos.setPosition(643, 870);
 
         Door repMorg = new Door(this, "Reception", reception);
         repMorg.setImage(ImageIO.load("/images/ArrowLeft.png"));
         repMorg.setWidth(45);
         repMorg.setHeight(64);
         repMorg.autoScale();
-        repMorg.setPosition(0, 370);
+        repMorg.setPosition(24, 338);
 
         Door repOp = new Door(this, "Reception", reception);
         repOp.setImage(ImageIO.load("/images/ArrowRight.png"));
         repOp.setWidth(45);
         repOp.setHeight(64);
         repOp.autoScale();
-        repOp.setPosition(870, 415);
+        repOp.setPosition(850, 404);
 
         Door repCan = new Door(this, "Reception", reception);
         repCan.setImage(ImageIO.load("/images/ArrowUp.png"));
         repCan.setWidth(64);
         repCan.setHeight(45);
         repCan.autoScale();
-        repCan.setPosition(800, 0);
+        repCan.setPosition(676, 0);
 
         Door morgueRep = new Door(this, "Morgue", morgue);
         morgueRep.setImage(ImageIO.load("/images/ArrowRight.png"));
         morgueRep.setWidth(45);
         morgueRep.setHeight(64);
         morgueRep.autoScale();
-        morgueRep.setPosition(870, 370);
+        morgueRep.setPosition(870, 386);
 
         Door opRep = new Door(this, "Operating room", operatingRoom);
         opRep.setImage(ImageIO.load("/images/ArrowLeft.png"));
         opRep.setWidth(45);
         opRep.setHeight(64);
         opRep.autoScale();
-        opRep.setPosition(0, 415);
+        opRep.setPosition(0, 466);
 
         Door canRep = new Door(this, "Canteen", canteen);
         canRep.setImage(ImageIO.load("/images/ArrowDown.png"));
         canRep.setWidth(64);
         canRep.setHeight(45);
         canRep.autoScale();
-        canRep.setPosition(415, 0);
+        canRep.setPosition(420, 870);
 
         //Door Level 3.
         Door schoolOdense = new Door(this, "School", schoolOutside);
