@@ -15,7 +15,7 @@ public class Key extends Item implements Pickupable {
 
     @Override
     public void interact(Player player) {
-        
+        player.pickup(this);
     }
 
     @Override
