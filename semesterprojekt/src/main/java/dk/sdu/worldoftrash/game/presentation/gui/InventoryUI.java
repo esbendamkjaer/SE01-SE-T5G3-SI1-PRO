@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
 
@@ -21,6 +22,8 @@ public class InventoryUI {
     private Game game;
     private TextArea itemDescriptionArea;
     private Player player;
+
+    private double iconSize = 64;
 
     public InventoryUI(TilePane inventoryTiles, TextArea itemDescriptionArea, Game game) {
         this.game = game;
@@ -45,10 +48,22 @@ public class InventoryUI {
         for (int i = 0; i < items.size(); i++) {
             Item item = items.get(i);
 
-            Button button = new Button(item.getName());
+            Button button = new Button();
             button.setMaxHeight(Double.MAX_VALUE);
             button.setMaxWidth(Double.MAX_VALUE);
-            button.setGraphic(new ImageView(item.getImage()));
+
+            Image image = item.getImage();
+            ImageView icon = new ImageView(image);
+
+            double ratio = image.getWidth() / image.getHeight();
+            if (image.getWidth() > image.getHeight()) {
+                icon.setFitWidth(iconSize);
+                icon.setFitHeight(iconSize / ratio);
+            } else {
+                icon.setFitHeight(iconSize);
+                icon.setFitWidth(iconSize * ratio);
+            }
+            button.setGraphic(icon);
             button.setOnAction(e -> {onButtonEvent(e);});
 
             button.hoverProperty().addListener((observable, oldValue, newValue) -> {

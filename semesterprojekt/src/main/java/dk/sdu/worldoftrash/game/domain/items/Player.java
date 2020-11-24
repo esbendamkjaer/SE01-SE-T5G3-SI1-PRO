@@ -16,6 +16,9 @@ public class Player extends Item {
     private KeyPolling keys;
     private boolean interact_typed;
 
+    // Speed in pixels per second.
+    private float speed = 600f;
+
     private Image left, right, front, back;
 
     public Player(Game game, String name) {
@@ -61,22 +64,22 @@ public class Player extends Item {
 
         boolean moved = false;
         if (keys.isDown(KeyCode.UP) || keys.isDown(KeyCode.W)) {
-            newPos = newPos.add(0, -10);
+            newPos = newPos.add(0, -speed * delta);
             setImage(back);
         }
 
         if (keys.isDown(KeyCode.DOWN) || keys.isDown(KeyCode.S)) {
-            newPos = newPos.add(0, 10);
+            newPos = newPos.add(0, speed * delta);
             setImage(front);
         }
 
         if (keys.isDown(KeyCode.LEFT) || keys.isDown(KeyCode.A)) {
-            newPos = newPos.add(-10, 0);
+            newPos = newPos.add(-speed * delta, 0);
             setImage(left);
         }
 
         if (keys.isDown(KeyCode.RIGHT) || keys.isDown(KeyCode.D)) {
-            newPos = newPos.add(10, 0);
+            newPos = newPos.add(speed * delta, 0);
             setImage(right);
         }
 
