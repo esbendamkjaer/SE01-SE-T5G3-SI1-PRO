@@ -237,6 +237,26 @@ public class Game {
         cardboardBox.fitToImage();
         cardboardBox.setPosition(700,350);
 
+        //Assigning trash to - parkeringsplads
+        newspaper.setImage(ImageIO.load(("/images/trash/newspaper-kopi.png")));
+        newspaper.setScale(0.7f);
+        newspaper.fitToImage();
+        newspaper.setPosition(300,200);
+
+        sodaCan.setImage(ImageIO.load(("/images/trash/soda can.png")));
+        sodaCan.setScale(0.4f);
+        sodaCan.fitToImage();
+        sodaCan.setPosition(635,275);
+
+        deodorant.setImage(ImageIO.load(("/images/trash/deo.png")));
+        deodorant.setScale(0.4f);
+        deodorant.fitToImage();
+        deodorant.setPosition(600,550);
+
+        picklesGlass.setImage(ImageIO.load(("/images/trash/pickles.png")));
+        picklesGlass.setScale(0.8f);
+        picklesGlass.fitToImage();
+        picklesGlass.setPosition(200,700);
 
         // ********************************************* Doors - Start *********************************************
         Door startSort = new Door(this, "Start", start);
