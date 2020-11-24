@@ -57,11 +57,8 @@ public class Game {
             start.addItem(waste);
         }
 
-        WasteContainer wasteContainer = new WasteContainer(this, "Glas", WasteType.GLASS);
-        wasteContainer.setImage(ImageIO.load("/images/placeholder.png"));
-        wasteContainer.fitToImage();
-        wasteContainer.moveFromMid(new Point2D(width/2, height/2));
-        start.addItem(wasteContainer);
+
+
 
         // Baggrunde
         sortingRoom = new Room(this, "sortingRoom", "in sorting room. Martin follows you. This is where you sort the trash and clean it in the sink if needed be. \nThere are 8 different containers, a organic-container, a glass-container, a metal-container, a paper-container, a residual-container, a cardboard-container, a hazardous-container and a plastic-container");
@@ -415,13 +412,53 @@ public class Game {
         // ********************************************* Doors - end *********************************************
         //Creating trash container objects
         WasteContainer organicContainer = new WasteContainer(this, "organic-container", WasteType.ORGANIC);
+        organicContainer.setImage(ImageIO.load("/images/wasteContainers/ORGANICS.png"));
+        organicContainer.setScale(0.8f);
+        organicContainer.fitToImage();
+        organicContainer.setPosition(50,50);
+
         WasteContainer glassContainer = new WasteContainer(this, "glass-container", WasteType.GLASS);
+        glassContainer.setImage(ImageIO.load("/images/wasteContainers/glass.png"));
+        glassContainer.setScale(0.8f);
+        glassContainer.fitToImage();
+        glassContainer.setPosition(285,50);
+
+
         WasteContainer metalContainer = new WasteContainer(this, "metal-container", WasteType.METAL);
+        metalContainer.setImage(ImageIO.load("/images/wasteContainers/Metal.png"));
+        metalContainer.setScale(0.8f);
+        metalContainer.fitToImage();
+        metalContainer.setPosition(535,50);
+
         WasteContainer papercontainer = new WasteContainer(this, "paper-container", WasteType.PAPER);
+        papercontainer.setImage(ImageIO.load("/images/wasteContainers/paper.png"));
+        papercontainer.setScale(0.8f);
+        papercontainer.fitToImage();
+        papercontainer.setPosition(750,50);
+
         WasteContainer residualcontainer = new WasteContainer(this, "residual-container", WasteType.RESIDUAL);
+        residualcontainer.setImage(ImageIO.load(("/images/wasteContainers/RESIDUAL.png")));
+        residualcontainer.setScale(0.8f);
+        residualcontainer.fitToImage();
+        residualcontainer.setPosition(50,725);
+
         WasteContainer cardboardcontainer = new WasteContainer(this, "cardboard-container", WasteType.CARDBOARD);
+        cardboardcontainer.setImage(ImageIO.load("/images/wasteContainers/CARDBOARD.png"));
+        cardboardcontainer.setScale(0.8f);
+        cardboardcontainer.fitToImage();
+        cardboardcontainer.setPosition(285,725);
+
         WasteContainer hardPlasticcontainer = new WasteContainer(this, "plastic-container", WasteType.HARD_PLASTIC);
+        hardPlasticcontainer.setImage(ImageIO.load("/images/wasteContainers/PLASTIC.png"));
+        hardPlasticcontainer.setScale(0.8f);
+        hardPlasticcontainer.fitToImage();
+        hardPlasticcontainer.setPosition(535,725);
+
         WasteContainer hazardouscontainer = new WasteContainer(this, "hazardous-container", WasteType.HAZARDOUS);
+        hazardouscontainer.setImage(ImageIO.load("/images/wasteContainers/hazardous.png"));
+        hazardouscontainer.setScale(0.8f);
+        hazardouscontainer.fitToImage();
+        hazardouscontainer.setPosition(750,725);
 
         //Assigning containers to the Sorting room
         sortingRoom.addItem(organicContainer);
