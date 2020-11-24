@@ -10,8 +10,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import dk.sdu.worldoftrash.game.gui.GameCanvas?>
-<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.sdu.worldoftrash.game.gui.controllers.GameController">
+<?import dk.sdu.worldoftrash.game.presentation.gui.GameCanvas?>
+<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.sdu.worldoftrash.game.presentation.gui.controllers.GameController">
    <left>
       <VBox prefHeight="928.0" prefWidth="322.0" BorderPane.alignment="CENTER">
          <children>
