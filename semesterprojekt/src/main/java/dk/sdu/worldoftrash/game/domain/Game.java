@@ -130,6 +130,10 @@ public class Game {
 
         // Waste objects #Level 2 - Hospital
         Waste papers1 = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
+       /* metalContainer.setImage(ImageIO.load("/images/wasteContainers/Metal.png"));
+        metalContainer.setScale(0.8f);
+        metalContainer.fitToImage();
+        metalContainer.setPosition(535,50);*/
         Waste medicineBottle = new Waste (this, "glass-medicine-bottle", WasteType.GLASS, "it is made out of glass, and therefore goes in glass", false);
         Waste syringe = new Waste (this, "syringe", WasteType.HAZARDOUS, "most biochemical equipment are hazardous, so are syringes, never reuse a syringe!", true);
         Waste scalpel = new Waste (this, "scalpel", WasteType.METAL, "a scalpel is made of metal. This goes into metal", true);
@@ -540,8 +544,20 @@ public class Game {
         //**************************************** Waste objects - end ************************************************
 
         //Sink
-        Sink sink = new Sink(this, "sink");
-        sortingRoom.addItem(sink);
+        Sink sink1 = new Sink(this, "sink");
+        Sink sink2 = new Sink(this, "sink");
+        sortingRoom.addItem(sink1);
+        sortingRoom.addItem(sink2);
+        sink1.setImage(ImageIO.load("/images/SINK90.png"));
+        sink2.setImage(ImageIO.load("/images/SINK-90.png"));
+        sink2.setScale(0.5f);
+        sink1.setScale(0.5f);
+        sink1.fitToImage();
+        sink2.fitToImage();
+        sink1.setPosition(45,300);
+        sink2.setPosition(775,300);
+
+
 
         //Exits in "Start" #0
         start.setExit("sorting-room", sortingRoom);
