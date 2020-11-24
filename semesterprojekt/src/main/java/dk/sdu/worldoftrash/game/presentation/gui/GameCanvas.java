@@ -6,7 +6,8 @@ public class GameCanvas extends Canvas {
     private double scale;
 
     public GameCanvas() {
-        scale = 1;
+        this.scale = 1;
+        getGraphicsContext2D().setImageSmoothing(false);
     }
 
     @Override
