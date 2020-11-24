@@ -205,7 +205,7 @@ public class Game {
         tray.setPosition(160,110);
 
         Waste ballPen = new Waste(this, "ball-pen", WasteType.RESIDUAL, "a ball pen is compromised of multiple components and hard to recycle. It goes into residual", true);
-        ballPen.setImage(ImageIO.load("/image/trash/ball_pen.png"));
+        ballPen.setImage(ImageIO.load("/images/trash/ball_pen.png"));
         ballPen.setScale(1);
         ballPen.fitToImage();
         ballPen.setPosition(130,115);
