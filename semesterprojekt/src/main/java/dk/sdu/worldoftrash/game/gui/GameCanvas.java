@@ -7,17 +7,6 @@ public class GameCanvas extends Canvas {
 
     public GameCanvas() {
         scale = 1;
-        widthProperty().addListener(event -> draw());
-        heightProperty().addListener(event -> draw());
-    }
-
-    private void draw() {
-        double width = getWidth();
-        double height = getHeight();
-
-        double min = Math.min(width, height);
-
-        System.out.println(min);
     }
 
     @Override

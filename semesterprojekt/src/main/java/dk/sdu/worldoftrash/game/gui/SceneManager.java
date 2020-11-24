@@ -34,7 +34,11 @@ public class SceneManager {
         if (scenes.containsKey(sceneName)) {
             SceneInfo sceneInfo = scenes.get(sceneName);
 
-            Scene scene = sceneInfo.getScene();
+            Scene currScene = stage.getScene();
+            Scene scene = currScene == null
+                    ? new Scene(sceneInfo.getRoot())
+                    : new Scene(sceneInfo.getRoot(), currScene.getWidth(), currScene.getHeight());
+
             KeyPolling.getInstance().pollScene(scene);
 
             stage.setScene(scene);
@@ -44,5 +48,7 @@ public class SceneManager {
         }
     }
 
-
+    public Stage getStage() {
+        return stage;
+    }
 }
