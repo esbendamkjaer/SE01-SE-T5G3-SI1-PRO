@@ -1,14 +1,15 @@
 package dk.sdu.worldoftrash.game.gui;
 
 import dk.sdu.worldoftrash.game.Game;
+import dk.sdu.worldoftrash.game.items.Interactable;
 import dk.sdu.worldoftrash.game.items.Item;
 import dk.sdu.worldoftrash.game.items.Player;
-import dk.sdu.worldoftrash.game.items.Interactable;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ListChangeListener.Change;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
 
@@ -18,12 +19,14 @@ public class InventoryUI {
 
     private TilePane root;
     private Game game;
+    private TextArea itemDescriptionArea;
     private Player player;
 
-    public InventoryUI(TilePane root, Game game) {
+    public InventoryUI(TilePane inventoryTiles, TextArea itemDescriptionArea, Game game) {
         this.game = game;
+        this.itemDescriptionArea = itemDescriptionArea;
         this.player = game.getPlayer();
-        this.root = root;
+        this.root = inventoryTiles;
 
         game.getPlayer().getInventory().getItems().addListener((ListChangeListener<Item>) c -> {
             onInventoryChange((Change<Item>) c);
@@ -42,9 +45,23 @@ public class InventoryUI {
             button.setMaxWidth(Double.MAX_VALUE);
             button.setGraphic(new ImageView(item.getImage()));
             button.setOnAction(event -> {onButtonEvent(event);});
-
+            button.hoverProperty().addListener((observable, oldValue, newValue) -> {
+                onButtonHoverChange(button, newValue);
+            });
             root.getChildren().add(button);
-            //inventoryGrid.add(button, i % 3, i / 3);
+        }
+    }
+
+    private void onButtonHoverChange(Button button, Boolean newValue) {
+        if (newValue) {
+            int index = button.getParent().getChildrenUnmodifiable().indexOf(button);
+            Item item = player.getInventory().getItemAt(index);
+
+            itemDescriptionArea.setText(
+                    item.getDescription()
+            );
+        } else {
+            itemDescriptionArea.clear();
         }
     }
 

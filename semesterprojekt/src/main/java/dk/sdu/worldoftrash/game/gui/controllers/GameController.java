@@ -42,7 +42,7 @@ public class GameController extends BaseController implements Initializable {
 
         scoreLabel.textProperty().bind(game.getScoreSystem().getScoreProperty().asString());
 
-        inventoryUI = new InventoryUI(inventoryPane, game);
+        inventoryUI = new InventoryUI(inventoryPane, itemDescriptionArea, game);
 
         TextLogArea textLogArea = new TextLogArea(this.textLogArea);
         game.setTextLogArea(textLogArea);

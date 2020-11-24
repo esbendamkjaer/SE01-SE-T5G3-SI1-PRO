@@ -127,4 +127,8 @@ public class Item {
         return new Point2D(getX() + getWidth() / 2, getY() + getHeight() / 2);
     }
 
+    public String getDescription() {
+        return
+                "Name: " + getName();
+    }
 }

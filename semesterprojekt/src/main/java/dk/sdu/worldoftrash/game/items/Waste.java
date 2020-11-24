@@ -51,4 +51,11 @@ public class Waste extends Item implements Pickupable {
     public void giveItem(Item item, Player player) {
 
     }
+
+    @Override
+    public String getDescription() {
+        return
+                super.getDescription() + "\n" +
+                "Clean: " + isClean();
+    }
 }

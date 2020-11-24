@@ -9,8 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -18,11 +16,10 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Scale;
 import javafx.util.Duration;
-import javafx.util.Pair;
 
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class StartController extends BaseController implements Initializable {
@@ -33,15 +30,14 @@ public class StartController extends BaseController implements Initializable {
     private static final int WIDTH = 1920;
     private static final int HEIGHT = 1080;
 
-    private double scale = 1.5;
+    private double scale = 1.2;
 
-    private List<Pair<String, Runnable>> menuData = Arrays.asList(
-            new Pair<String, Runnable>("Play", () -> {getSceneManager().changeScene(SceneName.GAME_SCENE);}),
-            new Pair<String, Runnable>("Game Options", () -> {}),
-            new Pair<String, Runnable>("Tutorial", () -> {}),
-            new Pair<String, Runnable>("Credits", () -> {}),
-            new Pair<String, Runnable>("Exit to Desktop", Platform::exit)
-    );
+    private Map<String, Runnable> menuData = new HashMap<>() {{
+        put("Play", () -> {getSceneManager().changeScene(SceneName.GAME_SCENE);});
+        put("Game Options", () -> {});
+        put("Credits", () -> {});
+        put("Exit to Desktop", Platform::exit);
+    }};
 
     private VBox menuBox = new VBox(-5);
     private Line line;
@@ -49,8 +45,6 @@ public class StartController extends BaseController implements Initializable {
     private void createContent() {
         Scale scale = new Scale(this.scale, this.scale);
         menuBox.getTransforms().add(scale);
-
-        addBackground();
         
         // placement of the menu buttons X decide which side Y decide height (up and down)
         double lineX = 50;
@@ -62,17 +56,9 @@ public class StartController extends BaseController implements Initializable {
         startAnimation();
     }
 
-    private void addBackground() {
-        ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/game_menu_background.png")));
-        imageView.setFitWidth(WIDTH);
-        imageView.setFitHeight(HEIGHT);
-
-        rootPane.getChildren().add(imageView);
-    }
-
     private void addLine(double x, double y) {
         //length of the slider next to the title buttons.
-        line = new Line(x, y, x, y + 200 * scale);
+        line = new Line(x, y, x, y + 160 * scale);
         line.setStrokeWidth(3 * scale);
         line.setStroke(Color.color(1, 1, 1, 0.75));
         line.setEffect(new DropShadow(5, Color.BLACK));
@@ -101,9 +87,10 @@ public class StartController extends BaseController implements Initializable {
     private void addMenu(double x, double y) {
         menuBox.setTranslateX(x);
         menuBox.setTranslateY(y);
-        menuData.forEach(data -> {
-            MenuItem item = new MenuItem(data.getKey());
-            item.setOnAction(data.getValue());
+
+        menuData.forEach((k, v) -> {
+            MenuItem item = new MenuItem(k);
+            item.setOnAction(v);
             item.setTranslateX(-300);
 
             Rectangle clip = new Rectangle(300, 30);

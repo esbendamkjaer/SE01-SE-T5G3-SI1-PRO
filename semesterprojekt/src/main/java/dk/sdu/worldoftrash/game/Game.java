@@ -46,10 +46,10 @@ public class Game {
         start = new Room(this, "start", "in the start room. The beginning of this trashy world's hero... You!!! \nA man greets you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin. \nYou must help us save the planet! Now follow me if you want to survive, start by using GO to the sorting-room and TALK to me there.\"");
         start.setBackground(ImageIO.load("/images/maps/main/start.png"));
 
-
         for (int i = 0; i < 10; i++) {
             Waste waste = new Waste(this, "Skrald", WasteType.GLASS, "Test", true);
-            waste.setImage(ImageIO.load("/images/placeholder.png"));
+            waste.setImage(ImageIO.load("/images/trash/biggest-box.png"));
+            waste.setScale(0.5f);
             waste.fitToImage();
 
             waste.setPosition(i * waste.getWidth() * 3, i * waste.getHeight() * 3);
@@ -103,7 +103,7 @@ public class Game {
         teachersLounge.setBackground(ImageIO.load("/images/maps/school/teachers_lounge.png"));
 
         chemistryRoom = new Room(this, "chemistry-room", "in the chemistry room");
-        // chemistryRoom.setBackground(ImageIO.load("/images/maps/school/chemistry_room.png"));
+        chemistryRoom.setBackground(ImageIO.load("/images/maps/school/chemistry_room.png"));
 
         gymnasticsRoom = new Room(this, "gymnastics-room", "in the gymnastics room");
         gymnasticsRoom.setBackground(ImageIO.load("/images/maps/school/school_gym.png"));
