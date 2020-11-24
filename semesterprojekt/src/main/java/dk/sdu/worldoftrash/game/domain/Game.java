@@ -63,6 +63,7 @@ public class Game {
         wasteContainer.moveFromMid(new Point2D(width/2, height/2));
         start.addItem(wasteContainer);
 
+        // Baggrunde
         sortingRoom = new Room(this, "sortingRoom", "in sorting room. Martin follows you. This is where you sort the trash and clean it in the sink if needed be. \nThere are 8 different containers, a organic-container, a glass-container, a metal-container, a paper-container, a residual-container, a cardboard-container, a hazardous-container and a plastic-container");
         sortingRoom.setBackground(ImageIO.load("/images/maps/main/sorting_room.png"));
 
@@ -176,7 +177,7 @@ public class Game {
         NPC martin = new CityNPC(this, "Martin");
         start.addItem(martin);
 
-        //Door Start area
+        // ********************************************* Doors - Start *********************************************
         Door startSort = new Door(this, "Start", start);
         startSort.setImage(ImageIO.load("/images/ArrowRight.png"));
         startSort.setWidth(45);
@@ -204,7 +205,6 @@ public class Game {
         odenseSort.setHeight(64);
         odenseSort.autoScale();
         odenseSort.setPosition(0, 410);
-
 
         Door odenseSuper = new Door(this, "Odense", odense);
         odenseSuper.setImage(ImageIO.load("/images/ArrowRight.png"));
@@ -401,8 +401,7 @@ public class Game {
         operatingRoom.addItem(opRep);
 
         schoolOutside.addItem(schoolOdense);
-
-
+        
         sortingRoom.addItem(martin);
         odense.addItem(martin);
         parkinglot.addItem(homelessDan);
@@ -413,6 +412,7 @@ public class Game {
         teachersLounge.addItem(madChemist);
         madChemist.setFertilizer(fertilizer);
 
+        // ********************************************* Doors - end *********************************************
         //Creating trash container objects
         WasteContainer organicContainer = new WasteContainer(this, "organic-container", WasteType.ORGANIC);
         WasteContainer glassContainer = new WasteContainer(this, "glass-container", WasteType.GLASS);
