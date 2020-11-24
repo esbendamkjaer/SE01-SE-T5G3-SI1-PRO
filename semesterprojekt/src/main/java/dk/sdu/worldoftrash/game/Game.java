@@ -17,7 +17,7 @@ public class Game {
 
     private Player player;
 
-    private TextLogArea textLogArea;
+    private IGameTextPrinter textLogArea;
 
     private double height;
     private double width;
@@ -616,6 +616,10 @@ public class Game {
 
     //********************************************* Commands - End ***************************************************
 
+    /**
+     * Called before every frame render.
+     * @param delta Time since last frame.
+     */
     public void update(float delta) {
         getCurrentRoom().update(delta);
         player.update(delta);
@@ -677,7 +681,7 @@ public class Game {
         this.width = width;
     }
 
-    public TextLogArea getTextLogArea() {return textLogArea;}
+    public IGameTextPrinter getTextLogArea() {return textLogArea;}
 
     public void setTextLogArea(TextLogArea textLogArea) {this.textLogArea = textLogArea;}
 

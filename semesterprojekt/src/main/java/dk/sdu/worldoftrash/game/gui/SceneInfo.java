@@ -23,15 +23,24 @@ public class SceneInfo {
         this.stage = stage;
     }
 
+    /**
+     * Return root of scene graph.
+     * @return
+     */
     public Parent getRoot() {
         if (root == null) {
-            root = loadScene(resource);
+            root = loadSceneRoot(resource);
         }
 
         return root;
     }
 
-    private Parent loadScene(String resource) {
+    /**
+     * Load root of scene.
+     * @param resource
+     * @return Root of scene graph.
+     */
+    private Parent loadSceneRoot(String resource) {
         Parent sceneRoot = null;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(resource), resourceBundle);
 

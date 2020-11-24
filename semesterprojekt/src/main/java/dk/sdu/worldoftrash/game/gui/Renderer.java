@@ -23,6 +23,11 @@ public class Renderer {
 
     }
 
+    /**
+     * Render given room on canvas.
+     * @param room Room to render.
+     * @param player Player to render on top of room.
+     */
     public void render(Room room, Player player) {
         context.save();
 
@@ -41,6 +46,10 @@ public class Renderer {
         context.restore();
     }
 
+    /**
+     * Render a given item item on the canvas.
+     * @param item Item to render.
+     */
     public void drawItem(Item item) {
         Point2D pos = item.getPosition();
         context.drawImage(
@@ -52,6 +61,9 @@ public class Renderer {
         );
     }
 
+    /**
+     * Clear canvas by
+     */
     public void prepare(){
         context.setFill( new Color(0.68, 0.68, 0.68, 1.0) );
         context.fillRect(0,0, width, height);

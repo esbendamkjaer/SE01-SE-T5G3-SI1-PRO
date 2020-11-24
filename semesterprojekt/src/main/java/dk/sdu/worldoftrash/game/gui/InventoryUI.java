@@ -33,25 +33,37 @@ public class InventoryUI {
         });
     }
 
-    public void onInventoryChange(Change<Item> c) {
+    /**
+     * Is called when an Item is added to the player's inventory.
+     * @param event Change event object.
+     */
+    public void onInventoryChange(Change<Item> event) {
         root.getChildren().clear();
 
-        ObservableList<? extends Item> items = c.getList();
+        ObservableList<? extends Item> items = event.getList();
 
         for (int i = 0; i < items.size(); i++) {
             Item item = items.get(i);
+
             Button button = new Button(item.getName());
             button.setMaxHeight(Double.MAX_VALUE);
             button.setMaxWidth(Double.MAX_VALUE);
             button.setGraphic(new ImageView(item.getImage()));
-            button.setOnAction(event -> {onButtonEvent(event);});
+            button.setOnAction(e -> {onButtonEvent(e);});
+
             button.hoverProperty().addListener((observable, oldValue, newValue) -> {
                 onButtonHoverChange(button, newValue);
             });
+
             root.getChildren().add(button);
         }
     }
 
+    /**
+     * Is called on mouse enter and exit hover.
+     * @param button Button the mouse is hovering.
+     * @param newValue True if entered.
+     */
     private void onButtonHoverChange(Button button, Boolean newValue) {
         if (newValue) {
             int index = button.getParent().getChildrenUnmodifiable().indexOf(button);
@@ -83,7 +95,6 @@ public class InventoryUI {
 
             return;
         }
-
 
         colliding.get(0).giveItem(player.getInventory().getItemAt(index), game.getPlayer());
     }

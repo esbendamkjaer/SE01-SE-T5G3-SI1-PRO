@@ -2,7 +2,7 @@ package dk.sdu.worldoftrash.game;
 
 import javafx.scene.control.TextArea;
 
-public class TextLogArea {
+public class TextLogArea implements IGameTextPrinter{
 
     private TextArea textLogArea;
 
@@ -10,6 +10,10 @@ public class TextLogArea {
         this.textLogArea = textLogArea;
     }
 
+    /**
+     * Print given text to the textLogArea
+     * @param text
+     */
     public void printText(String text) {
         textLogArea.appendText(text + "\n\n");
     }
