@@ -2,7 +2,6 @@ package dk.sdu.worldoftrash.game.items;
 
 import dk.sdu.worldoftrash.game.Game;
 import dk.sdu.worldoftrash.game.rooms.Room;
-import javafx.scene.image.Image;
 
 public class Door extends Item implements Interactable {
 
@@ -33,8 +32,9 @@ public class Door extends Item implements Interactable {
 
     @Override
     public void interact(Player player) {
-        getGame().changeRoom(otherSide.getPlace());
-        player.moveFromMid(otherSide.getMidPoint());
+        if (getGame().changeRoom(otherSide.getPlace())) {
+            player.moveFromMid(otherSide.getMidPoint());
+        }
     }
 
     @Override

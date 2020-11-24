@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -27,8 +28,7 @@ public class StartController extends BaseController implements Initializable {
     @FXML
     private Pane rootPane;
 
-    private static final int WIDTH = 1920;
-    private static final int HEIGHT = 1080;
+    private double height = 720;
 
     private double scale = 1.2;
 
@@ -39,32 +39,37 @@ public class StartController extends BaseController implements Initializable {
         put("Exit to Desktop", Platform::exit);
     }};
 
-    private VBox menuBox = new VBox(-5);
+    private HBox menuBox = new HBox(5);
+    private VBox menuItemBox = new VBox(-5);
     private Line line;
 
     private void createContent() {
-        Scale scale = new Scale(this.scale, this.scale);
+        Scale scale = new Scale(1, 1);
         menuBox.getTransforms().add(scale);
-        
-        // placement of the menu buttons X decide which side Y decide height (up and down)
-        double lineX = 50;
-        double lineY = HEIGHT / 3 - 30 ;
 
-        addLine(lineX, lineY);
-        addMenu(lineX + 5 * this.scale, lineY + 5 * this.scale);
+        rootPane.heightProperty().addListener((observable, oldValue, newValue) -> {
+            scale.setX((double) newValue / 720);
+            scale.setY((double) newValue / 720);
+        });
+
+        // placement of the menu buttons X decide which side Y decide height (up and down)
+        double menuX = 50;
+        double menuY = 0;
+        addLine(0, 0);
+        addMenu(menuX, menuY);
 
         startAnimation();
     }
 
     private void addLine(double x, double y) {
         //length of the slider next to the title buttons.
-        line = new Line(x, y, x, y + 160 * scale);
+        line = new Line(x, y, x, y + 145);
         line.setStrokeWidth(3 * scale);
         line.setStroke(Color.color(1, 1, 1, 0.75));
         line.setEffect(new DropShadow(5, Color.BLACK));
         line.setScaleY(0);
 
-        rootPane.getChildren().add(line);
+        menuBox.getChildren().add(line);
     }
 
     private void startAnimation() {
@@ -72,8 +77,8 @@ public class StartController extends BaseController implements Initializable {
         st.setToY(1);
         st.setOnFinished(e -> {
 
-            for (int i = 0; i < menuBox.getChildren().size(); i++) {
-                Node n = menuBox.getChildren().get(i);
+            for (int i = 0; i < menuItemBox.getChildren().size(); i++) {
+                Node n = menuItemBox.getChildren().get(i);
 
                 TranslateTransition tt = new TranslateTransition(Duration.seconds(1 + i * 0.15), n);
                 tt.setToX(0);
@@ -86,7 +91,7 @@ public class StartController extends BaseController implements Initializable {
 
     private void addMenu(double x, double y) {
         menuBox.setTranslateX(x);
-        menuBox.setTranslateY(y);
+        menuBox.translateYProperty().bind(rootPane.heightProperty().divide(3));
 
         menuData.forEach((k, v) -> {
             MenuItem item = new MenuItem(k);
@@ -98,9 +103,10 @@ public class StartController extends BaseController implements Initializable {
 
             item.setClip(clip);
 
-            menuBox.getChildren().addAll(item);
+            menuItemBox.getChildren().addAll(item);
         });
 
+        menuBox.getChildren().add(menuItemBox);
         rootPane.getChildren().add(menuBox);
     }
 

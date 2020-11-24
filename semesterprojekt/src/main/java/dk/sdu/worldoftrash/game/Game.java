@@ -48,7 +48,7 @@ public class Game {
 
         for (int i = 0; i < 10; i++) {
             Waste waste = new Waste(this, "Skrald", WasteType.GLASS, "Test", true);
-            waste.setImage(ImageIO.load("/images/trash/biggest-box.png"));
+            waste.setImage(ImageIO.load("/images/trash/banana.png"));
             waste.setScale(0.5f);
             waste.fitToImage();
 
@@ -535,14 +535,16 @@ public class Game {
     /**
      * Changes current room to the given room.
      * @param room Room to go to.
+     * @return Whether or not the room is locked
      */
-    public void changeRoom(Room room) {
+    public boolean changeRoom(Room room) {
         if (room.isLocked()) {
             getTextLogArea().printText("This room is locked.");
-            return;
+            return false;
         }
         currentRoom = room;
         textLogArea.printText(currentRoom.getLongDescription());
+        return true;
     }
 
     //********************************************* Commands - End ***************************************************
