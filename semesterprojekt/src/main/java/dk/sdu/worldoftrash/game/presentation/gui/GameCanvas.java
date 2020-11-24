@@ -11,12 +11,12 @@ public class GameCanvas extends Canvas {
 
     @Override
     public double prefHeight(double width) {
-        return 928;
+        return 10000;
     }
 
     @Override
     public double prefWidth(double height) {
-        return 928;
+        return 10000;
     }
 
     @Override
