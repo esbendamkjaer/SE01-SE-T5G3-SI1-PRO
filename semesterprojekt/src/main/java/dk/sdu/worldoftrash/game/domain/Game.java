@@ -218,17 +218,17 @@ public class Game {
 
         //Assigning trash to - lageret
         eatenApple.setImage(ImageIO.load(("/images/trash/apple_eaten.png")));
-        eatenApple.setScale(0.8f);
+        eatenApple.setScale(0.6f);
         eatenApple.fitToImage();
         eatenApple.setPosition(300,300);
 
         paint1.setImage(ImageIO.load(("/images/trash/paint_2.png")));
-        paint1.setScale(0.8f);
+        paint1.setScale(1f);
         paint1.fitToImage();
-        paint1.setPosition(200,800);
+        paint1.setPosition(150,675);
 
         aaBatteries.setImage(ImageIO.load(("/images/trash/batteri.png")));
-        aaBatteries.setScale(0.8f);
+        aaBatteries.setScale(0.6f);
         aaBatteries.fitToImage();
         aaBatteries.setPosition(500,750);
 
