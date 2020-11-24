@@ -176,73 +176,165 @@ public class Game {
         NPC martin = new CityNPC(this, "Martin");
         start.addItem(martin);
 
+        //Door Start area
         Door startSort = new Door(this, "Start", start);
         startSort.setImage(ImageIO.load("/images/ArrowRight.png"));
         startSort.setWidth(45);
         startSort.setHeight(64);
         startSort.autoScale();
-        startSort.setPosition(870, 480);
+        startSort.setPosition(870, 410);
 
         Door sortStart = new Door(this, "Sort", sortingRoom);
         sortStart.setImage(ImageIO.load("/images/ArrowLeft.png"));
         sortStart.setWidth(45);
         sortStart.setHeight(64);
         sortStart.autoScale();
-        sortStart.setPosition(0, 480);
+        sortStart.setPosition(0, 410);
 
         Door sortOdense = new Door(this, "Sort", sortingRoom);
         sortOdense.setImage(ImageIO.load("/images/ArrowRight.png"));
         sortOdense.setWidth(45);
         sortOdense.setHeight(64);
         sortOdense.autoScale();
-        sortOdense.setPosition(870, 480);
+        sortOdense.setPosition(870, 410);
 
         Door odenseSort = new Door(this, "Odense", odense);
         odenseSort.setImage(ImageIO.load("/images/ArrowLeft.png"));
         odenseSort.setWidth(45);
         odenseSort.setHeight(64);
         odenseSort.autoScale();
-        odenseSort.setPosition(0, 480);
+        odenseSort.setPosition(0, 410);
 
-        /*
+
+        Door odenseSuper = new Door(this, "Odense", odense);
+        odenseSuper.setImage(ImageIO.load("/images/ArrowRight.png"));
+        odenseSuper.setWidth(45);
+        odenseSuper.setHeight(64);
+        odenseSuper.autoScale();
+        odenseSuper.setPosition(870, 410);
+
+        Door odenseHos = new Door(this, "Odense", odense);
+        odenseHos.setImage(ImageIO.load("/images/ArrowDown.png"));
+        odenseHos.setWidth(64);
+        odenseHos.setHeight(45);
+        odenseHos.autoScale();
+        odenseHos.setPosition(435, 870);
+
+        Door odenseSchool = new Door(this, "Odense", odense);
+        odenseSchool.setImage(ImageIO.load("/images/ArrowUp.png"));
+        odenseSchool.setWidth(64);
+        odenseSchool.setHeight(45);
+        odenseSchool.autoScale();
+        odenseSchool.setPosition(435, 0);
+
+        //Door Level 1.
+        Door superOdense = new Door(this, "Supermarket", supermarket);
+        superOdense.setImage(ImageIO.load("/images/ArrowLeft.png"));
+        superOdense.setWidth(45);
+        superOdense.setHeight(64);
+        superOdense.autoScale();
+        superOdense.setPosition(0, 478);
+
+        Door superOffice = new Door(this, "Supermarket", supermarket);
+        superOffice.setImage(ImageIO.load("/images/ArrowUp.png"));
+        superOffice.setWidth(64);
+        superOffice.setHeight(45);
+        superOffice.autoScale();
+        superOffice.setPosition(448, 0);
+
+        Door superStor = new Door(this, "Supermarket", supermarket);
+        superStor.setImage(ImageIO.load("/images/ArrowRight.png"));
+        superStor.setWidth(45);
+        superStor.setHeight(64);
+        superStor.autoScale();
+        superStor.setPosition(870, 480);
+
+        Door superPark = new Door(this, "Supermarket", supermarket);
+        superPark.setImage(ImageIO.load("/images/ArrowDown.png"));
+        superPark.setWidth(64);
+        superPark.setHeight(45);
+        superPark.autoScale();
+        superPark.setPosition(452, 870);
+
+        Door officeSuper = new Door(this, "Office", office);
+        officeSuper.setImage(ImageIO.load("/images/ArrowDown.png"));
+        officeSuper.setWidth(64);
+        officeSuper.setHeight(45);
+        officeSuper.autoScale();
+        officeSuper.setPosition(420, 870);
+
+        Door storSuper = new Door(this, "Storage", storageRoom);
+        storSuper.setImage(ImageIO.load("/images/ArrowLeft.png"));
+        storSuper.setWidth(45);
+        storSuper.setHeight(64);
+        storSuper.autoScale();
+        storSuper.setPosition(0, 351);
+
+        Door parkSuper = new Door(this, "Parking lot", parkinglot);
+        parkSuper.setImage(ImageIO.load("/images/ArrowUp.png"));
+        parkSuper.setWidth(64);
+        parkSuper.setHeight(45);
+        parkSuper.autoScale();
+        parkSuper.setPosition(466, 120);
+
+        //Door Level 2.
+        Door hosOdense = new Door(this, "Hospital", hospitalOutside);
+        hosOdense.setImage(ImageIO.load("/images/ArrowUp.png"));
+        hosOdense.setWidth(64);
+        hosOdense.setHeight(45);
+        hosOdense.autoScale();
+        hosOdense.setPosition(436, 0);
+
+/*
         Door  = new Door(this, "", );
         .setImage(ImageIO.load("/images/ArrowRight.png"));
         .setWidth(45);
         .setHeight(64);
         .autoScale();
         .setPosition(870, 480);
+*/
 
-        Door  = new Door(this, "", );
-        .setImage(ImageIO.load("/images/ArrowRight.png"));
-        .setWidth(45);
-        .setHeight(64);
-        .autoScale();
-        .setPosition(870, 480);
-
-        Door  = new Door(this, "", );
-        .setImage(ImageIO.load("/images/ArrowRight.png"));
-        .setWidth(45);
-        .setHeight(64);
-        .autoScale();
-        .setPosition(870, 480);
-
-        Door  = new Door(this, "", );
-        .setImage(ImageIO.load("/images/ArrowRight.png"));
-        .setWidth(45);
-        .setHeight(64);
-        .autoScale();
-        .setPosition(870, 480);
-        */
+        //Door Level 3.
+        Door schoolOdense = new Door(this, "School", schoolOutside);
+        schoolOdense.setImage(ImageIO.load("/images/ArrowDown.png"));
+        schoolOdense.setWidth(64);
+        schoolOdense.setHeight(45);
+        schoolOdense.autoScale();
+        schoolOdense.setPosition(435, 870);
 
 
+        //Connect Doors
         startSort.connect(sortStart);
         sortOdense.connect(odenseSort);
+        odenseSuper.connect(superOdense);
+        odenseHos.connect(hosOdense);
+        odenseSchool.connect(schoolOdense);
 
+        superOffice.connect(officeSuper);
+        superStor.connect(storSuper);
+        superPark.connect(parkSuper);
 
+        //Adding Doors
         start.addItem(startSort);
         sortingRoom.addItem(sortStart);
         sortingRoom.addItem(sortOdense);
         odense.addItem(odenseSort);
+        odense.addItem(odenseSuper);
+        odense.addItem(odenseHos);
+        odense.addItem(odenseSchool);
+
+        supermarket.addItem(superOdense);
+        supermarket.addItem(superOffice);
+        supermarket.addItem(superStor);
+        supermarket.addItem(superPark);
+        office.addItem(officeSuper);
+        storageRoom.addItem(storSuper);
+        parkinglot.addItem(parkSuper);
+
+        hospitalOutside.addItem(hosOdense);
+
+        schoolOutside.addItem(schoolOdense);
+
 
         sortingRoom.addItem(martin);
         odense.addItem(martin);
