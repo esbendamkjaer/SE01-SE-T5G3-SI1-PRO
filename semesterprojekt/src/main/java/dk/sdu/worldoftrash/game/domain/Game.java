@@ -127,26 +127,100 @@ public class Game {
 
         // Waste objects #Level 2 - Hospital
         Waste papers1 = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
-       /* metalContainer.setImage(ImageIO.load("/images/wasteContainers/Metal.png"));
-        metalContainer.setScale(0.8f);
-        metalContainer.fitToImage();
-        metalContainer.setPosition(535,50);*/
-        Waste medicineBottle = new Waste (this, "glass-medicine-bottle", WasteType.GLASS, "it is made out of glass, and therefore goes in glass", false);
+        papers1.setImage(ImageIO.load("/images/trash/paper.png"));
+        papers1.setScale(0.8f);
+        papers1.fitToImage();
+        papers1.setPosition(535,50);
+
+        Waste medicineBottle = new Waste (this, "glass medicine bottle", WasteType.GLASS, "it is made out of glass, and therefore goes in glass", false);
+        medicineBottle.setImage(ImageIO.load("/images/trash/medicine_bottle.png"));
+        medicineBottle.setScale(1);
+        medicineBottle.fitToImage();
+        medicineBottle.setPosition(502,55);
+
         Waste syringe = new Waste (this, "syringe", WasteType.HAZARDOUS, "most biochemical equipment are hazardous, so are syringes, never reuse a syringe!", true);
+        syringe.setImage(ImageIO.load("/images/trash/syringe.png"));
+        syringe.setScale(1);
+        syringe.fitToImage();
+        syringe.setPosition(469,60);
+
         Waste scalpel = new Waste (this, "scalpel", WasteType.METAL, "a scalpel is made of metal. This goes into metal", true);
+        scalpel.setImage(ImageIO.load("/images/trash/scalpel.png"));
+        scalpel.setScale(1);
+        scalpel.fitToImage();
+        scalpel.setPosition(436,65);
+
         Waste paperclip = new Waste (this, "paperclips", WasteType.RESIDUAL, "unless you got a large quantity of paper clips, recycling paper clips have a larger carbon footprint rather than just sorting them to residual, and therefore goes in residual", true);
-        Waste facemask = new Waste (this, "face-mask", WasteType.RESIDUAL, "this is a face mask. It goes into residual", true);
-        Waste bloodbag = new Waste (this, "blood-bag", WasteType.HAZARDOUS, "blood bags are biohazardous material and goes in hazardous", true);
+        paperclip.setImage(ImageIO.load("/images/trash/paper_clips.png"));
+        paperclip.setScale(1);
+        paperclip.fitToImage();
+        paperclip.setPosition(403,70);
+
+        Waste facemask = new Waste (this, "face mask", WasteType.RESIDUAL, "this is a face mask. It goes into residual", true);
+        facemask.setImage(ImageIO.load("/images/trash/maske.png"));
+        facemask.setScale(1);
+        facemask.fitToImage();
+        facemask.setPosition(370,75);
+
+        Waste bloodbag = new Waste (this, "blood bag", WasteType.HAZARDOUS, "blood bags are biohazardous material and goes in hazardous", true);
+        bloodbag.setImage(ImageIO.load("/images/trash/bloodbag.png"));
+        bloodbag.setScale(1);
+        bloodbag.fitToImage();
+        bloodbag.setPosition(340,80);
+
         Waste apple = new Waste (this, "apple",WasteType.ORGANIC, "apples usually are organics and can be dropped in organic", true);
+        apple.setImage(ImageIO.load("/images/trash/apple.png"));
+        apple.setScale(1);
+        apple.fitToImage();
+        apple.setPosition(310,85);
+
         Waste needle = new Waste (this, "needle", WasteType.RESIDUAL, "Needles in themselves are not worth recycling themselves and usually can be drop in residual ", true);
-        Waste chocolateMilkBottle = new Waste (this, "chocolate-milk-bottle", WasteType.GLASS, "this is a glass bottle, and therefore goes into glass", false);
+        needle.setImage(ImageIO.load("/images/trash/needle-kopi.png"));
+        needle.setScale(1);
+        needle.fitToImage();
+        needle.setPosition(280, 90);
+
+        Waste chocolateMilkBottle = new Waste (this, "chocolate milk bottle", WasteType.GLASS, "this is a glass bottle, and therefore goes into glass", false);
+        chocolateMilkBottle.setImage(ImageIO.load("/images/trash/chockolade_milk.png"));
+        chocolateMilkBottle.setScale(1);
+        chocolateMilkBottle.fitToImage();
+        chocolateMilkBottle.setPosition(250,95);
+
         Waste can = new Waste (this, "can", WasteType.METAL, "cans are made out of metal. It goes into metal", false);
-        Waste cake = new Waste (this, "moldy-cake", WasteType.ORGANIC, "this is food and therefore organic. It goes into organic", true);
-        Waste tray = new Waste(this,"tin-tray", WasteType.METAL, "tin trays are made out of metal. It goes into metal", false);
+        can.setImage(ImageIO.load("/images/trash/can-kopi.png"));
+        can.setScale(1);
+        can.fitToImage();
+        can.setPosition(220,100);
+
+        Waste cake = new Waste (this, "moldy cake", WasteType.ORGANIC, "this is food and therefore organic. It goes into organic", true);
+        cake.setImage(ImageIO.load("/images/trash/muffin_cake-kopi.png"));
+        cake.setScale(1);
+        cake.fitToImage();
+        cake.setPosition(190,105);
+
+        Waste tray = new Waste(this,"tin tray", WasteType.METAL, "tin trays are made out of metal. It goes into metal", false);
+        tray.setImage(ImageIO.load("/images/trash/meat_tray.png"));
+        tray.setScale(1);
+        tray.fitToImage();
+        tray.setPosition(160,110);
+
         Waste ballPen = new Waste(this, "ball-pen", WasteType.RESIDUAL, "a ball pen is compromised of multiple components and hard to recycle. It goes into residual", true);
+        ballPen.setImage(ImageIO.load("/image/trash/ball_pen.png"));
+        ballPen.setScale(1);
+        ballPen.fitToImage();
+        ballPen.setPosition(130,115);
+
         Waste toothBrush = new Waste(this, "tooth-brush", WasteType.RESIDUAL, "a tooth brush is not recycled due to repeated contact with a persons mouth and therefore unhygienic, it goes into residual", true);
+        toothBrush.setImage(ImageIO.load("/images/trash/toothbrush.png"));
+        toothBrush.setScale(1);
+        toothBrush.fitToImage();
+        toothBrush.setPosition(100,120);
         Key arms = new Key(this, "arm");
         Key sewing_kit = new Key(this, "sewing-kit");
+        sewing_kit.setImage(ImageIO.load("/images/trash/sewing_kit.png"));
+        sewing_kit.setScale(1);
+        sewing_kit.fitToImage();
+        sewing_kit.setPosition(100,100);
 
         // Waste objects #Level 3 - School
         Waste papers = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
