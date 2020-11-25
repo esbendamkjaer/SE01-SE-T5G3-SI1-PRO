@@ -34,7 +34,7 @@ public class Player extends Item {
         setImage(front);
         fitToImage();
 
-        setScale(1.5f);
+        setScale(1.25f);
     }
 
     @Override

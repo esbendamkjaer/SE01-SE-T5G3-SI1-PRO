@@ -242,14 +242,24 @@ public class Game {
 
         //NPCs
         ParkingLotNPC homelessDan = new ParkingLotNPC(this, "Dan");
+        homelessDan.setImage(ImageIO.load("/images/npc/supermarket_npc.png"));
+        homelessDan.setScale(1);
+        homelessDan.fitToImage();
+        homelessDan.setPosition(300, 300);
+
         ZombieNPC mrZombie = new ZombieNPC(this, "Mr.Zombie");
         SchoolNPC madChemist = new SchoolNPC(this, "Mad-Chemist");
+
         NPC martin = new CityNPC(this, "Martin");
+        martin.setImage(ImageIO.load("/images/npc/start_npc.png"));
+        martin.setScale(1);
+        martin.fitToImage();
+        martin.setPosition(700, 700);
         start.addItem(martin);
 
         //************************************* Trash assigning - Start *************************************
         //Assigning trash to - Supermarket
-        tomatoCan.setImage(ImageIO.load(("/images/trash/tomato_can.png")));
+        tomatoCan.setImage(ImageIO.load("/images/trash/tomato_can.png"));
         tomatoCan.setScale(0.8f);
         tomatoCan.fitToImage();
         tomatoCan.setPosition(500,500);
@@ -628,7 +638,6 @@ public class Game {
         classRooms.addItem(classSchool);
         classRooms.addItem(classGirl);
         girlsLockerRoom.addItem(girlClass);
-
 
         sortingRoom.addItem(martin);
         odense.addItem(martin);
