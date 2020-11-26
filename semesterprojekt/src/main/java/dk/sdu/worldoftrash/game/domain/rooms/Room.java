@@ -9,7 +9,6 @@ import javafx.scene.image.Image;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 
 
 public class Room 
@@ -52,21 +51,7 @@ public class Room
 
     public String getLongDescription()
     {
-        return "You are " + description + ".\n \n" + getExitString();
-    }
-
-    /**
-     * Returns a String representation of the exits in the room.
-     * @return The String representation of the room exits.
-     */
-    public String getExitString()
-    {
-        String returnString = "Exits:";
-        Set<String> keys = exits.keySet();
-        for(String exit : keys) {
-            returnString += " " + exit;
-        }
-        return returnString;
+        return "You are " + description + ".";
     }
 
     /**
