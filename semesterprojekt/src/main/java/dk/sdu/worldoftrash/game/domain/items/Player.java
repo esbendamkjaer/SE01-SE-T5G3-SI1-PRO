@@ -1,10 +1,11 @@
 package dk.sdu.worldoftrash.game.domain.items;
 
+import dk.sdu.worldoftrash.game.dal.ImageIO;
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.Inventory;
-import dk.sdu.worldoftrash.game.dal.ImageIO;
 import dk.sdu.worldoftrash.game.presentation.gui.KeyPolling;
 import javafx.geometry.Point2D;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 
@@ -127,5 +128,43 @@ public class Player extends Item {
         return inventory;
     }
 
+    @Override
+    public void render(GraphicsContext gc) {
+        super.render(gc);
+
+        List<Interactable> colliding = getGame().getCollisionsWithPlayer(Interactable.class);
+
+        if (colliding.isEmpty()) return;
+
+        Image icon = ImageIO.load("/images/icons/x_icon.png");
+
+        for (Interactable interactable : colliding) {
+
+            if (interactable instanceof Door) {
+                Door door = (Door) interactable;
+
+                if (door.getOtherSide().getPlace().isLocked()) {
+                    icon = ImageIO.load("/images/icons/lock-solid.png");
+                }
+            }
+        }
+
+        double width = 32, height = 32;
+        double iconWidth = 20, iconHeight = 20;
+
+        Image bg = ImageIO.load("/images/icons/icon_bg.png");
+
+        double x = 0;
+        if (getGame().getWidth() - getX() - getWidth() < width) {
+            x = getX() - width;
+        } else {
+            x = getX() + getWidth();
+        }
+        double y = getY();
+
+        gc.drawImage(bg, x, y, width, height);
+        gc.drawImage(icon, x + 0.5 * (width - iconWidth), y + 0.5 * (height - iconHeight), iconWidth, iconHeight);
+
+    }
 }
 
