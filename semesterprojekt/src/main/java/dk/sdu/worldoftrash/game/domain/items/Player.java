@@ -2,7 +2,7 @@ package dk.sdu.worldoftrash.game.domain.items;
 
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.Inventory;
-import dk.sdu.worldoftrash.game.presentation.gui.ImageIO;
+import dk.sdu.worldoftrash.game.dal.ImageIO;
 import dk.sdu.worldoftrash.game.presentation.gui.KeyPolling;
 import javafx.geometry.Point2D;
 import javafx.scene.image.Image;

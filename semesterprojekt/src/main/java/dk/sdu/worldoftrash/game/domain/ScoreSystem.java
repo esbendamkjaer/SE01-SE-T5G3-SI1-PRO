@@ -3,7 +3,6 @@ package dk.sdu.worldoftrash.game.domain;
 import dk.sdu.worldoftrash.game.dal.Client;
 import dk.sdu.worldoftrash.game.dal.data.LevelData;
 import dk.sdu.worldoftrash.game.dal.data.ScoreData;
-import dk.sdu.worldoftrash.game.dal.data.WasteType;
 import dk.sdu.worldoftrash.game.domain.items.Waste;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;

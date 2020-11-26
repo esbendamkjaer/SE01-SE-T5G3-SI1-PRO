@@ -1,4 +1,4 @@
-package dk.sdu.worldoftrash.game.dal.data;
+package dk.sdu.worldoftrash.game.domain;
 
 public enum WasteType {
 

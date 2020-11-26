@@ -1,11 +1,9 @@
 package dk.sdu.worldoftrash.game.domain;
 
-import dk.sdu.worldoftrash.game.dal.data.WasteType;
-import dk.sdu.worldoftrash.game.presentation.gui.ImageIO;
+import dk.sdu.worldoftrash.game.dal.ImageIO;
 import dk.sdu.worldoftrash.game.domain.items.*;
 import dk.sdu.worldoftrash.game.domain.items.npcs.*;
 import dk.sdu.worldoftrash.game.domain.rooms.Room;
-import javafx.geometry.Point2D;
 
 import java.util.ArrayList;
 import java.util.List;
