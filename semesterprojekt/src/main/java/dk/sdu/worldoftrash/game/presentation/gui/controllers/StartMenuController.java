@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-public class StartController extends BaseController implements Initializable {
+public class StartMenuController extends BaseController implements Initializable {
 
     @FXML
     private Pane rootPane;

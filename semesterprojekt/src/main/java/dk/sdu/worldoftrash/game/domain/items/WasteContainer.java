@@ -26,13 +26,12 @@ public class WasteContainer extends Item implements Interactable {
             return false;
         }
         if (checkWaste(waste)) {
+            getGame().getScoreSystem().onCorrect(waste);
             getGame().getTextLogArea().printText("You put the waste in the right container!");
-            getGame().getScoreSystem().givePoints(waste);
         } else {
+            getGame().getScoreSystem().onWrong(waste);
             getGame().getTextLogArea().printText(String.format("'%s' does not belong in this container because %s.\n", waste.getName(), waste.getWrongSorting()));
         }
-
-        getGame().getScoreSystem().incrementWasteCount(waste.getWasteType());
         return true;
     }
 

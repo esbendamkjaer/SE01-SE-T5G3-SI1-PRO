@@ -50,7 +50,7 @@
                   </Label>
                </children>
             </HBox>
-            <StackPane>
+            <StackPane fx:id="gameStackPane">
                <children>
                   <GameCanvas fx:id="gameCanvas" focusTraversable="true" height="928.0" width="928.0" />
                </children>

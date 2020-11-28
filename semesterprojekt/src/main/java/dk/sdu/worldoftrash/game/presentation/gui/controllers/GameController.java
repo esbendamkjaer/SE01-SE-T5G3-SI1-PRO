@@ -7,15 +7,21 @@ import dk.sdu.worldoftrash.game.presentation.gui.GameCanvas;
 import dk.sdu.worldoftrash.game.presentation.gui.InventoryUI;
 import dk.sdu.worldoftrash.game.presentation.gui.Renderer;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class GameController extends BaseController implements Initializable {
+
+    @FXML
+    private StackPane gameStackPane;
 
     @FXML
     private GameCanvas gameCanvas;
@@ -48,6 +54,14 @@ public class GameController extends BaseController implements Initializable {
         game.setTextLogArea(textLogArea);
 
         game.printWelcome();
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/response.fxml"));
+            gameStackPane.getChildren().add(fxmlLoader.load());
+            game.getScoreSystem().addSortingListener(fxmlLoader.getController());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         Renderer renderer = new Renderer(this.gameCanvas);
 
