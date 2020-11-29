@@ -118,7 +118,6 @@ public class Player extends Item {
 
         if (getInventory().storeItem((Item) pickupable)) {
             getGame().getCurrentRoom().removeItem(item);
-            getGame().getTextLogArea().printText("You picked up " + item.getName());
         } else {
             getGame().getTextLogArea().printText("You do not have sufficient space in your inventory.");
         }

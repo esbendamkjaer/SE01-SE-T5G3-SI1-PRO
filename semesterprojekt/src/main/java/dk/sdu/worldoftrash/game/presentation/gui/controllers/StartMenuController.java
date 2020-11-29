@@ -12,6 +12,8 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
@@ -42,6 +44,7 @@ public class StartMenuController extends BaseController implements Initializable
     private HBox menuBox = new HBox(5);
     private VBox menuItemBox = new VBox(-5);
     private Line line;
+    private MediaPlayer mediaPlayer;
 
     private void createContent() {
         Scale scale = new Scale(1, 1);
@@ -113,6 +116,11 @@ public class StartMenuController extends BaseController implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         createContent();
+
+        Media media = new Media(getClass().getResource("/sounds/monkeys-spinning.mp3").toString());
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
     }
     
 }

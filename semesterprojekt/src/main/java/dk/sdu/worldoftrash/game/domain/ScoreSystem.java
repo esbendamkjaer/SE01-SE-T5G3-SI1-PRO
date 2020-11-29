@@ -54,10 +54,6 @@ public class ScoreSystem {
      */
     public void givePoints(Waste waste) {
         addPoints(waste.getPoints());
-
-        LevelData levelData = getLevelDataByName(levelHandler.getCurrentLevelName());
-
-        levelData.incrementCorrect(waste.getWasteType());
     }
 
     /**
@@ -102,6 +98,10 @@ public class ScoreSystem {
      */
     public void onCorrect(Waste waste) {
         givePoints(waste);
+
+        LevelData levelData = getLevelDataByName(levelHandler.getCurrentLevelName());
+        levelData.incrementCorrect(waste.getWasteType());
+
         incrementWasteCount(waste.getWasteType());
 
         sortingListeners.forEach(SortingListener::onCorrect);
