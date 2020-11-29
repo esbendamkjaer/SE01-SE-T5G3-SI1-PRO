@@ -62,8 +62,13 @@ public class StartMenuController extends BaseController implements Initializable
         startAnimation();
     }
 
+    /**
+     * Add the line to the start menu screen.
+     * @param x x-coordinate of line start.
+     * @param y y-coordinate of line start.
+     * @param height length of line.
+     */
     private void addLine(double x, double y, double height) {
-        //length of the slider next to the title buttons.
         line = new Line(x, y, x, y + height);
         line.setStrokeWidth(3 * scale);
         line.setStroke(Color.color(1, 1, 1, 0.75));
@@ -73,6 +78,9 @@ public class StartMenuController extends BaseController implements Initializable
         menuBox.getChildren().add(line);
     }
 
+    /**
+     * Start start menu animations.
+     */
     private void startAnimation() {
         ScaleTransition st = new ScaleTransition(Duration.seconds(1), line);
         st.setToY(1);
@@ -90,6 +98,11 @@ public class StartMenuController extends BaseController implements Initializable
         st.play();
     }
 
+    /**
+     * Add menu and menu items to start screen.
+     * @param x x-coordinate of menu.
+     * @param y y-coordinate of menu.
+     */
     private void addMenu(double x, double y) {
         menuBox.setTranslateX(x);
         menuBox.translateYProperty().bind(rootPane.heightProperty().divide(3));
