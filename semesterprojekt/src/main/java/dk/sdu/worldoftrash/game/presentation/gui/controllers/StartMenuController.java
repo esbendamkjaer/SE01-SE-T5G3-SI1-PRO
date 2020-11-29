@@ -36,8 +36,6 @@ public class StartMenuController extends BaseController implements Initializable
 
     private Map<String, Runnable> menuData = new HashMap<>() {{
         put("Play", () -> {getSceneManager().changeScene(SceneName.GAME_SCENE);});
-        put("Game Options", () -> {});
-        put("Credits", () -> {});
         put("Exit to Desktop", Platform::exit);
     }};
 
@@ -58,15 +56,15 @@ public class StartMenuController extends BaseController implements Initializable
         // placement of the menu buttons X decide which side Y decide height (up and down)
         double menuX = 50;
         double menuY = 0;
-        addLine(0, 0);
+        addLine(0, 0, 67);
         addMenu(menuX, menuY);
 
         startAnimation();
     }
 
-    private void addLine(double x, double y) {
+    private void addLine(double x, double y, double height) {
         //length of the slider next to the title buttons.
-        line = new Line(x, y, x, y + 145);
+        line = new Line(x, y, x, y + height);
         line.setStrokeWidth(3 * scale);
         line.setStroke(Color.color(1, 1, 1, 0.75));
         line.setEffect(new DropShadow(5, Color.BLACK));
