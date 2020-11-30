@@ -41,7 +41,8 @@ public class Renderer {
             }
         }
 
-        renderItem(player);
+        player.getSpriteAnimation().drawImage(context, player.getX(), player.getY(), player.getWidth(), player.getHeight());
+        //renderItem(player);
 
         context.restore();
     }

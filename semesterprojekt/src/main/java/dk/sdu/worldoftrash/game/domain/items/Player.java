@@ -3,6 +3,7 @@ package dk.sdu.worldoftrash.game.domain.items;
 import dk.sdu.worldoftrash.game.dal.ImageIO;
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.Inventory;
+import dk.sdu.worldoftrash.game.domain.sprite.SpriteAnimation;
 import dk.sdu.worldoftrash.game.presentation.gui.KeyPolling;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.GraphicsContext;
@@ -22,6 +23,8 @@ public class Player extends Item {
 
     private Image left, right, front, back;
 
+    private SpriteAnimation spriteAnimation;
+
     public Player(Game game, String name) {
         super(game, name);
         inventory = new Inventory(10);
@@ -32,15 +35,24 @@ public class Player extends Item {
         front = ImageIO.load("/images/player/player_front.png");
         back = ImageIO.load("/images/player/player_back.png");
 
-        setImage(front);
-        fitToImage();
+        spriteAnimation = new SpriteAnimation("/images/player/player_spritesheet.png", 32, 46, 0.15);
+        spriteAnimation.setCols(5);
+
+        setWidth(spriteAnimation.getColWidth() * getScale());
+        setHeight(spriteAnimation.getRowHeight() * getScale());
 
         setScale(1.25f);
+    }
+
+    public SpriteAnimation getSpriteAnimation() {
+        return spriteAnimation;
     }
 
     @Override
     public void update(float delta) {
         super.update(delta);
+
+        spriteAnimation.tick();
 
         List<Item> colliding = getGame().getCollisionsWithPlayer();
 
@@ -65,29 +77,32 @@ public class Player extends Item {
         
         if (keys.isDown(KeyCode.UP) || keys.isDown(KeyCode.W)) {
             newPos = newPos.add(0, -speed * delta);
+            spriteAnimation.setRow(2);
             setImage(back);
         }
 
         if (keys.isDown(KeyCode.DOWN) || keys.isDown(KeyCode.S)) {
             newPos = newPos.add(0, speed * delta);
+            spriteAnimation.setRow(4);
             setImage(front);
         }
 
         if (keys.isDown(KeyCode.LEFT) || keys.isDown(KeyCode.A)) {
             newPos = newPos.add(-speed * delta, 0);
+            spriteAnimation.setRow(3);
             setImage(left);
         }
 
         if (keys.isDown(KeyCode.RIGHT) || keys.isDown(KeyCode.D)) {
             newPos = newPos.add(speed * delta, 0);
+            spriteAnimation.setRow(1);
             setImage(right);
         }
 
         if (newPos.equals(getPosition())) {
+            spriteAnimation.setRow(0);
             setImage(front);
         }
-
-        fitToImage();
 
         setPosition(newPos);
 
