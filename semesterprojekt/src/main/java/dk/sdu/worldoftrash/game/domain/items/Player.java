@@ -19,7 +19,7 @@ public class Player extends Item {
     private boolean interact_typed;
 
     // Speed in pixels per second.
-    private float speed = 600f;
+    private float speed = 400f;
 
     private Image left, right, front, back;
 
