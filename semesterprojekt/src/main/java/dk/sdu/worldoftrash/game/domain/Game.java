@@ -68,7 +68,7 @@ public class Game {
         office.setBackground(ImageIO.load("/images/maps/supermarket/office.png"));
 
         storageRoom = new Room(this, "storageRoom", "in the storage room");
-        storageRoom.setBackground(ImageIO.load("/images/maps/supermarket/storage_room.png"));
+        storageRoom.setBackground(ImageIO.load("/images/maps/supermarket/storage_rom.png"));
 
         parkinglot = new Room(this, "parking-lot", "at the parking lot. There is an homeless man staring intensely at you. A nametag on his coat says Dan");
         parkinglot.setBackground(ImageIO.load("/images/maps/supermarket/parking_lot.png"));
@@ -101,7 +101,7 @@ public class Game {
         classRooms.setBackground(ImageIO.load("/images/maps/school/school_gym.png"));
 
         girlsLockerRoom = new Room(this, "girls-locker-room", "in the girls locker room");
-        girlsLockerRoom.setBackground(ImageIO.load("/images/maps/school/girls_locker_room.png"));
+        girlsLockerRoom.setBackground(ImageIO.load("/images/maps/school/Girls locker room 2.png"));
 
         //**************************************** Waste objects - Start ***********************************************
 
@@ -135,6 +135,14 @@ public class Game {
         Waste needle = new Waste (this, "needle", WasteType.RESIDUAL, "Needles in themselves are not worth recycling themselves and usually can be drop in residual ", true);
         Waste chocolateMilkBottle = new Waste (this, "chocolate milk bottle", WasteType.GLASS, "this is a glass bottle, and therefore goes into glass", false);
         Waste can = new Waste (this, "can", WasteType.METAL, "cans are made out of metal. It goes into metal", false);
+<<<<<<< HEAD
+=======
+        can.setImage(ImageIO.load("/images/trash/can-kopi.png"));
+        can.setScale(0.5f);
+        can.fitToImage();
+        can.setPosition(700,469);
+
+>>>>>>> gui
         Waste cake = new Waste (this, "moldy cake", WasteType.ORGANIC, "this is food and therefore organic. It goes into organic", true);
         Waste tray = new Waste(this,"tin tray", WasteType.METAL, "tin trays are made out of metal. It goes into metal", false);
         Waste ballPen = new Waste(this, "ball-pen", WasteType.RESIDUAL, "a ball pen is compromised of multiple components and hard to recycle. It goes into residual", true);
@@ -188,7 +196,7 @@ public class Game {
         madChemist.setImage(ImageIO.load("/images/npc/school_npc.png"));
         madChemist.setScale(1.25f);
         madChemist.fitToImage();
-        madChemist.setPosition(550, 250);
+        madChemist.setPosition(536, 270);
         teachersLounge.addItem(madChemist);
         madChemist.setFertilizer(fertilizer);
 
