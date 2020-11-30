@@ -344,85 +344,85 @@ public class Game {
 
         //Assigning trash to - School/outside
         papers.setImage(ImageIO.load("/images/trash/paper_2.png"));
-        papers.setScale(0.8f);
+        papers.setScale(0.5f);
         papers.fitToImage();
-        papers.setPosition(400,500);
+        papers.setPosition(539,400);
 
         lighter.setImage(ImageIO.load("/images/trash/lighter.png"));
-        lighter.setScale(0.8f);
+        lighter.setScale(0.3f);
         lighter.fitToImage();
-        lighter.setPosition(300,400);
+        lighter.setPosition(300,750);
 
         bananas.setImage(ImageIO.load("/images/trash/banana.png"));
-        bananas.setScale(0.8f);
+        bananas.setScale(0.7f);
         bananas.fitToImage();
         bananas.setPosition(600,200);
 
         fertilizer.setImage(ImageIO.load("/images/trash/fertilizer-kopi.png"));
-        fertilizer.setScale(0.8f);
+        fertilizer.setScale(0.6f);
         fertilizer.fitToImage();
-        fertilizer.setPosition(450,320);
+        fertilizer.setPosition(225,425);
 
         //Assigning trash to - School/gymnastiksal
         poster.setImage(ImageIO.load("/images/trash/poster.png"));
-        poster.setScale(0.8f);
+        poster.setScale(0.6f);
         poster.fitToImage();
-        poster.setPosition(300,320);
+        poster.setPosition(175,395);
 
         spectacles_frame.setImage(ImageIO.load("/images/trash/spectacles.png"));
-        spectacles_frame.setScale(0.8f);
+        spectacles_frame.setScale(0.4f);
         spectacles_frame.fitToImage();
-        spectacles_frame.setPosition(450,320);
+        spectacles_frame.setPosition(200,800);
 
             //POST_IT IS MISSING HERE
 
         //Assigning trash to - School/omklædningsrum
         milk_carton.setImage(ImageIO.load("/images/trash/milk.png"));
-        milk_carton.setScale(0.8f);
+        milk_carton.setScale(0.4f);
         milk_carton.fitToImage();
         milk_carton.setPosition(600,400);
 
         perfume_bottle.setImage(ImageIO.load("/images/trash/perfume_bottle.png"));
-        perfume_bottle.setScale(0.8f);
+        perfume_bottle.setScale(0.6f);
         perfume_bottle.fitToImage();
         perfume_bottle.setPosition(400,200);
 
         water_bottle.setImage(ImageIO.load("/images/trash/water_bottle.png"));
         water_bottle.setScale(0.8f);
         water_bottle.fitToImage();
-        water_bottle.setPosition(300,500);
+        water_bottle.setPosition(310,510);
 
         //Assigning trash to - School/lærerværelset
         jam_jar.setImage(ImageIO.load("/images/trash/jamjar-kopi.png"));
-        jam_jar.setScale(0.8f);
+        jam_jar.setScale(0.7f);
         jam_jar.fitToImage();
-        jam_jar.setPosition(600,400);
+        jam_jar.setPosition(450,700);
 
         nutella_glass.setImage(ImageIO.load("/images/trash/nutella.png"));
-        nutella_glass.setScale(0.8f);
+        nutella_glass.setScale(0.7f);
         nutella_glass.fitToImage();
         nutella_glass.setPosition(200,300);
 
         coffee_grounds.setImage(ImageIO.load("/images/trash/coffee_grounds-kopi.png"));
-        coffee_grounds.setScale(0.8f);
+        coffee_grounds.setScale(0.7f);
         coffee_grounds.fitToImage();
-        coffee_grounds.setPosition(500,300);
+        coffee_grounds.setPosition(350,300);
 
         //Assigning trash to - School/kemilokale
         safety_goggles.setImage(ImageIO.load("/images/trash/safety googles.png"));
-        safety_goggles.setScale(0.8f);
+        safety_goggles.setScale(0.5f);
         safety_goggles.fitToImage();
-        safety_goggles.setPosition(600,400);
+        safety_goggles.setPosition(650,200);
 
         paper_clip.setImage(ImageIO.load("/images/trash/paper_clips.png"));
-        paper_clip.setScale(0.8f);
+        paper_clip.setScale(0.5f);
         paper_clip.fitToImage();
         paper_clip.setPosition(300,500);
 
         paint.setImage(ImageIO.load("/images/trash/paint.png"));
-        paint.setScale(0.8f);
+        paint.setScale(1.0f);
         paint.fitToImage();
-        paint.setPosition(200,600);
+        paint.setPosition(800,800);
 
         // ********************************************* Doors - Start *********************************************
         Door startSort = new Door(this, "Start", start);
