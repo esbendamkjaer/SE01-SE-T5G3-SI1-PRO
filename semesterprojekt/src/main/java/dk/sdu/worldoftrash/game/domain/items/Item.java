@@ -41,7 +41,7 @@ public class Item {
         this.game = game;
     }
 
-    public void update(float delta) {}
+    public void update(double delta) {}
 
     public void render(GraphicsContext gc) {};
 

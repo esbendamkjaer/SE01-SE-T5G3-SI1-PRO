@@ -101,7 +101,7 @@ public class Game {
         classRooms.setBackground(ImageIO.load("/images/maps/school/school_gym.png"));
 
         girlsLockerRoom = new Room(this, "girls-locker-room", "in the girls locker room");
-        girlsLockerRoom.setBackground(ImageIO.load("/images/maps/school/Girls locker room 2.png"));
+        girlsLockerRoom.setBackground(ImageIO.load("/images/maps/school/girls_locker_room.png"));
 
         //**************************************** Waste objects - Start ***********************************************
 

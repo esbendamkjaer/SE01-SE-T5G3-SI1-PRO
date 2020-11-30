@@ -5,7 +5,6 @@ import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.Inventory;
 import dk.sdu.worldoftrash.game.domain.sprite.SpriteAnimation;
 import dk.sdu.worldoftrash.game.presentation.gui.KeyPolling;
-import javafx.geometry.Point2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -20,8 +19,8 @@ public class Player extends Item {
 
     // Speed in pixels per second.
     private float speed = 400f;
-
-    private Image left, right, front, back;
+    private float velX;
+    private float velY;
 
     private SpriteAnimation spriteAnimation;
 
@@ -30,12 +29,7 @@ public class Player extends Item {
         inventory = new Inventory(10);
         keys = KeyPolling.getInstance();
 
-        left = ImageIO.load("/images/player/player_left.png");
-        right = ImageIO.load("/images/player/player_right.png");
-        front = ImageIO.load("/images/player/player_front.png");
-        back = ImageIO.load("/images/player/player_back.png");
-
-        spriteAnimation = new SpriteAnimation("/images/player/player_spritesheet.png", 32, 46, 0.15);
+        spriteAnimation = new SpriteAnimation("/images/player/player_spritesheet.png", 32, 46, 9);
         spriteAnimation.setCols(5);
 
         setWidth(spriteAnimation.getColWidth() * getScale());
@@ -49,10 +43,10 @@ public class Player extends Item {
     }
 
     @Override
-    public void update(float delta) {
+    public void update(double delta) {
         super.update(delta);
 
-        spriteAnimation.tick();
+        spriteAnimation.tick(delta);
 
         List<Item> colliding = getGame().getCollisionsWithPlayer();
 
@@ -72,39 +66,50 @@ public class Player extends Item {
             }
 
         }
-
-        Point2D newPos = getPosition();
         
         if (keys.isDown(KeyCode.UP) || keys.isDown(KeyCode.W)) {
-            newPos = newPos.add(0, -speed * delta);
+            velY += -speed;
             spriteAnimation.setRow(2);
-            setImage(back);
         }
 
         if (keys.isDown(KeyCode.DOWN) || keys.isDown(KeyCode.S)) {
-            newPos = newPos.add(0, speed * delta);
+            velY += speed;
             spriteAnimation.setRow(4);
-            setImage(front);
         }
 
         if (keys.isDown(KeyCode.LEFT) || keys.isDown(KeyCode.A)) {
-            newPos = newPos.add(-speed * delta, 0);
+            velX -= speed;
             spriteAnimation.setRow(3);
-            setImage(left);
         }
 
         if (keys.isDown(KeyCode.RIGHT) || keys.isDown(KeyCode.D)) {
-            newPos = newPos.add(speed * delta, 0);
+            velX += speed;
             spriteAnimation.setRow(1);
-            setImage(right);
         }
 
-        if (newPos.equals(getPosition())) {
+        if (velX == 0 && velY == 0) {
             spriteAnimation.setRow(0);
-            setImage(front);
-        }
+        } else {
+            setX(getX() + velX * delta);
 
-        setPosition(newPos);
+            for (Wall wall : getGame().getCollisionsWithPlayer(Wall.class)) {
+                if (velX > 0) {
+                    setX(wall.getX() - getWidth());
+                } else if (velX < 0) {
+                    setX(wall.getX() + wall.getWidth());
+                }
+            }
+
+            setY(getY() + velY * delta);
+
+            for (Wall wall : getGame().getCollisionsWithPlayer(Wall.class)) {
+                if (velY > 0) {
+                    setY(wall.getY() - getHeight());
+                } else if (velY < 0) {
+                    setY(wall.getY() + wall.getHeight());
+                }
+            }
+        }
 
         if (getY() < 0) {
             setY(0);
@@ -117,6 +122,9 @@ public class Player extends Item {
         } else if (getX() + getWidth() > getGame().getWidth()) {
             setX(getGame().getWidth() - getWidth());
         }
+
+        this.velX = 0;
+        this.velY = 0;
     }
 
     /**

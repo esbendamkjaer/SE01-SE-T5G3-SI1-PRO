@@ -49,14 +49,6 @@ public class ScoreSystem {
     }
 
     /**
-     * Give points based on sorted Waste.
-     * @param waste Sorted piece of waste to give points from.
-     */
-    public void givePoints(Waste waste) {
-        addPoints(waste.getPoints());
-    }
-
-    /**
      * Upload ScoreData to webserver
      */
     public void uploadData() {
@@ -68,7 +60,7 @@ public class ScoreSystem {
      * @param wasteType WasteType of just sorted Waste.
      */
     public void incrementWasteCount(WasteType wasteType) {
-        LevelData levelData = getLevelDataByName(levelHandler.getCurrentLevelName());
+        LevelData levelData = getLevelDataByName(getLevelHandler().getCurrentLevelName());
         levelData.incrementWasteCount(wasteType);
 
         wasteCount++;
@@ -97,24 +89,35 @@ public class ScoreSystem {
      * @param waste Waste object that was correctly sorted.
      */
     public void onCorrect(Waste waste) {
-        givePoints(waste);
+        addPoints(waste.getPoints());
 
-        LevelData levelData = getLevelDataByName(levelHandler.getCurrentLevelName());
-        levelData.incrementCorrect(waste.getWasteType());
+        if (!waste.isWronglySorted()) {
+            LevelData levelData = getLevelDataByName(getLevelHandler().getCurrentLevelName());
+            levelData.incrementCorrect(waste.getWasteType());
+        }
 
         incrementWasteCount(waste.getWasteType());
 
         sortingListeners.forEach(SortingListener::onCorrect);
     }
 
+
     /**
      * Is called by containers, when some waste was wrongly sorted.
      * @param waste Waste object that was wrongly sorted.
      */
     public void onWrong(Waste waste) {
-        incrementWasteCount(waste.getWasteType());
+        addPoints(-waste.getPoints());
 
         sortingListeners.forEach(SortingListener::onWrong);
+    }
+
+    public void onCorrectRinse() {
+        sortingListeners.forEach(SortingListener::onCorrectRinse);
+    }
+
+    public void onWrongRinse() {
+        sortingListeners.forEach(SortingListener::onWrongRinse);
     }
 
     public void addSortingListener(SortingListener sortingListener) {
@@ -138,6 +141,7 @@ public class ScoreSystem {
     }
 
     public void setScore(int score) {
+        getLevelDataByName(getLevelHandler().getCurrentLevelName()).setScore(score);
         this.scoreProperty.setValue(score);
     }
 

@@ -13,7 +13,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
-import javafx.scene.media.MediaPlayer;
 
 import java.io.IOException;
 import java.net.URL;
@@ -41,8 +40,6 @@ public class GameController extends BaseController implements Initializable {
 
     private Game game;
     private InventoryUI inventoryUI;
-
-    private MediaPlayer mediaPlayer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

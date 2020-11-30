@@ -7,6 +7,8 @@ import java.util.Map;
 
 public class LevelData {
 
+    private int score;
+
     private Map<String, CategoryData> correctlySortedByWasteType;
 
     public LevelData() {
@@ -51,5 +53,13 @@ public class LevelData {
         if (!correctlySortedByWasteType.containsKey(wasteType.toString())) {
             correctlySortedByWasteType.put(wasteType.toString(), new CategoryData(0, 0));
         }
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }

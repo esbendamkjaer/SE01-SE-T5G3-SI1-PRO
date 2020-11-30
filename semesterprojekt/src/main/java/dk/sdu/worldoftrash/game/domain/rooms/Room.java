@@ -1,14 +1,18 @@
 package dk.sdu.worldoftrash.game.domain.rooms;
 
+import com.google.gson.Gson;
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.items.Item;
 import dk.sdu.worldoftrash.game.domain.items.Key;
+import dk.sdu.worldoftrash.game.domain.items.Wall;
 import dk.sdu.worldoftrash.game.domain.items.Waste;
 import javafx.scene.image.Image;
 
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class Room 
@@ -143,5 +147,19 @@ public class Room
     public void setBackground(Image background) {
         this.background = background;
     }
+
+    public void loadWalls(String path) {
+        Map map = new Gson().fromJson(new InputStreamReader(getClass().getResourceAsStream(path)), Map.class);
+
+        for(Map m : (List<Map>) map.get("objects")) {
+            Wall wall = new Wall(getGame(),
+                    (double) m.get("x"), (double) m.get("y"),
+                    (double) m.get("width"), (double) m.get("height"));
+
+            addItem(wall);
+        }
+
+    }
+
 }
 

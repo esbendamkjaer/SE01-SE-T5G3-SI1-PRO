@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 
 public class ResponseController extends BaseController implements SortingListener, Initializable {
 
-    private Image correct, wrong;
+    private Image correctSort, wrongSort, correctRinse, wrongRinse;
 
     private ScaleTransition scaleTransition;
 
@@ -27,14 +27,24 @@ public class ResponseController extends BaseController implements SortingListene
 
     @Override
     public void onCorrect() {
-        responseImage.setImage(correct);
+        responseImage.setImage(correctSort);
         scaleTransition();
     }
 
     @Override
     public void onWrong() {
-        responseImage.setImage(wrong);
+        responseImage.setImage(wrongSort);
         scaleTransition();
+    }
+
+    @Override
+    public void onCorrectRinse() {
+        responseImage.setImage(correctRinse);
+    }
+
+    @Override
+    public void onWrongRinse() {
+        responseImage.setImage(wrongRinse);
     }
 
     public void scaleTransition() {
@@ -58,8 +68,8 @@ public class ResponseController extends BaseController implements SortingListene
         scaleTransition.setToX(1);
         scaleTransition.setToY(1);
 
-        correct = ImageIO.load("/images/icons/thumbs-up-solid.png");
-        wrong = ImageIO.load("/images/icons/thumbs-down-solid.png");
+        correctSort = ImageIO.load("/images/icons/thumbs-up-solid.png");
+        wrongSort = ImageIO.load("/images/icons/thumbs-down-solid.png");
 
     }
 }

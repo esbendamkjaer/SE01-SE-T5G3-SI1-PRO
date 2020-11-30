@@ -20,6 +20,12 @@ public class SpriteAnimation {
 
     private double count = 0;
 
+    /**
+     * @param path Resource path to sprite sheet.
+     * @param colWidth Width of a column.
+     * @param rowHeight Height of a coulumn.
+     * @param speed Frame rate.
+     */
     public SpriteAnimation(String path, int colWidth, int rowHeight, double speed) {
         this(ImageIO.load(path), colWidth, rowHeight, speed);
     }
@@ -31,8 +37,8 @@ public class SpriteAnimation {
         this.speed = speed;
     }
 
-    public void tick() {
-        count = count % cols + speed;
+    public void tick(double delta) {
+        count = count % cols + speed * delta;
     }
 
     public void drawImage(GraphicsContext gc, double x, double y, double width, double height) {
