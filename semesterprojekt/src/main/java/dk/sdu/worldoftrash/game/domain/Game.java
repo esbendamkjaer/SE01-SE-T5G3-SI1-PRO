@@ -296,75 +296,75 @@ public class Game {
         tomatoCan.fitToImage();
         tomatoCan.setPosition(500,500);
 
-        meatTray.setImage(ImageIO.load(("/images/trash/food_tray.png")));
+        meatTray.setImage(ImageIO.load("/images/trash/food_tray.png"));
         meatTray.setScale(0.6f);
         meatTray.fitToImage();
         meatTray.setPosition(150,125);
 
-        ketchupPlasticBottle.setImage(ImageIO.load(("/images/trash/ketchup.png")));
+        ketchupPlasticBottle.setImage(ImageIO.load("/images/trash/ketchup.png"));
         ketchupPlasticBottle.setScale(0.5f);
         ketchupPlasticBottle.fitToImage();
         ketchupPlasticBottle.setPosition(760,325);
 
-        receipt.setImage(ImageIO.load(("/images/trash/receipt.png")));
+        receipt.setImage(ImageIO.load("/images/trash/receipt.png"));
         receipt.setScale(0.8f);
         receipt.fitToImage();
         receipt.setPosition(700,700);
 
         //Assigning trash to - Supermarket/kontor
-        beerBottle.setImage(ImageIO.load(("/images/trash/beer.png")));
+        beerBottle.setImage(ImageIO.load("/images/trash/beer.png"));
         beerBottle.setScale(0.6f);
         beerBottle.fitToImage();
         beerBottle.setPosition(200,200);
 
-        pizzaSlice.setImage(ImageIO.load(("/images/trash/slice.png")));
+        pizzaSlice.setImage(ImageIO.load("/images/trash/slice.png"));
         pizzaSlice.setScale(0.8f);
         pizzaSlice.fitToImage();
         pizzaSlice.setPosition(600,100);
 
-        pizzaBox.setImage(ImageIO.load(("/images/trash/pizza_box.png")));
+        pizzaBox.setImage(ImageIO.load("/images/trash/pizza_box.png"));
         pizzaBox.setScale(0.8f);
         pizzaBox.fitToImage();
         pizzaBox.setPosition(600,150);
 
-        bigbox.setImage(ImageIO.load(("/images/trash/biggest-box.png")));
+        bigbox.setImage(ImageIO.load("/images/trash/biggest-box.png"));
         bigbox.setScale(0.8f);
         bigbox.fitToImage();
         bigbox.setPosition(800,750);
 
         //Assigning trash to - Supermarket/lageret
-        eatenApple.setImage(ImageIO.load(("/images/trash/apple_eaten.png")));
+        eatenApple.setImage(ImageIO.load("/images/trash/apple_eaten.png"));
         eatenApple.setScale(0.6f);
         eatenApple.fitToImage();
         eatenApple.setPosition(300,300);
 
-        paint1.setImage(ImageIO.load(("/images/trash/paint_2.png")));
+        paint1.setImage(ImageIO.load("/images/trash/paint_2.png"));
         paint1.setScale(1f);
         paint1.fitToImage();
         paint1.setPosition(150,675);
 
-        aaBatteries.setImage(ImageIO.load(("/images/trash/batteri.png")));
+        aaBatteries.setImage(ImageIO.load("/images/trash/batteri.png"));
         aaBatteries.setScale(0.6f);
         aaBatteries.fitToImage();
         aaBatteries.setPosition(500,750);
 
-        cardboardBox.setImage(ImageIO.load(("/images/trash/cardboard_box.png")));
+        cardboardBox.setImage(ImageIO.load("/images/trash/cardboard_box.png"));
         cardboardBox.setScale(0.8f);
         cardboardBox.fitToImage();
         cardboardBox.setPosition(700,350);
 
         //Assigning trash to - Supermarket/parkeringsplads
-        newspaper.setImage(ImageIO.load(("/images/trash/newspaper-kopi.png")));
+        newspaper.setImage(ImageIO.load("/images/trash/newspaper-kopi.png"));
         newspaper.setScale(0.7f);
         newspaper.fitToImage();
         newspaper.setPosition(300,200);
 
-        sodaCan.setImage(ImageIO.load(("/images/trash/soda can.png")));
+        sodaCan.setImage(ImageIO.load("/images/trash/soda can.png"));
         sodaCan.setScale(0.4f);
         sodaCan.fitToImage();
         sodaCan.setPosition(635,275);
 
-        deodorant.setImage(ImageIO.load(("/images/trash/deo.png")));
+        deodorant.setImage(ImageIO.load("/images/trash/deo.png"));
         deodorant.setScale(0.4f);
         deodorant.fitToImage();
         deodorant.setPosition(600,550);
