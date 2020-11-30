@@ -135,14 +135,6 @@ public class Game {
         Waste needle = new Waste (this, "needle", WasteType.RESIDUAL, "Needles in themselves are not worth recycling themselves and usually can be drop in residual ", true);
         Waste chocolateMilkBottle = new Waste (this, "chocolate milk bottle", WasteType.GLASS, "this is a glass bottle, and therefore goes into glass", false);
         Waste can = new Waste (this, "can", WasteType.METAL, "cans are made out of metal. It goes into metal", false);
-<<<<<<< HEAD
-=======
-        can.setImage(ImageIO.load("/images/trash/can-kopi.png"));
-        can.setScale(0.5f);
-        can.fitToImage();
-        can.setPosition(700,469);
-
->>>>>>> gui
         Waste cake = new Waste (this, "moldy cake", WasteType.ORGANIC, "this is food and therefore organic. It goes into organic", true);
         Waste tray = new Waste(this,"tin tray", WasteType.METAL, "tin trays are made out of metal. It goes into metal", false);
         Waste ballPen = new Waste(this, "ball-pen", WasteType.RESIDUAL, "a ball pen is compromised of multiple components and hard to recycle. It goes into residual", true);
@@ -368,7 +360,7 @@ public class Game {
         can.setImage(ImageIO.load("/images/trash/can-kopi.png"));
         can.setScale(0.5f);
         can.fitToImage();
-        can.setPosition(700,369);
+        can.setPosition(700,469);
 
         //Place trash to - Hospital/Operations-room
         medicineBottle.setImage(ImageIO.load("/images/trash/medicine_bottle.png"));
