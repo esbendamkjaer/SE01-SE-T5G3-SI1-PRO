@@ -243,19 +243,51 @@ public class Game {
         //NPCs
         ParkingLotNPC homelessDan = new ParkingLotNPC(this, "Dan");
         homelessDan.setImage(ImageIO.load("/images/npc/supermarket_npc.png"));
-        homelessDan.setScale(1);
+        homelessDan.setScale(1.25f);
         homelessDan.fitToImage();
         homelessDan.setPosition(300, 300);
+        parkinglot.addItem(homelessDan);
+        homelessDan.setBigbox(bigbox);
 
         ZombieNPC mrZombie = new ZombieNPC(this, "Mr.Zombie");
-        SchoolNPC madChemist = new SchoolNPC(this, "Mad-Chemist");
+        mrZombie.setImage(ImageIO.load("/images/npc/hospital_npc.png"));
+        mrZombie.setScale(1.25f);
+        mrZombie.fitToImage();
+        mrZombie.setPosition(720, 570);
+        hospitalOutside.addItem(mrZombie);
+        mrZombie.setArm(arms);
+        mrZombie.setSewing_kit(sewing_kit);
 
-        NPC martin = new CityNPC(this, "Martin");
-        martin.setImage(ImageIO.load("/images/npc/start_npc.png"));
-        martin.setScale(1);
-        martin.fitToImage();
-        martin.setPosition(700, 700);
-        start.addItem(martin);
+        SchoolNPC madChemist = new SchoolNPC(this, "Mad-Chemist");
+        madChemist.setImage(ImageIO.load("/images/npc/school_npc.png"));
+        madChemist.setScale(1.25f);
+        madChemist.fitToImage();
+        madChemist.setPosition(550, 250);
+        teachersLounge.addItem(madChemist);
+        madChemist.setFertilizer(fertilizer);
+
+        NPC martin1 = new CityNPC(this, "Martin");
+        martin1.setImage(ImageIO.load("/images/npc/start_npc.png"));
+        martin1.setScale(1.25f);
+        martin1.fitToImage();
+        martin1.setPosition(600, 600);
+        start.addItem(martin1);
+
+        NPC martin2 = new CityNPC(this, "Martin");
+        martin2.setImage(ImageIO.load("/images/npc/start_npc.png"));
+        martin2.setScale(1.25f);
+        martin2.fitToImage();
+        martin2.setPosition(450, 400);
+        sortingRoom.addItem(martin2);
+
+        NPC martin3 = new CityNPC(this, "Martin");
+        martin3.setImage(ImageIO.load("/images/npc/start_npc.png"));
+        martin3.setScale(1.25f);
+        martin3.fitToImage();
+        martin3.setPosition(362, 566);
+        odense.addItem(martin3);
+
+
 
         //************************************* Trash assigning - Start *************************************
         //Assigning trash to - Supermarket
@@ -710,64 +742,55 @@ public class Game {
         classRooms.addItem(classGirl);
         girlsLockerRoom.addItem(girlClass);
 
-        sortingRoom.addItem(martin);
-        odense.addItem(martin);
-        parkinglot.addItem(homelessDan);
-        homelessDan.setBigbox(bigbox);
-        mrZombie.setArm(arms);
-        mrZombie.setSewing_kit(sewing_kit);
-        hospitalOutside.addItem(mrZombie);
-        teachersLounge.addItem(madChemist);
-        madChemist.setFertilizer(fertilizer);
 
         // ********************************************* Doors - end *********************************************
         //Creating trash container objects
         WasteContainer organicContainer = new WasteContainer(this, "organic-container", WasteType.ORGANIC);
         organicContainer.setImage(ImageIO.load("/images/wasteContainers/ORGANICS.png"));
-        organicContainer.setScale(0.6f);
+        organicContainer.setScale(0.8f);
         organicContainer.fitToImage();
         organicContainer.setPosition(50,50);
 
         WasteContainer glassContainer = new WasteContainer(this, "glass-container", WasteType.GLASS);
         glassContainer.setImage(ImageIO.load("/images/wasteContainers/glass.png"));
-        glassContainer.setScale(0.6f);
+        glassContainer.setScale(0.8f);
         glassContainer.fitToImage();
         glassContainer.setPosition(285,50);
 
 
         WasteContainer metalContainer = new WasteContainer(this, "metal-container", WasteType.METAL);
         metalContainer.setImage(ImageIO.load("/images/wasteContainers/Metal.png"));
-        metalContainer.setScale(0.6f);
+        metalContainer.setScale(0.8f);
         metalContainer.fitToImage();
         metalContainer.setPosition(535,50);
 
         WasteContainer papercontainer = new WasteContainer(this, "paper-container", WasteType.PAPER);
         papercontainer.setImage(ImageIO.load("/images/wasteContainers/paper.png"));
-        papercontainer.setScale(0.6f);
+        papercontainer.setScale(0.8f);
         papercontainer.fitToImage();
         papercontainer.setPosition(750,50);
 
         WasteContainer residualcontainer = new WasteContainer(this, "residual-container", WasteType.RESIDUAL);
         residualcontainer.setImage(ImageIO.load(("/images/wasteContainers/RESIDUAL.png")));
-        residualcontainer.setScale(0.6f);
+        residualcontainer.setScale(0.8f);
         residualcontainer.fitToImage();
         residualcontainer.setPosition(50,725);
 
         WasteContainer cardboardcontainer = new WasteContainer(this, "cardboard-container", WasteType.CARDBOARD);
         cardboardcontainer.setImage(ImageIO.load("/images/wasteContainers/CARDBOARD.png"));
-        cardboardcontainer.setScale(0.6f);
+        cardboardcontainer.setScale(0.8f);
         cardboardcontainer.fitToImage();
         cardboardcontainer.setPosition(285,725);
 
         WasteContainer hardPlasticcontainer = new WasteContainer(this, "plastic-container", WasteType.HARD_PLASTIC);
         hardPlasticcontainer.setImage(ImageIO.load("/images/wasteContainers/PLASTIC.png"));
-        hardPlasticcontainer.setScale(0.6f);
+        hardPlasticcontainer.setScale(0.8f);
         hardPlasticcontainer.fitToImage();
         hardPlasticcontainer.setPosition(535,725);
 
         WasteContainer hazardouscontainer = new WasteContainer(this, "hazardous-container", WasteType.HAZARDOUS);
         hazardouscontainer.setImage(ImageIO.load("/images/wasteContainers/hazardous.png"));
-        hazardouscontainer.setScale(0.6f);
+        hazardouscontainer.setScale(0.8f);
         hazardouscontainer.fitToImage();
         hazardouscontainer.setPosition(750,725);
 
