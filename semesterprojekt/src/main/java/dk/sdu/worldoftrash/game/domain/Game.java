@@ -262,7 +262,7 @@ public class Game {
         madChemist.setImage(ImageIO.load("/images/npc/school_npc.png"));
         madChemist.setScale(1.25f);
         madChemist.fitToImage();
-        madChemist.setPosition(550, 250);
+        madChemist.setPosition(536, 270);
         teachersLounge.addItem(madChemist);
         madChemist.setFertilizer(fertilizer);
 
