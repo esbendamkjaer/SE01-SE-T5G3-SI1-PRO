@@ -410,7 +410,10 @@ public class Game {
         spectacles_frame.fitToImage();
         spectacles_frame.setPosition(200,800);
 
-            //POST_IT IS MISSING HERE
+        post_it.setImage(ImageIO.load("/images/trash/Post it.png"));
+        post_it.setScale(0.8f);
+        post_it.fitToImage();
+        post_it.setPosition(400,200);
 
         //Place trash to - School/omklædningsrum
         milk_carton.setImage(ImageIO.load("/images/trash/milk.png"));
