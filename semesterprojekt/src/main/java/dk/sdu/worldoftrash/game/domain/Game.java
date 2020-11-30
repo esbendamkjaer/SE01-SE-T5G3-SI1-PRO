@@ -188,7 +188,7 @@ public class Game {
         can.setImage(ImageIO.load("/images/trash/can-kopi.png"));
         can.setScale(0.5f);
         can.fitToImage();
-        can.setPosition(700,369);
+        can.setPosition(700,469);
 
         Waste cake = new Waste (this, "moldy cake", WasteType.ORGANIC, "this is food and therefore organic. It goes into organic", true);
         cake.setImage(ImageIO.load("/images/trash/muffin_cake-kopi.png"));
