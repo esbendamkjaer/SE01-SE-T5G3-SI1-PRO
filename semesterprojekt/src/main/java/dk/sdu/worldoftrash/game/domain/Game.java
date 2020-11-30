@@ -243,19 +243,51 @@ public class Game {
         //NPCs
         ParkingLotNPC homelessDan = new ParkingLotNPC(this, "Dan");
         homelessDan.setImage(ImageIO.load("/images/npc/supermarket_npc.png"));
-        homelessDan.setScale(1);
+        homelessDan.setScale(1.25f);
         homelessDan.fitToImage();
         homelessDan.setPosition(300, 300);
+        parkinglot.addItem(homelessDan);
+        homelessDan.setBigbox(bigbox);
 
         ZombieNPC mrZombie = new ZombieNPC(this, "Mr.Zombie");
-        SchoolNPC madChemist = new SchoolNPC(this, "Mad-Chemist");
+        mrZombie.setImage(ImageIO.load("/images/npc/hospital_npc.png"));
+        mrZombie.setScale(1.25f);
+        mrZombie.fitToImage();
+        mrZombie.setPosition(720, 570);
+        hospitalOutside.addItem(mrZombie);
+        mrZombie.setArm(arms);
+        mrZombie.setSewing_kit(sewing_kit);
 
-        NPC martin = new CityNPC(this, "Martin");
-        martin.setImage(ImageIO.load("/images/npc/start_npc.png"));
-        martin.setScale(1);
-        martin.fitToImage();
-        martin.setPosition(700, 700);
-        start.addItem(martin);
+        SchoolNPC madChemist = new SchoolNPC(this, "Mad-Chemist");
+        madChemist.setImage(ImageIO.load("/images/npc/school_npc.png"));
+        madChemist.setScale(1.25f);
+        madChemist.fitToImage();
+        madChemist.setPosition(550, 250);
+        teachersLounge.addItem(madChemist);
+        madChemist.setFertilizer(fertilizer);
+
+        NPC martin1 = new CityNPC(this, "Martin");
+        martin1.setImage(ImageIO.load("/images/npc/start_npc.png"));
+        martin1.setScale(1.25f);
+        martin1.fitToImage();
+        martin1.setPosition(600, 600);
+        start.addItem(martin1);
+
+        NPC martin2 = new CityNPC(this, "Martin");
+        martin2.setImage(ImageIO.load("/images/npc/start_npc.png"));
+        martin2.setScale(1.25f);
+        martin2.fitToImage();
+        martin2.setPosition(450, 400);
+        sortingRoom.addItem(martin2);
+
+        NPC martin3 = new CityNPC(this, "Martin");
+        martin3.setImage(ImageIO.load("/images/npc/start_npc.png"));
+        martin3.setScale(1.25f);
+        martin3.fitToImage();
+        martin3.setPosition(362, 566);
+        odense.addItem(martin3);
+
+
 
         //************************************* Trash assigning - Start *************************************
         //Assigning trash to - Supermarket
@@ -639,15 +671,6 @@ public class Game {
         classRooms.addItem(classGirl);
         girlsLockerRoom.addItem(girlClass);
 
-        sortingRoom.addItem(martin);
-        odense.addItem(martin);
-        parkinglot.addItem(homelessDan);
-        homelessDan.setBigbox(bigbox);
-        mrZombie.setArm(arms);
-        mrZombie.setSewing_kit(sewing_kit);
-        hospitalOutside.addItem(mrZombie);
-        teachersLounge.addItem(madChemist);
-        madChemist.setFertilizer(fertilizer);
 
         // ********************************************* Doors - end *********************************************
         //Creating trash container objects
