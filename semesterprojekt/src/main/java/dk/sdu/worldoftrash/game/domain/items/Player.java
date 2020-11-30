@@ -62,8 +62,7 @@ public class Player extends Item {
         }
 
         Point2D newPos = getPosition();
-
-        boolean moved = false;
+        
         if (keys.isDown(KeyCode.UP) || keys.isDown(KeyCode.W)) {
             newPos = newPos.add(0, -speed * delta);
             setImage(back);
