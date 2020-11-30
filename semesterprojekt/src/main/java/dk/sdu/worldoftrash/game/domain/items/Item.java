@@ -3,6 +3,7 @@ package dk.sdu.worldoftrash.game.domain.items;
 import dk.sdu.worldoftrash.game.domain.Game;
 import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public class Item {
@@ -41,6 +42,8 @@ public class Item {
     }
 
     public void update(float delta) {}
+
+    public void render(GraphicsContext gc) {};
 
     public Image getImage() {
         return image;

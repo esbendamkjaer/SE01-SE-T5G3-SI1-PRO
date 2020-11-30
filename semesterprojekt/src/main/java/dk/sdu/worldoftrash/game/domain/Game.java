@@ -1,11 +1,9 @@
 package dk.sdu.worldoftrash.game.domain;
 
-import dk.sdu.worldoftrash.game.dal.data.WasteType;
-import dk.sdu.worldoftrash.game.presentation.gui.ImageIO;
+import dk.sdu.worldoftrash.game.dal.ImageIO;
 import dk.sdu.worldoftrash.game.domain.items.*;
 import dk.sdu.worldoftrash.game.domain.items.npcs.*;
 import dk.sdu.worldoftrash.game.domain.rooms.Room;
-import javafx.geometry.Point2D;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -130,99 +128,99 @@ public class Game {
         papers1.setImage(ImageIO.load("/images/trash/paper.png"));
         papers1.setScale(0.8f);
         papers1.fitToImage();
-        papers1.setPosition(535,50);
+        papers1.setPosition(535,490);
 
         Waste medicineBottle = new Waste (this, "glass medicine bottle", WasteType.GLASS, "it is made out of glass, and therefore goes in glass", false);
         medicineBottle.setImage(ImageIO.load("/images/trash/medicine_bottle.png"));
-        medicineBottle.setScale(1);
+        medicineBottle.setScale(0.4f);
         medicineBottle.fitToImage();
-        medicineBottle.setPosition(502,55);
+        medicineBottle.setPosition(502,110);
 
         Waste syringe = new Waste (this, "syringe", WasteType.HAZARDOUS, "most biochemical equipment are hazardous, so are syringes, never reuse a syringe!", true);
         syringe.setImage(ImageIO.load("/images/trash/syringe.png"));
-        syringe.setScale(1);
+        syringe.setScale(0.75f);
         syringe.fitToImage();
-        syringe.setPosition(469,60);
+        syringe.setPosition(469,700);
 
         Waste scalpel = new Waste (this, "scalpel", WasteType.METAL, "a scalpel is made of metal. This goes into metal", true);
         scalpel.setImage(ImageIO.load("/images/trash/scalpel.png"));
-        scalpel.setScale(1);
+        scalpel.setScale(0.9f);
         scalpel.fitToImage();
-        scalpel.setPosition(436,65);
+        scalpel.setPosition(680,199);
 
         Waste paperclip = new Waste (this, "paperclips", WasteType.RESIDUAL, "unless you got a large quantity of paper clips, recycling paper clips have a larger carbon footprint rather than just sorting them to residual, and therefore goes in residual", true);
         paperclip.setImage(ImageIO.load("/images/trash/paper_clips.png"));
-        paperclip.setScale(1);
+        paperclip.setScale(0.5f);
         paperclip.fitToImage();
-        paperclip.setPosition(403,70);
+        paperclip.setPosition(378,378);
 
         Waste facemask = new Waste (this, "face mask", WasteType.RESIDUAL, "this is a face mask. It goes into residual", true);
         facemask.setImage(ImageIO.load("/images/trash/maske.png"));
-        facemask.setScale(1);
+        facemask.setScale(0.5f);
         facemask.fitToImage();
-        facemask.setPosition(370,75);
+        facemask.setPosition(338,129);
 
         Waste bloodbag = new Waste (this, "blood bag", WasteType.HAZARDOUS, "blood bags are biohazardous material and goes in hazardous", true);
         bloodbag.setImage(ImageIO.load("/images/trash/bloodbag.png"));
-        bloodbag.setScale(1);
+        bloodbag.setScale(0.84f);
         bloodbag.fitToImage();
         bloodbag.setPosition(340,80);
 
         Waste apple = new Waste (this, "apple",WasteType.ORGANIC, "apples usually are organics and can be dropped in organic", true);
         apple.setImage(ImageIO.load("/images/trash/apple.png"));
-        apple.setScale(1);
+        apple.setScale(0.5f);
         apple.fitToImage();
-        apple.setPosition(310,85);
+        apple.setPosition(250,85);
 
         Waste needle = new Waste (this, "needle", WasteType.RESIDUAL, "Needles in themselves are not worth recycling themselves and usually can be drop in residual ", true);
         needle.setImage(ImageIO.load("/images/trash/needle-kopi.png"));
-        needle.setScale(1);
+        needle.setScale(0.9f);
         needle.fitToImage();
-        needle.setPosition(280, 90);
+        needle.setPosition(720, 120);
 
         Waste chocolateMilkBottle = new Waste (this, "chocolate milk bottle", WasteType.GLASS, "this is a glass bottle, and therefore goes into glass", false);
         chocolateMilkBottle.setImage(ImageIO.load("/images/trash/chockolade_milk.png"));
-        chocolateMilkBottle.setScale(1);
+        chocolateMilkBottle.setScale(0.5f);
         chocolateMilkBottle.fitToImage();
-        chocolateMilkBottle.setPosition(250,95);
+        chocolateMilkBottle.setPosition(500,240);
 
         Waste can = new Waste (this, "can", WasteType.METAL, "cans are made out of metal. It goes into metal", false);
         can.setImage(ImageIO.load("/images/trash/can-kopi.png"));
-        can.setScale(1);
+        can.setScale(0.5f);
         can.fitToImage();
-        can.setPosition(220,100);
+        can.setPosition(700,369);
 
         Waste cake = new Waste (this, "moldy cake", WasteType.ORGANIC, "this is food and therefore organic. It goes into organic", true);
         cake.setImage(ImageIO.load("/images/trash/muffin_cake-kopi.png"));
-        cake.setScale(1);
+        cake.setScale(0.5f);
         cake.fitToImage();
-        cake.setPosition(190,105);
+        cake.setPosition(190,483);
 
         Waste tray = new Waste(this,"tin tray", WasteType.METAL, "tin trays are made out of metal. It goes into metal", false);
         tray.setImage(ImageIO.load("/images/trash/meat_tray.png"));
-        tray.setScale(1);
+        tray.setScale(0.5f);
         tray.fitToImage();
-        tray.setPosition(160,110);
+        tray.setPosition(760,740);
 
         Waste ballPen = new Waste(this, "ball-pen", WasteType.RESIDUAL, "a ball pen is compromised of multiple components and hard to recycle. It goes into residual", true);
         ballPen.setImage(ImageIO.load("/images/trash/ball_pen.png"));
-        ballPen.setScale(1);
+        ballPen.setScale(0.9f);
         ballPen.fitToImage();
-        ballPen.setPosition(130,115);
+        ballPen.setPosition(130,345);
 
         Waste toothBrush = new Waste(this, "tooth-brush", WasteType.RESIDUAL, "a tooth brush is not recycled due to repeated contact with a persons mouth and therefore unhygienic, it goes into residual", true);
         toothBrush.setImage(ImageIO.load("/images/trash/toothbrush.png"));
-        toothBrush.setScale(1);
+        toothBrush.setScale(0.35f);
         toothBrush.fitToImage();
-        toothBrush.setPosition(100,120);
+        toothBrush.setPosition(100,340);
 
         Key arms = new Key(this, "arm");
         Key sewing_kit = new Key(this, "sewing-kit");
 
         sewing_kit.setImage(ImageIO.load("/images/trash/sewing_kit.png"));
-        sewing_kit.setScale(1);
+        sewing_kit.setScale(0.9f);
         sewing_kit.fitToImage();
-        sewing_kit.setPosition(100,100);
+        sewing_kit.setPosition(562,562);
 
         // Waste objects #Level 3 - School
         Waste papers = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
@@ -726,50 +724,50 @@ public class Game {
         //Creating trash container objects
         WasteContainer organicContainer = new WasteContainer(this, "organic-container", WasteType.ORGANIC);
         organicContainer.setImage(ImageIO.load("/images/wasteContainers/ORGANICS.png"));
-        organicContainer.setScale(0.8f);
+        organicContainer.setScale(0.6f);
         organicContainer.fitToImage();
         organicContainer.setPosition(50,50);
 
         WasteContainer glassContainer = new WasteContainer(this, "glass-container", WasteType.GLASS);
         glassContainer.setImage(ImageIO.load("/images/wasteContainers/glass.png"));
-        glassContainer.setScale(0.8f);
+        glassContainer.setScale(0.6f);
         glassContainer.fitToImage();
         glassContainer.setPosition(285,50);
 
 
         WasteContainer metalContainer = new WasteContainer(this, "metal-container", WasteType.METAL);
         metalContainer.setImage(ImageIO.load("/images/wasteContainers/Metal.png"));
-        metalContainer.setScale(0.8f);
+        metalContainer.setScale(0.6f);
         metalContainer.fitToImage();
         metalContainer.setPosition(535,50);
 
         WasteContainer papercontainer = new WasteContainer(this, "paper-container", WasteType.PAPER);
         papercontainer.setImage(ImageIO.load("/images/wasteContainers/paper.png"));
-        papercontainer.setScale(0.8f);
+        papercontainer.setScale(0.6f);
         papercontainer.fitToImage();
         papercontainer.setPosition(750,50);
 
         WasteContainer residualcontainer = new WasteContainer(this, "residual-container", WasteType.RESIDUAL);
         residualcontainer.setImage(ImageIO.load(("/images/wasteContainers/RESIDUAL.png")));
-        residualcontainer.setScale(0.8f);
+        residualcontainer.setScale(0.6f);
         residualcontainer.fitToImage();
         residualcontainer.setPosition(50,725);
 
         WasteContainer cardboardcontainer = new WasteContainer(this, "cardboard-container", WasteType.CARDBOARD);
         cardboardcontainer.setImage(ImageIO.load("/images/wasteContainers/CARDBOARD.png"));
-        cardboardcontainer.setScale(0.8f);
+        cardboardcontainer.setScale(0.6f);
         cardboardcontainer.fitToImage();
         cardboardcontainer.setPosition(285,725);
 
         WasteContainer hardPlasticcontainer = new WasteContainer(this, "plastic-container", WasteType.HARD_PLASTIC);
         hardPlasticcontainer.setImage(ImageIO.load("/images/wasteContainers/PLASTIC.png"));
-        hardPlasticcontainer.setScale(0.8f);
+        hardPlasticcontainer.setScale(0.6f);
         hardPlasticcontainer.fitToImage();
         hardPlasticcontainer.setPosition(535,725);
 
         WasteContainer hazardouscontainer = new WasteContainer(this, "hazardous-container", WasteType.HAZARDOUS);
         hazardouscontainer.setImage(ImageIO.load("/images/wasteContainers/hazardous.png"));
-        hazardouscontainer.setScale(0.8f);
+        hazardouscontainer.setScale(0.6f);
         hazardouscontainer.fitToImage();
         hazardouscontainer.setPosition(750,725);
 
@@ -859,12 +857,12 @@ public class Game {
         sortingRoom.addItem(sink2);
         sink1.setImage(ImageIO.load("/images/SINK90.png"));
         sink2.setImage(ImageIO.load("/images/SINK-90.png"));
-        sink2.setScale(0.5f);
-        sink1.setScale(0.5f);
+        sink2.setScale(0.3f);
+        sink1.setScale(0.3f);
         sink1.fitToImage();
         sink2.fitToImage();
         sink1.setPosition(45,300);
-        sink2.setPosition(775,300);
+        sink2.setPosition(825,300);
 
 
 

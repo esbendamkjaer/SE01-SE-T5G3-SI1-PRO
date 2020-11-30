@@ -1,5 +1,7 @@
 package dk.sdu.worldoftrash.game.dal.data;
 
+import dk.sdu.worldoftrash.game.domain.WasteType;
+
 import java.util.HashMap;
 import java.util.Map;
 

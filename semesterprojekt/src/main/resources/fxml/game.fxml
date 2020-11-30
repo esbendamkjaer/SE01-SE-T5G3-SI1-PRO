@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -49,7 +50,11 @@
                   </Label>
                </children>
             </HBox>
-            <GameCanvas fx:id="gameCanvas" focusTraversable="true" height="928.0" width="928.0" />
+            <StackPane fx:id="gameStackPane">
+               <children>
+                  <GameCanvas fx:id="gameCanvas" focusTraversable="true" height="928.0" width="928.0" />
+               </children>
+            </StackPane>
          </children>
       </VBox>
    </center>

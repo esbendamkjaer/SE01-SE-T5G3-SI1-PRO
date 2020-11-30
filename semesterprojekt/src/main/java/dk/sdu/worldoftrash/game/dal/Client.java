@@ -3,7 +3,6 @@ package dk.sdu.worldoftrash.game.dal;
 import com.google.gson.Gson;
 import dk.sdu.worldoftrash.game.dal.data.ScoreData;
 
-import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -44,16 +43,12 @@ public class Client {
                 .POST(HttpRequest.BodyPublishers.ofString(data))
                 .build();
 
-        try {
-            HttpResponse<String> response = httpClient.send(postRequest, HttpResponse.BodyHandlers.ofString());
-            if (response.statusCode() == 429) {
+        httpClient.sendAsync(postRequest, HttpResponse.BodyHandlers.ofString()).thenApply(stringHttpResponse -> {
+            if (stringHttpResponse.statusCode() == 429) {
                 System.out.println("You are trying to save too frequently.");
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+            return stringHttpResponse;
+        });
     }
 
 }

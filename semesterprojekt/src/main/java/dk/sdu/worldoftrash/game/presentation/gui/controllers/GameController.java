@@ -7,15 +7,22 @@ import dk.sdu.worldoftrash.game.presentation.gui.GameCanvas;
 import dk.sdu.worldoftrash.game.presentation.gui.InventoryUI;
 import dk.sdu.worldoftrash.game.presentation.gui.Renderer;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
+import javafx.scene.media.MediaPlayer;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class GameController extends BaseController implements Initializable {
+
+    @FXML
+    private StackPane gameStackPane;
 
     @FXML
     private GameCanvas gameCanvas;
@@ -35,6 +42,8 @@ public class GameController extends BaseController implements Initializable {
     private Game game;
     private InventoryUI inventoryUI;
 
+    private MediaPlayer mediaPlayer;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         
@@ -49,6 +58,14 @@ public class GameController extends BaseController implements Initializable {
 
         game.printWelcome();
 
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/response.fxml"));
+            gameStackPane.getChildren().add(fxmlLoader.load());
+            game.getScoreSystem().addSortingListener(fxmlLoader.getController());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         Renderer renderer = new Renderer(this.gameCanvas);
 
         GameAnimationTimer timer = new GameAnimationTimer() {
@@ -61,9 +78,7 @@ public class GameController extends BaseController implements Initializable {
                 renderer.render(game.getCurrentRoom(), game.getPlayer());
             }
         };
-
         timer.start();
-
     }
 
 }

@@ -1,13 +1,14 @@
 package dk.sdu.worldoftrash.game.domain.items;
 
 import dk.sdu.worldoftrash.game.domain.Game;
-import dk.sdu.worldoftrash.game.dal.data.WasteType;
+import dk.sdu.worldoftrash.game.domain.WasteType;
 
 public class Waste extends Item implements Pickupable {
     private WasteType wasteType;
     private int points;
     private String wrongSorting;
     private boolean clean;
+    private boolean wronglySorted;
 
     public Waste(Game game, String name, WasteType wasteType, String wrongSorting, boolean clean) {
         super(game, name);
@@ -15,6 +16,7 @@ public class Waste extends Item implements Pickupable {
         this.wrongSorting = wrongSorting;
         this.clean = clean;
         this.points = 100;
+        this.wronglySorted = false;
     }
 
     public WasteType getWasteType(){
@@ -57,5 +59,13 @@ public class Waste extends Item implements Pickupable {
         return
                 super.getDescription() + "\n" +
                 "Clean: " + isClean();
+    }
+
+    public boolean isWronglySorted() {
+        return wronglySorted;
+    }
+
+    public void setWronglySorted(boolean wronglySorted) {
+        this.wronglySorted = wronglySorted;
     }
 }

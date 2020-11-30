@@ -37,11 +37,13 @@ public class Renderer {
 
         for (Item item : room.getItems()) {
             if (item.getImage() != null) {
-                drawItem(item);
+                renderItem(item);
             }
         }
 
-        drawItem(player);
+        player.getSpriteAnimation().drawImage(context, player.getX(), player.getY(), player.getWidth(), player.getHeight());
+        player.render(context);
+        //renderItem(player);
 
         context.restore();
     }
@@ -50,7 +52,7 @@ public class Renderer {
      * Render a given item item on the canvas.
      * @param item Item to render.
      */
-    public void drawItem(Item item) {
+    public void renderItem(Item item) {
         Point2D pos = item.getPosition();
         context.drawImage(
                 item.getImage(),
@@ -59,6 +61,8 @@ public class Renderer {
                 item.getImage().getWidth() * item.getScale(),
                 item.getImage().getHeight() * item.getScale()
         );
+
+        item.render(context);
     }
 
     /**
