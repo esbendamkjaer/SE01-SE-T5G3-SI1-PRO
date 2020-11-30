@@ -188,7 +188,7 @@ public class Game {
         can.setImage(ImageIO.load("/images/trash/can-kopi.png"));
         can.setScale(0.5f);
         can.fitToImage();
-        can.setPosition(700,369);
+        can.setPosition(700,469);
 
         Waste cake = new Waste (this, "moldy cake", WasteType.ORGANIC, "this is food and therefore organic. It goes into organic", true);
         cake.setImage(ImageIO.load("/images/trash/muffin_cake-kopi.png"));
@@ -369,21 +369,92 @@ public class Game {
         deodorant.fitToImage();
         deodorant.setPosition(600,550);
 
-        picklesGlass.setImage(ImageIO.load(("/images/trash/pickles.png")));
+        picklesGlass.setImage(ImageIO.load("/images/trash/pickles.png"));
         picklesGlass.setScale(0.8f);
         picklesGlass.fitToImage();
         picklesGlass.setPosition(200,700);
 
         //Assigning trash to - School/outside
+        papers.setImage(ImageIO.load("/images/trash/paper_2.png"));
+        papers.setScale(0.5f);
+        papers.fitToImage();
+        papers.setPosition(539,400);
+
+        lighter.setImage(ImageIO.load("/images/trash/lighter.png"));
+        lighter.setScale(0.3f);
+        lighter.fitToImage();
+        lighter.setPosition(300,750);
+
+        bananas.setImage(ImageIO.load("/images/trash/banana.png"));
+        bananas.setScale(0.7f);
+        bananas.fitToImage();
+        bananas.setPosition(600,200);
+
+        fertilizer.setImage(ImageIO.load("/images/trash/fertilizer-kopi.png"));
+        fertilizer.setScale(0.6f);
+        fertilizer.fitToImage();
+        fertilizer.setPosition(225,425);
 
         //Assigning trash to - School/gymnastiksal
+        poster.setImage(ImageIO.load("/images/trash/poster.png"));
+        poster.setScale(0.6f);
+        poster.fitToImage();
+        poster.setPosition(175,395);
+
+        spectacles_frame.setImage(ImageIO.load("/images/trash/spectacles.png"));
+        spectacles_frame.setScale(0.4f);
+        spectacles_frame.fitToImage();
+        spectacles_frame.setPosition(200,800);
+
+            //POST_IT IS MISSING HERE
 
         //Assigning trash to - School/omklædningsrum
+        milk_carton.setImage(ImageIO.load("/images/trash/milk.png"));
+        milk_carton.setScale(0.4f);
+        milk_carton.fitToImage();
+        milk_carton.setPosition(600,400);
+
+        perfume_bottle.setImage(ImageIO.load("/images/trash/perfume_bottle.png"));
+        perfume_bottle.setScale(0.6f);
+        perfume_bottle.fitToImage();
+        perfume_bottle.setPosition(400,200);
+
+        water_bottle.setImage(ImageIO.load("/images/trash/water_bottle.png"));
+        water_bottle.setScale(0.8f);
+        water_bottle.fitToImage();
+        water_bottle.setPosition(310,510);
+
+        //Assigning trash to - School/lærerværelset
+        jam_jar.setImage(ImageIO.load("/images/trash/jamjar-kopi.png"));
+        jam_jar.setScale(0.7f);
+        jam_jar.fitToImage();
+        jam_jar.setPosition(450,700);
+
+        nutella_glass.setImage(ImageIO.load("/images/trash/nutella.png"));
+        nutella_glass.setScale(0.7f);
+        nutella_glass.fitToImage();
+        nutella_glass.setPosition(200,300);
+
+        coffee_grounds.setImage(ImageIO.load("/images/trash/coffee_grounds-kopi.png"));
+        coffee_grounds.setScale(0.7f);
+        coffee_grounds.fitToImage();
+        coffee_grounds.setPosition(350,300);
 
         //Assigning trash to - School/kemilokale
+        safety_goggles.setImage(ImageIO.load("/images/trash/safety googles.png"));
+        safety_goggles.setScale(0.5f);
+        safety_goggles.fitToImage();
+        safety_goggles.setPosition(650,200);
 
-        //Assigning trash to - School/lærerværelse
+        paper_clip.setImage(ImageIO.load("/images/trash/paper_clips.png"));
+        paper_clip.setScale(0.5f);
+        paper_clip.fitToImage();
+        paper_clip.setPosition(300,500);
 
+        paint.setImage(ImageIO.load("/images/trash/paint.png"));
+        paint.setScale(1.0f);
+        paint.fitToImage();
+        paint.setPosition(800,800);
 
         // ********************************************* Doors - Start *********************************************
         Door startSort = new Door(this, "Start", start);
