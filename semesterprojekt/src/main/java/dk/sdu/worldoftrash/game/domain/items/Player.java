@@ -89,26 +89,28 @@ public class Player extends Item {
 
         if (velX == 0 && velY == 0) {
             spriteAnimation.setRow(0);
-        } else {
-            setX(getX() + velX * delta);
+        }
 
-            for (Wall wall : getGame().getCollisionsWithPlayer(Wall.class)) {
-                if (velX > 0) {
-                    setX(wall.getX() - getWidth());
-                } else if (velX < 0) {
-                    setX(wall.getX() + wall.getWidth());
-                }
+        setX(getX() + velX * delta);
+
+        for (Wall wall : getGame().getCollisionsWithPlayer(Wall.class)) {
+            if (velX > 0) {
+                setX(wall.getX() - getWidth());
+            } else if (velX < 0) {
+                setX(wall.getX() + wall.getWidth());
             }
+            break;
+        }
 
-            setY(getY() + velY * delta);
+        setY(getY() + velY * delta);
 
-            for (Wall wall : getGame().getCollisionsWithPlayer(Wall.class)) {
-                if (velY > 0) {
-                    setY(wall.getY() - getHeight());
-                } else if (velY < 0) {
-                    setY(wall.getY() + wall.getHeight());
-                }
+        for (Wall wall : getGame().getCollisionsWithPlayer(Wall.class)) {
+            if (velY > 0) {
+                setY(wall.getY() - getHeight());
+            } else if (velY < 0) {
+                setY(wall.getY() + wall.getHeight());
             }
+            break;
         }
 
         if (getY() < 0) {

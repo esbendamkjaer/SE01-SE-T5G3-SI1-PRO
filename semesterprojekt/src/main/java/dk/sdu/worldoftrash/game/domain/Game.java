@@ -42,6 +42,7 @@ public class Game {
     private void initObjects() {
         //Rooms
         start = new Room(this, "start", "in the start room. \n The beginning of this trashy world's hero... You!!! \nA man greets you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin. \nYou must help us save the planet! Now follow me if you want to survive, Start by meeting me in the sorting room by using X on the arrow in the door and talk using X in the next room.\"");
+        start.loadWalls("/maps/start.json");
         start.setBackground(ImageIO.load("/images/maps/main/start.png"));
 
         /*
@@ -89,6 +90,7 @@ public class Game {
         canteen.setBackground(ImageIO.load("/images/maps/hospital/canteen.png"));
 
         schoolOutside = new Room(this, "school-outside", "outside the school");
+        schoolOutside.loadWalls("/maps/outside_school.json");
         schoolOutside.setBackground(ImageIO.load("/images/maps/school/outside_school.png"));
 
         teachersLounge = new Room(this, "teachers-lounge", "in the teachers lounge. A guy in an dirty lab coat is resting in a sofa. He looks like a Mad-Chemist");
@@ -101,6 +103,7 @@ public class Game {
         classRooms.setBackground(ImageIO.load("/images/maps/school/school_gym.png"));
 
         girlsLockerRoom = new Room(this, "girls-locker-room", "in the girls locker room");
+        girlsLockerRoom.loadWalls("/maps/girls_locker_room.json");
         girlsLockerRoom.setBackground(ImageIO.load("/images/maps/school/girls_locker_room.png"));
 
         //**************************************** Waste objects - Start ***********************************************
