@@ -996,8 +996,13 @@ public class Game {
     /*** Prints out a welcome message.***/
     public void printWelcome() {
         textLogArea.printText("Welcome to the World of Trash!!!");
-        textLogArea.printText("The world has been through an apocalypse caused by massive amounts of trash and is in need of a hero. \nThis is an incredibly exciting adventure game.");
-        textLogArea.printText(currentRoom.getLongDescription());
+        textLogArea.printText("The world has been through an apocalypse caused by massive amounts of trash and is in need of a hero. " +
+                "This is an incredibly exciting adventure game.");
+        textLogArea.printText("You are in your home. The beginning of your trashy adventure");
+        textLogArea.printText("A man greets you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin\"");
+        textLogArea.printText("\"You must help us save the planet! Now follow me into the next room if you want to survive. " +
+                "You can go to the next room pressing X on the green arrow, and talk using X when you are near me\"");
+
     }
 
     //********************************************* Commands - Start ***************************************************
@@ -1023,7 +1028,6 @@ public class Game {
             return false;
         }
         currentRoom = room;
-        textLogArea.printText(currentRoom.getLongDescription());
         return true;
     }
 
