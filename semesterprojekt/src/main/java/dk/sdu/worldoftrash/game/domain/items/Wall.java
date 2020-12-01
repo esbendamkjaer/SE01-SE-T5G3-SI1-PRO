@@ -16,7 +16,5 @@ public class Wall extends Item {
     @Override
     public void render(GraphicsContext gc) {
         super.render(gc);
-        System.out.println("WALL");
-        gc.fillRect(getX(), getY(), getWidth(), getHeight());
     }
 }
