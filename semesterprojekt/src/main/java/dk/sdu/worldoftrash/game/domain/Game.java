@@ -148,6 +148,13 @@ public class Game {
         sewing_kit.fitToImage();
         sewing_kit.setPosition(562,562);
 
+        arms.setImage(ImageIO.load("/images/npc/Arm.png"));
+        arms.setScale(0.2f);
+        arms.fitToImage();
+        arms.setPosition(400,700);
+
+
+
         // Waste objects #Level 3 - School
         Waste papers = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
         Waste lighter = new Waste(this, "lighter", WasteType.HAZARDOUS, "lighters contains hazardous materials and therefore goes in hazardous", true);
