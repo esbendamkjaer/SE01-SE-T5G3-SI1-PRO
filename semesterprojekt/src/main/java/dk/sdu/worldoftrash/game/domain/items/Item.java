@@ -119,7 +119,7 @@ public class Item {
     }
 
     public Rectangle2D getBoundaryBox() {
-        return new Rectangle2D(getX(), getY(), getWidth(), getHeight());
+        return new Rectangle2D((int) getX(), (int) getY(), (int) getWidth(), (int) getHeight());
     }
 
     public void moveFromMid(Point2D point) {

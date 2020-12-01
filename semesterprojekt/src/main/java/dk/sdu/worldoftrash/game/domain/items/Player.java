@@ -99,7 +99,6 @@ public class Player extends Item {
             } else if (velX < 0) {
                 setX(wall.getX() + wall.getWidth());
             }
-            break;
         }
 
         setY(getY() + velY * delta);
@@ -110,8 +109,8 @@ public class Player extends Item {
             } else if (velY < 0) {
                 setY(wall.getY() + wall.getHeight());
             }
-            break;
         }
+
 
         if (getY() < 0) {
             setY(0);

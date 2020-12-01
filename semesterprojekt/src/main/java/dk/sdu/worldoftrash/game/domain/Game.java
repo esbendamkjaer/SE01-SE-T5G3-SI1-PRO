@@ -57,18 +57,22 @@ public class Game {
 
         // Baggrunde
         sortingRoom = new Room(this, "sortingRoom", "in sorting room. Martin follows you. This is where you sort the trash and clean it in the sink if needed be. \nThere are 8 different containers, a organic-container, a glass-container, a metal-container, a paper-container, a residual-container, a cardboard-container, a hazardous-container and a plastic-container");
+        sortingRoom.loadWalls("/maps/sorting_room.json");
         sortingRoom.setBackground(ImageIO.load("/images/maps/main/sorting_room.png"));
 
         odense = new Room(this, "city", "in the city of Odense. Martin follows you. The city is in shambles and filled with trash. In the distance you see mountains of trash towering over the city.\nIn the east is a supermarket, in the west is the sorting room, in the south is a hospital and in the north is a school");
         odense.setBackground(ImageIO.load("/images/maps/main/city.png"));
 
         supermarket = new Room(this, "supermarket", "in the supermarket");
+        supermarket.loadWalls("/maps/sorting_room.json");
         supermarket.setBackground(ImageIO.load("/images/maps/supermarket/supermarket.png"));
 
         office = new Room(this, "office", "in the supermarket office");
+        office.loadWalls("/maps/office.json");
         office.setBackground(ImageIO.load("/images/maps/supermarket/office.png"));
 
         storageRoom = new Room(this, "storageRoom", "in the storage room");
+        storageRoom.loadWalls("/maps/storage_room.json");
         storageRoom.setBackground(ImageIO.load("/images/maps/supermarket/storage_rom.png"));
 
         parkinglot = new Room(this, "parking-lot", "at the parking lot. There is an homeless man staring intensely at you. A nametag on his coat says Dan");

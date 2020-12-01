@@ -1,6 +1,7 @@
 package dk.sdu.worldoftrash.game.domain.items;
 
 import dk.sdu.worldoftrash.game.domain.Game;
+import javafx.scene.canvas.GraphicsContext;
 
 public class Wall extends Item {
 
@@ -12,4 +13,10 @@ public class Wall extends Item {
         setHeight(height);
     }
 
+    @Override
+    public void render(GraphicsContext gc) {
+        super.render(gc);
+        System.out.println("WALL");
+        gc.fillRect(getX(), getY(), getWidth(), getHeight());
+    }
 }
