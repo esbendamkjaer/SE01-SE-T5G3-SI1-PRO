@@ -127,13 +127,13 @@ public class Game {
         Waste papers1 = new Waste(this, "papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
         Waste medicineBottle = new Waste (this, "glass medicine bottle", WasteType.GLASS, "it is made out of glass, and therefore goes in glass", false);
         Waste syringe = new Waste (this, "syringe", WasteType.HAZARDOUS, "most biochemical equipment are hazardous, so are syringes, never reuse a syringe!", true);
-        Waste scalpel = new Waste (this, "scalpel", WasteType.METAL, "a scalpel is made of metal. This goes into metal", true);
+        Waste scalpel = new Waste (this, "scalpel", WasteType.HAZARDOUS, "a scalpel is a sharp object. This goes into hazardous", true);
         Waste paperclip = new Waste (this, "paperclips", WasteType.RESIDUAL, "unless you got a large quantity of paper clips, recycling paper clips have a larger carbon footprint rather than just sorting them to residual, and therefore goes in residual", true);
         Waste facemask = new Waste (this, "face mask", WasteType.RESIDUAL, "this is a face mask. It goes into residual", true);
         Waste bloodbag = new Waste (this, "blood bag", WasteType.HAZARDOUS, "blood bags are biohazardous material and goes in hazardous", true);
         Waste apple = new Waste (this, "apple",WasteType.ORGANIC, "apples usually are organics and can be dropped in organic", true);
         Waste needle = new Waste (this, "needle", WasteType.RESIDUAL, "Needles in themselves are not worth recycling themselves and usually can be drop in residual ", true);
-        Waste chocolateMilkBottle = new Waste (this, "chocolate milk bottle", WasteType.GLASS, "this is a glass bottle, and therefore goes into glass", false);
+        Waste chocolateMilkCarton = new Waste (this, "chocolate milk bottle", WasteType.RESIDUAL, "this is a carton containing leftover organic substance, and therefore goes into residual", false);
         Waste can = new Waste (this, "can", WasteType.METAL, "cans are made out of metal. It goes into metal", false);
         Waste cake = new Waste (this, "moldy cake", WasteType.ORGANIC, "this is food and therefore organic. It goes into organic", true);
         Waste tray = new Waste(this,"tin tray", WasteType.METAL, "tin trays are made out of metal. It goes into metal", false);
@@ -359,10 +359,10 @@ public class Game {
         cake.fitToImage();
         cake.setPosition(190,483);
 
-        chocolateMilkBottle.setImage(ImageIO.load("/images/trash/chockolade_milk.png"));
-        chocolateMilkBottle.setScale(0.5f);
-        chocolateMilkBottle.fitToImage();
-        chocolateMilkBottle.setPosition(500,240);
+        chocolateMilkCarton.setImage(ImageIO.load("/images/trash/chockolade_milk.png"));
+        chocolateMilkCarton.setScale(0.5f);
+        chocolateMilkCarton.fitToImage();
+        chocolateMilkCarton.setPosition(500,240);
 
         can.setImage(ImageIO.load("/images/trash/can-kopi.png"));
         can.setScale(0.5f);
@@ -858,7 +858,7 @@ public class Game {
         morgue.addItem(ballPen);
         morgue.addItem(arms);
 
-        canteen.addItem(chocolateMilkBottle);
+        canteen.addItem(chocolateMilkCarton);
         canteen.addItem(can);
         canteen.addItem(cake);
 
