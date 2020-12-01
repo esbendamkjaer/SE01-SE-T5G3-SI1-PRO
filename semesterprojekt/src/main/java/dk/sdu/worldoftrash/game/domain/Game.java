@@ -976,7 +976,7 @@ public class Game {
         //Scores
         scoreSystem.getLevelHandler().addLevel(supermarket, 0);
         scoreSystem.getLevelHandler().addLevel(hospitalOutside, 0);
-        scoreSystem.getLevelHandler().addLevel(schoolOutside, 1);
+        scoreSystem.getLevelHandler().addLevel(schoolOutside, 0);
     }
 
     // Getters for NPC locations
