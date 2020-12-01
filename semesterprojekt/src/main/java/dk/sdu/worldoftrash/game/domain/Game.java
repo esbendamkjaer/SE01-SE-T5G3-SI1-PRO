@@ -4,6 +4,7 @@ import dk.sdu.worldoftrash.game.dal.ImageIO;
 import dk.sdu.worldoftrash.game.domain.items.*;
 import dk.sdu.worldoftrash.game.domain.items.npcs.*;
 import dk.sdu.worldoftrash.game.domain.rooms.Room;
+import dk.sdu.worldoftrash.game.domain.scoresystem.ScoreSystem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -975,7 +976,7 @@ public class Game {
         //Scores
         scoreSystem.getLevelHandler().addLevel(supermarket, 0);
         scoreSystem.getLevelHandler().addLevel(hospitalOutside, 0);
-        scoreSystem.getLevelHandler().addLevel(schoolOutside, 6);
+        scoreSystem.getLevelHandler().addLevel(schoolOutside, 1);
     }
 
     // Getters for NPC locations

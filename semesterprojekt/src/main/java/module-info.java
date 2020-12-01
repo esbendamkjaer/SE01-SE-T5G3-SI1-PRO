@@ -10,6 +10,6 @@ module semesterprojekt {
     exports dk.sdu.worldoftrash.game.presentation.gui.controllers;
     opens dk.sdu.worldoftrash.game.presentation.gui.controllers;
 
-    exports dk.sdu.worldoftrash.game.dal.data;
-    opens dk.sdu.worldoftrash.game.dal.data;
+    exports dk.sdu.worldoftrash.game.domain.scoresystem;
+    opens dk.sdu.worldoftrash.game.domain.scoresystem;
 }

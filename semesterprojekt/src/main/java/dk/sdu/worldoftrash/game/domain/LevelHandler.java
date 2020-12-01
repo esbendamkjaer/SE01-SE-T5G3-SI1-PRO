@@ -65,6 +65,7 @@ public class LevelHandler {
             getGame().getTextLogArea().printText(String.format("You ended with a score of %d points.\n", game.getScoreSystem().getScore()));
             getGame().getTextLogArea().printText("Hope you learnt something about sorting trash");
             getGame().getTextLogArea().printText("To close down the game type in the command ‘quit’");
+            getGame().getScoreSystem().onWin();
             game.getScoreSystem().uploadData();
         }
     }
