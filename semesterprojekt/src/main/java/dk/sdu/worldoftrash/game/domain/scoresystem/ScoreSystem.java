@@ -37,7 +37,7 @@ public class ScoreSystem {
 
         this.scoreProperty = new SimpleIntegerProperty(0);
 
-        this.levelHandler = new LevelHandler(game, 2);
+        this.levelHandler = new LevelHandler(game, 45);
 
         sortingListeners = new ArrayList<>();
     }
