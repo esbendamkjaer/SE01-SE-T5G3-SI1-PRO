@@ -106,6 +106,7 @@ public class Game {
         schoolOutside.setBackground(ImageIO.load("/images/maps/school/outside_school.png"));
 
         teachersLounge = new Room(this, "teachers-lounge");
+        teachersLounge.loadWalls("/maps/teachers_lounge.json");
         teachersLounge.setBackground(ImageIO.load("/images/maps/school/Teacher's_lounge1.0.png"));
 
         chemistryRoom = new Room(this, "chemistry-room");
