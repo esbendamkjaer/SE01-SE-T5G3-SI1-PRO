@@ -98,7 +98,7 @@ public class Game {
         schoolOutside.setBackground(ImageIO.load("/images/maps/school/outside_school.png"));
 
         teachersLounge = new Room(this, "teachers-lounge", "in the teachers lounge. A guy in an dirty lab coat is resting in a sofa. He looks like a Mad-Chemist");
-        teachersLounge.setBackground(ImageIO.load("/images/maps/school/teachers_lounge.png"));
+        teachersLounge.setBackground(ImageIO.load("/images/maps/school/Teacher's_lounge1.0.png"));
 
         chemistryRoom = new Room(this, "chemistry-room", "in the chemistry room");
         chemistryRoom.setBackground(ImageIO.load("/images/maps/school/chemistry_room.png"));
