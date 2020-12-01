@@ -162,7 +162,7 @@ public class Game {
         sewing_kit.setImage(ImageIO.load("/images/trash/sewing_kit.png"));
         sewing_kit.setScale(0.9f);
         sewing_kit.fitToImage();
-        sewing_kit.setPosition(562,562);
+        sewing_kit.setPosition(715,562);
 
         arms.setImage(ImageIO.load("/images/npc/Arm.png"));
         arms.setScale(0.2f);
@@ -339,25 +339,25 @@ public class Game {
 
         //Place trash to - Hospital/Reception
         papers1.setImage(ImageIO.load("/images/trash/paper.png"));
-        papers1.setScale(0.7f);
+        papers1.setScale(0.6f);
         papers1.fitToImage();
-        papers1.setPosition(535,490);
+        papers1.setPosition(200,800);
 
         facemask.setImage(ImageIO.load("/images/trash/maske.png"));
         facemask.setScale(0.5f);
         facemask.fitToImage();
-        facemask.setPosition(338,129);
+        facemask.setPosition(378,378);
 
         paperclip.setImage(ImageIO.load("/images/trash/paper_clips.png"));
         paperclip.setScale(0.5f);
         paperclip.fitToImage();
-        paperclip.setPosition(378,378);
+        paperclip.setPosition(338,129);
 
         //Place trash to - Hospital/Morgue
         scalpel.setImage(ImageIO.load("/images/trash/scalpel.png"));
         scalpel.setScale(0.8f);
         scalpel.fitToImage();
-        scalpel.setPosition(680,199);
+        scalpel.setPosition(700,435);
 
         tray.setImage(ImageIO.load("/images/trash/meat_tray.png"));
         tray.setScale(0.5f);
@@ -367,7 +367,7 @@ public class Game {
         ballPen.setImage(ImageIO.load("/images/trash/ball_pen.png"));
         ballPen.setScale(0.8f);
         ballPen.fitToImage();
-        ballPen.setPosition(130,345);
+        ballPen.setPosition(420,120);
 
         //Place trash to - Hospital/Canteen
         cake.setImage(ImageIO.load("/images/trash/muffin_cake-kopi.png"));
@@ -394,7 +394,7 @@ public class Game {
         toothBrush.setImage(ImageIO.load("/images/trash/toothbrush.png"));
         toothBrush.setScale(0.35f);
         toothBrush.fitToImage();
-        toothBrush.setPosition(100,340);
+        toothBrush.setPosition(100,150);
 
         bloodbag.setImage(ImageIO.load("/images/trash/bloodbag.png"));
         bloodbag.setScale(0.84f);
@@ -456,9 +456,9 @@ public class Game {
 
         //Place trash to - School/lærerværelset
         jam_jar.setImage(ImageIO.load("/images/trash/jamjar-kopi.png"));
-        jam_jar.setScale(0.7f);
+        jam_jar.setScale(0.6f);
         jam_jar.fitToImage();
-        jam_jar.setPosition(450,700);
+        jam_jar.setPosition(550,590);
 
         nutella_glass.setImage(ImageIO.load("/images/trash/nutella.png"));
         nutella_glass.setScale(0.7f);
@@ -468,7 +468,7 @@ public class Game {
         coffee_grounds.setImage(ImageIO.load("/images/trash/coffee_grounds-kopi.png"));
         coffee_grounds.setScale(0.7f);
         coffee_grounds.fitToImage();
-        coffee_grounds.setPosition(350,300);
+        coffee_grounds.setPosition(350,350);
 
         //Place trash to - School/kemilokale
         safety_goggles.setImage(ImageIO.load("/images/trash/safety googles.png"));
@@ -1097,7 +1097,4 @@ public class Game {
     public IGameTextPrinter getTextLogArea() {return textLogArea;}
 
     public void setTextLogArea(TextLogArea textLogArea) {this.textLogArea = textLogArea;}
-
 }
-
-
