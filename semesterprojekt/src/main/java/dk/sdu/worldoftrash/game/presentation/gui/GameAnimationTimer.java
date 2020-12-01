@@ -14,6 +14,7 @@ public abstract class GameAnimationTimer extends AnimationTimer {
     private boolean playScheduled;
     private boolean restartScheduled;
 
+    private double delta = 0;
 
     public void pause() {
         if (!isPaused()) {
