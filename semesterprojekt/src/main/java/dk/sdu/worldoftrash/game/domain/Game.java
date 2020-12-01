@@ -62,10 +62,11 @@ public class Game {
         sortingRoom.setBackground(ImageIO.load("/images/maps/main/sorting_room.png"));
 
         odense = new Room(this, "city", "in the city of Odense. Martin follows you. The city is in shambles and filled with trash. In the distance you see mountains of trash towering over the city.\nIn the east is a supermarket, in the west is the sorting room, in the south is a hospital and in the north is a school");
+        odense.loadWalls("/maps/city.json");
         odense.setBackground(ImageIO.load("/images/maps/main/city.png"));
 
         supermarket = new Room(this, "supermarket", "in the supermarket");
-        supermarket.loadWalls("/maps/sorting_room.json");
+        supermarket.loadWalls("/maps/supermarket.json");
         supermarket.setBackground(ImageIO.load("/images/maps/supermarket/supermarket.png"));
 
         office = new Room(this, "office", "in the supermarket office");
@@ -77,21 +78,27 @@ public class Game {
         storageRoom.setBackground(ImageIO.load("/images/maps/supermarket/storage_rom.png"));
 
         parkinglot = new Room(this, "parking-lot", "at the parking lot. There is an homeless man staring intensely at you. A nametag on his coat says Dan");
+        parkinglot.loadWalls("/maps/parking_lot.json");
         parkinglot.setBackground(ImageIO.load("/images/maps/supermarket/parking_lot.png"));
 
         hospitalOutside = new Room(this, "hospital-outside", "outside the hospital. You see a man resting in front of the hospital entrance. He looks to be over his expiration date and missing an arm. He greets you and tells you to call him Mr.Zombie");
+        hospitalOutside.loadWalls("/maps/outside_hospital.json");
         hospitalOutside.setBackground(ImageIO.load("/images/maps/hospital/outside_hospital.png"));
 
         reception = new Room(this, "reception", "in the hospital reception");
+        reception.loadWalls("/maps/reception.json");
         reception.setBackground(ImageIO.load("/images/maps/hospital/hospital_reception.png"));
 
         operatingRoom = new Room(this, "operating-room", "in the operations room");
+        operatingRoom.loadWalls("/maps/operations_room.json");
         operatingRoom.setBackground(ImageIO.load("/images/maps/hospital/operations_room.png"));
 
         morgue = new Room(this, "morgue", "in the morgue");
+        morgue.loadWalls("/maps/morgue.json");
         morgue.setBackground(ImageIO.load("/images/maps/hospital/morgue.png"));
 
         canteen = new Room(this, "canteen", "in the canteen");
+        canteen.loadWalls("/maps/canteen.json");
         canteen.setBackground(ImageIO.load("/images/maps/hospital/canteen.png"));
 
         schoolOutside = new Room(this, "school-outside", "outside the school");
@@ -102,6 +109,7 @@ public class Game {
         teachersLounge.setBackground(ImageIO.load("/images/maps/school/Teacher's_lounge1.0.png"));
 
         chemistryRoom = new Room(this, "chemistry-room", "in the chemistry room");
+        chemistryRoom.loadWalls("/maps/chemistry_room.json");
         chemistryRoom.setBackground(ImageIO.load("/images/maps/school/chemistry_room.png"));
 
         classRooms = new Room(this, "class-rooms", "in the class rooms");

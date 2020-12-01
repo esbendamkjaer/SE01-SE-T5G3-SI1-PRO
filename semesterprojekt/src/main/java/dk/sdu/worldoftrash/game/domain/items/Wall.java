@@ -16,5 +16,6 @@ public class Wall extends Item {
     @Override
     public void render(GraphicsContext gc) {
         super.render(gc);
+        gc.fillRect(getX(), getY(), getWidth(), getHeight());
     }
 }
