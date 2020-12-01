@@ -18,7 +18,6 @@ import java.util.Map;
 public class Room 
 {
     private String name;
-    private String description;
     private HashMap<String, Room> exits;
 
     private List<Item> items;
@@ -32,10 +31,9 @@ public class Room
 
     private Image background;
 
-    public Room(Game game, String name, String description)
+    public Room(Game game, String name)
     {
         this.name = name;
-        this.description = description;
 
         this.items = new ArrayList<Item>();
         this.exits = new HashMap<String, Room>();
@@ -46,16 +44,6 @@ public class Room
     public void setExit(String direction, Room neighbor) 
     {
         exits.put(direction, neighbor);
-    }
-
-    public String getShortDescription()
-    {
-        return description;
-    }
-
-    public String getLongDescription()
-    {
-        return "You are " + description + ".";
     }
 
     /**

@@ -1,8 +1,10 @@
-package dk.sdu.worldoftrash.game.domain;
+package dk.sdu.worldoftrash.game.domain.scoresystem;
 
 import dk.sdu.worldoftrash.game.dal.Client;
-import dk.sdu.worldoftrash.game.dal.data.LevelData;
-import dk.sdu.worldoftrash.game.dal.data.ScoreData;
+import dk.sdu.worldoftrash.game.domain.Game;
+import dk.sdu.worldoftrash.game.domain.LevelHandler;
+import dk.sdu.worldoftrash.game.domain.SortingListener;
+import dk.sdu.worldoftrash.game.domain.WasteType;
 import dk.sdu.worldoftrash.game.domain.items.Waste;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -35,7 +37,7 @@ public class ScoreSystem {
 
         this.scoreProperty = new SimpleIntegerProperty(0);
 
-        this.levelHandler = new LevelHandler(game, 45);
+        this.levelHandler = new LevelHandler(game, 2);
 
         sortingListeners = new ArrayList<>();
     }
@@ -118,6 +120,10 @@ public class ScoreSystem {
 
     public void onWrongRinse() {
         sortingListeners.forEach(SortingListener::onWrongRinse);
+    }
+
+    public void onWin() {
+        sortingListeners.forEach(SortingListener::onWin);
     }
 
     public void addSortingListener(SortingListener sortingListener) {

@@ -1,7 +1,7 @@
 package dk.sdu.worldoftrash.game.dal;
 
 import com.google.gson.Gson;
-import dk.sdu.worldoftrash.game.dal.data.ScoreData;
+import dk.sdu.worldoftrash.game.domain.scoresystem.ScoreData;
 
 import java.net.URI;
 import java.net.http.HttpClient;

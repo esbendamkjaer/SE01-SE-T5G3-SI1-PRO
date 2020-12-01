@@ -26,7 +26,7 @@ public class Player extends Item {
 
     public Player(Game game, String name) {
         super(game, name);
-        inventory = new Inventory(10);
+        inventory = new Inventory(20);
         keys = KeyPolling.getInstance();
 
         spriteAnimation = new SpriteAnimation("/images/player/player_spritesheet.png", 32, 46, 9);

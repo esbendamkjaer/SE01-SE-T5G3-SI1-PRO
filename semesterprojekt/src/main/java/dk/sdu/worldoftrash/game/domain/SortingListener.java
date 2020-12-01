@@ -10,4 +10,6 @@ public interface SortingListener {
 
     public abstract void onWrongRinse();
 
+    public abstract void onWin();
+
 }
