@@ -24,7 +24,7 @@ public class ParkingLotNPC extends NPC {
                     "thermal paper and full of chemicals!\"");
         } else {
             getGame().getTextLogArea().printText("\"You! You in the red shirt! You must help me! I don’t have a place to stay and have never lived in an ordinary house before\"");
-            getGame().getTextLogArea().printText("\"You must find me a cardboard box, a big cardboard box, the biggest cardboard box, I want to be the king of the homeless!\"");
+            getGame().getTextLogArea().printText("\"You must find me a cardboard box, a big cardboard box, the BIGGEST CARDBOARD BOX, I want to be the king of the homeless!\"");
             getGame().getTextLogArea().printText("\"Go to ‘supermarket’, they might have some cardboard boxes laying around, I'm sure you can find one in there somewhere\"");
         }
     }

@@ -31,7 +31,7 @@ public class WasteContainer extends Item implements Interactable {
             SoundIO.playSound("/sounds/ding.mp3");
         } else {
             getGame().getScoreSystem().onWrong(waste);
-            getGame().getTextLogArea().printText(String.format("'%s' does not belong in this container because %s.\n", waste.getName(), waste.getWrongSorting()));
+            getGame().getTextLogArea().printText(String.format("'%s' does not belong in this container because %s.", waste.getName(), waste.getWrongSorting()));
             SoundIO.playSound("/sounds/buzz.mp3");
             waste.setWronglySorted(true);
             return false;

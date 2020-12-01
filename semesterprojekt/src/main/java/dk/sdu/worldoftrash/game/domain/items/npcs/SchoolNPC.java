@@ -25,7 +25,7 @@ public class SchoolNPC extends NPC {
             getGame().getTextLogArea().printText("\"Lally-ho! What ya doin' there laddie? Ya runnin’ favors for that twit Martin eh? If ye’re runnin’ favors mindin’ runnin’" +
                     " me one too eh, laddie?\"");
             getGame().getTextLogArea().printText("\"Ya know, I’m working on fixin’ this place up and not just this mess of a school but Odense too\"");
-            getGame().getTextLogArea().printText("\"If ya steal me fertilizer from the janitor outside I’ma fix this place up real nice, pretty and everythin’\"");
+            getGame().getTextLogArea().printText("\"If ya steal me FERTILIZER from the janitor outside I’ma fix this place up real nice, pretty and everythin’\"");
         }
     }
 

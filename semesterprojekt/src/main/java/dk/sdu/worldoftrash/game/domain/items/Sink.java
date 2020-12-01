@@ -23,7 +23,7 @@ public class Sink extends Item implements Usable {
 
         waste.setClean(true);
 
-        getGame().getTextLogArea().printText(String.format("You use some excess dishwater to clean the %s.\n", waste.getName()));
+        getGame().getTextLogArea().printText(String.format("You use some excess dishwater to clean the %s.", waste.getName()));
         return true;
     }
 
