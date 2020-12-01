@@ -112,7 +112,7 @@ public class Game {
         chemistryRoom.loadWalls("/maps/chemistry_room.json");
         chemistryRoom.setBackground(ImageIO.load("/images/maps/school/chemistry_room.png"));
 
-        classRooms = new Room(this, "class-rooms", "in the class rooms");
+        classRooms = new Room(this, "class-rooms");
         classRooms.loadWalls("/maps/school_gym.json");
         classRooms.setBackground(ImageIO.load("/images/maps/school/school_gym.png"));
 
