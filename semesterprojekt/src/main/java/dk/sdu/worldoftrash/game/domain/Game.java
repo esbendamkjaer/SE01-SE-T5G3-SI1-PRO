@@ -28,6 +28,7 @@ public class Game {
     public Game(double width, double height) {
         this.player = new Player(this, "Player");
         this.scoreSystem = new ScoreSystem(this);
+        player.setPosition(528, 390);
 
         this.height = width;
         this.width = height;
@@ -140,7 +141,7 @@ public class Game {
         Waste bloodbag = new Waste (this, "blood bag", WasteType.HAZARDOUS, "blood bags are biohazardous material and goes in hazardous", true);
         Waste apple = new Waste (this, "apple",WasteType.ORGANIC, "apples usually are organics and can be dropped in organic", true);
         Waste needle = new Waste (this, "needle", WasteType.RESIDUAL, "Needles in themselves are not worth recycling themselves and usually can be drop in residual ", true);
-        Waste chocolateMilkCarton = new Waste (this, "chocolate milk bottle", WasteType.RESIDUAL, "this is a carton containing leftover organic substance, and therefore goes into residual", false);
+        Waste chocolateMilkCarton = new Waste (this, "chocolate milk bottle", WasteType.RESIDUAL, "this is a carton containing leftover organic substance, and therefore goes into residual", true);
         Waste can = new Waste (this, "can", WasteType.METAL, "cans are made out of metal. It goes into metal", false);
         Waste cake = new Waste (this, "moldy cake", WasteType.ORGANIC, "this is food and therefore organic. It goes into organic", true);
         Waste tray = new Waste(this,"tin tray", WasteType.METAL, "tin trays are made out of metal. It goes into metal", false);
