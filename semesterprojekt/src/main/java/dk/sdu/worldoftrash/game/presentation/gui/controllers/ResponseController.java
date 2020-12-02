@@ -1,6 +1,6 @@
 package dk.sdu.worldoftrash.game.presentation.gui.controllers;
 
-import dk.sdu.worldoftrash.game.dal.ImageIO;
+import dk.sdu.worldoftrash.game.domain.ImageIO;
 import dk.sdu.worldoftrash.game.domain.SortingListener;
 import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;

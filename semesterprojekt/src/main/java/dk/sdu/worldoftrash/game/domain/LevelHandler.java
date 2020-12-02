@@ -54,7 +54,7 @@ public class LevelHandler {
 
                 setCurrentLevel(entry.getKey());
 
-                game.getScoreSystem().uploadData();
+                game.getScoreSystem().saveData();
 
                 iterator.remove();
             }
@@ -66,7 +66,7 @@ public class LevelHandler {
             getGame().getTextLogArea().printText("Hope you learnt something about sorting trash");
             getGame().getTextLogArea().printText("To close down the game type in the command ‘quit’");
             getGame().getScoreSystem().onWin();
-            game.getScoreSystem().uploadData();
+            game.getScoreSystem().saveData();
         }
     }
 

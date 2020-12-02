@@ -1,4 +1,4 @@
-package dk.sdu.worldoftrash.game.dal;
+package dk.sdu.worldoftrash.game.domain;
 
 import javafx.scene.image.Image;
 

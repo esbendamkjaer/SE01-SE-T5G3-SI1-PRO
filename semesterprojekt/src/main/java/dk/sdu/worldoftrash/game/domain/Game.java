@@ -1,6 +1,5 @@
 package dk.sdu.worldoftrash.game.domain;
 
-import dk.sdu.worldoftrash.game.dal.ImageIO;
 import dk.sdu.worldoftrash.game.domain.items.*;
 import dk.sdu.worldoftrash.game.domain.items.npcs.*;
 import dk.sdu.worldoftrash.game.domain.rooms.Room;

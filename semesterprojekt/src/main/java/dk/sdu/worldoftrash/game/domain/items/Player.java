@@ -1,6 +1,6 @@
 package dk.sdu.worldoftrash.game.domain.items;
 
-import dk.sdu.worldoftrash.game.dal.ImageIO;
+import dk.sdu.worldoftrash.game.domain.ImageIO;
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.Inventory;
 import dk.sdu.worldoftrash.game.domain.sprite.SpriteAnimation;

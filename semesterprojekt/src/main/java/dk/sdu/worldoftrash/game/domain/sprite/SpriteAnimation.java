@@ -1,6 +1,6 @@
 package dk.sdu.worldoftrash.game.domain.sprite;
 
-import dk.sdu.worldoftrash.game.dal.ImageIO;
+import dk.sdu.worldoftrash.game.domain.ImageIO;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 

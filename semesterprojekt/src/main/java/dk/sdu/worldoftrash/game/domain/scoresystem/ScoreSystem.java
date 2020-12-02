@@ -1,6 +1,7 @@
 package dk.sdu.worldoftrash.game.domain.scoresystem;
 
-import dk.sdu.worldoftrash.game.dal.Client;
+import dk.sdu.worldoftrash.game.data.Client;
+import dk.sdu.worldoftrash.game.data.DataAccess;
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.LevelHandler;
 import dk.sdu.worldoftrash.game.domain.SortingListener;
@@ -21,7 +22,7 @@ public class ScoreSystem {
 
     private int wasteCount;
 
-    private Client client;
+    private DataAccess dataAccess;
 
     private ScoreData scoreData;
 
@@ -30,7 +31,7 @@ public class ScoreSystem {
     private Game game;
 
     public ScoreSystem(Game game) {
-        this.client = new Client(20, "https://worldoftrash.herokuapp.com");
+        this.dataAccess = new Client(20, "https://worldoftrash.herokuapp.com");
         this.game = game;
 
         this.scoreData = new ScoreData(UUID.randomUUID());
@@ -51,10 +52,10 @@ public class ScoreSystem {
     }
 
     /**
-     * Upload ScoreData to webserver
+     * Save ScoreData
      */
-    public void uploadData() {
-        client.sendScoreData(scoreData);
+    public void saveData() {
+        dataAccess.saveData(scoreData);
     }
 
     /**
