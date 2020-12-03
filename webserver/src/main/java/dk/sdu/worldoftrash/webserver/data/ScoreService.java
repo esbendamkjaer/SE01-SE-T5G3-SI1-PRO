@@ -1,4 +1,4 @@
-package dk.sdu.worldoftrash.webserver;
+package dk.sdu.worldoftrash.webserver.data;
 
 import com.google.api.core.ApiFuture;
 import com.google.auth.oauth2.GoogleCredentials;
@@ -7,7 +7,6 @@ import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
-import dk.sdu.worldoftrash.webserver.data.ScoreData;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;

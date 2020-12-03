@@ -1,6 +1,5 @@
-package dk.sdu.worldoftrash.game.domain.sprite;
+package dk.sdu.worldoftrash.game.domain;
 
-import dk.sdu.worldoftrash.game.domain.Img;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -15,8 +14,6 @@ public class SpriteAnimation {
 
     private int row;
     private int cols;
-
-    private double scale;
 
     private double count = 0;
 
@@ -49,14 +46,6 @@ public class SpriteAnimation {
         gc.drawImage(image, sx, sy, colWidth, rowHeight, x, y, width, height);
     }
 
-    public void reset() {
-        this.count = 0;
-    }
-
-    public void setScale(double scale) {
-        this.scale = scale;
-    }
-
     public Image getImage() {
         return image;
     }
@@ -69,36 +58,12 @@ public class SpriteAnimation {
         return colWidth;
     }
 
-    public void setColWidth(int colWidth) {
-        this.colWidth = colWidth;
-    }
-
     public int getRowHeight() {
         return rowHeight;
     }
 
-    public void setRowHeight(int rowHeight) {
-        this.rowHeight = rowHeight;
-    }
-
-    public double getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(double speed) {
-        this.speed = speed;
-    }
-
-    public int getRow() {
-        return row;
-    }
-
     public void setRow(int row) {
         this.row = row;
-    }
-
-    public int getCols() {
-        return cols;
     }
 
     public void setCols(int cols) {

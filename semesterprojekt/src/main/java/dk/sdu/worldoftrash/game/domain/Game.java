@@ -2,7 +2,6 @@ package dk.sdu.worldoftrash.game.domain;
 
 import dk.sdu.worldoftrash.game.domain.items.*;
 import dk.sdu.worldoftrash.game.domain.items.npcs.*;
-import dk.sdu.worldoftrash.game.domain.rooms.Room;
 import dk.sdu.worldoftrash.game.domain.scoresystem.ScoreSystem;
 
 import java.util.ArrayList;
@@ -20,11 +19,6 @@ public class Game {
     private double height;
     private double width;
 
-    private Room start, sortingRoom, city,
-    /* level 1 */supermarket, office, storageRoom, parkinglot,
-    /* level 2 */hospitalOutside, reception, operatingRoom, morgue, canteen,
-    /* level 3 */schoolOutside, teachersLounge, chemistryRoom, classRooms, girlsLockerRoom;
-
     public Game(double width, double height) {
         this.player = new Player(this, "Player");
         this.scoreSystem = new ScoreSystem(this, 2);
@@ -41,6 +35,11 @@ public class Game {
      * Initializes game world objects.
      */
     private void initObjects() {
+        Room start, sortingRoom, city,
+                /* level 1 */supermarket, office, storageRoom, parkinglot,
+                /* level 2 */hospitalOutside, reception, operatingRoom, morgue, canteen,
+                /* level 3 */schoolOutside, teachersLounge, chemistryRoom, classRooms, girlsLockerRoom;
+
         //Rooms
         start = new Room(this, "start");
         start.loadWalls("/maps/start.json");
@@ -981,10 +980,6 @@ public class Game {
     // Getters for NPC locations
     public Room getCurrentRoom() {
         return currentRoom;
-    }
-
-    public Room getSortingRoom() {
-        return sortingRoom;
     }
 
     /*** Prints out a welcome message.***/

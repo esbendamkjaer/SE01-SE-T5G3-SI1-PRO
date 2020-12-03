@@ -1,6 +1,5 @@
-package dk.sdu.worldoftrash.webserver;
+package dk.sdu.worldoftrash.webserver.data;
 
-import dk.sdu.worldoftrash.webserver.data.ScoreData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

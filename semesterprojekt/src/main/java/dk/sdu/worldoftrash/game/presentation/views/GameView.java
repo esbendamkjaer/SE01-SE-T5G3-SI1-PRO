@@ -1,7 +1,7 @@
 package dk.sdu.worldoftrash.game.presentation.views;
 
 import dk.sdu.worldoftrash.game.domain.Game;
-import dk.sdu.worldoftrash.game.domain.TextLogArea;
+import dk.sdu.worldoftrash.game.presentation.TextLogArea;
 import dk.sdu.worldoftrash.game.presentation.GameAnimationTimer;
 import dk.sdu.worldoftrash.game.presentation.GameCanvas;
 import dk.sdu.worldoftrash.game.presentation.Renderer;

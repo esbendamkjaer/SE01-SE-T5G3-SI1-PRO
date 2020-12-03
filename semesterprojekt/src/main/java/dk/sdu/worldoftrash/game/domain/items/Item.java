@@ -128,7 +128,6 @@ public class Item {
     }
 
     public String getDescription() {
-        return
-                "Name: " + getName();
+        return "Name: " + getName();
     }
 }

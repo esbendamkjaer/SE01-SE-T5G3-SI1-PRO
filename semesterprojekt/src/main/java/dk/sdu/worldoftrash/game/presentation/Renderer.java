@@ -6,7 +6,7 @@ import dk.sdu.worldoftrash.game.domain.items.Door;
 import dk.sdu.worldoftrash.game.domain.items.Interactable;
 import dk.sdu.worldoftrash.game.domain.items.Item;
 import dk.sdu.worldoftrash.game.domain.items.Player;
-import dk.sdu.worldoftrash.game.domain.rooms.Room;
+import dk.sdu.worldoftrash.game.domain.Room;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;

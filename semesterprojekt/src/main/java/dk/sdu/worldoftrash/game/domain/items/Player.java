@@ -3,7 +3,7 @@ package dk.sdu.worldoftrash.game.domain.items;
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.Inventory;
 import dk.sdu.worldoftrash.game.domain.KeyPolling;
-import dk.sdu.worldoftrash.game.domain.sprite.SpriteAnimation;
+import dk.sdu.worldoftrash.game.domain.SpriteAnimation;
 import javafx.scene.input.KeyCode;
 
 import java.util.List;
@@ -23,7 +23,7 @@ public class Player extends Item {
 
     public Player(Game game, String name) {
         super(game, name);
-        inventory = new Inventory(20);
+        inventory = new Inventory(30);
         keys = KeyPolling.getInstance();
 
         spriteAnimation = new SpriteAnimation("/images/player/player_spritesheet.png", 32, 46, 9);
@@ -35,10 +35,6 @@ public class Player extends Item {
         setScale(1.25f);
     }
 
-    public SpriteAnimation getSpriteAnimation() {
-        return spriteAnimation;
-    }
-
     @Override
     public void update(double delta) {
         super.update(delta);
@@ -46,7 +42,43 @@ public class Player extends Item {
         spriteAnimation.tick(delta);
 
         handleInteractables();
-        
+
+
+        handleKeyPresses();
+
+        if (velX == 0 && velY == 0) {
+            spriteAnimation.setRow(0);
+        } else {
+            handleCollisions(delta);
+        }
+
+        checkGameBounds();
+
+        this.velX = 0;
+        this.velY = 0;
+    }
+
+    /**
+     * Moves player inside game bounds if outside.
+     */
+    private void checkGameBounds() {
+        if (getY() < 0) {
+            setY(0);
+        } else if (getY() + getHeight() > getGame().getHeight()) {
+            setY(getGame().getHeight() - getHeight());
+        }
+
+        if (getX() < 0) {
+            setX(0);
+        } else if (getX() + getWidth() > getGame().getWidth()) {
+            setX(getGame().getWidth() - getWidth());
+        }
+    }
+
+    /**
+     * Handles player velocity according to key presses.
+     */
+    private void handleKeyPresses() {
         if (keys.isDown(KeyCode.UP) || keys.isDown(KeyCode.W)) {
             velY += -speed;
             spriteAnimation.setRow(2);
@@ -66,29 +98,11 @@ public class Player extends Item {
             velX += speed;
             spriteAnimation.setRow(1);
         }
-
-        if (velX == 0 && velY == 0) {
-            spriteAnimation.setRow(0);
-        }
-
-        handleCollisions(delta);
-
-        if (getY() < 0) {
-            setY(0);
-        } else if (getY() + getHeight() > getGame().getHeight()) {
-            setY(getGame().getHeight() - getHeight());
-        }
-
-        if (getX() < 0) {
-            setX(0);
-        } else if (getX() + getWidth() > getGame().getWidth()) {
-            setX(getGame().getWidth() - getWidth());
-        }
-
-        this.velX = 0;
-        this.velY = 0;
     }
 
+    /**
+     * Handles logic associated with interaction with interactables.
+     */
     private void handleInteractables() {
         List<Item> colliding = getGame().getCollisionsWithPlayer();
 
@@ -110,6 +124,10 @@ public class Player extends Item {
         }
     }
 
+    /**
+     * Handles player collisions with wall objects.
+     * @param delta Time since last tick.
+     */
     private void handleCollisions(double delta) {
         setX(getX() + velX * delta);
 
@@ -154,6 +172,10 @@ public class Player extends Item {
 
     public Inventory getInventory() {
         return inventory;
+    }
+
+    public SpriteAnimation getSpriteAnimation() {
+        return spriteAnimation;
     }
 }
 

@@ -1,7 +1,7 @@
 package dk.sdu.worldoftrash.game.domain.items;
 
 import dk.sdu.worldoftrash.game.domain.Game;
-import dk.sdu.worldoftrash.game.domain.rooms.Room;
+import dk.sdu.worldoftrash.game.domain.Room;
 
 public class Door extends Item implements Interactable {
 

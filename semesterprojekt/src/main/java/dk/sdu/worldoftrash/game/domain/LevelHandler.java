@@ -1,7 +1,5 @@
 package dk.sdu.worldoftrash.game.domain;
 
-import dk.sdu.worldoftrash.game.domain.rooms.Room;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
