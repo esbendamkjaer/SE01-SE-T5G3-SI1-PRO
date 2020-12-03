@@ -1,10 +1,10 @@
 package dk.sdu.worldoftrash.game.domain.items;
 
-import dk.sdu.worldoftrash.game.domain.ImageIO;
+import dk.sdu.worldoftrash.game.domain.Img;
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.Inventory;
 import dk.sdu.worldoftrash.game.domain.sprite.SpriteAnimation;
-import dk.sdu.worldoftrash.game.presentation.gui.KeyPolling;
+import dk.sdu.worldoftrash.game.domain.KeyPolling;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -48,24 +48,7 @@ public class Player extends Item {
 
         spriteAnimation.tick(delta);
 
-        List<Item> colliding = getGame().getCollisionsWithPlayer();
-
-        for (Item item : colliding) {
-
-            if (item instanceof Interactable) {
-                if (keys.isDown(KeyCode.X)) {
-                    if (!interact_typed) {
-                        Interactable interactable = (Interactable) item;
-                        interactable.interact(this);
-
-                        interact_typed = true;
-                    }
-                } else {
-                    interact_typed = false;
-                }
-            }
-
-        }
+        handleInteractables();
         
         if (keys.isDown(KeyCode.UP) || keys.isDown(KeyCode.W)) {
             velY += -speed;
@@ -91,6 +74,46 @@ public class Player extends Item {
             spriteAnimation.setRow(0);
         }
 
+        handleCollisions(delta);
+
+        if (getY() < 0) {
+            setY(0);
+        } else if (getY() + getHeight() > getGame().getHeight()) {
+            setY(getGame().getHeight() - getHeight());
+        }
+
+        if (getX() < 0) {
+            setX(0);
+        } else if (getX() + getWidth() > getGame().getWidth()) {
+            setX(getGame().getWidth() - getWidth());
+        }
+
+        this.velX = 0;
+        this.velY = 0;
+    }
+
+    private void handleInteractables() {
+        List<Item> colliding = getGame().getCollisionsWithPlayer();
+
+        for (Item item : colliding) {
+
+            if (item instanceof Interactable) {
+                if (keys.isDown(KeyCode.X)) {
+                    if (!interact_typed) {
+                        Interactable interactable = (Interactable) item;
+                        interactable.interact(this);
+
+                        interact_typed = true;
+                    }
+                } else {
+                    interact_typed = false;
+                }
+            }
+
+        }
+    }
+
+    private void handleCollisions(double delta) {
         setX(getX() + velX * delta);
 
         for (Wall wall : getGame().getCollisionsWithPlayer(Wall.class)) {
@@ -112,20 +135,6 @@ public class Player extends Item {
         }
 
 
-        if (getY() < 0) {
-            setY(0);
-        } else if (getY() + getHeight() > getGame().getHeight()) {
-            setY(getGame().getHeight() - getHeight());
-        }
-
-        if (getX() < 0) {
-            setX(0);
-        } else if (getX() + getWidth() > getGame().getWidth()) {
-            setX(getGame().getWidth() - getWidth());
-        }
-
-        this.velX = 0;
-        this.velY = 0;
     }
 
     /**
@@ -142,7 +151,7 @@ public class Player extends Item {
         if (getInventory().storeItem((Item) pickupable)) {
             getGame().getCurrentRoom().removeItem(item);
         } else {
-            getGame().getTextLogArea().printText("You do not have sufficient space in your inventory.");
+            getGame().getTextPrinter().printText("You do not have sufficient space in your inventory.");
         }
     }
 
@@ -158,7 +167,7 @@ public class Player extends Item {
 
         if (colliding.isEmpty()) return;
 
-        Image icon = ImageIO.load("/images/icons/x_icon.png");
+        Image icon = Img.load("/images/icons/x_icon.png");
 
         for (Interactable interactable : colliding) {
 
@@ -166,7 +175,7 @@ public class Player extends Item {
                 Door door = (Door) interactable;
 
                 if (door.getOtherSide().getPlace().isLocked()) {
-                    icon = ImageIO.load("/images/icons/lock-solid.png");
+                    icon = Img.load("/images/icons/lock-solid.png");
                 }
             }
         }
@@ -174,7 +183,7 @@ public class Player extends Item {
         double width = 32, height = 32;
         double iconWidth = 20, iconHeight = 20;
 
-        Image bg = ImageIO.load("/images/icons/icon_bg.png");
+        Image bg = Img.load("/images/icons/icon_bg.png");
 
         double x = 0;
         if (getGame().getWidth() - getX() - getWidth() < width) {

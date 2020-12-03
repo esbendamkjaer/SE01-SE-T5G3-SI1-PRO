@@ -1,4 +1,4 @@
-package dk.sdu.worldoftrash.game.presentation.gui;
+package dk.sdu.worldoftrash.game.domain;
 
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;

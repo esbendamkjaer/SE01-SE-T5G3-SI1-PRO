@@ -2,10 +2,10 @@ package dk.sdu.worldoftrash.game.domain;
 
 import javafx.scene.media.AudioClip;
 
-public class SoundIO {
+public class Sound {
 
     public static void playSound(String path) {
-        AudioClip a = new AudioClip(SoundIO.class.getResource(path).toString());
+        AudioClip a = new AudioClip(Sound.class.getResource(path).toString());
         a.play();
     }
 

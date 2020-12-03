@@ -1,4 +1,4 @@
-package dk.sdu.worldoftrash.game.presentation.gui;
+package dk.sdu.worldoftrash.game.presentation;
 
 import dk.sdu.worldoftrash.game.domain.items.Item;
 import dk.sdu.worldoftrash.game.domain.items.Player;
@@ -41,7 +41,6 @@ public class Renderer {
 
         player.getSpriteAnimation().drawImage(context, player.getX(), player.getY(), player.getWidth(), player.getHeight());
         player.render(context);
-        //renderItem(player);
 
         context.restore();
     }

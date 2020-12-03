@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: dk.sdu.worldoftrash.game.presentation.gui.FXApplication
+Main-Class: FXApplication
 

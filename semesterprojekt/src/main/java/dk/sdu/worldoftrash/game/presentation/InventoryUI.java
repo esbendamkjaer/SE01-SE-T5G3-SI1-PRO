@@ -1,4 +1,4 @@
-package dk.sdu.worldoftrash.game.presentation.gui;
+package dk.sdu.worldoftrash.game.presentation;
 
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.items.Interactable;
@@ -23,7 +23,7 @@ public class InventoryUI {
     private TextArea itemDescriptionArea;
     private Player player;
 
-    private double iconSize = 64;
+    private double iconPixelSize = 64;
 
     public InventoryUI(TilePane inventoryTiles, TextArea itemDescriptionArea, Game game) {
         this.game = game;
@@ -57,11 +57,11 @@ public class InventoryUI {
 
             double ratio = image.getWidth() / image.getHeight();
             if (image.getWidth() > image.getHeight()) {
-                icon.setFitWidth(iconSize);
-                icon.setFitHeight(iconSize / ratio);
+                icon.setFitWidth(iconPixelSize);
+                icon.setFitHeight(iconPixelSize / ratio);
             } else {
-                icon.setFitHeight(iconSize);
-                icon.setFitWidth(iconSize * ratio);
+                icon.setFitHeight(iconPixelSize);
+                icon.setFitWidth(iconPixelSize * ratio);
             }
             button.setGraphic(icon);
             button.setOnAction(e -> {onButtonEvent(e);});

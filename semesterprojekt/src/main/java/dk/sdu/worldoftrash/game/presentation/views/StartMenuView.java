@@ -1,7 +1,7 @@
-package dk.sdu.worldoftrash.game.presentation.gui.fxcontrollers;
+package dk.sdu.worldoftrash.game.presentation.views;
 
-import dk.sdu.worldoftrash.game.presentation.gui.SceneName;
-import dk.sdu.worldoftrash.game.presentation.gui.startmenu.MenuItem;
+import dk.sdu.worldoftrash.game.presentation.MenuItem;
+import dk.sdu.worldoftrash.game.presentation.SceneName;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-public class StartMenuController extends BaseController implements Initializable {
+public class StartMenuView extends BaseView implements Initializable {
 
     @FXML
     private Pane rootPane;

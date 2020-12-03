@@ -1,6 +1,6 @@
-package dk.sdu.worldoftrash.game.presentation.gui;
+package dk.sdu.worldoftrash.game.presentation;
 
-import dk.sdu.worldoftrash.game.presentation.gui.fxcontrollers.BaseController;
+import dk.sdu.worldoftrash.game.presentation.views.BaseView;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
@@ -47,7 +47,7 @@ public class SceneInfo {
             e.printStackTrace();
         }
 
-        BaseController controller = fxmlLoader.getController();
+        BaseView controller = fxmlLoader.getController();
         controller.setSceneManager(sceneManager);
         controller.setStage(stage);
 

@@ -1,11 +1,11 @@
-package dk.sdu.worldoftrash.game.presentation.gui.fxcontrollers;
+package dk.sdu.worldoftrash.game.presentation.views;
 
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.TextLogArea;
-import dk.sdu.worldoftrash.game.presentation.gui.GameAnimationTimer;
-import dk.sdu.worldoftrash.game.presentation.gui.GameCanvas;
-import dk.sdu.worldoftrash.game.presentation.gui.InventoryUI;
-import dk.sdu.worldoftrash.game.presentation.gui.Renderer;
+import dk.sdu.worldoftrash.game.presentation.GameAnimationTimer;
+import dk.sdu.worldoftrash.game.presentation.GameCanvas;
+import dk.sdu.worldoftrash.game.presentation.Renderer;
+import dk.sdu.worldoftrash.game.presentation.InventoryUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GameController extends BaseController implements Initializable {
+public class GameView extends BaseView implements Initializable {
 
     @FXML
     private StackPane gameStackPane;
@@ -51,7 +51,7 @@ public class GameController extends BaseController implements Initializable {
         inventoryUI = new InventoryUI(inventoryPane, itemDescriptionArea, game);
 
         TextLogArea textLogArea = new TextLogArea(this.textLogArea);
-        game.setTextLogArea(textLogArea);
+        game.setTextPrinter(textLogArea);
 
         game.printWelcome();
 

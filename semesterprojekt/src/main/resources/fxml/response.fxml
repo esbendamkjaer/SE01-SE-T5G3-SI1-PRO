@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<StackPane fx:id="responseRoot" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.sdu.worldoftrash.game.presentation.gui.fxcontrollers.ResponseController">
+<StackPane fx:id="responseRoot" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.sdu.worldoftrash.game.presentation.views.ResponseView">
    <children>
       <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="250.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="250.0" />
       <ImageView fx:id="responseImage" fitHeight="175.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true" />

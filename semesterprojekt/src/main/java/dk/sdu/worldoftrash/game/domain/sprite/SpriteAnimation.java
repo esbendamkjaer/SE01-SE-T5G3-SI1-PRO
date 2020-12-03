@@ -1,6 +1,6 @@
 package dk.sdu.worldoftrash.game.domain.sprite;
 
-import dk.sdu.worldoftrash.game.domain.ImageIO;
+import dk.sdu.worldoftrash.game.domain.Img;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -27,7 +27,7 @@ public class SpriteAnimation {
      * @param speed Frame rate.
      */
     public SpriteAnimation(String path, int colWidth, int rowHeight, double speed) {
-        this(ImageIO.load(path), colWidth, rowHeight, speed);
+        this(Img.load(path), colWidth, rowHeight, speed);
     }
 
     public SpriteAnimation(Image image, int colWidth, int rowHeight, double speed) {

@@ -1,4 +1,4 @@
-package dk.sdu.worldoftrash.game.presentation.gui.startmenu;
+package dk.sdu.worldoftrash.game.presentation;
 
 import javafx.beans.binding.Bindings;
 import javafx.scene.effect.BoxBlur;

@@ -30,7 +30,7 @@ public class ScoreSystem {
 
     private Game game;
 
-    public ScoreSystem(Game game) {
+    public ScoreSystem(Game game, int winningCondition) {
         this.dataAccess = new Client(20, "https://worldoftrash.herokuapp.com");
         this.game = game;
 
@@ -38,7 +38,7 @@ public class ScoreSystem {
 
         this.scoreProperty = new SimpleIntegerProperty(0);
 
-        this.levelHandler = new LevelHandler(game, 2);
+        this.levelHandler = new LevelHandler(game, winningCondition);
 
         sortingListeners = new ArrayList<>();
     }
