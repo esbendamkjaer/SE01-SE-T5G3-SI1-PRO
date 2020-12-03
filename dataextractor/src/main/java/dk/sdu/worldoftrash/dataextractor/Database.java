@@ -9,12 +9,17 @@ import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
+import dk.sdu.worldoftrash.dataextractor.data.CategoryData;
+import dk.sdu.worldoftrash.dataextractor.data.LevelData;
 import dk.sdu.worldoftrash.dataextractor.data.ScoreData;
-import dk.sdu.worldoftrash.dataextractor.data.WasteType;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
 
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class Database {
@@ -36,9 +41,22 @@ public class Database {
         }
     }
 
-    public void test() throws ExecutionException, InterruptedException {
+    public void writeToCSV(String file) throws ExecutionException, InterruptedException {
         Firestore dbFirestore = FirestoreClient.getFirestore();
         Iterator<DocumentReference> iterator = dbFirestore.collection(COL_NAME).listDocuments().iterator();
+
+        String[] headers = {"levelName", "correct"};
+
+        FileWriter out = null;
+        CSVPrinter printer = null;
+        try {
+            out = new FileWriter(file);
+            printer = new CSVPrinter(out, CSVFormat.DEFAULT
+                    .withHeader(headers)
+                    .withDelimiter(';'));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         while (iterator.hasNext()) {
             DocumentReference documentReference = iterator.next();
@@ -48,17 +66,37 @@ public class Database {
             ScoreData scoreData = documentSnapshot.toObject(ScoreData.class);
 
             System.out.println(scoreData.getUuid());
-            scoreData.getLevels().computeIfPresent("hospital-outside", (k, v) -> {
 
-                v.getCorrectlySortedByWasteType().computeIfPresent(WasteType.RESIDUAL.toString(), (k1, v1) -> {
-                    System.out.println(v1.getCorrect());
-                    return v1;
-                });
+            for (Map.Entry<String, LevelData> levelEntry : scoreData.getLevels().entrySet()) {
+                String levelName = levelEntry.getKey();
+                LevelData levelData = levelEntry.getValue();
 
-                return v;
-            });
+                int correctSum = 0;
+                int totalSum = 0;
+                for (Map.Entry<String, CategoryData> categoryEntry : levelData.getCorrectlySortedByWasteType().entrySet()) {
+                    String categoryName = categoryEntry.getKey();
+                    CategoryData categoryData = categoryEntry.getValue();
+
+                    correctSum += categoryData.getCorrect();
+                    totalSum += categoryData.getTotal();
+                }
+
+                try {
+                    printer.printRecord(levelName, correctSum);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                System.out.println("Correct in: " + levelName + ": " + correctSum + " out of " + totalSum);
+            }
         }
 
+        try {
+            out.close();
+            printer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public ScoreData getPatientDetails(String name) throws InterruptedException, ExecutionException {

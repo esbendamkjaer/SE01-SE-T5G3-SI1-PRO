@@ -21,7 +21,7 @@ public class Game {
 
     public Game(double width, double height) {
         this.player = new Player(this, "Player");
-        this.scoreSystem = new ScoreSystem(this, 2);
+        this.scoreSystem = new ScoreSystem(this, 5);
         player.setPosition(528, 390);
 
         this.height = width;
@@ -973,8 +973,8 @@ public class Game {
 
         //Scores
         scoreSystem.getLevelHandler().addLevel(supermarket, 0);
-        scoreSystem.getLevelHandler().addLevel(hospitalOutside, 0);
-        scoreSystem.getLevelHandler().addLevel(schoolOutside, 0);
+        scoreSystem.getLevelHandler().addLevel(hospitalOutside, 1);
+        scoreSystem.getLevelHandler().addLevel(schoolOutside, 2);
     }
 
     // Getters for NPC locations
