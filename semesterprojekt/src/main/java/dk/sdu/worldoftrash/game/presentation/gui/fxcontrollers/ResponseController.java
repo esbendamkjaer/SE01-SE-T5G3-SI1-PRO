@@ -1,7 +1,8 @@
-package dk.sdu.worldoftrash.game.presentation.gui.controllers;
+package dk.sdu.worldoftrash.game.presentation.gui.fxcontrollers;
 
 import dk.sdu.worldoftrash.game.domain.ImageIO;
 import dk.sdu.worldoftrash.game.domain.SortingListener;
+import dk.sdu.worldoftrash.game.domain.SoundIO;
 import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -29,12 +30,21 @@ public class ResponseController extends BaseController implements SortingListene
     public void onCorrect() {
         responseImage.setImage(correctSort);
         scaleTransition();
+        SoundIO.playSound("/sounds/ding.mp3");
     }
 
     @Override
     public void onWrong() {
         responseImage.setImage(wrongSort);
         scaleTransition();
+        SoundIO.playSound("/sounds/buzz.mp3");
+    }
+
+    @Override
+    public void onWin() {
+        responseImage.setImage(winningCrown);
+        scaleTransition();
+        SoundIO.playSound("/sounds/win_sound.mp3");
     }
 
     @Override
@@ -45,12 +55,6 @@ public class ResponseController extends BaseController implements SortingListene
     @Override
     public void onWrongRinse() {
         responseImage.setImage(wrongRinse);
-    }
-
-    @Override
-    public void onWin() {
-        responseImage.setImage(winningCrown);
-        scaleTransition();
     }
 
     public void scaleTransition() {

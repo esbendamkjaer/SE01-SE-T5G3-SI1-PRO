@@ -1,25 +1,22 @@
 package dk.sdu.worldoftrash.game.presentation.gui;
 
-import dk.sdu.worldoftrash.game.presentation.gui.controllers.BaseController;
+import dk.sdu.worldoftrash.game.presentation.gui.fxcontrollers.BaseController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ResourceBundle;
 
 public class SceneInfo {
 
     private Parent root;
     private SceneManager sceneManager;
     private String resource;
-    private ResourceBundle resourceBundle;
     private Stage stage;
 
-    public SceneInfo(String resource, SceneManager sceneManager, ResourceBundle resourceBundle, Stage stage) {
+    public SceneInfo(String resource, SceneManager sceneManager, Stage stage) {
         this.resource = resource;
         this.sceneManager = sceneManager;
-        this.resourceBundle = resourceBundle;
         this.stage = stage;
     }
 
@@ -42,7 +39,7 @@ public class SceneInfo {
      */
     private Parent loadSceneRoot(String resource) {
         Parent sceneRoot = null;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(resource), resourceBundle);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(resource));
 
         try {
             sceneRoot = fxmlLoader.load();

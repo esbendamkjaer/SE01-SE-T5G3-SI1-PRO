@@ -38,7 +38,7 @@ public class ScoreSystem {
 
         this.scoreProperty = new SimpleIntegerProperty(0);
 
-        this.levelHandler = new LevelHandler(game, 45);
+        this.levelHandler = new LevelHandler(game, 2);
 
         sortingListeners = new ArrayList<>();
     }
@@ -99,9 +99,9 @@ public class ScoreSystem {
             levelData.incrementCorrect(waste.getWasteType());
         }
 
-        incrementWasteCount(waste.getWasteType());
-
         sortingListeners.forEach(SortingListener::onCorrect);
+
+        incrementWasteCount(waste.getWasteType());
     }
 
 
@@ -111,7 +111,6 @@ public class ScoreSystem {
      */
     public void onWrong(Waste waste) {
         addPoints(-waste.getPoints());
-
         sortingListeners.forEach(SortingListener::onWrong);
     }
 

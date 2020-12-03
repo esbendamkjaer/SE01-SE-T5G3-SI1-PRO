@@ -7,8 +7,8 @@ module semesterprojekt {
 
     exports dk.sdu.worldoftrash.game.presentation.gui;
     exports dk.sdu.worldoftrash.game.presentation.gui.startmenu;
-    exports dk.sdu.worldoftrash.game.presentation.gui.controllers;
-    opens dk.sdu.worldoftrash.game.presentation.gui.controllers;
+    exports dk.sdu.worldoftrash.game.presentation.gui.fxcontrollers;
+    opens dk.sdu.worldoftrash.game.presentation.gui.fxcontrollers;
 
     exports dk.sdu.worldoftrash.game.domain.scoresystem;
     opens dk.sdu.worldoftrash.game.domain.scoresystem;

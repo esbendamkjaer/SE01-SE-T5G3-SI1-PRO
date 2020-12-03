@@ -1,4 +1,4 @@
-package dk.sdu.worldoftrash.game.presentation.gui.controllers;
+package dk.sdu.worldoftrash.game.presentation.gui.fxcontrollers;
 
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.TextLogArea;
