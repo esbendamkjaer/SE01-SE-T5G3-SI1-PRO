@@ -10,6 +10,8 @@
 
     <properties>
         <java.version>15</java.version>
+        <maven.compiler.release>15</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
