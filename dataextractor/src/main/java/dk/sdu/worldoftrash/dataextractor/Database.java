@@ -5,7 +5,6 @@ import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
@@ -99,33 +98,12 @@ public class Database {
         }
     }
 
-    public ScoreData getPatientDetails(String name) throws InterruptedException, ExecutionException {
-        Firestore dbFirestore = FirestoreClient.getFirestore();
-        DocumentReference documentReference = dbFirestore.collection(COL_NAME).document(name);
-        ApiFuture<DocumentSnapshot> future = documentReference.get();
-
-        DocumentSnapshot document = future.get();
-
-        ScoreData scoreData = null;
-
-        if(document.exists()) {
-            scoreData = document.toObject(ScoreData.class);
-            return scoreData;
-        }else {
-            return null;
+    public void closeDBConnection() {
+        try {
+            FirestoreClient.getFirestore().close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    }
-
-    public String updatePatientDetails(ScoreData scoreData) throws InterruptedException, ExecutionException {
-        Firestore dbFirestore = FirestoreClient.getFirestore();
-        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection(COL_NAME).document(scoreData.getUuid()).set(scoreData);
-        return collectionsApiFuture.get().getUpdateTime().toString();
-    }
-
-    public String deletePatient(String uuid) {
-        Firestore dbFirestore = FirestoreClient.getFirestore();
-        ApiFuture<WriteResult> writeResult = dbFirestore.collection(COL_NAME).document(uuid).delete();
-        return "Document with UUID " + uuid + " has been deleted";
     }
 
 }

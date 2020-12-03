@@ -18,6 +18,8 @@ public class Main {
             e.printStackTrace();
         }
 
+        database.closeDBConnection();
+
     }
 
 }
