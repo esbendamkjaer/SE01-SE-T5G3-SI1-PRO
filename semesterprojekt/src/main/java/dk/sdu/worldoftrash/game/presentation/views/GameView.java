@@ -72,7 +72,7 @@ public class GameView extends BaseView implements Initializable {
 
                 game.update(secondsSinceLastFrame);
 
-                renderer.render(game.getCurrentRoom(), game.getPlayer());
+                renderer.render(game);
             }
         };
         timer.start();
