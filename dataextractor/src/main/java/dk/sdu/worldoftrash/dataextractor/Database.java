@@ -12,7 +12,6 @@ import com.google.firebase.cloud.FirestoreClient;
 import dk.sdu.worldoftrash.dataextractor.data.ScoreData;
 import dk.sdu.worldoftrash.dataextractor.data.WasteType;
 
-import javax.swing.text.Document;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Iterator;
@@ -35,12 +34,6 @@ public class Database {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public String savePatientDetails(ScoreData scoreData) throws InterruptedException, ExecutionException {
-        Firestore dbFirestore = FirestoreClient.getFirestore();
-        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection(COL_NAME).document(scoreData.getUuid()).set(scoreData);
-        return collectionsApiFuture.get().getUpdateTime().toString();
     }
 
     public void test() throws ExecutionException, InterruptedException {

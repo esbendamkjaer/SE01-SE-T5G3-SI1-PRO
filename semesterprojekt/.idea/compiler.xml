@@ -12,8 +12,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="dataextractor" target="1.5" />
       <module name="game" target="15" />
-      <module name="dataextractor" target="15" />
       <module name="webserver" target="15" />
     </bytecodeTargetLevel>
   </component>
