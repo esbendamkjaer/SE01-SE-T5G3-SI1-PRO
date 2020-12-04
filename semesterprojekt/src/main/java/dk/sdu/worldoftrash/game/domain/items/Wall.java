@@ -12,9 +12,11 @@ public class Wall extends Item {
         setWidth(width);
         setHeight(height);
     }
-
+/*
     @Override
     public void render(GraphicsContext gc) {
         super.render(gc); gc.fillRect(getX(),getY(),getWidth(),getHeight());
     }
+
+ */
 }

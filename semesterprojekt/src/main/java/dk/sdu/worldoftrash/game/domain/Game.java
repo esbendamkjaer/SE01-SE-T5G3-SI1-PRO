@@ -461,7 +461,7 @@ public class Game {
         jam_jar.setImage(ImageIO.load("/images/trash/jamjar-kopi.png"));
         jam_jar.setScale(0.6f);
         jam_jar.fitToImage();
-        jam_jar.setPosition(550,590);
+        jam_jar.setPosition(545,590);
 
         nutella_glass.setImage(ImageIO.load("/images/trash/nutella.png"));
         nutella_glass.setScale(0.7f);
