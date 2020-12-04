@@ -49,7 +49,7 @@ public class LevelHandler {
                 level.setLocked(false);
                 getGame().getTextPrinter().printText(
                         "Congratulations!" +
-                        "\nYou have now sorted enough waste to unlock " + level.getName() + "!");
+                        "\n\nYou have now sorted enough waste to unlock " + level.getName() + "!");
 
                 setCurrentLevel(entry.getKey());
 
@@ -61,9 +61,9 @@ public class LevelHandler {
 
         if (wasteCount >= winningCondition) {
             getGame().getTextPrinter().printText("Congratulations, you have won the game by removing and sorting all the trash. Good job!" +
-                    String.format("\nYou ended with a score of %d points.\n", game.getScoreSystem().getScore()) +
-                    "\nHope you learnt something about sorting trash" +
-                    "\nTo close down the game type in the command ‘quit’");
+                    String.format("\n\nYou ended with a score of %d points.", game.getScoreSystem().getScore()) +
+                    "\n\nHope you learnt something about sorting trash" +
+                    "\n\nTo close down the game type in the command ‘quit’");
             getGame().getScoreSystem().onWin();
             game.getScoreSystem().saveData();
         }

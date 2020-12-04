@@ -25,12 +25,20 @@
                </padding>
             </Label>
             <TilePane fx:id="inventoryPane" hgap="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="150.0" prefColumns="3" prefRows="4" prefTileHeight="100.0" prefTileWidth="100.0" prefWidth="322.0" vgap="10.0" VBox.vgrow="ALWAYS" />
-            <TextArea fx:id="itemDescriptionArea" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="191.0" prefWidth="322.0" stylesheets="@../styles/itemInfo.css" wrapText="true">
+            <Label alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="326.0" text="Item info">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" right="10.0" />
+               </padding>
+            </Label>
+            <TextArea fx:id="itemDescriptionArea" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="213.0" prefWidth="322.0" stylesheets="@../styles/itemInfo.css" wrapText="true">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <font>
-                  <Font size="24.0" />
+                  <Font size="20.0" />
                </font>
                <opaqueInsets>
                   <Insets />
@@ -46,7 +54,7 @@
                <children>
                   <Label text="Your score: ">
                      <font>
-                        <Font size="20.0" />
+                        <Font size="24.0" />
                      </font>
                   </Label>
                   <Label fx:id="scoreLabel" text="0">

@@ -99,8 +99,9 @@ public class InventoryUI {
 
         List<Interactable> colliding = game.getCollisionsWithPlayer(Interactable.class);
 
+        Item item = game.getPlayer().getInventory().getItemAt(index);
+
         if (colliding.size() <= 0) {
-            Item item = game.getPlayer().getInventory().getItemAt(index);
             game.getPlayer().getInventory().removeItemAt(index);
             item.moveFromMid(game.getPlayer().getMidPoint());
             game.getCurrentRoom().addItem(item);
@@ -108,8 +109,8 @@ public class InventoryUI {
             return;
         }
 
-        colliding.get(0).giveItem(game.getPlayer().getInventory().getItemAt(index), game.getPlayer());
+        colliding.get(0).giveItem(item, game.getPlayer());
 
-        itemDescriptionArea.setText(game.getPlayer().getInventory().getItemAt(index).getDescription());
+        itemDescriptionArea.setText(item.getDescription());
     }
 }

@@ -104,7 +104,7 @@ public class Renderer {
                     item.getImage().getHeight() * item.getScale()
             );
         }
-        
+
         if (item instanceof Wall) {
             context.fillRect(item.getX(), item.getY(), item.getWidth(), item.getHeight());
         }
