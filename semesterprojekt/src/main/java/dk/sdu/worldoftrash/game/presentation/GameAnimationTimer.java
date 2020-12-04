@@ -12,18 +12,6 @@ public abstract class GameAnimationTimer extends AnimationTimer {
     private boolean playScheduled;
     private boolean restartScheduled;
 
-    public void pause() {
-        if (!isPaused()) {
-            pauseScheduled = true;
-        }
-    }
-
-    public void play() {
-        if (isPaused()) {
-            playScheduled = true;
-        }
-    }
-
     @Override
     public void start() {
         super.start();

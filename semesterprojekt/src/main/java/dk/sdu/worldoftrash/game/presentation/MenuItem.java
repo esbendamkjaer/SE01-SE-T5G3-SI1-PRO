@@ -13,7 +13,6 @@ import javafx.scene.text.Text;
 
 public class MenuItem extends Pane {
     private Text text;
-
     private Effect shadow = new DropShadow(5, Color.BLACK);
     private Effect blur = new BoxBlur(1, 1, 3);
 

@@ -10,7 +10,6 @@ import java.util.Map;
 public class SceneManager {
 
     private Stage stage;
-
     private Map<SceneName, SceneInfo> scenes;
 
     public SceneManager(Stage stage) {

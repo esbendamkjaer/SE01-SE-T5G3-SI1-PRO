@@ -9,13 +9,9 @@ import java.util.List;
 
 public class Game {
     private Room currentRoom;
-
     private ScoreSystem scoreSystem;
-
     private Player player;
-
     private IGameTextPrinter textPrinter;
-
     private double height;
     private double width;
 
@@ -29,8 +25,7 @@ public class Game {
 
         initObjects();
     }
-
-
+    
     /**
      * Initializes game world objects.
      */
@@ -53,7 +48,6 @@ public class Game {
         waste.setPosition(  waste.getWidth() * 3, waste.getHeight() * 3);
         start.addItem(waste);
         */
-
 
         // Baggrunde
         sortingRoom = new Room(this, "sortingRoom");
