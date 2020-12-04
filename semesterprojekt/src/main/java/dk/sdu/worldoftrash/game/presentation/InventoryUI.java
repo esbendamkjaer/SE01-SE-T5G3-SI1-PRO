@@ -1,9 +1,8 @@
-package dk.sdu.worldoftrash.game.presentation.gui;
+package dk.sdu.worldoftrash.game.presentation;
 
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.items.Interactable;
 import dk.sdu.worldoftrash.game.domain.items.Item;
-import dk.sdu.worldoftrash.game.domain.items.Player;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ListChangeListener.Change;
 import javafx.collections.ObservableList;
@@ -21,14 +20,12 @@ public class InventoryUI {
     private TilePane root;
     private Game game;
     private TextArea itemDescriptionArea;
-    private Player player;
 
-    private double iconSize = 64;
+    private double iconPixelSize = 64;
 
     public InventoryUI(TilePane inventoryTiles, TextArea itemDescriptionArea, Game game) {
         this.game = game;
         this.itemDescriptionArea = itemDescriptionArea;
-        this.player = game.getPlayer();
         this.root = inventoryTiles;
 
         game.getPlayer().getInventory().getItems().addListener((ListChangeListener<Item>) c -> {
@@ -43,7 +40,7 @@ public class InventoryUI {
     public void onInventoryChange(Change<Item> event) {
         root.getChildren().clear();
 
-        ObservableList<? extends Item> items = event.getList();
+        ObservableList<Item> items = event.getList();
 
         for (int i = 0; i < items.size(); i++) {
             Item item = items.get(i);
@@ -57,11 +54,11 @@ public class InventoryUI {
 
             double ratio = image.getWidth() / image.getHeight();
             if (image.getWidth() > image.getHeight()) {
-                icon.setFitWidth(iconSize);
-                icon.setFitHeight(iconSize / ratio);
+                icon.setFitWidth(iconPixelSize);
+                icon.setFitHeight(iconPixelSize / ratio);
             } else {
-                icon.setFitHeight(iconSize);
-                icon.setFitWidth(iconSize * ratio);
+                icon.setFitHeight(iconPixelSize);
+                icon.setFitWidth(iconPixelSize * ratio);
             }
             button.setGraphic(icon);
             button.setOnAction(e -> {onButtonEvent(e);});
@@ -82,7 +79,7 @@ public class InventoryUI {
     private void onButtonHoverChange(Button button, Boolean newValue) {
         if (newValue) {
             int index = button.getParent().getChildrenUnmodifiable().indexOf(button);
-            Item item = player.getInventory().getItemAt(index);
+            Item item = game.getPlayer().getInventory().getItemAt(index);
 
             itemDescriptionArea.setText(
                     item.getDescription()
@@ -103,14 +100,16 @@ public class InventoryUI {
         List<Interactable> colliding = game.getCollisionsWithPlayer(Interactable.class);
 
         if (colliding.size() <= 0) {
-            Item item = player.getInventory().getItemAt(index);
-            player.getInventory().removeItemAt(index);
+            Item item = game.getPlayer().getInventory().getItemAt(index);
+            game.getPlayer().getInventory().removeItemAt(index);
             item.moveFromMid(game.getPlayer().getMidPoint());
             game.getCurrentRoom().addItem(item);
 
             return;
         }
 
-        colliding.get(0).giveItem(player.getInventory().getItemAt(index), game.getPlayer());
+        colliding.get(0).giveItem(game.getPlayer().getInventory().getItemAt(index), game.getPlayer());
+
+        itemDescriptionArea.setText(game.getPlayer().getInventory().getItemAt(index).getDescription());
     }
 }

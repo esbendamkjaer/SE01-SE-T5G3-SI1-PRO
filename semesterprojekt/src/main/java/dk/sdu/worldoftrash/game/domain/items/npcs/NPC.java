@@ -6,7 +6,6 @@ import dk.sdu.worldoftrash.game.domain.items.Interactable;
 import dk.sdu.worldoftrash.game.domain.items.Item;
 import dk.sdu.worldoftrash.game.domain.items.Player;
 
-
 public abstract class NPC extends Item implements Interactable {
 
     private Inventory inventory;
@@ -22,7 +21,7 @@ public abstract class NPC extends Item implements Interactable {
     public abstract void talk();
 
     /**
-     * Execute action of an NPC given an item.
+     * Execute action of an NPC given an Item object.
      * @param item Item to give to the NPC.
      * @return Whether the NPC accepted the item or not.
      */

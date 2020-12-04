@@ -1,4 +1,4 @@
-package dk.sdu.worldoftrash.game.presentation.gui;
+package dk.sdu.worldoftrash.game.presentation;
 
 import javafx.scene.canvas.Canvas;
 

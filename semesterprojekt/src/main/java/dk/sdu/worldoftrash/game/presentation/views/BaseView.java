@@ -1,9 +1,9 @@
-package dk.sdu.worldoftrash.game.presentation.gui.controllers;
+package dk.sdu.worldoftrash.game.presentation.views;
 
-import dk.sdu.worldoftrash.game.presentation.gui.SceneManager;
+import dk.sdu.worldoftrash.game.presentation.SceneManager;
 import javafx.stage.Stage;
 
-public class BaseController {
+public class BaseView {
 
     private SceneManager sceneManager;
     private Stage stage;

@@ -1,7 +1,8 @@
-package dk.sdu.worldoftrash.game.presentation.gui.controllers;
+package dk.sdu.worldoftrash.game.presentation.views;
 
-import dk.sdu.worldoftrash.game.dal.ImageIO;
+import dk.sdu.worldoftrash.game.domain.Img;
 import dk.sdu.worldoftrash.game.domain.SortingListener;
+import dk.sdu.worldoftrash.game.domain.Sound;
 import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,7 +14,7 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ResponseController extends BaseController implements SortingListener, Initializable {
+public class ResponseView extends BaseView implements SortingListener, Initializable {
 
     private Image correctSort, wrongSort, correctRinse, wrongRinse, winningCrown;
 
@@ -29,12 +30,21 @@ public class ResponseController extends BaseController implements SortingListene
     public void onCorrect() {
         responseImage.setImage(correctSort);
         scaleTransition();
+        Sound.playSound("/sounds/ding.mp3");
     }
 
     @Override
     public void onWrong() {
         responseImage.setImage(wrongSort);
         scaleTransition();
+        Sound.playSound("/sounds/buzz.mp3");
+    }
+
+    @Override
+    public void onWin() {
+        responseImage.setImage(winningCrown);
+        scaleTransition();
+        Sound.playSound("/sounds/win_sound.mp3");
     }
 
     @Override
@@ -45,12 +55,6 @@ public class ResponseController extends BaseController implements SortingListene
     @Override
     public void onWrongRinse() {
         responseImage.setImage(wrongRinse);
-    }
-
-    @Override
-    public void onWin() {
-        responseImage.setImage(winningCrown);
-        scaleTransition();
     }
 
     public void scaleTransition() {
@@ -74,9 +78,9 @@ public class ResponseController extends BaseController implements SortingListene
         scaleTransition.setToX(1);
         scaleTransition.setToY(1);
 
-        correctSort = ImageIO.load("/images/icons/thumbs-up-solid.png");
-        wrongSort = ImageIO.load("/images/icons/thumbs-down-solid.png");
-        winningCrown = ImageIO.load("/images/icons/crown_solid.png");
+        correctSort = Img.load("/images/icons/thumbs-up-solid.png");
+        wrongSort = Img.load("/images/icons/thumbs-down-solid.png");
+        winningCrown = Img.load("/images/icons/crown_solid.png");
 
     }
 }

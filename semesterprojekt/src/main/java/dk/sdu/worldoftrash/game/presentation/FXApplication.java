@@ -1,10 +1,9 @@
-package dk.sdu.worldoftrash.game.presentation.gui;
+package dk.sdu.worldoftrash.game.presentation;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ResourceBundle;
 
 public class FXApplication extends Application {
 
@@ -19,18 +18,16 @@ public class FXApplication extends Application {
         primaryStage.setTitle("Titel");
         primaryStage.centerOnScreen();
 
-        ResourceBundle resourceBundle = ResourceBundle.getBundle("lang");
-
-        createScene(SceneName.START_SCENE, resourceBundle);
-        createScene(SceneName.GAME_SCENE, resourceBundle);
+        createScene(SceneName.START_SCENE);
+        createScene(SceneName.GAME_SCENE);
 
         sceneManager.changeScene(SceneName.START_SCENE);
 
         primaryStage.show();
     }
 
-    public void createScene(SceneName sceneName, ResourceBundle resourceBundle) throws IOException {
-        SceneInfo sceneInfo = new SceneInfo(sceneName.getFxmlPath(), sceneManager, resourceBundle, primaryStage);
+    public void createScene(SceneName sceneName) throws IOException {
+        SceneInfo sceneInfo = new SceneInfo(sceneName.getFxmlPath(), sceneManager, primaryStage);
 
         sceneManager.addScene(sceneName, sceneInfo);
     }

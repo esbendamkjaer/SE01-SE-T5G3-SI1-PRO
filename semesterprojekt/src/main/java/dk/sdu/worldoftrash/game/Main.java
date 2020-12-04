@@ -1,6 +1,6 @@
 package dk.sdu.worldoftrash.game;
 
-import dk.sdu.worldoftrash.game.presentation.gui.FXApplication;
+import dk.sdu.worldoftrash.game.presentation.FXApplication;
 import javafx.application.Application;
 
 public class Main {

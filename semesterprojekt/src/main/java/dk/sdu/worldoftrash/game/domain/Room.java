@@ -1,7 +1,6 @@
-package dk.sdu.worldoftrash.game.domain.rooms;
+package dk.sdu.worldoftrash.game.domain;
 
 import com.google.gson.Gson;
-import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.items.Item;
 import dk.sdu.worldoftrash.game.domain.items.Key;
 import dk.sdu.worldoftrash.game.domain.items.Wall;

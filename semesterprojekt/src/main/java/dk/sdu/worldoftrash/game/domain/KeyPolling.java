@@ -1,4 +1,4 @@
-package dk.sdu.worldoftrash.game.presentation.gui;
+package dk.sdu.worldoftrash.game.domain;
 
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
@@ -64,14 +64,5 @@ public class KeyPolling {
      */
     public boolean isDown(KeyCode keyCode) {
         return keysCurrentlyDown.contains(keyCode);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder keysDown = new StringBuilder("KeyPolling on scene (").append(scene).append(")");
-        for (KeyCode code : keysCurrentlyDown) {
-            keysDown.append(code.getName()).append(" ");
-        }
-        return keysDown.toString();
     }
 }

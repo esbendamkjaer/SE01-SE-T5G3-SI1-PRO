@@ -1,5 +1,6 @@
-package dk.sdu.worldoftrash.game.domain;
+package dk.sdu.worldoftrash.game.presentation;
 
+import dk.sdu.worldoftrash.game.domain.IGameTextPrinter;
 import javafx.scene.control.TextArea;
 
 public class TextLogArea implements IGameTextPrinter {

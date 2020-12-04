@@ -1,8 +1,8 @@
-package dk.sdu.worldoftrash.game.dal;
+package dk.sdu.worldoftrash.game.domain;
 
 import javafx.scene.image.Image;
 
-public class ImageIO {
+public class Img {
 
     /**
      * Load an image resource by given path.
@@ -10,7 +10,7 @@ public class ImageIO {
      * @return Image object.
      */
     public static Image load(String path) {
-        return new Image(ImageIO.class.getResourceAsStream(path));
+        return new Image(Img.class.getResourceAsStream(path));
     }
 
 }

@@ -1,6 +1,5 @@
 package dk.sdu.worldoftrash.game.domain.items;
 
-import dk.sdu.worldoftrash.game.dal.SoundIO;
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.WasteType;
 
@@ -21,18 +20,16 @@ public class WasteContainer extends Item implements Interactable {
      */
     public boolean giveWaste(Waste waste){
         if (!waste.isClean()) {
-            getGame().getTextLogArea().printText("Clean your " + waste.getName() + " before you sort it.");
-            getGame().getTextLogArea().printText("Penalty of -50 points.");
+            getGame().getTextPrinter().printText("Clean your " + waste.getName() + " before you sort it.");
+            getGame().getTextPrinter().printText("Penalty of -50 points.");
             getGame().getScoreSystem().addPoints(-50);
             return false;
         }
         if (checkWaste(waste)) {
             getGame().getScoreSystem().onCorrect(waste);
-            SoundIO.playSound("/sounds/ding.mp3");
         } else {
             getGame().getScoreSystem().onWrong(waste);
-            getGame().getTextLogArea().printText(String.format("'%s' does not belong in this container because %s.", waste.getName(), waste.getWrongSorting()));
-            SoundIO.playSound("/sounds/buzz.mp3");
+            getGame().getTextPrinter().printText(String.format("'%s' does not belong in this container because %s.", waste.getName(), waste.getWrongSorting()));
             waste.setWronglySorted(true);
             return false;
         }
@@ -50,7 +47,7 @@ public class WasteContainer extends Item implements Interactable {
 
     @Override
     public void interact(Player player) {
-        getGame().getTextLogArea().printText("Click an item in your inventory to drop it in the container.");
+        getGame().getTextPrinter().printText("Click an item in your inventory to drop it in the container.");
     }
 
     @Override
@@ -60,7 +57,7 @@ public class WasteContainer extends Item implements Interactable {
                 player.getInventory().removeItem(item);
             }
         } else {
-            getGame().getTextLogArea().printText("You can only drop waste in a waste container");
+            getGame().getTextPrinter().printText("You can only drop waste in a waste container");
         }
     }
 }

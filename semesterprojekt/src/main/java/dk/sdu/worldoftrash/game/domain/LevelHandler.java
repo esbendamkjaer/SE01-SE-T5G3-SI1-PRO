@@ -1,7 +1,5 @@
 package dk.sdu.worldoftrash.game.domain;
 
-import dk.sdu.worldoftrash.game.domain.rooms.Room;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -49,24 +47,24 @@ public class LevelHandler {
 
             if (level.isLocked() && wasteCount >= entry.getValue()) {
                 level.setLocked(false);
-                getGame().getTextLogArea().printText("Congratulations!");
-                getGame().getTextLogArea().printText("You have now sorted enough waste to unlock " + level.getName() + "!");
+                getGame().getTextPrinter().printText("Congratulations!");
+                getGame().getTextPrinter().printText("You have now sorted enough waste to unlock " + level.getName() + "!");
 
                 setCurrentLevel(entry.getKey());
 
-                game.getScoreSystem().uploadData();
+                game.getScoreSystem().saveData();
 
                 iterator.remove();
             }
         }
 
         if (wasteCount >= winningCondition) {
-            getGame().getTextLogArea().printText("Congratulations, you have won the game by removing and sorting all the trash. Good job!");
-            getGame().getTextLogArea().printText(String.format("You ended with a score of %d points.\n", game.getScoreSystem().getScore()));
-            getGame().getTextLogArea().printText("Hope you learnt something about sorting trash");
-            getGame().getTextLogArea().printText("To close down the game type in the command ‘quit’");
+            getGame().getTextPrinter().printText("Congratulations, you have won the game by removing and sorting all the trash. Good job!");
+            getGame().getTextPrinter().printText(String.format("You ended with a score of %d points.\n", game.getScoreSystem().getScore()));
+            getGame().getTextPrinter().printText("Hope you learnt something about sorting trash");
+            getGame().getTextPrinter().printText("To close down the game type in the command ‘quit’");
             getGame().getScoreSystem().onWin();
-            game.getScoreSystem().uploadData();
+            game.getScoreSystem().saveData();
         }
     }
 

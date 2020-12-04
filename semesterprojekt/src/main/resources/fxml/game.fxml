@@ -11,8 +11,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import dk.sdu.worldoftrash.game.presentation.gui.GameCanvas?>
-<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.sdu.worldoftrash.game.presentation.gui.controllers.GameController">
+<?import dk.sdu.worldoftrash.game.presentation.GameCanvas?>
+<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.sdu.worldoftrash.game.presentation.views.GameView">
    <left>
       <VBox prefHeight="928.0" prefWidth="322.0" BorderPane.alignment="CENTER">
          <children>
@@ -25,10 +25,16 @@
                </padding>
             </Label>
             <TilePane fx:id="inventoryPane" hgap="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="150.0" prefColumns="3" prefRows="4" prefTileHeight="100.0" prefTileWidth="100.0" prefWidth="322.0" vgap="10.0" VBox.vgrow="ALWAYS" />
-            <TextArea fx:id="itemDescriptionArea" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="314.0" wrapText="true">
+            <TextArea fx:id="itemDescriptionArea" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="191.0" prefWidth="322.0" stylesheets="@../styles/itemInfo.css" wrapText="true">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </TextArea>
          </children>
       </VBox>
@@ -40,7 +46,7 @@
                <children>
                   <Label text="Your score: ">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <Label fx:id="scoreLabel" text="0">

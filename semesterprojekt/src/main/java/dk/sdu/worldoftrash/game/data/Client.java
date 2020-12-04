@@ -1,4 +1,4 @@
-package dk.sdu.worldoftrash.game.dal;
+package dk.sdu.worldoftrash.game.data;
 
 import com.google.gson.Gson;
 import dk.sdu.worldoftrash.game.domain.scoresystem.ScoreData;
@@ -9,7 +9,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 
-public class Client {
+public class Client implements DataAccess {
 
     private HttpClient httpClient;
     private String url;
@@ -51,4 +51,8 @@ public class Client {
         });
     }
 
+    @Override
+    public void saveData(ScoreData data) {
+        sendScoreData(data);
+    }
 }

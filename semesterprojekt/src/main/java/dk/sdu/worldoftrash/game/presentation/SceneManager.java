@@ -1,5 +1,6 @@
-package dk.sdu.worldoftrash.game.presentation.gui;
+package dk.sdu.worldoftrash.game.presentation;
 
+import dk.sdu.worldoftrash.game.domain.KeyPolling;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
