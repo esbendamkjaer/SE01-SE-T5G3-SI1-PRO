@@ -92,7 +92,7 @@ public class Room
         return items;
     }
 
-    public void update(float delta) {
+    public void update(double delta) {
         for (Item item : items) {
             item.update(delta);
         }

@@ -67,7 +67,7 @@ public class GameView extends BaseView implements Initializable {
 
         GameAnimationTimer timer = new GameAnimationTimer() {
             @Override
-            public void tick(float secondsSinceLastFrame) {
+            public void update(double secondsSinceLastFrame) {
                 renderer.prepare();
 
                 game.update(secondsSinceLastFrame);

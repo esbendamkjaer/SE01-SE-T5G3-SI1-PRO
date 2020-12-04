@@ -15,15 +15,18 @@ public class Sink extends Item implements Usable {
      */
     public boolean washItem(Waste waste) {
         if (waste.isClean()) {
-            getGame().getTextPrinter().printText("This item is not washable.");
-            getGame().getTextPrinter().printText("Penalty of -50 points.");
+            getGame().getTextPrinter().printText(
+                    "This item is not washable." +
+                    "\n\nPenalty of -50 points.");
             getGame().getScoreSystem().addPoints(-50);
+            getGame().getScoreSystem().onWrongRinse();
             return false;
         }
 
         waste.setClean(true);
 
         getGame().getTextPrinter().printText(String.format("You use some excess dishwater to clean the %s.", waste.getName()));
+        getGame().getScoreSystem().onCorrectRinse();
         return true;
     }
 

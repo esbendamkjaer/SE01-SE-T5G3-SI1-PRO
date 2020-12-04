@@ -1008,7 +1008,7 @@ public class Game {
      * Called before every frame render.
      * @param delta Time since last frame.
      */
-    public void update(float delta) {
+    public void update(double delta) {
         getCurrentRoom().update(delta);
         player.update(delta);
     }
@@ -1057,16 +1057,8 @@ public class Game {
         return this.height;
     }
 
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
     public double getWidth() {
         return width;
-    }
-
-    public void setWidth(double width) {
-        this.width = width;
     }
 
     public IGameTextPrinter getTextPrinter() {return textPrinter;}
