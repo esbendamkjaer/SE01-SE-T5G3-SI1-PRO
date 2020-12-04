@@ -608,7 +608,7 @@ public class Game {
         repMorg.setWidth(45);
         repMorg.setHeight(64);
         repMorg.autoScale();
-        repMorg.setPosition(24, 338);
+        repMorg.setPosition(24, 370);
 
         Door repOp = new Door(this, "Reception", reception);
         repOp.setImage(Img.load("/images/items/ArrowRight.png"));
