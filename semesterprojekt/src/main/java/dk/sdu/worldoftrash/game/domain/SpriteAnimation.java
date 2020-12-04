@@ -2,6 +2,7 @@ package dk.sdu.worldoftrash.game.domain;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.shape.Rectangle;
 
 public class SpriteAnimation {
 
@@ -38,12 +39,12 @@ public class SpriteAnimation {
         count = count % cols + speed * delta;
     }
 
-    public void drawImage(GraphicsContext gc, double x, double y, double width, double height) {
+    public Rectangle getSubImageRect() {
         int index = (int) count;
         int sx = index * colWidth;
         int sy = row * rowHeight;
 
-        gc.drawImage(image, sx, sy, colWidth, rowHeight, x, y, width, height);
+        return new Rectangle(sx, sy, colWidth, rowHeight);
     }
 
     public Image getImage() {
