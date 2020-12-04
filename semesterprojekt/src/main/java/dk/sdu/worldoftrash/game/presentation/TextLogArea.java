@@ -16,7 +16,7 @@ public class TextLogArea implements IGameTextPrinter {
      * @param text
      */
     public void printText(String text) {
-        textLogArea.appendText("**" + text + "**" + "\n\n");
+        textLogArea.appendText("***************************\n\n" + text + "\n\n");
     }
 
 }
