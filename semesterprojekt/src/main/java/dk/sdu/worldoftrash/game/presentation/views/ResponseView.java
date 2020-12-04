@@ -2,7 +2,7 @@ package dk.sdu.worldoftrash.game.presentation.views;
 
 import dk.sdu.worldoftrash.game.domain.Img;
 import dk.sdu.worldoftrash.game.domain.SortingListener;
-import dk.sdu.worldoftrash.game.domain.Sound;
+import dk.sdu.worldoftrash.game.presentation.Sound;
 import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class ResponseView extends BaseView implements SortingListener, Initializable {
 
-    private Image correctSort, wrongSort, correctRinse, wrongRinse, winningCrown;
+    private Image thumbsUp, thumbsDown, crown;
 
     private ScaleTransition scaleTransition;
 
@@ -28,33 +28,35 @@ public class ResponseView extends BaseView implements SortingListener, Initializ
 
     @Override
     public void onCorrect() {
-        responseImage.setImage(correctSort);
+        responseImage.setImage(thumbsUp);
         scaleTransition();
         Sound.playSound("/sounds/ding.mp3");
     }
 
     @Override
     public void onWrong() {
-        responseImage.setImage(wrongSort);
+        responseImage.setImage(thumbsDown);
         scaleTransition();
         Sound.playSound("/sounds/buzz.mp3");
     }
 
     @Override
     public void onWin() {
-        responseImage.setImage(winningCrown);
+        responseImage.setImage(crown);
         scaleTransition();
         Sound.playSound("/sounds/win_sound.mp3");
     }
 
     @Override
     public void onCorrectRinse() {
-        responseImage.setImage(correctRinse);
+        responseImage.setImage(thumbsUp);
+        scaleTransition();
     }
 
     @Override
     public void onWrongRinse() {
-        responseImage.setImage(wrongRinse);
+        responseImage.setImage(thumbsDown);
+        scaleTransition();
     }
 
     public void scaleTransition() {
@@ -78,9 +80,9 @@ public class ResponseView extends BaseView implements SortingListener, Initializ
         scaleTransition.setToX(1);
         scaleTransition.setToY(1);
 
-        correctSort = Img.load("/images/icons/thumbs-up-solid.png");
-        wrongSort = Img.load("/images/icons/thumbs-down-solid.png");
-        winningCrown = Img.load("/images/icons/crown_solid.png");
+        thumbsUp = Img.load("/images/icons/thumbs-up-solid.png");
+        thumbsDown = Img.load("/images/icons/thumbs-down-solid.png");
+        crown = Img.load("/images/icons/crown_solid.png");
 
     }
 }
