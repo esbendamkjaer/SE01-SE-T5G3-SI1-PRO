@@ -2,10 +2,7 @@ package dk.sdu.worldoftrash.game.presentation;
 
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.Img;
-import dk.sdu.worldoftrash.game.domain.items.Door;
-import dk.sdu.worldoftrash.game.domain.items.Interactable;
-import dk.sdu.worldoftrash.game.domain.items.Item;
-import dk.sdu.worldoftrash.game.domain.items.Player;
+import dk.sdu.worldoftrash.game.domain.items.*;
 import dk.sdu.worldoftrash.game.domain.Room;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
@@ -96,6 +93,7 @@ public class Renderer {
      * @param item Item to render.
      */
     public void renderItem(Item item) {
+
         if (item.getImage() != null) {
             Point2D pos = item.getPosition();
             context.drawImage(
@@ -105,6 +103,10 @@ public class Renderer {
                     item.getImage().getWidth() * item.getScale(),
                     item.getImage().getHeight() * item.getScale()
             );
+        }
+        
+        if (item instanceof Wall) {
+            context.fillRect(item.getX(), item.getY(), item.getWidth(), item.getHeight());
         }
     }
 
