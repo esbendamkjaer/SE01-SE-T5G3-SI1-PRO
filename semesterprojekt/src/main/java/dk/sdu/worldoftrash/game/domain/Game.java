@@ -984,12 +984,10 @@ public class Game {
 
     /*** Prints out a welcome message.***/
     public void printWelcome() {
-        textPrinter.printText("Welcome to the World of Trash!!!");
-        textPrinter.printText("The world has been through an apocalypse caused by massive amounts of trash and is in need of a hero. " +
-                "This is an incredibly exciting adventure game.");
-        textPrinter.printText("You are in your home. The beginning of your trashy adventure");
-        textPrinter.printText("A man greets you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin\"");
-        textPrinter.printText("\"You must help us save the planet! Now follow me into the next room if you want to survive. " +
+        textPrinter.printText("Welcome to the World of Trash!!! \n\nThe world has been through an apocalypse caused by massive amounts of trash and is in need of a hero. " +
+                "This is an incredibly exciting adventure game. \n\nYou are in your home. The beginning of your trashy adventure A man greets " +
+                "you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin\" \n\n\"You must help us save the " +
+                "planet! Now follow me into the next room if you want to survive. " +
                 "You can go to the next room pressing X on the green arrow, and talk using X when you are near me\"");
 
     }
