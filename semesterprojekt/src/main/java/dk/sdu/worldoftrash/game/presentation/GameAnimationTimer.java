@@ -98,5 +98,5 @@ public abstract class GameAnimationTimer extends AnimationTimer {
         this.playScheduled = playScheduled;
     }
 
-    public abstract void tick(float secondsSinceLastFrame);
+    public abstract void tick(double secondsSinceLastFrame);
 }

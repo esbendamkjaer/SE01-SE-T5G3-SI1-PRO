@@ -1014,7 +1014,7 @@ public class Game {
      * Called before every frame render.
      * @param delta Time since last frame.
      */
-    public void update(float delta) {
+    public void update(double delta) {
         getCurrentRoom().update(delta);
         player.update(delta);
     }
