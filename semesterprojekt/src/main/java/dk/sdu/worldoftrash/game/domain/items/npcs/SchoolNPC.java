@@ -15,17 +15,18 @@ public class SchoolNPC extends NPC {
     @Override
     public void talk() {
         if (getInventory().hasItems(fertilizer)) {
-            getGame().getTextPrinter().printText("\"Oi laddie! Ya got me fertilizer from that twat janitor, hoarding the stuff likes there being no ‘morrow. " +
-                    "Well, we’ll see, we will\"");
-            getGame().getTextPrinter().printText("\"Ya know, I found one of those perfume bottles. They’re not like those frigging deodorant! " +
-                    "They explode when heated! not perfume bottles though they’re boooooring\"");
-            getGame().getTextPrinter().printText("\"Ya know if ya rinse those things and put ‘em in GLASS-CONTAINERS they can be recycled, no fun though\"");
-            getGame().getTextPrinter().printText("\"Well, I’m off to start the post-post-apocalypse\"");
+            getGame().getTextPrinter().printText(
+                    "\"Oi laddie! Ya got me fertilizer from that twat janitor, hoarding the stuff likes there being no ‘morrow. " +
+                    "Well, we’ll see, we will\"" +
+                    "\n\"Ya know, I found one of those perfume bottles. They’re not like those frigging deodorant! " +
+                    "They explode when heated! not perfume bottles though they’re boooooring\"" +
+                    "\n\"Ya know if ya rinse those things and put ‘em in GLASS-CONTAINERS they can be recycled, no fun though\"" +
+                    "\n\"Well, I’m off to start the post-post-apocalypse\"");
         } else {
-            getGame().getTextPrinter().printText("\"Lally-ho! What ya doin' there laddie? Ya runnin’ favors for that twit Martin eh? If ye’re runnin’ favors mindin’ runnin’" +
-                    " me one too eh, laddie?\"");
-            getGame().getTextPrinter().printText("\"Ya know, I’m working on fixin’ this place up and not just this mess of a school but Odense too\"");
-            getGame().getTextPrinter().printText("\"If ya steal me FERTILIZER from the janitor outside I’ma fix this place up real nice, pretty and everythin’\"");
+            getGame().getTextPrinter().printText(
+                    "\"Lally-ho! What ya doin' there laddie? Ya runnin’ favors for that twit Martin eh? If ye’re runnin’ favors mindin’ runnin’ me one too eh, laddie?\"" +
+                    "\n\"Ya know, I’m working on fixin’ this place up and not just this mess of a school but Odense too\"" +
+                    "\n\"If ya steal me FERTILIZER from the janitor outside I’ma fix this place up real nice, pretty and everythin’\"");
         }
     }
 
@@ -33,12 +34,11 @@ public class SchoolNPC extends NPC {
     public boolean giveItem(Item item) {
         if (item == fertilizer) {
             getInventory().storeItem(item);
-            getGame().getTextPrinter().printText("\"Oi laddie! Ya got me fertilizer from that twat janitor, hoarding the stuff likes there being no ‘morrow. " +
-                    "Well, we’ll see, we will\"");
-            getGame().getTextPrinter().printText("\"Ya know, I found one of those perfume bottles. They’re not like those frigging deodorant! They explode when heated! " +
-                    "not perfume bottles though they’re boooooring\"");
-            getGame().getTextPrinter().printText("\"Ya know if ya rinse those things and put ‘em in GLASS-CONTAINERS they can be recycled, no fun though\"");
-            getGame().getTextPrinter().printText("\"Well, I’m off to start the post-post-apocalypse\"");
+            getGame().getTextPrinter().printText(
+                    "\"Oi laddie! Ya got me fertilizer from that twat janitor, hoarding the stuff likes there being no ‘morrow. Well, we’ll see, we will\"" +
+                    "\n\"Ya know, I found one of those perfume bottles. They’re not like those frigging deodorant! They explode when heated! not perfume bottles though they’re boooooring\"" +
+                    "\n\"Ya know if ya rinse those things and put ‘em in GLASS-CONTAINERS they can be recycled, no fun though\"" +
+                    "\n\"Well, I’m off to start the post-post-apocalypse\"");
             return true;
         } else {
             getGame().getTextPrinter().printText("\"This ain't the kind of fertilizer i need!\"");
