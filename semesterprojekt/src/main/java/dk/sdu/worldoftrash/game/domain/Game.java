@@ -42,7 +42,7 @@ public class Game {
 
         //Rooms
         start = new Room(this, "start");
-        start.loadWalls("/maps/start.json");
+        start.loadWalls("/collisionMaps/main/start.json");
         start.setBackground(Img.load("/images/maps/main/start.png"));
 
         /*
@@ -57,67 +57,67 @@ public class Game {
 
         // Baggrunde
         sortingRoom = new Room(this, "sortingRoom");
-        sortingRoom.loadWalls("/maps/sorting_room.json");
+        sortingRoom.loadWalls("/collisionMaps/main/sorting_room.json");
         sortingRoom.setBackground(Img.load("/images/maps/main/sorting_room.png"));
 
         city = new Room(this, "city");
-        city.loadWalls("/maps/city.json");
+        city.loadWalls("/collisionMaps/main/city.json");
         city.setBackground(Img.load("/images/maps/main/city.png"));
 
         supermarket = new Room(this, "supermarket");
-        supermarket.loadWalls("/maps/supermarket.json");
+        supermarket.loadWalls("/collisionMaps/supermarket/supermarket.json");
         supermarket.setBackground(Img.load("/images/maps/supermarket/supermarket.png"));
 
         office = new Room(this, "office");
-        office.loadWalls("/maps/office.json");
+        office.loadWalls("/collisionMaps/supermarket/office.json");
         office.setBackground(Img.load("/images/maps/supermarket/office.png"));
 
         storageRoom = new Room(this, "storageRoom");
-        storageRoom.loadWalls("/maps/storage_room.json");
+        storageRoom.loadWalls("/collisionMaps/supermarket/storage_room.json");
         storageRoom.setBackground(Img.load("/images/maps/supermarket/storage_rom.png"));
 
         parkinglot = new Room(this, "parking-lot");
-        parkinglot.loadWalls("/maps/parking_lot.json");
+        parkinglot.loadWalls("/collisionMaps/supermarket/parking_lot.json");
         parkinglot.setBackground(Img.load("/images/maps/supermarket/parking_lot.png"));
 
         hospitalOutside = new Room(this, "hospital-outside");
-        hospitalOutside.loadWalls("/maps/outside_hospital.json");
+        hospitalOutside.loadWalls("/collisionMaps/hospital/outside_hospital.json");
         hospitalOutside.setBackground(Img.load("/images/maps/hospital/outside_hospital.png"));
 
         reception = new Room(this, "reception");
-        reception.loadWalls("/maps/reception.json");
+        reception.loadWalls("/collisionMaps/hospital/reception.json");
         reception.setBackground(Img.load("/images/maps/hospital/hospital_reception.png"));
 
         operatingRoom = new Room(this, "operating-room");
-        operatingRoom.loadWalls("/maps/operations_room.json");
+        operatingRoom.loadWalls("/collisionMaps/hospital/operations_room.json");
         operatingRoom.setBackground(Img.load("/images/maps/hospital/operations_room.png"));
 
         morgue = new Room(this, "morgue");
-        morgue.loadWalls("/maps/morgue.json");
+        morgue.loadWalls("/collisionMaps/hospital/morgue.json");
         morgue.setBackground(Img.load("/images/maps/hospital/morgue.png"));
 
         canteen = new Room(this, "canteen");
-        canteen.loadWalls("/maps/canteen.json");
+        canteen.loadWalls("/collisionMaps/hospital/canteen.json");
         canteen.setBackground(Img.load("/images/maps/hospital/canteen.png"));
 
         schoolOutside = new Room(this, "school-outside");
-        schoolOutside.loadWalls("/maps/outside_school.json");
+        schoolOutside.loadWalls("/collisionMaps/school/outside_school.json");
         schoolOutside.setBackground(Img.load("/images/maps/school/outside_school.png"));
 
         teachersLounge = new Room(this, "teachers-lounge");
-        teachersLounge.loadWalls("/maps/teachers_lounge.json");
-        teachersLounge.setBackground(Img.load("/images/maps/school/Teacher's_lounge1.0.png"));
+        teachersLounge.loadWalls("/collisionMaps/school/teachers_lounge.json");
+        teachersLounge.setBackground(Img.load("/images/maps/school/teachers_lounge.png"));
 
         chemistryRoom = new Room(this, "chemistry-room");
-        chemistryRoom.loadWalls("/maps/chemistry_room.json");
+        chemistryRoom.loadWalls("/collisionMaps/school/chemistry_room.json");
         chemistryRoom.setBackground(Img.load("/images/maps/school/chemistry_room.png"));
 
         classRooms = new Room(this, "class-rooms");
-        classRooms.loadWalls("/maps/school_gym.json");
+        classRooms.loadWalls("/collisionMaps/school/school_gym.json");
         classRooms.setBackground(Img.load("/images/maps/school/school_gym.png"));
 
         girlsLockerRoom = new Room(this, "girls-locker-room");
-        girlsLockerRoom.loadWalls("/maps/girls_locker_room.json");
+        girlsLockerRoom.loadWalls("/collisionMaps/school/girls_locker_room.json");
         girlsLockerRoom.setBackground(Img.load("/images/maps/school/girls_locker_room.png"));
 
         //**************************************** Waste objects - Start ***********************************************
