@@ -109,5 +109,7 @@ public class InventoryUI {
         }
 
         colliding.get(0).giveItem(game.getPlayer().getInventory().getItemAt(index), game.getPlayer());
+
+        itemDescriptionArea.setText(game.getPlayer().getInventory().getItemAt(index).getDescription());
     }
 }

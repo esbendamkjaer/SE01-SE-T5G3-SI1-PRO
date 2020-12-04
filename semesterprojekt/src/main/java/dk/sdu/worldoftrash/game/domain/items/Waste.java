@@ -57,8 +57,8 @@ public class Waste extends Item implements Pickupable {
     @Override
     public String getDescription() {
         return
-                super.getDescription() + "\n" +
-                "Clean: " + isClean();
+                super.getDescription() +
+                        (clean ? "" : "\nIs dripping and needs cleaning");
     }
 
     public boolean isWronglySorted() {
