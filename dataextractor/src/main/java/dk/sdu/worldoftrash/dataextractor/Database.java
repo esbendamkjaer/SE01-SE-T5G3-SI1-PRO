@@ -66,6 +66,8 @@ public class Database {
 
             System.out.println(scoreData.getUuid());
 
+            //if (scoreData.getLevels().size() < 3) break;
+
             for (Map.Entry<String, LevelData> levelEntry : scoreData.getLevels().entrySet()) {
                 String levelName = levelEntry.getKey();
                 LevelData levelData = levelEntry.getValue();
