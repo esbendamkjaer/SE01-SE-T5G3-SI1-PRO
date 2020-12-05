@@ -13,7 +13,7 @@ public class FXApplication extends Application {
         this.primaryStage = primaryStage;
         this.sceneManager = new SceneManager(primaryStage);
 
-        primaryStage.setTitle("Titel");
+        primaryStage.setTitle("World of Trash");
         primaryStage.centerOnScreen();
 
         createScene(SceneName.START_SCENE);
