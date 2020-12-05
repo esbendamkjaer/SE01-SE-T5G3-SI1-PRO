@@ -8,11 +8,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="webserver" />
         <module name="game" />
+        <module name="dataextractor" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="dataextractor" target="15" />
       <module name="game" target="15" />
-      <module name="semesterprojekt" target="15" />
       <module name="webserver" target="15" />
     </bytecodeTargetLevel>
   </component>
