@@ -3,6 +3,7 @@ package dk.sdu.worldoftrash.game.domain;
 import dk.sdu.worldoftrash.game.domain.items.*;
 import dk.sdu.worldoftrash.game.domain.items.npcs.*;
 import dk.sdu.worldoftrash.game.domain.scoresystem.ScoreSystem;
+import javafx.scene.Scene;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -200,7 +201,7 @@ public class Game {
         mrZombie.setPosition(720, 570);
         hospitalOutside.addItem(mrZombie);
         mrZombie.setArm(arms);
-        mrZombie.setSewing_kit(sewing_kit);
+        mrZombie.setSewingKit(sewing_kit);
 
         SchoolNPC madChemist = new SchoolNPC(this, "Mad-Chemist");
         madChemist.setImage(Img.load("/images/npc/school_npc.png"));
@@ -912,56 +913,6 @@ public class Game {
         sink1.setPosition(45,300);
         sink2.setPosition(825,300);
 
-
-
-        //Exits in "Start" #0
-        start.setExit("sorting-room", sortingRoom);
-
-        //Exits in "Sorting Room" #0
-        sortingRoom.setExit("start", start);
-        sortingRoom.setExit("Odense", city);
-
-        //Exits in "Odense" #0
-        city.setExit("supermarket", supermarket);
-        city.setExit("sorting-room", sortingRoom);
-        city.setExit("hospital", hospitalOutside);
-        city.setExit("school", schoolOutside);
-
-        //Exits in Supermarket #1
-        supermarket.setExit("Odense", city);
-        supermarket.setExit("office", office);
-        supermarket.setExit("storage-room", storageRoom);
-        supermarket.setExit("parking-lot", parkinglot);
-
-        office.setExit("supermarket", supermarket);
-        storageRoom.setExit("supermarket", supermarket);
-        parkinglot.setExit("supermarket", supermarket);
-
-        //Exits in "Hospital" #2
-        hospitalOutside.setExit("Odense", city);
-        hospitalOutside.setExit("reception", reception);
-
-        reception.setExit("hospital-outside", hospitalOutside);
-        reception.setExit("operations-room", operatingRoom);
-        reception.setExit("morgue", morgue);
-        reception.setExit("canteen", canteen);
-
-        operatingRoom.setExit("reception", reception);
-        morgue.setExit("reception", reception);
-        canteen.setExit("reception", reception);
-
-        //Exits in "School" #3
-        schoolOutside.setExit("Odense", city);
-        schoolOutside.setExit("teachers-lounge", teachersLounge);
-        schoolOutside.setExit("chemistry-room", chemistryRoom);
-        schoolOutside.setExit("gymnastics-room", classRooms);
-
-        teachersLounge.setExit("school", schoolOutside);
-        chemistryRoom.setExit("school", schoolOutside);
-        classRooms.setExit("school", schoolOutside);
-        classRooms.setExit("girls-locker-room", girlsLockerRoom);
-        girlsLockerRoom.setExit("gymnastics-room", classRooms);
-
         // Misc.
         currentRoom = start;
 
@@ -1064,4 +1015,8 @@ public class Game {
     public IGameTextPrinter getTextPrinter() {return textPrinter;}
 
     public void setTextPrinter(IGameTextPrinter textPrinter) {this.textPrinter = textPrinter;}
+
+    public void pollScene(Scene scene) {
+        KeyPolling.getInstance().pollScene(scene);
+    }
 }

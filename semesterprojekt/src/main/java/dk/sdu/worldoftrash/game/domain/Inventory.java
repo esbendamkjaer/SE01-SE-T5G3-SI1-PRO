@@ -46,40 +46,12 @@ public class Inventory {
 
 
     /**
-     * Searches inventory for item with given name and returns true if found.
-     * @param name Name of item to search for.
-     * @return True of inventory contains item with given name, otherwise false.
-     */
-    public boolean hasItemWithName(String name) {
-        for (Item i : items) {
-            if (i.getName().equals(name)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
      * Searches inventory for given items
      * @param items Items to search for
      * @return Whether or not the inventory contains the given items
      */
     public boolean hasItems(Item... items) {
         return this.items.containsAll(List.of(items));
-    }
-
-    /**
-     * Get an item from the inventory specified by given name.
-     * @param name Name of item to retrieve.
-     * @return Returns the Item object. If none found in the inventory, it returns null.
-     */
-    public Item getItemByName(String name) {
-        for (Item i : items) {
-            if (i.getName().equals(name)) {
-                return i;
-            }
-        }
-        return null;
     }
 
     /**

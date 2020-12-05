@@ -6,7 +6,7 @@ import dk.sdu.worldoftrash.game.domain.items.Item;
 
 public class ZombieNPC extends NPC {
     private Item arm;
-    private Item sewing_kit;
+    private Item sewingKit;
 
     public ZombieNPC(Game game, String name) {
         super(game, name, new Inventory(2));
@@ -14,7 +14,7 @@ public class ZombieNPC extends NPC {
 
     @Override
     public void talk() {
-        if (getInventory().hasItems(arm, sewing_kit)) {
+        if (getInventory().hasItems(arm, sewingKit)) {
             getGame().getTextPrinter().printText(
                     "\"Now I can right my wrongs of my past, Ignorance! Lazy! Reluctant! I wasn't the best trash sorter in my good days.\"" +
                     "\n\n\"My worst enemy actually were office supplies. Especially paper clips and post it notes. Did you know those two aren't worth recycling?\"" +
@@ -34,11 +34,11 @@ public class ZombieNPC extends NPC {
             getInventory().storeItem(item);
             getGame().getTextPrinter().printText(
                     "\"Oh my if you aren't marching so gallantly with my arm under your arm\"" +
-                    (!getInventory().hasItems(sewing_kit) ? "\n\n\"If you'd get me a SEWING KIT, I would be eternally grateful\"" : "") +
+                    (!getInventory().hasItems(sewingKit) ? "\n\n\"If you'd get me a SEWING KIT, I would be eternally grateful\"" : "") +
                     checkItems());
 
             return true;
-        } else if (item == sewing_kit) {
+        } else if (item == sewingKit) {
             getInventory().storeItem(item);
             getGame().getTextPrinter().printText(
                     "\"Thank you for the sewing kit!\"" +
@@ -53,7 +53,7 @@ public class ZombieNPC extends NPC {
     }
 
     private String checkItems() {
-        if (getInventory().hasItems(arm, sewing_kit)) {
+        if (getInventory().hasItems(arm, sewingKit)) {
             return
                 "\n\n\"Now I can right my wrongs of my past, Ignorance! Lazy! Reluctant! I wasn't the best trash sorter in my good days\"" +
                 "\n\n\"My worst enemy actually were office supplies. Especially paper clips and post it notes. Did you know those two aren't worth recycling?\"" +
@@ -66,7 +66,7 @@ public class ZombieNPC extends NPC {
         this.arm = arm;
     }
 
-    public void setSewing_kit(Item sewing_kit) {
-        this.sewing_kit = sewing_kit;
+    public void setSewingKit(Item sewing_kit) {
+        this.sewingKit = sewing_kit;
     }
 }

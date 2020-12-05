@@ -14,7 +14,7 @@ public class ParkingLotNPC extends NPC {
 
     @Override
     public void talk() {
-        if (getInventory().hasItemWithName(bigbox.getName())) {
+        if (getInventory().hasItems(bigbox)) {
             getGame().getTextPrinter().printText(
                     "\"Amazing! But isn’t that box almost too big? But now EVERYONE knows that I am the king of the homeless," +
                     " so it doesn't matter at all!\"" +

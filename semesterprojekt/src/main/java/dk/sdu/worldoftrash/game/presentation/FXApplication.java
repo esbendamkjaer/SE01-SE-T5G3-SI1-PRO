@@ -3,15 +3,13 @@ package dk.sdu.worldoftrash.game.presentation;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class FXApplication extends Application {
 
     private SceneManager sceneManager;
     private Stage primaryStage;
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.sceneManager = new SceneManager(primaryStage);
 
@@ -26,7 +24,7 @@ public class FXApplication extends Application {
         primaryStage.show();
     }
 
-    public void createScene(SceneName sceneName) throws IOException {
+    public void createScene(SceneName sceneName) {
         SceneInfo sceneInfo = new SceneInfo(sceneName.getFxmlPath(), sceneManager, primaryStage);
 
         sceneManager.addScene(sceneName, sceneInfo);
