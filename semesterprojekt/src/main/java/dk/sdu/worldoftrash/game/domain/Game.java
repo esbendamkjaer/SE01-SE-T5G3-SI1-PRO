@@ -158,7 +158,7 @@ public class Game {
         sewing_kit.setImage(Img.load("/images/items/trash/sewing_kit.png"));
         sewing_kit.setScale(0.9f);
         sewing_kit.fitToImage();
-        sewing_kit.setPosition(715,562);
+        sewing_kit.setPosition(750,562);
 
         arms.setImage(Img.load("/images/npc/Arm.png"));
         arms.setScale(0.2f);
@@ -326,12 +326,12 @@ public class Game {
         needle.setImage(Img.load("/images/items/trash/needle-kopi.png"));
         needle.setScale(0.7f);
         needle.fitToImage();
-        needle.setPosition(720, 120);
+        needle.setPosition(469, 715);
 
         syringe.setImage(Img.load("/images/items/trash/syringe.png"));
         syringe.setScale(0.75f);
         syringe.fitToImage();
-        syringe.setPosition(469,700);
+        syringe.setPosition(720,120);
 
         //Place trash to - Hospital/Reception
         papers1.setImage(Img.load("/images/items/trash/paper.png"));
@@ -347,7 +347,7 @@ public class Game {
         paperclip.setImage(Img.load("/images/items/trash/paper_clips.png"));
         paperclip.setScale(0.5f);
         paperclip.fitToImage();
-        paperclip.setPosition(338,129);
+        paperclip.setPosition(238,129);
 
         //Place trash to - Hospital/Morgue
         scalpel.setImage(Img.load("/images/items/trash/scalpel.png"));
@@ -390,7 +390,7 @@ public class Game {
         toothBrush.setImage(Img.load("/images/items/trash/toothbrush.png"));
         toothBrush.setScale(0.35f);
         toothBrush.fitToImage();
-        toothBrush.setPosition(100,150);
+        toothBrush.setPosition(100,140);
 
         bloodbag.setImage(Img.load("/images/items/trash/bloodbag.png"));
         bloodbag.setScale(0.84f);
