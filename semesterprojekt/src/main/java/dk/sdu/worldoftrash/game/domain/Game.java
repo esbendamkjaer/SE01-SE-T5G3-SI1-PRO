@@ -946,7 +946,7 @@ public class Game {
         currentRoom = room;
         return true;
     }
-    
+
     /**
      * Called before every frame render.
      * @param delta Time since last frame.
