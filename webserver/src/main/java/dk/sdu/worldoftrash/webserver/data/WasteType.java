@@ -2,11 +2,12 @@ package dk.sdu.worldoftrash.webserver.data;
 
 public enum WasteType {
 
-    BURNABLE("burnable"),
+    RESIDUAL("residual"),
     ORGANIC("organic"),
     HAZARDOUS("hazardous"),
     HARD_PLASTIC("hard_plastic"),
     CARDBOARD("cardboard"),
+    PAPER("paper"),
     GLASS("glass"),
     METAL("metal"),
     ;

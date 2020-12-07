@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class LevelData {
 
-    private int points;
+    private int score;
 
     private HashMap<String, CategoryData> correctlySortedByWasteType;
 
@@ -20,4 +20,11 @@ public class LevelData {
         this.correctlySortedByWasteType = correctlySortedByWasteType;
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 }
