@@ -9,19 +9,15 @@ import java.util.List;
 
 public class Game {
     private Room currentRoom;
-
     private ScoreSystem scoreSystem;
-
     private Player player;
-
     private IGameTextPrinter textPrinter;
-
     private double height;
     private double width;
 
     public Game(double width, double height) {
         this.player = new Player(this, "Player");
-        this.scoreSystem = new ScoreSystem(this, 5);
+        this.scoreSystem = new ScoreSystem(this, 45);
         player.setPosition(528, 390);
 
         this.height = width;
@@ -29,8 +25,7 @@ public class Game {
 
         initObjects();
     }
-
-
+    
     /**
      * Initializes game world objects.
      */
@@ -42,86 +37,75 @@ public class Game {
 
         //Rooms
         start = new Room(this, "start");
-        start.loadWalls("/maps/start.json");
+        start.loadWalls("/collisionMaps/main/start.json");
         start.setBackground(Img.load("/images/maps/main/start.png"));
-
-        /*
-        Waste waste = new Waste(this, "test", WasteType.GLASS, "Test", true);
-        waste.setImage(ImageIO.load("/images/trash/apple.png"));
-        waste.setScale(0.5f);
-        waste.fitToImage();
-        waste.setPosition(  waste.getWidth() * 3, waste.getHeight() * 3);
-        start.addItem(waste);
-        */
-
 
         // Baggrunde
         sortingRoom = new Room(this, "sortingRoom");
-        sortingRoom.loadWalls("/maps/sorting_room.json");
+        sortingRoom.loadWalls("/collisionMaps/main/sorting_room.json");
         sortingRoom.setBackground(Img.load("/images/maps/main/sorting_room.png"));
 
         city = new Room(this, "city");
-        city.loadWalls("/maps/city.json");
+        city.loadWalls("/collisionMaps/main/city.json");
         city.setBackground(Img.load("/images/maps/main/city.png"));
 
         supermarket = new Room(this, "supermarket");
-        supermarket.loadWalls("/maps/supermarket.json");
+        supermarket.loadWalls("/collisionMaps/supermarket/supermarket.json");
         supermarket.setBackground(Img.load("/images/maps/supermarket/supermarket.png"));
 
         office = new Room(this, "office");
-        office.loadWalls("/maps/office.json");
+        office.loadWalls("/collisionMaps/supermarket/office.json");
         office.setBackground(Img.load("/images/maps/supermarket/office.png"));
 
         storageRoom = new Room(this, "storageRoom");
-        storageRoom.loadWalls("/maps/storage_room.json");
+        storageRoom.loadWalls("/collisionMaps/supermarket/storage_room.json");
         storageRoom.setBackground(Img.load("/images/maps/supermarket/storage_rom.png"));
 
         parkinglot = new Room(this, "parking-lot");
-        parkinglot.loadWalls("/maps/parking_lot.json");
+        parkinglot.loadWalls("/collisionMaps/supermarket/parking_lot.json");
         parkinglot.setBackground(Img.load("/images/maps/supermarket/parking_lot.png"));
 
         hospitalOutside = new Room(this, "hospital-outside");
-        hospitalOutside.loadWalls("/maps/outside_hospital.json");
+        hospitalOutside.loadWalls("/collisionMaps/hospital/outside_hospital.json");
         hospitalOutside.setBackground(Img.load("/images/maps/hospital/outside_hospital.png"));
 
         reception = new Room(this, "reception");
-        reception.loadWalls("/maps/reception.json");
+        reception.loadWalls("/collisionMaps/hospital/reception.json");
         reception.setBackground(Img.load("/images/maps/hospital/hospital_reception.png"));
 
         operatingRoom = new Room(this, "operating-room");
-        operatingRoom.loadWalls("/maps/operations_room.json");
+        operatingRoom.loadWalls("/collisionMaps/hospital/operations_room.json");
         operatingRoom.setBackground(Img.load("/images/maps/hospital/operations_room.png"));
 
         morgue = new Room(this, "morgue");
-        morgue.loadWalls("/maps/morgue.json");
+        morgue.loadWalls("/collisionMaps/hospital/morgue.json");
         morgue.setBackground(Img.load("/images/maps/hospital/morgue.png"));
 
         canteen = new Room(this, "canteen");
-        canteen.loadWalls("/maps/canteen.json");
+        canteen.loadWalls("/collisionMaps/hospital/canteen.json");
         canteen.setBackground(Img.load("/images/maps/hospital/canteen.png"));
 
         schoolOutside = new Room(this, "school-outside");
-        schoolOutside.loadWalls("/maps/outside_school.json");
+        schoolOutside.loadWalls("/collisionMaps/school/outside_school.json");
         schoolOutside.setBackground(Img.load("/images/maps/school/outside_school.png"));
 
         teachersLounge = new Room(this, "teachers-lounge");
-        teachersLounge.loadWalls("/maps/teachers_lounge.json");
-        teachersLounge.setBackground(Img.load("/images/maps/school/Teacher's_lounge1.0.png"));
+        teachersLounge.loadWalls("/collisionMaps/school/teachers_lounge.json");
+        teachersLounge.setBackground(Img.load("/images/maps/school/teachers_lounge.png"));
 
         chemistryRoom = new Room(this, "chemistry-room");
-        chemistryRoom.loadWalls("/maps/chemistry_room.json");
+        chemistryRoom.loadWalls("/collisionMaps/school/chemistry_room.json");
         chemistryRoom.setBackground(Img.load("/images/maps/school/chemistry_room.png"));
 
         classRooms = new Room(this, "class-rooms");
-        classRooms.loadWalls("/maps/school_gym.json");
+        classRooms.loadWalls("/collisionMaps/school/school_gym.json");
         classRooms.setBackground(Img.load("/images/maps/school/school_gym.png"));
 
         girlsLockerRoom = new Room(this, "girls-locker-room");
-        girlsLockerRoom.loadWalls("/maps/girls_locker_room.json");
+        girlsLockerRoom.loadWalls("/collisionMaps/school/girls_locker_room.json");
         girlsLockerRoom.setBackground(Img.load("/images/maps/school/girls_locker_room.png"));
 
-        //**************************************** Waste objects - Start ***********************************************
-
+        //**************************************** Waste objects - Creation ***********************************************
         // Waste objects #Level 1 - Supermarket
         Waste tomatoCan = new Waste(this, "Tomato can", WasteType.METAL, "cans are made of metal, and therefore goes in metals", false);
         Waste sodaCan = new Waste(this, "Soda can", WasteType.METAL, "cans are made of metal, and therefore goes in metals", false);
@@ -138,7 +122,6 @@ public class Game {
         Waste cardboardBox = new Waste(this, "Cardboard box", WasteType.CARDBOARD, "cardboard boxes are made of cardboard, and therefore goes in cardboard", true);
         Waste pizzaBox = new Waste(this, "Pizza box", WasteType.RESIDUAL, "a pizza box has been dirtied by a pizza, and therefore goes in residual", true);
         Waste receipt = new Waste(this, "Receipt", WasteType.RESIDUAL, "receipts is made of a special kind of paper containing chemicals and should not be sorted in paper, therefore it goes in residual", true);
-        Key bigbox = new Key(this, "BIGGEST BOX");
 
         // Waste objects #Level 2 - Hospital
         Waste papers1 = new Waste(this, "Papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
@@ -157,21 +140,6 @@ public class Game {
         Waste ballPen = new Waste(this, "Ballpoint pen", WasteType.RESIDUAL, "a ballpoint pen is compromised of multiple components and hard to recycle. It goes into residual", true);
         Waste toothBrush = new Waste(this, "Toothbrush", WasteType.RESIDUAL, "a toothbrush is not recycled due to repeated contact with a persons mouth and therefore unhygienic, it goes into residual", true);
 
-        Key arms = new Key(this, "ARM");
-        Key sewing_kit = new Key(this, "SEWING KIT");
-
-        sewing_kit.setImage(Img.load("/images/items/trash/sewing_kit.png"));
-        sewing_kit.setScale(0.9f);
-        sewing_kit.fitToImage();
-        sewing_kit.setPosition(715,562);
-
-        arms.setImage(Img.load("/images/npc/Arm.png"));
-        arms.setScale(0.2f);
-        arms.fitToImage();
-        arms.setPosition(400,700);
-
-
-
         // Waste objects #Level 3 - School
         Waste papers = new Waste(this, "Papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
         Waste lighter = new Waste(this, "Lighter", WasteType.HAZARDOUS, "lighters contains hazardous materials and therefore goes in hazardous", true);
@@ -188,57 +156,74 @@ public class Game {
         Waste safety_goggles = new Waste(this, "Safety goggles", WasteType.HARD_PLASTIC, "typically safety goggles are made of hard plastic and can be recycled for reuse, and therefore goes in hard plastic", true);
         Waste paper_clip = new Waste(this, "Paper clips", WasteType.RESIDUAL, "unless you got a large quantity of paper clips, recycling paper clips have a larger carbon footprint rather than just sorting them to residual, and therefore goes in residual", true);
         Waste paint = new Waste(this, "Paint", WasteType.HAZARDOUS, "paint is an hazardous material and should be handled accordingly, and placed in hazardous", true);
-        Key fertilizer = new Key(this,"FERTILIZER");
 
-        //NPCs
-        ParkingLotNPC homelessDan = new ParkingLotNPC(this, "Dan");
-        homelessDan.setImage(Img.load("/images/npc/supermarket_npc.png"));
-        homelessDan.setScale(1.25f);
-        homelessDan.fitToImage();
-        homelessDan.setPosition(300, 300);
-        parkinglot.addItem(homelessDan);
-        homelessDan.setBigbox(bigbox);
 
-        ZombieNPC mrZombie = new ZombieNPC(this, "Mr.Zombie");
-        mrZombie.setImage(Img.load("/images/npc/hospital_npc.png"));
-        mrZombie.setScale(1.25f);
-        mrZombie.fitToImage();
-        mrZombie.setPosition(720, 570);
-        hospitalOutside.addItem(mrZombie);
-        mrZombie.setArm(arms);
-        mrZombie.setSewing_kit(sewing_kit);
+        //**************************************** Waste objects - Adding to rooms ***********************************************
+        //Assigning trash for level #1 - Supermarket
+        supermarket.addItem(tomatoCan);
+        supermarket.addItem(ketchupPlasticBottle);
+        supermarket.addItem(meatTray);
+        supermarket.addItem(receipt);
 
-        SchoolNPC madChemist = new SchoolNPC(this, "Mad-Chemist");
-        madChemist.setImage(Img.load("/images/npc/school_npc.png"));
-        madChemist.setScale(1.25f);
-        madChemist.fitToImage();
-        madChemist.setPosition(536, 270);
-        teachersLounge.addItem(madChemist);
-        madChemist.setFertilizer(fertilizer);
+        office.addItem(beerBottle);
+        office.addItem(pizzaSlice);
+        office.addItem(pizzaBox);
 
-        NPC martin1 = new CityNPC(this, "Martin");
-        martin1.setImage(Img.load("/images/npc/start_npc.png"));
-        martin1.setScale(1.25f);
-        martin1.fitToImage();
-        martin1.setPosition(600, 600);
-        start.addItem(martin1);
+        storageRoom.addItem(eatenApple);
+        storageRoom.addItem(paint1);
+        storageRoom.addItem(aaBatteries);
+        storageRoom.addItem(cardboardBox);
 
-        NPC martin2 = new CityNPC(this, "Martin");
-        martin2.setImage(Img.load("/images/npc/start_npc.png"));
-        martin2.setScale(1.25f);
-        martin2.fitToImage();
-        martin2.setPosition(450, 400);
-        sortingRoom.addItem(martin2);
+        parkinglot.addItem(newspaper);
+        parkinglot.addItem(sodaCan);
+        parkinglot.addItem(deodorant);
+        parkinglot.addItem(picklesGlass);
 
-        NPC martin3 = new CityNPC(this, "Martin");
-        martin3.setImage(Img.load("/images/npc/start_npc.png"));
-        martin3.setScale(1.25f);
-        martin3.fitToImage();
-        martin3.setPosition(362, 566);
-        city.addItem(martin3);
+        //Assigning trash for level #2 - Hospital
+        hospitalOutside.addItem(syringe);
+        hospitalOutside.addItem(needle);
+        hospitalOutside.addItem(apple);
 
-        //************************************* Trash locating - Start *************************************
-        //Place trash to - Supermarket
+        reception.addItem(papers1);
+        reception.addItem(paperclip);
+        reception.addItem(facemask);
+
+        operatingRoom.addItem(bloodbag);
+        operatingRoom.addItem(medicineBottle);
+        operatingRoom.addItem(toothBrush);
+
+        morgue.addItem(scalpel);
+        morgue.addItem(tray);
+        morgue.addItem(ballPen);
+
+        canteen.addItem(chocolateMilkCarton);
+        canteen.addItem(can);
+        canteen.addItem(cake);
+
+        //Assigning trash for level #3 - School
+        schoolOutside.addItem(papers);
+        schoolOutside.addItem(lighter);
+        schoolOutside.addItem(bananas);
+
+        teachersLounge.addItem(jam_jar);
+        teachersLounge.addItem(nutella_glass);
+        teachersLounge.addItem(coffee_grounds);
+
+        classRooms.addItem(poster);
+        classRooms.addItem(spectacles_frame);
+        classRooms.addItem(post_it);
+
+        girlsLockerRoom.addItem(milk_carton);
+        girlsLockerRoom.addItem(perfume_bottle);
+        girlsLockerRoom.addItem(water_bottle);
+
+        chemistryRoom.addItem(safety_goggles);
+        chemistryRoom.addItem(paper_clip);
+        chemistryRoom.addItem(paint);
+
+
+        //************************************* Waste object - placement in rooms *************************************
+        //Place waste to - Supermarket
         tomatoCan.setImage(Img.load("/images/items/trash/tomato_can.png"));
         tomatoCan.setScale(0.8f);
         tomatoCan.fitToImage();
@@ -259,7 +244,7 @@ public class Game {
         receipt.fitToImage();
         receipt.setPosition(700,700);
 
-        //Place trash to - Supermarket/kontor
+        //Place waste to - Supermarket/kontor
         beerBottle.setImage(Img.load("/images/items/trash/beer.png"));
         beerBottle.setScale(0.6f);
         beerBottle.fitToImage();
@@ -275,12 +260,7 @@ public class Game {
         pizzaBox.fitToImage();
         pizzaBox.setPosition(600,150);
 
-        bigbox.setImage(Img.load("/images/items/trash/biggest-box.png"));
-        bigbox.setScale(0.8f);
-        bigbox.fitToImage();
-        bigbox.setPosition(800,750);
-
-        //Place trash to - Supermarket/lageret
+        //Place waste to - Supermarket/lageret
         eatenApple.setImage(Img.load("/images/items/trash/apple_eaten.png"));
         eatenApple.setScale(0.6f);
         eatenApple.fitToImage();
@@ -331,12 +311,12 @@ public class Game {
         needle.setImage(Img.load("/images/items/trash/needle-kopi.png"));
         needle.setScale(0.7f);
         needle.fitToImage();
-        needle.setPosition(720, 120);
+        needle.setPosition(469, 715);
 
         syringe.setImage(Img.load("/images/items/trash/syringe.png"));
         syringe.setScale(0.75f);
         syringe.fitToImage();
-        syringe.setPosition(469,700);
+        syringe.setPosition(720,120);
 
         //Place trash to - Hospital/Reception
         papers1.setImage(Img.load("/images/items/trash/paper.png"));
@@ -352,7 +332,7 @@ public class Game {
         paperclip.setImage(Img.load("/images/items/trash/paper_clips.png"));
         paperclip.setScale(0.5f);
         paperclip.fitToImage();
-        paperclip.setPosition(338,129);
+        paperclip.setPosition(238,129);
 
         //Place trash to - Hospital/Morgue
         scalpel.setImage(Img.load("/images/items/trash/scalpel.png"));
@@ -390,12 +370,12 @@ public class Game {
         medicineBottle.setImage(Img.load("/images/items/trash/medicine_bottle.png"));
         medicineBottle.setScale(0.4f);
         medicineBottle.fitToImage();
-        medicineBottle.setPosition(502,110);
+        medicineBottle.setPosition(502,502);
 
         toothBrush.setImage(Img.load("/images/items/trash/toothbrush.png"));
         toothBrush.setScale(0.35f);
         toothBrush.fitToImage();
-        toothBrush.setPosition(100,150);
+        toothBrush.setPosition(100,270);
 
         bloodbag.setImage(Img.load("/images/items/trash/bloodbag.png"));
         bloodbag.setScale(0.84f);
@@ -417,11 +397,6 @@ public class Game {
         bananas.setScale(0.7f);
         bananas.fitToImage();
         bananas.setPosition(600,200);
-
-        fertilizer.setImage(Img.load("/images/items/trash/fertilizer-kopi.png"));
-        fertilizer.setScale(0.6f);
-        fertilizer.fitToImage();
-        fertilizer.setPosition(225,425);
 
         //Place trash to - School/gymnastiksal
         poster.setImage(Img.load("/images/items/trash/poster.png"));
@@ -459,7 +434,7 @@ public class Game {
         jam_jar.setImage(Img.load("/images/items/trash/jamjar-kopi.png"));
         jam_jar.setScale(0.6f);
         jam_jar.fitToImage();
-        jam_jar.setPosition(550,590);
+        jam_jar.setPosition(545,590);
 
         nutella_glass.setImage(Img.load("/images/items/trash/nutella.png"));
         nutella_glass.setScale(0.7f);
@@ -480,14 +455,97 @@ public class Game {
         paper_clip.setImage(Img.load("/images/items/trash/paper_clips.png"));
         paper_clip.setScale(0.5f);
         paper_clip.fitToImage();
-        paper_clip.setPosition(300,500);
+        paper_clip.setPosition(600,510);
 
         paint.setImage(Img.load("/images/items/trash/paint.png"));
         paint.setScale(1.0f);
         paint.fitToImage();
-        paint.setPosition(800,800);
+        paint.setPosition(200,780);
 
-        // ********************************************* Doors - Start *********************************************
+
+        //**************************************** Key objects - Adding to rooms - Placement in rooms ****************************************
+        Key bigbox = new Key(this, "BIGGEST BOX");
+        office.addItem(bigbox);
+        bigbox.setImage(Img.load("/images/items/trash/biggest-box.png"));
+        bigbox.setScale(0.8f);
+        bigbox.fitToImage();
+        bigbox.setPosition(800,750);
+
+        Key sewing_kit = new Key(this, "SEWING KIT");
+        operatingRoom.addItem(sewing_kit);
+        sewing_kit.setImage(Img.load("/images/items/trash/sewing_kit.png"));
+        sewing_kit.setScale(0.9f);
+        sewing_kit.fitToImage();
+        sewing_kit.setPosition(750,90);
+
+        Key arms = new Key(this, "ARM");
+        morgue.addItem(arms);
+        arms.setImage(Img.load("/images/npc/Arm.png"));
+        arms.setScale(0.2f);
+        arms.fitToImage();
+        arms.setPosition(400,700);
+
+        Key fertilizer = new Key(this,"FERTILIZER");
+        schoolOutside.addItem(fertilizer);
+        fertilizer.setImage(Img.load("/images/items/trash/fertilizer-kopi.png"));
+        fertilizer.setScale(0.6f);
+        fertilizer.fitToImage();
+        fertilizer.setPosition(225,425);
+
+
+        //**************************************** NPC - Adding to rooms - Placement in rooms ***********************************************
+        //Start NPC
+        NPC martin1 = new CityNPC(this, "Martin");
+        martin1.setImage(Img.load("/images/npc/start_npc.png"));
+        martin1.setScale(1.25f);
+        martin1.fitToImage();
+        martin1.setPosition(600, 600);
+        start.addItem(martin1);
+
+        NPC martin2 = new CityNPC(this, "Martin");
+        martin2.setImage(Img.load("/images/npc/start_npc.png"));
+        martin2.setScale(1.25f);
+        martin2.fitToImage();
+        martin2.setPosition(450, 400);
+        sortingRoom.addItem(martin2);
+
+        NPC martin3 = new CityNPC(this, "Martin");
+        martin3.setImage(Img.load("/images/npc/start_npc.png"));
+        martin3.setScale(1.25f);
+        martin3.fitToImage();
+        martin3.setPosition(362, 566);
+        city.addItem(martin3);
+
+        //Supermarket NPC
+        ParkingLotNPC homelessDan = new ParkingLotNPC(this, "Dan");
+        homelessDan.setImage(Img.load("/images/npc/supermarket_npc.png"));
+        homelessDan.setScale(1.25f);
+        homelessDan.fitToImage();
+        homelessDan.setPosition(300, 300);
+        parkinglot.addItem(homelessDan);
+        homelessDan.setBigbox(bigbox);
+
+        //Hospital NPC
+        ZombieNPC mrZombie = new ZombieNPC(this, "Mr.Zombie");
+        mrZombie.setImage(Img.load("/images/npc/hospital_npc.png"));
+        mrZombie.setScale(1.25f);
+        mrZombie.fitToImage();
+        mrZombie.setPosition(720, 570);
+        hospitalOutside.addItem(mrZombie);
+        mrZombie.setArm(arms);
+        mrZombie.setSewingKit(sewing_kit);
+
+        //School NPC
+        SchoolNPC madChemist = new SchoolNPC(this, "Mad-Chemist");
+        madChemist.setImage(Img.load("/images/npc/school_npc.png"));
+        madChemist.setScale(1.25f);
+        madChemist.fitToImage();
+        madChemist.setPosition(536, 270);
+        teachersLounge.addItem(madChemist);
+        madChemist.setFertilizer(fertilizer);
+
+
+        // ********************************************* Doors - Adding to rooms - Placement in rooms - Connecting doors *********************************************
         Door startSort = new Door(this, "Start", start);
         startSort.setImage(Img.load("/images/items/ArrowRight.png"));
         startSort.setWidth(45);
@@ -614,7 +672,7 @@ public class Game {
         repMorg.setWidth(45);
         repMorg.setHeight(64);
         repMorg.autoScale();
-        repMorg.setPosition(24, 338);
+        repMorg.setPosition(24, 370);
 
         Door repOp = new Door(this, "Reception", reception);
         repOp.setImage(Img.load("/images/items/ArrowRight.png"));
@@ -715,27 +773,6 @@ public class Game {
         girlClass.autoScale();
         girlClass.setPosition(372, 870);
 
-        //Connect Doors
-        startSort.connect(sortStart);
-        sortOdense.connect(odenseSort);
-        odenseSuper.connect(superOdense);
-        odenseHos.connect(hosOdense);
-        odenseSchool.connect(schoolOdense);
-
-        superOffice.connect(officeSuper);
-        superStor.connect(storSuper);
-        superPark.connect(parkSuper);
-
-        hosRep.connect(repHos);
-        repCan.connect(canRep);
-        repMorg.connect(morgueRep);
-        repOp.connect(opRep);
-
-        schoolChem.connect(chemSchool);
-        schoolTeach.connect(teachSchool);
-        schoolClass.connect(classSchool);
-        classGirl.connect(girlClass);
-
         //Adding Doors
         start.addItem(startSort);
         sortingRoom.addItem(sortStart);
@@ -773,9 +810,30 @@ public class Game {
         classRooms.addItem(classGirl);
         girlsLockerRoom.addItem(girlClass);
 
+        //Connect Doors
+        startSort.connect(sortStart);
+        sortOdense.connect(odenseSort);
+        odenseSuper.connect(superOdense);
+        odenseHos.connect(hosOdense);
+        odenseSchool.connect(schoolOdense);
 
-        // ********************************************* Doors - end *********************************************
-        //Creating trash container objects
+        superOffice.connect(officeSuper);
+        superStor.connect(storSuper);
+        superPark.connect(parkSuper);
+
+        hosRep.connect(repHos);
+        repCan.connect(canRep);
+        repMorg.connect(morgueRep);
+        repOp.connect(opRep);
+
+        schoolChem.connect(chemSchool);
+        schoolTeach.connect(teachSchool);
+        schoolClass.connect(classSchool);
+        classGirl.connect(girlClass);
+
+
+        // ********************************************* Waste Containers *********************************************
+        //Creating waste container objects
         WasteContainer organicContainer = new WasteContainer(this, "organic-container", WasteType.ORGANIC);
         organicContainer.setImage(Img.load("/images/wasteContainers/ORGANICS.png"));
         organicContainer.setScale(0.8f);
@@ -835,74 +893,8 @@ public class Game {
         sortingRoom.addItem(hazardouscontainer);
         sortingRoom.addItem(hardPlasticcontainer);
 
-        //Assigning trash for level #1 - Supermarket
-        supermarket.addItem(tomatoCan);
-        supermarket.addItem(ketchupPlasticBottle);
-        supermarket.addItem(meatTray);
-        supermarket.addItem(receipt);
 
-        office.addItem(beerBottle);
-        office.addItem(pizzaSlice);
-        office.addItem(pizzaBox);
-        office.addItem(bigbox);
-
-        storageRoom.addItem(eatenApple);
-        storageRoom.addItem(paint1);
-        storageRoom.addItem(aaBatteries);
-        storageRoom.addItem(cardboardBox);
-
-        parkinglot.addItem(newspaper);
-        parkinglot.addItem(sodaCan);
-        parkinglot.addItem(deodorant);
-        parkinglot.addItem(picklesGlass);
-
-        //Assigning trash for level #2 - Hospital
-        hospitalOutside.addItem(syringe);
-        hospitalOutside.addItem(needle);
-        hospitalOutside.addItem(apple);
-
-        reception.addItem(papers1);
-        reception.addItem(paperclip);
-        reception.addItem(facemask);
-
-        operatingRoom.addItem(bloodbag);
-        operatingRoom.addItem(medicineBottle);
-        operatingRoom.addItem(toothBrush);
-        operatingRoom.addItem(sewing_kit);
-
-        morgue.addItem(scalpel);
-        morgue.addItem(tray);
-        morgue.addItem(ballPen);
-        morgue.addItem(arms);
-
-        canteen.addItem(chocolateMilkCarton);
-        canteen.addItem(can);
-        canteen.addItem(cake);
-
-        //Assigning trash for level #3 - School
-        schoolOutside.addItem(papers);
-        schoolOutside.addItem(lighter);
-        schoolOutside.addItem(bananas);
-        schoolOutside.addItem(fertilizer);
-
-        teachersLounge.addItem(jam_jar);
-        teachersLounge.addItem(nutella_glass);
-        teachersLounge.addItem(coffee_grounds);
-
-        classRooms.addItem(poster);
-        classRooms.addItem(spectacles_frame);
-        classRooms.addItem(post_it);
-
-        girlsLockerRoom.addItem(milk_carton);
-        girlsLockerRoom.addItem(perfume_bottle);
-        girlsLockerRoom.addItem(water_bottle);
-
-        chemistryRoom.addItem(safety_goggles);
-        chemistryRoom.addItem(paper_clip);
-        chemistryRoom.addItem(paint);
-
-
-        //**************************************** Waste objects - end ************************************************
+        //**************************************** Sink Object ************************************************
 
         //Sink
         Sink sink1 = new Sink(this, "sink");
@@ -918,83 +910,28 @@ public class Game {
         sink1.setPosition(45,300);
         sink2.setPosition(825,300);
 
-
-
-        //Exits in "Start" #0
-        start.setExit("sorting-room", sortingRoom);
-
-        //Exits in "Sorting Room" #0
-        sortingRoom.setExit("start", start);
-        sortingRoom.setExit("Odense", city);
-
-        //Exits in "Odense" #0
-        city.setExit("supermarket", supermarket);
-        city.setExit("sorting-room", sortingRoom);
-        city.setExit("hospital", hospitalOutside);
-        city.setExit("school", schoolOutside);
-
-        //Exits in Supermarket #1
-        supermarket.setExit("Odense", city);
-        supermarket.setExit("office", office);
-        supermarket.setExit("storage-room", storageRoom);
-        supermarket.setExit("parking-lot", parkinglot);
-
-        office.setExit("supermarket", supermarket);
-        storageRoom.setExit("supermarket", supermarket);
-        parkinglot.setExit("supermarket", supermarket);
-
-        //Exits in "Hospital" #2
-        hospitalOutside.setExit("Odense", city);
-        hospitalOutside.setExit("reception", reception);
-
-        reception.setExit("hospital-outside", hospitalOutside);
-        reception.setExit("operations-room", operatingRoom);
-        reception.setExit("morgue", morgue);
-        reception.setExit("canteen", canteen);
-
-        operatingRoom.setExit("reception", reception);
-        morgue.setExit("reception", reception);
-        canteen.setExit("reception", reception);
-
-        //Exits in "School" #3
-        schoolOutside.setExit("Odense", city);
-        schoolOutside.setExit("teachers-lounge", teachersLounge);
-        schoolOutside.setExit("chemistry-room", chemistryRoom);
-        schoolOutside.setExit("gymnastics-room", classRooms);
-
-        teachersLounge.setExit("school", schoolOutside);
-        chemistryRoom.setExit("school", schoolOutside);
-        classRooms.setExit("school", schoolOutside);
-        classRooms.setExit("girls-locker-room", girlsLockerRoom);
-        girlsLockerRoom.setExit("gymnastics-room", classRooms);
-
         // Misc.
         currentRoom = start;
 
         //Scores
         scoreSystem.getLevelHandler().addLevel(supermarket, 0);
-        scoreSystem.getLevelHandler().addLevel(hospitalOutside, 1);
-        scoreSystem.getLevelHandler().addLevel(schoolOutside, 2);
+        scoreSystem.getLevelHandler().addLevel(hospitalOutside, 15);
+        scoreSystem.getLevelHandler().addLevel(schoolOutside, 30);
     }
 
-    // Getters for NPC locations
     public Room getCurrentRoom() {
         return currentRoom;
     }
 
     /*** Prints out a welcome message.***/
     public void printWelcome() {
-        textPrinter.printText("Welcome to the World of Trash!!!");
-        textPrinter.printText("The world has been through an apocalypse caused by massive amounts of trash and is in need of a hero. " +
-                "This is an incredibly exciting adventure game.");
-        textPrinter.printText("You are in your home. The beginning of your trashy adventure");
-        textPrinter.printText("A man greets you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin\"");
-        textPrinter.printText("\"You must help us save the planet! Now follow me into the next room if you want to survive. " +
+        textPrinter.printText("Welcome to the World of Trash!!! \n\nThe world has been through an apocalypse caused by massive amounts of trash and is in need of a hero. " +
+                "This is an incredibly exciting adventure game. \n\nYou are in your home. The beginning of your trashy adventure A man greets " +
+                "you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin\" \n\n\"You must help us save the " +
+                "planet! Now follow me into the next room if you want to survive. " +
                 "You can go to the next room pressing X on the green arrow, and talk using X when you are near me\"");
 
     }
-
-    //********************************************* Commands - Start ***************************************************
 
     /**
      * Changes current room to the given room.
@@ -1010,13 +947,11 @@ public class Game {
         return true;
     }
 
-    //********************************************* Commands - End ***************************************************
-
     /**
      * Called before every frame render.
      * @param delta Time since last frame.
      */
-    public void update(float delta) {
+    public void update(double delta) {
         getCurrentRoom().update(delta);
         player.update(delta);
     }
@@ -1065,19 +1000,12 @@ public class Game {
         return this.height;
     }
 
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
     public double getWidth() {
         return width;
-    }
-
-    public void setWidth(double width) {
-        this.width = width;
     }
 
     public IGameTextPrinter getTextPrinter() {return textPrinter;}
 
     public void setTextPrinter(IGameTextPrinter textPrinter) {this.textPrinter = textPrinter;}
+
 }

@@ -22,4 +22,10 @@ public class Key extends Item implements Pickupable {
     public void giveItem(Item item, Player player) {
 
     }
+
+    @Override
+    public String getDescription() {
+        return super.getDescription()
+                + "\nSpecial item, not waste.";
+    }
 }

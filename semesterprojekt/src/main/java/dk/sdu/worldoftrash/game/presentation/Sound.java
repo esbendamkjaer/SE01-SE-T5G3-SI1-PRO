@@ -1,4 +1,4 @@
-package dk.sdu.worldoftrash.game.domain;
+package dk.sdu.worldoftrash.game.presentation;
 
 import javafx.scene.media.AudioClip;
 

@@ -2,16 +2,15 @@ package dk.sdu.worldoftrash.game.presentation;
 
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.Img;
-import dk.sdu.worldoftrash.game.domain.items.Door;
-import dk.sdu.worldoftrash.game.domain.items.Interactable;
-import dk.sdu.worldoftrash.game.domain.items.Item;
-import dk.sdu.worldoftrash.game.domain.items.Player;
+import dk.sdu.worldoftrash.game.domain.SpriteAnimation;
+import dk.sdu.worldoftrash.game.domain.items.*;
 import dk.sdu.worldoftrash.game.domain.Room;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 import java.util.List;
 
@@ -44,8 +43,15 @@ public class Renderer {
         context.restore();
     }
 
+    private void drawAnimatedSprite(SpriteAnimation animation, Item item) {
+        Rectangle subImageRect = animation.getSubImageRect();
+        context.drawImage(animation.getImage(),
+                subImageRect.getX(), subImageRect.getY(), subImageRect.getWidth(), subImageRect.getHeight(),
+                item.getX(), item.getY(), item.getWidth(), item.getHeight());
+    }
+
     private void renderPlayer(Player player, Game game) {
-        player.getSpriteAnimation().drawImage(context, player.getX(), player.getY(), player.getWidth(), player.getHeight());
+        drawAnimatedSprite(player.getSpriteAnimation(), player);
 
         List<Interactable> colliding = game.getCollisionsWithPlayer(Interactable.class);
 
@@ -96,6 +102,7 @@ public class Renderer {
      * @param item Item to render.
      */
     public void renderItem(Item item) {
+
         if (item.getImage() != null) {
             Point2D pos = item.getPosition();
             context.drawImage(
@@ -106,6 +113,7 @@ public class Renderer {
                     item.getImage().getHeight() * item.getScale()
             );
         }
+
     }
 
     /**

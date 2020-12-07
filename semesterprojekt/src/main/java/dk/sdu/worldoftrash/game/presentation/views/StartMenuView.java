@@ -31,7 +31,6 @@ public class StartMenuView extends BaseView implements Initializable {
     private Pane rootPane;
 
     private double height = 720;
-
     private double scale = 1.2;
 
     private Map<String, Runnable> menuData = new HashMap<>() {{
