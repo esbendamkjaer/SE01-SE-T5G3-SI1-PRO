@@ -39,7 +39,7 @@ public class Game {
         start = new Room(this, "start");
         start.loadWalls("/collisionMaps/main/start.json");
         start.setBackground(Img.load("/images/maps/main/start.png"));
-        
+
         // Baggrunde
         sortingRoom = new Room(this, "sortingRoom");
         sortingRoom.loadWalls("/collisionMaps/main/sorting_room.json");
@@ -919,7 +919,6 @@ public class Game {
         scoreSystem.getLevelHandler().addLevel(schoolOutside, 30);
     }
 
-    // Getters for NPC locations
     public Room getCurrentRoom() {
         return currentRoom;
     }
@@ -934,8 +933,6 @@ public class Game {
 
     }
 
-    //********************************************* Commands - Start ***************************************************
-
     /**
      * Changes current room to the given room.
      * @param room Room to go to.
@@ -949,9 +946,7 @@ public class Game {
         currentRoom = room;
         return true;
     }
-
-    //********************************************* Commands - End ***************************************************
-
+    
     /**
      * Called before every frame render.
      * @param delta Time since last frame.
