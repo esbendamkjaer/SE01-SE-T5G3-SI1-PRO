@@ -15,14 +15,12 @@ public class CityNPC extends NPC {
             getGame().getTextPrinter().printText("\"Hello there! \uD83D\uDE09\" \n\n\"Welcome to the World of Trash. My name is Trash Master Martin," +
                     " but you can just call me Martin\" \n\n\"You must help us save the planet! Now follow me into the next room if you want to survive. " +
                     "You can go to the next room pressing X on the green arrow, and talk using X when you are near me\"");
-        }
-        if (getGame().getCurrentRoom().getName().equals("sortingRoom")){
+        } else if (getGame().getCurrentRoom().getName().equals("sortingRoom")){
             getGame().getTextPrinter().printText("\"This is our sorting room. In this room we have a lot of sorting bins, and it is your job to sort the waste you find" +
                     " in Odense\" \n\n\"There are 8 different primary types of garbage, residual, hard plastic, hazardous, paper, cardboard, glass, metal and" +
                     " organic\" \n\n\"To sort your trash, walk up to the correct waste container and press LEFT CLICK on the WASTE in your INVENTORY MENU. " +
                     "It is also important that you rinse your WASTE in the SINK\" \n\n\"Now meet me outside in Odense\"");
-        }
-        if (getGame().getCurrentRoom().getName().equals("city")){
+        } else if (getGame().getCurrentRoom().getName().equals("city")){
             if (getGame().getScoreSystem().getWasteCount() >= 0 && getGame().getScoreSystem().getWasteCount() < 15) {
                 getGame().getTextPrinter().printText("\"This is what's left of Odense after the trashpocalypse, and because you are new, " +
                         "I would recommend that you go to the SUPERMARKET in the east first\" \n\n\"Once you are done there and have sorted the garbage," +
