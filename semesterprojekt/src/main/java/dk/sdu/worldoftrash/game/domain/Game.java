@@ -385,12 +385,12 @@ public class Game {
         medicineBottle.setImage(Img.load("/images/items/trash/medicine_bottle.png"));
         medicineBottle.setScale(0.4f);
         medicineBottle.fitToImage();
-        medicineBottle.setPosition(502,110);
+        medicineBottle.setPosition(502,502);
 
         toothBrush.setImage(Img.load("/images/items/trash/toothbrush.png"));
         toothBrush.setScale(0.35f);
         toothBrush.fitToImage();
-        toothBrush.setPosition(100,140);
+        toothBrush.setPosition(100,270);
 
         bloodbag.setImage(Img.load("/images/items/trash/bloodbag.png"));
         bloodbag.setScale(0.84f);
