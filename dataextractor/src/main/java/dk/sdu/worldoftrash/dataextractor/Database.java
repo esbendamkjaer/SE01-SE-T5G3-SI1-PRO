@@ -44,7 +44,7 @@ public class Database {
         Firestore dbFirestore = FirestoreClient.getFirestore();
         Iterator<DocumentReference> iterator = dbFirestore.collection(COL_NAME).listDocuments().iterator();
 
-        String[] headers = {"levelName", "correct"};
+        String[] headers = {"levelName", "correct", "score"};
 
         FileWriter out = null;
         CSVPrinter printer = null;
@@ -83,7 +83,15 @@ public class Database {
                 }
 
                 try {
-                    printer.printRecord(levelName, correctSum);
+                    int score = 0;
+                    if (levelName.equals("supermarket")) {
+                        score = levelData.getScore();
+                    } else if (levelName.equals("hospital-outside")) {
+                        score = levelData.getScore() - scoreData.getLevelDataByName("supermarket").getScore();
+                    } else if (levelName.equals("school-outside")) {
+                        score = levelData.getScore() - scoreData.getLevelDataByName("hospital-outside").getScore();
+                    }
+                    printer.printRecord(levelName, correctSum, score);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
