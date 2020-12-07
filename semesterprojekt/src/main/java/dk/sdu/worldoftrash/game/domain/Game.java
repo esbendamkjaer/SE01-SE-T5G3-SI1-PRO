@@ -39,16 +39,7 @@ public class Game {
         start = new Room(this, "start");
         start.loadWalls("/collisionMaps/main/start.json");
         start.setBackground(Img.load("/images/maps/main/start.png"));
-
-        /*
-        Waste waste = new Waste(this, "test", WasteType.GLASS, "Test", true);
-        waste.setImage(ImageIO.load("/images/trash/apple.png"));
-        waste.setScale(0.5f);
-        waste.fitToImage();
-        waste.setPosition(  waste.getWidth() * 3, waste.getHeight() * 3);
-        start.addItem(waste);
-        */
-
+        
         // Baggrunde
         sortingRoom = new Room(this, "sortingRoom");
         sortingRoom.loadWalls("/collisionMaps/main/sorting_room.json");
