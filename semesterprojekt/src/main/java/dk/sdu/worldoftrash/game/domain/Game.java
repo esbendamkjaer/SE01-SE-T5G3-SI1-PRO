@@ -3,7 +3,6 @@ package dk.sdu.worldoftrash.game.domain;
 import dk.sdu.worldoftrash.game.domain.items.*;
 import dk.sdu.worldoftrash.game.domain.items.npcs.*;
 import dk.sdu.worldoftrash.game.domain.scoresystem.ScoreSystem;
-import javafx.scene.Scene;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,7 @@ public class Game {
 
     public Game(double width, double height) {
         this.player = new Player(this, "Player");
-        this.scoreSystem = new ScoreSystem(this, 2);
+        this.scoreSystem = new ScoreSystem(this, 45);
         player.setPosition(528, 390);
 
         this.height = width;
@@ -925,8 +924,8 @@ public class Game {
 
         //Scores
         scoreSystem.getLevelHandler().addLevel(supermarket, 0);
-        scoreSystem.getLevelHandler().addLevel(hospitalOutside, 0);
-        scoreSystem.getLevelHandler().addLevel(schoolOutside, 0);
+        scoreSystem.getLevelHandler().addLevel(hospitalOutside, 15);
+        scoreSystem.getLevelHandler().addLevel(schoolOutside, 30);
     }
 
     // Getters for NPC locations
@@ -1023,7 +1022,4 @@ public class Game {
 
     public void setTextPrinter(IGameTextPrinter textPrinter) {this.textPrinter = textPrinter;}
 
-    public void pollScene(Scene scene) {
-        KeyPolling.getInstance().pollScene(scene);
-    }
 }
