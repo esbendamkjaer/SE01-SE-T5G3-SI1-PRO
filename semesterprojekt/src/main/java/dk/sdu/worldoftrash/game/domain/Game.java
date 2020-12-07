@@ -178,7 +178,6 @@ public class Game {
         office.addItem(beerBottle);
         office.addItem(pizzaSlice);
         office.addItem(pizzaBox);
-        office.addItem(bigbox);
 
         storageRoom.addItem(eatenApple);
         storageRoom.addItem(paint1);
@@ -202,12 +201,10 @@ public class Game {
         operatingRoom.addItem(bloodbag);
         operatingRoom.addItem(medicineBottle);
         operatingRoom.addItem(toothBrush);
-        operatingRoom.addItem(sewing_kit);
 
         morgue.addItem(scalpel);
         morgue.addItem(tray);
         morgue.addItem(ballPen);
-        morgue.addItem(arms);
 
         canteen.addItem(chocolateMilkCarton);
         canteen.addItem(can);
@@ -217,7 +214,6 @@ public class Game {
         schoolOutside.addItem(papers);
         schoolOutside.addItem(lighter);
         schoolOutside.addItem(bananas);
-        schoolOutside.addItem(fertilizer);
 
         teachersLounge.addItem(jam_jar);
         teachersLounge.addItem(nutella_glass);
@@ -479,23 +475,28 @@ public class Game {
 
         //**************************************** Key objects - Adding to rooms - Placement in rooms ****************************************
         Key bigbox = new Key(this, "BIGGEST BOX");
+        office.addItem(bigbox);
         bigbox.setImage(Img.load("/images/items/trash/biggest-box.png"));
         bigbox.setScale(0.8f);
         bigbox.fitToImage();
         bigbox.setPosition(800,750);
+
         Key sewing_kit = new Key(this, "SEWING KIT");
+        operatingRoom.addItem(sewing_kit);
         sewing_kit.setImage(Img.load("/images/items/trash/sewing_kit.png"));
         sewing_kit.setScale(0.9f);
         sewing_kit.fitToImage();
         sewing_kit.setPosition(750,90);
 
         Key arms = new Key(this, "ARM");
+        morgue.addItem(arms);
         arms.setImage(Img.load("/images/npc/Arm.png"));
         arms.setScale(0.2f);
         arms.fitToImage();
         arms.setPosition(400,700);
 
         Key fertilizer = new Key(this,"FERTILIZER");
+        schoolOutside.addItem(fertilizer);
         fertilizer.setImage(Img.load("/images/items/trash/fertilizer-kopi.png"));
         fertilizer.setScale(0.6f);
         fertilizer.fitToImage();
