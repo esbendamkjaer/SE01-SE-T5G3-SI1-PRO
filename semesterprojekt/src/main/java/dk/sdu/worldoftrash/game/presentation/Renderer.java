@@ -114,9 +114,6 @@ public class Renderer {
             );
         }
 
-        if (item instanceof Wall) {
-            context.fillRect(item.getX(), item.getY(), item.getWidth(), item.getHeight());
-        }
     }
 
     /**
