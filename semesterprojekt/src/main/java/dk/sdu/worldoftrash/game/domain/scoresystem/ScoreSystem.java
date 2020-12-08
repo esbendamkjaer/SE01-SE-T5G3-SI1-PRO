@@ -77,7 +77,7 @@ public class ScoreSystem {
      * @return LevelData object
      */
     public LevelData getLevelDataByName(String name) {
-        LevelData levelData = scoreData.getLevelDataByName(levelHandler.getCurrentLevelName());
+        LevelData levelData = scoreData.getLevelDataByName(name);
 
         if (levelData == null) {
             levelData = new LevelData();
@@ -88,38 +88,34 @@ public class ScoreSystem {
     }
 
     /**
-     * Is called by containers, when some waste was correctly sorted.
-     * @param waste Waste object that was correctly sorted.
+     * Is called by containers, when a piece of waste is sorted.
+     * @param waste Waste object that was sorted.
+     * @param correct Whether it was sorted correctly or not.
      */
-    public void onCorrect(Waste waste) {
-        addPoints(waste.getPoints());
+    public void onSort(Waste waste, boolean correct) {
+        if (correct) {
+            addPoints(waste.getPoints());
 
-        if (!waste.isWronglySorted()) {
-            LevelData levelData = getLevelDataByName(getLevelHandler().getCurrentLevelName());
-            levelData.incrementCorrect(waste.getWasteType());
+            if (!waste.isWronglySorted()) {
+                LevelData levelData = getLevelDataByName(getLevelHandler().getCurrentLevelName());
+                levelData.incrementCorrect(waste.getWasteType());
+            }
+
+            sortingListeners.forEach(SortingListener::onCorrect);
+
+            incrementWasteCount(waste.getWasteType());
+        } else {
+            addPoints(-waste.getPoints());
+            sortingListeners.forEach(SortingListener::onWrong);
         }
-
-        sortingListeners.forEach(SortingListener::onCorrect);
-
-        incrementWasteCount(waste.getWasteType());
     }
 
-
-    /**
-     * Is called by containers, when some waste was wrongly sorted.
-     * @param waste Waste object that was wrongly sorted.
-     */
-    public void onWrong(Waste waste) {
-        addPoints(-waste.getPoints());
-        sortingListeners.forEach(SortingListener::onWrong);
-    }
-
-    public void onCorrectRinse() {
-        sortingListeners.forEach(SortingListener::onCorrectRinse);
-    }
-
-    public void onWrongRinse() {
-        sortingListeners.forEach(SortingListener::onWrongRinse);
+    public void onRinse(boolean correct) {
+        if (correct) {
+            sortingListeners.forEach(SortingListener::onCorrectRinse);
+        } else {
+            sortingListeners.forEach(SortingListener::onWrongRinse);
+        }
     }
 
     public void onWin() {
@@ -128,10 +124,6 @@ public class ScoreSystem {
 
     public void addSortingListener(SortingListener sortingListener) {
         this.sortingListeners.add(sortingListener);
-    }
-
-    public void removeSortingListener(SortingListener sortingListener) {
-        this.sortingListeners.remove(sortingListener);
     }
 
     /**

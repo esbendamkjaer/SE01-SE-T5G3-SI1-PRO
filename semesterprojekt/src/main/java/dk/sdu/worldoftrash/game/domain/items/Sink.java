@@ -19,14 +19,14 @@ public class Sink extends Item implements Interactable {
                     "This item is not washable." +
                     "\n\nPenalty of -50 points.");
             getGame().getScoreSystem().addPoints(-50);
-            getGame().getScoreSystem().onWrongRinse();
+            getGame().getScoreSystem().onRinse(false);
             return false;
         }
 
         waste.setClean(true);
 
         getGame().getTextPrinter().printText(String.format("You use some excess dishwater to clean the %s.", waste.getName()));
-        getGame().getScoreSystem().onCorrectRinse();
+        getGame().getScoreSystem().onRinse(true);
         return true;
     }
     

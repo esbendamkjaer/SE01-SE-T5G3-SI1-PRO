@@ -16,9 +16,9 @@ public class ZombieNPC extends NPC {
     public void talk() {
         if (getInventory().hasItems(arm, sewingKit)) {
             getGame().getTextPrinter().printText(
-                    "\"Now I can right my wrongs of my past, Ignorance! Lazy! Reluctant! I wasn't the best trash sorter in my good days.\"" +
-                    "\n\n\"My worst enemy actually were office supplies. Especially paper clips and post it notes. Did you know those two aren't worth recycling?\"" +
-                    "\n\n\"They’ll leave a larger carbon food print rather than just tossing them in with residual waste! You didn't? now you do chap\"");
+                    "\"Now I can right my wrongs of my past, Ignorance! Lazy! Reluctant! I wasn't the best trash sorter in my old days.\"" +
+                    "\n\n\"My worst enemy actually were office supplies. Especially paper clips and post-it notes. Did you know those two aren't worth recycling?\"" +
+                    "\n\n\"They’ll leave a larger carbon food print rather than just tossing them in with residual waste! You didn't know? now you do chap\"");
         } else {
             getGame().getTextPrinter().printText(
                     "\"RAAAAUUUUGHHHH. *Coughs * Sorry sir, but do you have a second to help me in this awkward situation?\"" +
@@ -42,7 +42,7 @@ public class ZombieNPC extends NPC {
             getInventory().storeItem(item);
             getGame().getTextPrinter().printText(
                     "\"Thank you for the sewing kit!\"" +
-                    (!getInventory().hasItems(arm) ? "\n\n\"If you’d get me my ARM, I can sew it on\"" : "") +
+                    (!getInventory().hasItems(arm) ? "\n\n\"Now if you get me my ARM, I can sew it back on\"" : "") +
                     checkItems());
 
             return true;
@@ -55,9 +55,9 @@ public class ZombieNPC extends NPC {
     private String checkItems() {
         if (getInventory().hasItems(arm, sewingKit)) {
             return
-                "\n\n\"Now I can right my wrongs of my past, Ignorance! Lazy! Reluctant! I wasn't the best trash sorter in my good days\"" +
-                "\n\n\"My worst enemy actually were office supplies. Especially paper clips and post it notes. Did you know those two aren't worth recycling?\"" +
-                "\n\n\"They’ll leave a larger carbon food print rather than just tossing them in with residual waste! You didn't? now you do chap\"";
+                "\n\n\"Now I can right my wrongs of my past, Ignorance! Lazy! Reluctant! I wasn't the best trash sorter in my old days\"" +
+                "\n\n\"My worst enemy actually were office supplies. Especially paper clips and post-it notes. Did you know those two aren't worth recycling?\"" +
+                "\n\n\"They’ll leave a larger carbon food print rather than just tossing them in with residual waste! You didn't know? now you do chap\"";
         }
         return "";
     }

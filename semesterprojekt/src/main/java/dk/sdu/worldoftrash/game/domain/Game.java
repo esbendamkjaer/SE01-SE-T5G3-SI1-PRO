@@ -109,12 +109,12 @@ public class Game {
         // Waste objects #Level 1 - Supermarket
         Waste tomatoCan = new Waste(this, "Tomato can", WasteType.METAL, "cans are made of metal, and therefore goes in metals", false);
         Waste sodaCan = new Waste(this, "Soda can", WasteType.METAL, "cans are made of metal, and therefore goes in metals", false);
-        Waste meatTray = new Waste(this, "Meat tray", WasteType.HARD_PLASTIC, "meat-trays are made of hard plastic, and therefore goes in hard plastic", false);
+        Waste meatTray = new Waste(this, "Meat tray", WasteType.HARD_PLASTIC, "meat trays are made of hard plastic, and therefore goes in hard plastic", false);
         Waste ketchupPlasticBottle = new Waste(this, "Ketchup plastic bottle", WasteType.HARD_PLASTIC, "it is made of hard plastic, and therefore goes in hard plastic", false);
         Waste picklesGlass = new Waste(this, "Pickle glass", WasteType.GLASS, "this is a glass, and therefore goes in glass", false);
-        Waste beerBottle = new Waste(this, "Beer bottle", WasteType.GLASS, "beer bottles typically are made of glass, and therefore goes in glass", false);
+        Waste beerBottle = new Waste(this, "Beer bottle", WasteType.GLASS, "beer bottles are typically made of glass, and therefore goes in glass", false);
         Waste eatenApple = new Waste(this, "Eaten apple", WasteType.ORGANIC, "apples are organic, and therefore goes in organic", true);
-        Waste pizzaSlice = new Waste(this, "Pizza slice", WasteType.ORGANIC, "pizza slice is organic, and therefore goes in organic", true);
+        Waste pizzaSlice = new Waste(this, "Pizza slice", WasteType.ORGANIC, "pizza is organic, and therefore goes in organic", true);
         Waste paint1 = new Waste(this, "Paint", WasteType.HAZARDOUS, "paint is an hazardous material and should be handled accordingly and placed in hazardous", true);
         Waste aaBatteries = new Waste(this, "AA batteries", WasteType.HAZARDOUS, "batteries contain hazardous chemicals, and therefore goes in hazardous", true);
         Waste deodorant = new Waste(this, "Deodorant", WasteType.HAZARDOUS, "deodorants are typically cans containing chemicals, and therefore goes in hazardous", true);
@@ -124,38 +124,38 @@ public class Game {
         Waste receipt = new Waste(this, "Receipt", WasteType.RESIDUAL, "receipts is made of a special kind of paper containing chemicals and should not be sorted in paper, therefore it goes in residual", true);
 
         // Waste objects #Level 2 - Hospital
-        Waste papers1 = new Waste(this, "Papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
+        Waste papers1 = new Waste(this, "Papers", WasteType.PAPER, "this is a paper. It goes in paper",true);
         Waste medicineBottle = new Waste (this, "Glass medicine bottle", WasteType.GLASS, "it is made out of glass, and therefore goes in glass", false);
-        Waste syringe = new Waste (this, "Syringe", WasteType.HAZARDOUS, "most biochemical equipment are hazardous, so are syringes, never reuse a syringe!", true);
+        Waste syringe = new Waste (this, "Syringe", WasteType.HAZARDOUS, "most biochemical equipment are hazardous, so are syringes. Never reuse a syringe!", true);
         Waste scalpel = new Waste (this, "Scalpel", WasteType.HAZARDOUS, "a scalpel is a sharp object. This goes into hazardous", true);
-        Waste paperclip = new Waste (this, "Paperclips", WasteType.RESIDUAL, "unless you got a large quantity of paper clips, recycling paper clips have a larger carbon footprint rather than just sorting them to residual, and therefore goes in residual", true);
+        Waste paperclip = new Waste (this, "Paperclips", WasteType.RESIDUAL, "unless you got a large quantity of paper clips, recycling paper clips have a larger carbon footprint rather than just sorting them to residual. Therefore it goes in residual", true);
         Waste facemask = new Waste (this, "Face mask", WasteType.RESIDUAL, "this is a face mask. It goes into residual", true);
         Waste bloodbag = new Waste (this, "Blood bag", WasteType.HAZARDOUS, "blood bags are biohazardous material and goes in hazardous", true);
-        Waste apple = new Waste (this, "Apple",WasteType.ORGANIC, "apples usually are organics and can be dropped in organic", true);
-        Waste needle = new Waste (this, "Needle", WasteType.RESIDUAL, "Needles in themselves are not worth recycling themselves and usually can be drop in residual ", true);
+        Waste apple = new Waste (this, "Apple",WasteType.ORGANIC, "apples are organic. It goes in organic", true);
+        Waste needle = new Waste (this, "Needle", WasteType.RESIDUAL, "needles in themselves are not worth recycling. It goes in residual ", true);
         Waste chocolateMilkCarton = new Waste (this, "Chocolate milk carton", WasteType.RESIDUAL, "this is a carton containing leftover organic substance, and therefore goes into residual", true);
         Waste can = new Waste (this, "Can", WasteType.METAL, "cans are made out of metal. It goes into metal", false);
         Waste cake = new Waste (this, "Moldy cake", WasteType.ORGANIC, "this is food and therefore organic. It goes into organic", true);
         Waste tray = new Waste(this,"Tin tray", WasteType.METAL, "tin trays are made out of metal. It goes into metal", false);
         Waste ballPen = new Waste(this, "Ballpoint pen", WasteType.RESIDUAL, "a ballpoint pen is compromised of multiple components and hard to recycle. It goes into residual", true);
-        Waste toothBrush = new Waste(this, "Toothbrush", WasteType.RESIDUAL, "a toothbrush is not recycled due to repeated contact with a persons mouth and therefore unhygienic, it goes into residual", true);
+        Waste toothBrush = new Waste(this, "Toothbrush", WasteType.RESIDUAL, "a toothbrush is not recycled due to repeated contact with a persons mouth and therefore unhygienic. It goes into residual", true);
 
         // Waste objects #Level 3 - School
-        Waste papers = new Waste(this, "Papers", WasteType.PAPER, "this is a paper, it goes in paper",true);
+        Waste papers = new Waste(this, "Papers", WasteType.PAPER, "this is a paper. It goes in paper",true);
         Waste lighter = new Waste(this, "Lighter", WasteType.HAZARDOUS, "lighters contains hazardous materials and therefore goes in hazardous", true);
-        Waste bananas = new Waste(this, "Bananas", WasteType.ORGANIC, "this is an organic material and can be used as an compost, and therefore goes in organic", true);
-        Waste jam_jar = new Waste(this, "Jam jar", WasteType.GLASS, "a jam jar is made of glass, and can therefore if clean be recycled for reuse if put into glass", false);
-        Waste nutella_glass = new Waste(this, "Nutella glass", WasteType.GLASS, "a nutella glass is made of glass, and can therefore if clean be recycled for reuse if put into glass", false);
-        Waste coffee_grounds = new Waste(this, "Coffee grounds", WasteType.ORGANIC, "coffee grounds are an organic substance and be used for compost. It goes into organic", true);
-        Waste poster = new Waste(this, "Poster", WasteType.CARDBOARD, "a poster is of cardboard material and goes in cardboard", true);
-        Waste spectacles_frame = new Waste(this, "Spectacles frame", WasteType.METAL, "spectacles frame is made of steel and therefore goes in metal", true);
-        Waste post_it = new Waste(this, "Post-it", WasteType.RESIDUAL, "due to the adhesive substance in the back of post it notes, they are not to be recycled with normal paper, and goes in residual", true);
+        Waste bananas = new Waste(this, "Bananas", WasteType.ORGANIC, "this is an organic material and can be used as a compost, and therefore goes in organic", true);
+        Waste jam_jar = new Waste(this, "Jam jar", WasteType.GLASS, "a jam jar is made of glass, and can therefore if clean, be recycled for reuse if put into the glass container", false);
+        Waste nutella_glass = new Waste(this, "Nutella glass", WasteType.GLASS, "a nutella glass is made of glass, and can therefore if clean, be recycled for reuse if put into the glass container", false);
+        Waste coffee_grounds = new Waste(this, "Coffee grounds", WasteType.ORGANIC, "coffee grounds are organic and can be used for compost. It goes into organic", true);
+        Waste poster = new Waste(this, "Poster", WasteType.CARDBOARD, "a poster is made of cardboard material and goes in cardboard", true);
+        Waste spectacles_frame = new Waste(this, "Spectacles frame", WasteType.METAL, "spectacle frame is made of steel and therefore goes in metal", true);
+        Waste post_it = new Waste(this, "Post-it", WasteType.RESIDUAL, "due to the adhesive substance on the back of post-it notes, they are not to be recycled with normal paper, and goes in residual", true);
         Waste milk_carton = new Waste(this, "Milk carton", WasteType.RESIDUAL, "due to a milk carton being soaked in a organic substance it goes in residual", true);
-        Waste perfume_bottle = new Waste(this, "Perfume bottle", WasteType.GLASS, "if you remove the perfume substances in the bottle, then the bottle can be recycled for reuse and therefore goes in glass", false);
-        Waste water_bottle = new Waste(this, "Plastic water bottle", WasteType.HARD_PLASTIC, "it is made of hard plastic and can be recycled for reuse and therefore goes in hard plastic", true);
-        Waste safety_goggles = new Waste(this, "Safety goggles", WasteType.HARD_PLASTIC, "typically safety goggles are made of hard plastic and can be recycled for reuse, and therefore goes in hard plastic", true);
-        Waste paper_clip = new Waste(this, "Paper clips", WasteType.RESIDUAL, "unless you got a large quantity of paper clips, recycling paper clips have a larger carbon footprint rather than just sorting them to residual, and therefore goes in residual", true);
-        Waste paint = new Waste(this, "Paint", WasteType.HAZARDOUS, "paint is an hazardous material and should be handled accordingly, and placed in hazardous", true);
+        Waste perfume_bottle = new Waste(this, "Perfume bottle", WasteType.GLASS, "if you remove the perfume substances in the bottle, then the bottle can be recycled for reuse. Therefore it goes in glass", false);
+        Waste water_bottle = new Waste(this, "Plastic water bottle", WasteType.HARD_PLASTIC, "it is made of hard plastic and can be recycled for reuse. Therefore it goes in hard plastic", true);
+        Waste safety_goggles = new Waste(this, "Safety goggles", WasteType.HARD_PLASTIC, "typically safety goggles are made of hard plastic and can be recycled for reuse. Therefore goes in hard plastic", true);
+        Waste paper_clip = new Waste(this, "Paper clips", WasteType.RESIDUAL, "unless you got a large quantity of paper clips, recycling paper clips have a larger carbon footprint rather than just sorting them to residual. Therefore it goes in residual", true);
+        Waste paint = new Waste(this, "Paint", WasteType.HAZARDOUS, "paint is an hazardous material and should be handled accordingly. It goes in hazardous", true);
 
 
         //**************************************** Waste objects - Adding to rooms ***********************************************
@@ -926,10 +926,10 @@ public class Game {
     /*** Prints out a welcome message.***/
     public void printWelcome() {
         textPrinter.printText("Welcome to the World of Trash!!! \n\nThe world has been through an apocalypse caused by massive amounts of trash and is in need of a hero. " +
-                "This is an incredibly exciting adventure game. \n\nYou are in your home. The beginning of your trashy adventure A man greets " +
+                "This is an incredibly exciting adventure game. \n\nYou are in your home. The beginning of your trashy adventure. A man greets " +
                 "you and says \"Welcome to the World of Trash. My name is Trash Master Martin, but you can just call me Martin\" \n\n\"You must help us save the " +
                 "planet! Now follow me into the next room if you want to survive. " +
-                "You can go to the next room pressing X on the green arrow, and talk using X when you are near me\"");
+                "You can go to the next room by pressing X on the green arrow, and talk using X when you are near me\"");
 
     }
 
