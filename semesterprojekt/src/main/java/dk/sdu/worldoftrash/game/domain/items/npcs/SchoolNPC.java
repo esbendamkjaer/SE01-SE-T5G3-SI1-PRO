@@ -20,7 +20,7 @@ public class SchoolNPC extends NPC {
                     "Well, we’ll see, we will\"" +
                     "\n\n\"Ya know, I found one of those perfume bottles. They’re not like those frigging deodorant! " +
                     "They explode when heated! not perfume bottles though they’re boooooring\"" +
-                    "\n\n\"Ya know if ya rinse those things and put ‘em in GLASS-CONTAINERS they can be recycled, no fun though\"" +
+                    "\n\n\"Ya know if ya rinse those things and put ‘em in GLASS-CONTAINERS they can be recycled. No fun though\"" +
                     "\n\n\"Well, I’m off to start the post-post-apocalypse\"");
         } else {
             getGame().getTextPrinter().printText(
@@ -36,8 +36,9 @@ public class SchoolNPC extends NPC {
             getInventory().storeItem(item);
             getGame().getTextPrinter().printText(
                     "\"Oi laddie! Ya got me fertilizer from that twat janitor, hoarding the stuff likes there being no ‘morrow. Well, we’ll see, we will\"" +
-                    "\n\n\"Ya know, I found one of those perfume bottles. They’re not like those frigging deodorant! They explode when heated! not perfume bottles though they’re boooooring\"" +
-                    "\n\n\"Ya know if ya rinse those things and put ‘em in GLASS-CONTAINERS they can be recycled, no fun though\"" +
+                    "\n\n\"Ya know, I found one of those perfume bottles. They’re not like those frigging deodorant! " +
+                            "They explode when heated! not perfume bottles though they’re boooooring\"" +
+                    "\n\n\"Ya know if ya rinse those things and put ‘em in GLASS-CONTAINERS they can be recycled. No fun though\"" +
                     "\n\n\"Well, I’m off to start the post-post-apocalypse\"");
             return true;
         } else {
