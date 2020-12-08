@@ -82,7 +82,7 @@ public class ScoreSystem {
      * @return LevelData object
      */
     public LevelData getLevelDataByName(String name) {
-        LevelData levelData = scoreData.getLevelDataByName(levelHandler.getCurrentLevelName());
+        LevelData levelData = scoreData.getLevelDataByName(name);
 
         if (levelData == null) {
             levelData = new LevelData();
