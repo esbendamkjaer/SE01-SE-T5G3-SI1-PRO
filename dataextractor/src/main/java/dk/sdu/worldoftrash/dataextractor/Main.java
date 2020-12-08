@@ -11,7 +11,7 @@ public class Main {
 
         Database database = new Database();
         try {
-            database.writeToCSV("data.csv");
+            database.writeToCSV("../statistik/data.csv");
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
