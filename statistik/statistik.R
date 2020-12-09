@@ -1,6 +1,10 @@
 data = read.csv2("data.csv")
 
-hist(data[data$levelName == "school-outside",]$correct, breaks = 7)
+correct = data[data$levelName == "school-outside",]$correct 
+hist(correct)
+
+qqnorm(correct)
+qqline(correct)
 
 boxplot(data$correct ~ data$levelName)
 

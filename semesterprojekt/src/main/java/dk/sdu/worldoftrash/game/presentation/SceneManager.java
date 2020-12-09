@@ -39,7 +39,7 @@ public class SceneManager {
                     ? new Scene(sceneInfo.getRoot())
                     : new Scene(sceneInfo.getRoot(), currScene.getWidth(), currScene.getHeight());
 
-            KeyPolling.getInstance().pollScene(scene);
+            KeyPolling.getInstance().setScene(scene);
 
             stage.setScene(scene);
             stage.show();
