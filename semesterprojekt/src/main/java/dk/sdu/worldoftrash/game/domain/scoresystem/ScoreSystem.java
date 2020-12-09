@@ -1,6 +1,6 @@
 package dk.sdu.worldoftrash.game.domain.scoresystem;
 
-import dk.sdu.worldoftrash.game.data.DataAccess;
+import dk.sdu.worldoftrash.game.data.IDataAccess;
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.LevelHandler;
 import dk.sdu.worldoftrash.game.domain.SortingListener;
@@ -21,7 +21,7 @@ public class ScoreSystem {
 
     private int wasteCount;
 
-    private DataAccess dataAccess;
+    private IDataAccess dataAccess;
 
     private ScoreData scoreData;
 
@@ -30,7 +30,7 @@ public class ScoreSystem {
     private Game game;
 
     public ScoreSystem(Game game, int winningCondition) {
-        this.dataAccess = new DataAccess() {
+        this.dataAccess = new IDataAccess() {
             @Override
             public void saveData(ScoreData data) {
                 System.err.println("DataAccess is disabled.");
