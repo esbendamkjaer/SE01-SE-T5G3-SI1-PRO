@@ -1,7 +1,7 @@
 package dk.sdu.worldoftrash.game.domain.scoresystem;
 
 import dk.sdu.worldoftrash.game.data.Client;
-import dk.sdu.worldoftrash.game.data.DataAccess;
+import dk.sdu.worldoftrash.game.data.IDataAccess;
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.LevelHandler;
 import dk.sdu.worldoftrash.game.domain.SortingListener;
