@@ -49,7 +49,6 @@ public class SceneInfo {
 
         BaseView controller = fxmlLoader.getController();
         controller.setSceneManager(sceneManager);
-        controller.setStage(stage);
 
         return sceneRoot;
     }

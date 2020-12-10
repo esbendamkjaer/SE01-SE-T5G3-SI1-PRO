@@ -22,7 +22,7 @@ public class ScoreSystem {
 
     private int wasteCount;
 
-    private DataAccess dataAccess;
+    private IDataAccess dataAccess;
 
     private ScoreData scoreData;
 
