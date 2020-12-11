@@ -1,5 +1,10 @@
 data = read.csv2("data.csv")
 
+score = data[data$levelName == "school-outside",]$score
+hist(score, xlim = c(-1000, 2500), breaks = 35)
+qqnorm(score)
+qqline(score)
+
 correct = data[data$levelName == "school-outside",]$correct 
 hist(correct)
 

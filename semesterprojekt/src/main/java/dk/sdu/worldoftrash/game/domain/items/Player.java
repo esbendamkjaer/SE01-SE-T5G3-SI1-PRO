@@ -12,7 +12,7 @@ public class Player extends Item {
 
     private Inventory inventory;
     private KeyPolling keys;
-    private boolean interact_typed;
+    private boolean interactTyped;
 
     // Speed in pixels per second.
     private float speed = 400f;
@@ -110,14 +110,14 @@ public class Player extends Item {
 
             if (item instanceof Interactable) {
                 if (keys.isDown(KeyCode.X)) {
-                    if (!interact_typed) {
+                    if (!interactTyped) {
                         Interactable interactable = (Interactable) item;
                         interactable.interact(this);
 
-                        interact_typed = true;
+                        interactTyped = true;
                     }
                 } else {
-                    interact_typed = false;
+                    interactTyped = false;
                 }
             }
 
