@@ -1,5 +1,6 @@
 package dk.sdu.worldoftrash.game.domain.scoresystem;
 
+import dk.sdu.worldoftrash.game.data.Client;
 import dk.sdu.worldoftrash.game.data.IDataAccess;
 import dk.sdu.worldoftrash.game.domain.Game;
 import dk.sdu.worldoftrash.game.domain.LevelHandler;
@@ -30,13 +31,7 @@ public class ScoreSystem {
     private Game game;
 
     public ScoreSystem(Game game, int winningCondition) {
-        this.dataAccess = new IDataAccess() {
-            @Override
-            public void saveData(ScoreData data) {
-                System.err.println("DataAccess is disabled.");
-            }
-        };
-
+        this.dataAccess = new Client(20, "https://worldoftrash.herokuapp.com");
         this.game = game;
 
         this.scoreData = new ScoreData(UUID.randomUUID());
