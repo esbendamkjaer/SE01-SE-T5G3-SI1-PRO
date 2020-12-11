@@ -9,7 +9,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 
-public class Client implements DataAccess {
+public class Client implements IDataAccess {
 
     private HttpClient httpClient;
     private String url;
@@ -30,7 +30,8 @@ public class Client implements DataAccess {
      * Send a given ScoreData object to the web server.
      * @param scoreData ScoreData object to send.
      */
-    public void sendScoreData(ScoreData scoreData) {
+    @Override
+    public void saveData(ScoreData scoreData) {
         Gson serializer = new Gson();
 
         String data;
@@ -49,10 +50,5 @@ public class Client implements DataAccess {
             }
             return stringHttpResponse;
         });
-    }
-
-    @Override
-    public void saveData(ScoreData data) {
-        sendScoreData(data);
     }
 }

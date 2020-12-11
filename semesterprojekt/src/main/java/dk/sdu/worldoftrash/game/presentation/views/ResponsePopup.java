@@ -14,7 +14,7 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ResponseView extends BaseView implements SortingListener, Initializable {
+public class ResponsePopup extends BaseView implements SortingListener, Initializable {
 
     private Image thumbsUp, thumbsDown, crown;
 

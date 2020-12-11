@@ -26,9 +26,9 @@ public class WasteContainer extends Item implements Interactable {
             return false;
         }
         if (checkWaste(waste)) {
-            getGame().getScoreSystem().onCorrect(waste);
+            getGame().getScoreSystem().onSort(waste, true);
         } else {
-            getGame().getScoreSystem().onWrong(waste);
+            getGame().getScoreSystem().onSort(waste, false);
             getGame().getTextPrinter().printText(String.format("'%s' does not belong in this container because %s.", waste.getName(), waste.getWrongSorting()));
             waste.setWronglySorted(true);
             return false;

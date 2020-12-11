@@ -19,12 +19,6 @@ public class KeyPolling {
         return new KeyPolling();
     }
 
-    public void pollScene(Scene scene) {
-        clearKeys();
-        removeCurrentKeyHandlers();
-        setScene(scene);
-    }
-
     /**
      * Clear state of keys.
      */
@@ -46,14 +40,18 @@ public class KeyPolling {
      * Set scene to handle key presses.
      * @param scene Scene to handle key presses on.
      */
-    private void setScene(Scene scene) {
+    public void setScene(Scene scene) {
+        clearKeys();
+        removeCurrentKeyHandlers();
+
         KeyPolling.scene = scene;
-        KeyPolling.scene.addEventFilter(KeyEvent.KEY_PRESSED, (KeyEvent keyEvent) -> {
-            keysCurrentlyDown.add(keyEvent.getCode());
+
+        KeyPolling.scene.addEventFilter(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
+            keysCurrentlyDown.add(event.getCode());
         });
 
-        KeyPolling.scene.addEventFilter(KeyEvent.KEY_RELEASED, (KeyEvent keyEvent) -> {
-            keysCurrentlyDown.remove(keyEvent.getCode());
+        KeyPolling.scene.addEventFilter(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
+            keysCurrentlyDown.remove(event.getCode());
         });
     }
 
