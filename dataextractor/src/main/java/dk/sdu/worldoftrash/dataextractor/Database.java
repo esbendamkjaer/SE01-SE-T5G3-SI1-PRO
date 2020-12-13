@@ -64,9 +64,9 @@ public class Database {
 
             ScoreData scoreData = documentSnapshot.toObject(ScoreData.class);
 
-            System.out.println(scoreData.getUuid());
+            //System.out.println(scoreData.getUuid());
 
-            //if (scoreData.getLevels().size() < 3) break;
+            if (scoreData.getLevels().size() < 3) continue;
 
             for (Map.Entry<String, LevelData> levelEntry : scoreData.getLevels().entrySet()) {
                 String levelName = levelEntry.getKey();
@@ -86,6 +86,9 @@ public class Database {
                     int score = 0;
                     if (levelName.equals("supermarket")) {
                         score = levelData.getScore();
+                        if (correctSum == 12) {
+                            System.out.println(scoreData.getUuid());
+                        }
                     } else if (levelName.equals("hospital-outside")) {
                         score = levelData.getScore() - scoreData.getLevelDataByName("supermarket").getScore();
                     } else if (levelName.equals("school-outside")) {
@@ -96,7 +99,7 @@ public class Database {
                     e.printStackTrace();
                 }
 
-                System.out.println("Correct in: " + levelName + ": " + correctSum + " out of " + totalSum);
+                //System.out.println("Correct in: " + levelName + ": " + correctSum + " out of " + totalSum);
             }
         }
 

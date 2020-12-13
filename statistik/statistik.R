@@ -1,32 +1,52 @@
 data = read.csv2("data.csv")
+data$levelName = factor(data$levelName, levels = c("supermarket", "hospital-outside", "school-outside"))
 
-score = data[data$levelName == "school-outside",]$score
-hist(score, xlim = c(-1000, 2500), breaks = 35)
-qqnorm(score)
-qqline(score)
+supermarketCorrect = data[data$levelName == "supermarket",]$correct
+hist(supermarketCorrect, breaks = 12)
 
-correct = data[data$levelName == "school-outside",]$correct 
-hist(correct)
 
-qqnorm(correct)
-qqline(correct)
+schoolCorrect = data[data$levelName == "school-outside",]$correct
+hist(schoolCorrect, breaks = 12)
+
+hospitalCorrect = data[data$levelName == "hospital-outside",]$correct
+hist(hospitalCorrect, breaks = 12)
 
 boxplot(data$correct ~ data$levelName)
 
-aov.res = aov(data$correct ~ data$levelName)
-summary(aov.res)
+par(mfrow=c(1,3))
+qqnorm(supermarketCorrect, main = "Supermarket")
+qqline(supermarketCorrect)
 
-tukey.res = TukeyHSD(aov.res)
-plot(tukey.res)
+qqnorm(hospitalCorrect, main = "Hospital")
+qqline(hospitalCorrect)
 
-schoolScores = data[data$levelName == "school-outside",]$score
-supermarketScores = data[data$levelName == "supermarket",]$score
+qqnorm(schoolCorrect, main = "School")
+qqline(schoolCorrect)
+par(mfrow=c(1,1))
 
-df_val = min(length(schoolScores), length(supermarketScores)) - 1
+var.test(schoolCorrect, supermarketCorrect)
+var.test(hospitalCorrect, schoolCorrect)
 
-SE = sqrt((sd(schoolScores)**2)/length(schoolScores) + (sd(supermarketScores)**2)/length(supermarketScores))
 
-q_val = (mean(schoolScores) - mean(supermarketScores) - 0) / SE
+supermarketMean = mean(supermarketCorrect)
+hospitalMean = mean(hospitalCorrect)
+schoolMean = mean(schoolCorrect)
 
-p_val = (1 - pt(q = q_val, df = df_val)) * 2
+dif_ss = schoolMean - supermarketMean;
+df_val_ss = min(length(schoolCorrect), length(supermarketCorrect)) - 1
+SE_ss = sqrt((sd(schoolCorrect)**2)/length(schoolCorrect) + (sd(supermarketCorrect)**2)/length(supermarketCorrect))
+q_val_ss = (dif_ss - 0) / SE_ss
+p_val_ss = (1 - pt(q = q_val_ss, df = df_val_ss)) * 2
+
+konf_t_ss = qt(p = (1+0.95)/2, df = df_val_ss)
+konf_ss = c(dif_ss - konf_t_ss * SE_ss, dif_ss - konf_t_ss * SE_ss)
+
+dif_sh = schoolMean - hospitalMean;
+df_val_sh = min(length(schoolCorrect), length(hospitalCorrect)) - 1
+SE_sh = sqrt((sd(schoolCorrect)**2)/length(schoolCorrect) + (sd(hospitalCorrect)**2)/length(hospitalCorrect))
+q_val_sh = (dif_sh - 0) / SE_sh
+p_val_sh = (1 - pt(q = q_val_sh, df = df_val_sh)) * 2
+
+konf_t_sh = qt(p = (1+0.95)/2, df = df_val_sh)
+konf_sh = c(dif_sh - konf_t_sh * SE_sh, dif_sh + konf_t_sh * SE_sh)
 
