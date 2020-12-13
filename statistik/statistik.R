@@ -39,7 +39,7 @@ q_val_ss = (dif_ss - 0) / SE_ss
 p_val_ss = (1 - pt(q = q_val_ss, df = df_val_ss)) * 2
 
 konf_t_ss = qt(p = (1+0.95)/2, df = df_val_ss)
-konf_ss = c(dif_ss - konf_t_ss * SE_ss, dif_ss - konf_t_ss * SE_ss)
+konf_ss = c(dif_ss - konf_t_ss * SE_ss, dif_ss + konf_t_ss * SE_ss)
 
 dif_sh = schoolMean - hospitalMean;
 df_val_sh = min(length(schoolCorrect), length(hospitalCorrect)) - 1
