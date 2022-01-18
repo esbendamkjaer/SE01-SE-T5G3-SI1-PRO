@@ -1,4 +1,4 @@
-# semesterprojekt1
+# Semesterprojekt - Første semester
 Git repository for første semesterprojekt og logbog.
 
 ## Kildekode og kørsel
